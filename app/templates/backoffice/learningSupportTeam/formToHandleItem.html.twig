@@ -1,0 +1,171 @@
+{% extends 'backoffice/_shared/formToHandleItem.base.html.twig' %}
+    {% block stylesheets %}
+        {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('assets/css/select2/select2.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/select2/select2-bootstrap4.min.css') }}">
+    {% endblock %}
+{% block form %}
+    <form action="{{ path(form_action_attribute) }}" method="post" id="form"
+          novalidate="novalidate">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <input type="hidden" name="id" value="{{ id }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token(id) }}">
+
+                    <div class="form-group {{ flash.has('errors.name')? 'has-error':'' }}">
+                        <label>{{ 'Name'|trans }} ( * )</label>
+                        <input type="text"
+                               placeholder=" - {{ 'Required'|trans }} -"
+                               name="name"
+                               value="{{ name }}"
+                               data-name_from_database="{{ name }}"
+                               data-available_name_url="{{ path(name_available_path) }}"
+                               maxlength="100"
+                               class="form-control"
+                               required
+                               autofocus
+                               autocomplete="false"
+                        >
+                        <small class="errorLabelContainer form-text text-muted text-danger">
+                            <span class="has-error">{{ flash.get('errors.name') }} </span>
+                        </small>
+                    </div>
+
+                    <div class="form-group {{ flash.has('errors.manager')? 'has-error':'' }}">
+                        <label>{{ 'Manager'|trans }} ( * )</label>
+                        <select
+                                id="manager_ajax"
+                                name="manager"
+                                class="form-control"
+                                data-url_to_search_manager= {{ path(search_employee_path) }}
+                        >
+                            {% if manager is not null %}
+                                <option value="{{ manager.id }}" selected> {{ manager.surname  ~', ' ~ manager.name }}</option>
+                            {% endif %}
+                        </select>
+                        <small class="errorLabelContainer form-text text-muted">
+                            <ul>
+                                <li>{{ 'Search first by SURNAME and then by NAME.'|trans }}</li>
+                                <li>{{ 'To search by IDENTITY CARD enter the full number for results.'|trans }}</li>
+                            </ul>
+                        </small>
+                        <small class="errorLabelContainer form-text text-muted text-danger">
+                            <span class="has-error">{{ flash.get('errors.manager') }} </span>
+                        </small>
+                    </div>
+
+                    <div class="form-group {{ flash.has('errors.schools_assisted_by_learning_support_team')? 'has-error':'' }}">
+                        <label>{{ 'Schools Assisted By Learning Support Team'|trans }}</label>
+                        <select
+                                id="ajax"
+                                name="schools_assisted_by_learning_support_team[]"
+                                class="form-control" multiple
+                                data-url_to_search_school_assisted_by_learning_support_team= {{ path(search_school_path) }}
+                        >
+                            {% if schools_assisted_by_learning_support_team is defined %}
+                                {% for school in schools_assisted_by_learning_support_team %}
+                                    <option value="{{ school.id }}" selected> {{ school.name  ~' '~  school.number  }}</option>
+                                {% endfor %}
+                            {% endif %}
+                        </select>
+                        <small>{{ 'You can select one or more schools'|trans }}</small>
+                        <br>
+                        <button
+                                type="button"
+                                class="btn btn-focus mt-2"
+                                data-toggle="modal"
+                                data-target="#create-school-assisted-by-learning-support-team-modal"
+                                data-school_assisted_by_learning_support_team_modal_url="{{ path(add_school_assisted_by_learning_support_team_add_by_modal) }}"
+                        >
+                                <span class="btn-label">
+                                    <span class="btn-label">
+                                        <i class="fas fa-plus-circle text-success"></i>
+                                    </span>
+                                    {{ 'Add new item'|trans }}
+                                </span>
+                        </button>
+                        <small class="errorLabelContainer form-text text-muted text-danger">
+                            <span class="has-error">{{ flash.get('errors.schools_assisted_by_learning_support_team') }} </span>
+                        </small>
+                    </div>
+
+                    <div class="form-group {{ flash.has('errors.office_learning_support_id')? 'has-error':'' }}">
+                        <label>{{ 'Office Of Learning Support'|trans }} ( * )</label>
+                        <select name="office_learning_support_id" class="form-control">
+                            <option hidden selected value=""> - {{ 'Required'|trans }} -</option>
+                            {% for office in offices_learning_support %}
+                                <option
+                                        value="{{ office.id }}"
+                                        {{ (office_learning_support_id == office.id )? 'selected':'' }}
+                                >
+                                    {{ office.district_name ~', '~ office.address }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                        <small>{{ 'If you do not know the address select'|trans }} <b>"{{ 'unknown address'|trans }}
+                                "</b>. </small>
+                        <small class="errorLabelContainer form-text text-muted text-danger">
+                            <span class="has-error">{{ flash.get('errors.office_learning_support_id') }} </span>
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group {{ flash.has('errors.learning_support_team_category_id')? 'has-error':'' }}">
+                    <div class="form-check" id="learning_support_team_categories">
+                        <br>
+                        <label>{{ 'Learning support team category'|trans }} ( * )</label>
+                        {% for learning_support_team_category in learning_support_team_categories %}
+                            <br>
+                            <label class="form-radio-label">
+                                <input class="form-radio-input"
+                                       type="radio"
+                                       name="learning_support_team_category_id"
+                                       value="{{ learning_support_team_category.id }}" {{ learning_support_team_category_id == learning_support_team_category.id? 'checked':'' }}
+                                >
+                                <span class="form-radio-sign">{{ learning_support_team_category.name }}</span>
+                            </label>
+                        {% endfor %}
+                        <small class="errorLabelContainer form-text text-muted text-danger">
+                            <span class="has-error">{{ flash.has('errors.learning_support_team_category_id') }} </span>
+                        </small>
+                    </div>
+                </div>                
+            </div>
+        </div>
+        <div class="card-action">
+            <button class="btn btn-success col-12 col-sm-4 col-md-2 col-lg-2" type="submit" id="submitBtn">
+                <span class="btn-label">
+                    <i class="fas fa-save"></i>
+                </span>
+                {{ submit_button_label|trans }}
+            </button>
+        </div>
+    </form>
+{% endblock %}
+{% block modals %}
+    {# Start modal to create a new school assisted by learning support team  #}
+    <div class="modal" id="create-school-assisted-by-learning-support-team-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header flex-column">
+                    <div class="icon-box text-primary fa-3x">
+                        <i class="fas fa-sync fa-spin"></i>
+                    </div>
+                    <h4 class="modal-title w-100">{{ 'Loading'|trans }}...</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    {# End modal to create a new oschool assisted by learning support team  #}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/blog/_shared/form/click.submit.button.on.enter.key.press.in.keyboard.js') }}"></script>
+    <script src="{{ asset('assets/js/blog/learningSupportTeam/form/check.available.name.js') }}"></script>
+    <script src="{{ asset('assets/js/blog/_shared/modal.utils.js') }}"></script>
+    <script src="{{ asset('assets/js/blog/schoolAssistedByLearningSupportTeam/form/shown.school.assisted.by.learning.support.team.modal.js') }}"></script>
+    <script src="{{ asset('assets/js/blog/learningSupportTeam/form/searches.for.remote.schools.using.the.ajax.option.of.select2.js') }}"></script>
+    <script src="{{ asset('assets/js/blog/learningSupportTeam/form/searches.for.remote.employee.using.the.ajax.option.of.select2.js') }}"></script>
+    <script src="{{ asset('assets/js/plugin/select2/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugin/select2/translation/es.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,44 @@
+employment_contract_list:
+  path: /list/{pageLabel}-{page}/{orderLabel}-{order}-{orderBy}/{limitLabel}-{limit}/{filters}
+  defaults: { _controller: App\Backoffice\EmploymentContract\Infrastructure\UserInterface\Web\EmploymentContractGetController, pageLabel: 'page' , page: 1 , orderLabel: 'order' , order: 'createAt' , orderBy: 'desc' , limitLabel: 'rows_per_page' , limit: 10 , filters: null }
+  methods:  [GET,POST]
+
+employment_contract_add:
+  path: /create
+  defaults: { _controller: App\Backoffice\EmploymentContract\Infrastructure\UserInterface\Web\EmploymentContractAddController}
+  methods:  [GET]
+
+employment_contract_add_by_modal:
+  path: /create-employment-contract-modal
+  defaults: { _controller: App\Backoffice\EmploymentContract\Infrastructure\UserInterface\Web\EmploymentContractAddModalContentController}
+  methods:  [GET]
+
+employment_contract_create:
+  path: /create
+  defaults: { _controller: App\Backoffice\EmploymentContract\Infrastructure\UserInterface\Web\EmploymentContractPostController}
+  methods:  [POST]
+
+employment_contract_create_by_ajax:
+  path: /create-by-ajax
+  defaults: { _controller: App\Backoffice\EmploymentContract\Infrastructure\UserInterface\Web\EmploymentContractPostByAjaxController}
+  methods:  [POST]
+
+employment_contract_edit:
+  path: /edit/{id}
+  defaults: { _controller: App\Backoffice\EmploymentContract\Infrastructure\UserInterface\Web\EmploymentContractEditController}
+  methods:  [GET]
+
+employment_contract_update:
+  path: /update
+  defaults: { _controller: App\Backoffice\EmploymentContract\Infrastructure\UserInterface\Web\EmploymentContractPutController}
+  methods:  [POST]
+
+employment_contract_name_available:
+  path: /name-available
+  defaults: { _controller: App\Backoffice\EmploymentContract\Infrastructure\UserInterface\Web\EmploymentContractNameAvailableController}
+  methods:  [GET]
+
+employment_contract_delete:
+  path: /delete
+  defaults: { _controller: App\Backoffice\EmploymentContract\Infrastructure\UserInterface\Web\EmploymentContractDeleteController}
+  methods:  [POST]

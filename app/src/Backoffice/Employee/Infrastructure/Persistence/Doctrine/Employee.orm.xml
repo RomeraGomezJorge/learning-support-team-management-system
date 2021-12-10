@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Backoffice\Employee\Domain\Employee" table="employee">
+    <indexes>
+      <index name="employment_contract_id" columns="employment_contract_id"/>
+      <index name="job_designation_id" columns="job_designation_id"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="id" columns="id"/>
+    </unique-constraints>
+    <id name="id" type="string" column="id" length="36"/>
+    <field name="name" type="string" column="name" length="100" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="surname" type="string" column="surname" length="100" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="identityCard" type="integer" column="identity_card" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="phone" type="string" column="phone" length="100" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="email" type="string" column="email" length="100" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="hireDate" type="date" column="hire_date" nullable="true"/>
+    <field name="terminationDate" type="date" column="termination_date" nullable="true"/>
+    <field name="address" type="string" column="address" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="shiftWork" type="string" column="shift_work" length="100" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="createAt" type="datetime" column="create_at" nullable="false"/>
+    <field name="updateAt" type="datetime" column="update_at" nullable="true"/>
+    <field name="birthday" type="date" column="birthday" nullable="true"/>
+    <many-to-one
+            field="employmentContract"
+            target-entity="App\Backoffice\EmploymentContract\Domain\EmploymentContract"
+            inversed-by="employees"
+            fetch="LAZY"
+    >
+      <cascade>
+        <cascade-remove/>
+      </cascade>
+      <join-columns>
+        <join-column name="employment_contract_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="jobDesignation" target-entity="App\Backoffice\JobDesignation\Domain\JobDesignation" fetch="LAZY">
+      <cascade>
+        <cascade-remove/>
+      </cascade>
+      <join-columns>
+        <join-column name="job_designation_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many
+            field="learningSupportTeam"
+            target-entity="App\Backoffice\LearningSupportTeam\Domain\LearningSupportTeam"
+            inversed-by="employee"
+    >
+      <join-table name="employee__LST">
+        <join-columns>
+          <join-column name="employee_id" referenced-column-name="id" nullable="false" />
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="learning_support_team_id" referenced-column-name="id" />
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="document"
+                  target-entity="App\Backoffice\Document\Domain\Document"
+                  mapped-by="employee"
+    />
+  </entity>
+</doctrine-mapping>

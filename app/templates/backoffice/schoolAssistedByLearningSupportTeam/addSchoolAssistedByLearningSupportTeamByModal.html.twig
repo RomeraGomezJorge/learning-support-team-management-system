@@ -1,0 +1,91 @@
+{% set css_module_name_id = 'school-assisted-by-learning-support-team' %}
+{% set input_module_name = 'school_assisted_by_learning_support_team' %}
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form action="{{ path(form_action_attribute) }}" method="post" id="create-{{ css_module_name_id }}-form" novalidate="novalidate">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fas fa-plus-circle"></i>Add School</h5>
+                <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        id="close-create-{{ css_module_name_id }}-modal-on-click-top-cross"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <input type="hidden" name="id" value="{{ id }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token(id) }}">
+                        <div class="form-group {{ flash.has('errors.name')? 'has-error' : '' }}">
+                            <label>{{ 'Name'|trans}}</label>
+                            <input type="text"
+                                   name="name"
+                                   value="{{ name }}"
+                                   maxlength="255"
+                                   class="form-control"
+                                   placeholder=" - {{ 'Optional'|trans }} -"
+                            >
+                            <small class="errorLabelContainer form-text text-muted text-danger">
+                                <span class="has-error">{{ flash.has('errors.number') ? flash.get('errors.number'):'' }} </span>
+                            </small>
+                        </div>
+                        <div class="form-group {{ flash.has('errors.number')? 'has-error' : '' }}">
+                            <label>Number</label>
+                            <input type="number"
+                                   name="number"
+                                   value="{{ number }}"
+                                   maxlength="255"
+                                   class="form-control"
+                                   placeholder=" - {{ 'Optional'|trans }} -"
+                            >
+                            <small class="errorLabelContainer form-text text-muted text-danger">
+                                <span class="has-error">{{ flash.has('errors.number') ? flash.get('errors.number'):'' }} </span>
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                {{ 'Select this value when saving'|trans }}
+                                <input type="checkbox"
+                                       checked
+                                       name="select_this_{{ input_module_name }}_on_save"
+                                >
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button
+                        type="button"
+                        class="btn btn-focus"
+                        data-dismiss="modal"
+                        id="close-create-{{ css_module_name_id }}-modal-on-click-button-cancel"
+                >
+                            <span class="btn-label">
+                                <i class="fas fa-times-circle"></i>
+                            </span>
+                    {{ 'Close'|trans }}
+                </button>
+                <button
+                        class="btn btn-success"
+                        id="create-{{ css_module_name_id }}-submit"
+                        type="submit"
+                >
+                    <span class="btn-label">
+                        <i class="fas fa-save"></i>
+                    </span>
+                    {{ submit_button_label|trans }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(function () {
+        $.getScript("{{ asset('assets/js/blog/_shared/modal.utils.js') }}");
+        $.getScript("{{ asset('assets/js/blog/schoolAssistedByLearningSupportTeam/form/create.school.assisted.by.learning.support.team.on.confirm.yes.on.modal.js') }}");
+    });
+</script>

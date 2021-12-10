@@ -1,0 +1,39 @@
+learning_support_team_list:
+  path: /list/{pageLabel}-{page}/{orderLabel}-{order}-{orderBy}/{limitLabel}-{limit}/{filters}
+  defaults: { _controller: App\Backoffice\LearningSupportTeam\Infrastructure\UserInterface\Web\LearningSupportTeamGetController, pageLabel: 'page' , page: 1 , orderLabel: 'order' , order: 'createAt' , orderBy: 'desc' , limitLabel: 'rows_per_page' , limit: 10 , filters: null }
+  methods:  [GET,POST]
+
+learning_support_team_add:
+  path: /create
+  defaults: { _controller: App\Backoffice\LearningSupportTeam\Infrastructure\UserInterface\Web\LearningSupportTeamAddController}
+  methods:  [GET]
+
+learning_support_team_create:
+  path: /create
+  defaults: { _controller: App\Backoffice\LearningSupportTeam\Infrastructure\UserInterface\Web\LearningSupportTeamPostController}
+  methods:  [POST]
+
+learning_support_team_edit:
+  path: /edit/{id}
+  defaults: { _controller: App\Backoffice\LearningSupportTeam\Infrastructure\UserInterface\Web\LearningSupportTeamEditController}
+  methods:  [GET]
+
+learning_support_team_update:
+  path: /update
+  defaults: { _controller: App\Backoffice\LearningSupportTeam\Infrastructure\UserInterface\Web\LearningSupportTeamPutController}
+  methods:  [POST]
+
+learning_support_team_name_available:
+  path: /name-available
+  defaults: { _controller: App\Backoffice\LearningSupportTeam\Infrastructure\UserInterface\Web\LearningSupportTeamNameAvailableController}
+  methods:  [GET]
+  
+learning_support_team_search:
+  path: /search/
+  defaults: { _controller: App\Backoffice\LearningSupportTeam\Infrastructure\UserInterface\Web\LearningSupportTeamSearchController}
+  methods:  [GET]  
+
+learning_support_team_delete:
+  path: /delete
+  defaults: { _controller: App\Backoffice\LearningSupportTeam\Infrastructure\UserInterface\Web\LearningSupportTeamDeleteController}
+  methods:  [POST]

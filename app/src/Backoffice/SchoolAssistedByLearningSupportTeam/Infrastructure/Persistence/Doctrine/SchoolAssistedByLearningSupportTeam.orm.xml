@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Backoffice\SchoolAssistedByLearningSupportTeam\Domain\SchoolAssistedByLearningSupportTeam" table="school_assisted_by_learning_support_team">
+    <id name="id" type="string" column="id" length="36"/>
+    <field name="name" type="string" column="name" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="number" type="string" column="number" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="createAt" type="datetime" column="create_at" nullable="false"/>
+    <many-to-many field="learningSupportTeams"
+                  target-entity="App\Backoffice\LearningSupportTeam\Domain\LearningSupportTeam"
+                  mapped-by="schoolsAssistedByLearningSupportTeam"
+    />
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,319 @@
+<aside class="sidebar sidebar-style-2">
+    <div class="sidebar-wrapper scrollbar scrollbar-inner">
+        <div class="sidebar-content">
+            <div class="user d-block d-sm-none">
+                <div class="avatar-sm float-left mr-2">
+                    <i class="far fa-user-circle"></i>
+                </div>
+                <div class="info">
+                    <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+								<span>
+                                    {% if app.user.surname is defined %}
+                                        {{ app.user.surname }}, {{ app.user.name }}
+                                        <span class="user-level">{{ app.user.role.description }}</span>
+                                        <span class="caret"></span>
+                                    {% endif %}
+								</span>
+                    </a>
+                    <div class="clearfix"></div>
+
+                    <div class="collapse in" id="collapseExample">
+                        <ul class="nav">
+                            <li>
+                                <a href="{{ path('user_account_management') }}">
+                                    <span class="link-collapse">{{ 'User Management'|trans }}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('logout') }}">
+                                    <span class="link-collapse">
+                                        {{ 'Logout'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav nav-primary">
+                <li class="nav-item">
+                    <a href="{{ path('dashboard') }}">
+                        <i class="fas fa-home-alt"></i>
+                        <p>
+                            {{ 'Home'|trans }}
+                        </p>
+                        <span class="caret"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#employee" class="collapsed" aria-expanded="false">
+                        <i class="fas fa-user-tie"></i>
+                        <p>
+                            {{ 'Employee'|trans }}
+                        </p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="employee">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ path('employee_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'All employees'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('employee_create') }}">
+                                    <span class="sub-item">
+                                        {{ 'Add new employee'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#employmentContract" class="collapsed" aria-expanded="false">
+                        <i class="fas fa-file-contract"></i>
+                        <p>
+                            {{ 'Employment Contract'|trans }}
+                        </p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="employmentContract">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ path('employment_contract_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'All employment contract'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('employment_contract_create') }}">
+                                    <span class="sub-item">
+                                        {{ 'Add new employment contract'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#jobDesignation" class="collapsed" aria-expanded="false">
+                        <i class="fas fa-id-card"></i>
+                        <p>
+                            {{ 'Job Designation'|trans }}
+                        </p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="jobDesignation">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ path('job_designation_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'All job designations'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('job_designation_create') }}">
+                                    <span class="sub-item">
+                                        {{ 'Add new job designation'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#school" class="collapsed" aria-expanded="false">
+                        <i class="fas fa-school"></i>
+                        <p>
+                            {{ 'School Assisted By LST'|trans }}
+                        </p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="school">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ path('school_assisted_by_learning_support_team_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'All schools assisted by LST'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('school_assisted_by_learning_support_team_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'Add new school assisted by LST'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#officeOfLearningSupportInDistrict" class="collapsed" aria-expanded="false">
+                        <i>
+                            <img src="{{ asset('assets/img/icon/office_of_learning_support_in_district.png') }}" width="28" />
+                        </i>
+
+                        <p>
+                            {{ 'OLS in district'|trans }}
+                        </p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="officeOfLearningSupportInDistrict">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ path('office_of_learning_support_in_district_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'All office of learning support in district'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('office_of_learning_support_in_district_create') }}">
+                                    <span class="sub-item">
+                                        {{ 'Add new office of learning support in district'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#officeOfLearningSupport" class="collapsed" aria-expanded="false">
+                        <i>
+                            <img src="{{  asset('assets/img/icon/office_learning_support.png') }}" width="28" />
+                        </i>
+                        <p>
+                            {{ 'Office Of Learning Support'|trans }}
+                        </p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="officeOfLearningSupport">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ path('office_of_learning_support_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'All office of learning support'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('office_of_learning_support_create') }}">
+                                    <span class="sub-item">
+                                        {{ 'Add new office of learning support'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#lst" class="collapsed" aria-expanded="false">
+                        <i class="fas fa-users"></i>
+                        <p>
+                            {{ 'Learning support team'|trans }}
+                        </p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="lst">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ path('learning_support_team_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'All learning support team'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('learning_support_team_create') }}">
+                                    <span class="sub-item">
+                                        {{ 'Add new Learning support team'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('learning_support_team_category_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'All learning support team categories'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('learning_support_team_category_create') }}">
+                                    <span class="sub-item">
+                                        {{ 'Add new Learning support team category'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#document" class="collapsed" aria-expanded="false">
+                        <i class="fas fa-file-pdf"></i>
+                        <p>
+                            {{ 'Documents'|trans }}
+                        </p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="document">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ path('document_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'All documents'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('document_category_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'All document categories'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#user" class="collapsed" aria-expanded="false">
+                        <i class="fas fa-users-cog"></i>
+                        <p>
+                            {{ 'User Management'|trans }}
+                        </p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="user">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ path('user_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'All Users'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('user_create') }}">
+                                    <span class="sub-item">
+                                        {{ 'Add new user'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item d-block d-sm-none">
+                    <a href="{{ path('logout') }}" class="collapsed">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <p>{{ 'Cerrar Sessión'|trans }}</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</aside>

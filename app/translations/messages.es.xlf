@@ -1,0 +1,1095 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="es" target-language="es" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+            <trans-unit id="1">
+                <source>This value should be false.</source>
+                <target>Este valor debería ser falso.</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>This value should be true.</source>
+                <target>Este valor debería ser verdadero.</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>This value should be of type {{ type }}.</source>
+                <target>Este valor debería ser de tipo {{ type }}.</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>This value should be blank.</source>
+                <target>Este valor debería estar vacío.</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>The value you selected is not a valid choice.</source>
+                <target>El valor seleccionado no es una opción válida.</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>You must select at least {{ limit }} choice.|You must select at least {{ limit }} choices.</source>
+                <target>Debe seleccionar al menos {{ limit }} opción.|Debe seleccionar al menos {{ limit }} opciones.</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>You must select at most {{ limit }} choice.|You must select at most {{ limit }} choices.</source>
+                <target>Debe seleccionar como máximo {{ limit }} opción.|Debe seleccionar como máximo {{ limit }} opciones.</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>One or more of the given values is invalid.</source>
+                <target>Uno o más de los valores indicados no son válidos.</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>This field was not expected.</source>
+                <target>Este campo no se esperaba.</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>This field is missing.</source>
+                <target>Este campo está desaparecido.</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>This value is not a valid date.</source>
+                <target>Este valor no es una fecha válida.</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>This value is not a valid datetime.</source>
+                <target>Este valor no es una fecha y hora válidas.</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>This value is not a valid email address.</source>
+                <target>Este valor no es una dirección de email válida.</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>The file could not be found.</source>
+                <target>No se pudo encontrar el archivo.</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>The file is not readable.</source>
+                <target>No se puede leer el archivo.</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>The file is too large ({{ size }} {{ suffix }}). Allowed maximum size is {{ limit }} {{ suffix }}.</source>
+                <target>El archivo es demasiado grande ({{ size }} {{ suffix }}). El tamaño máximo permitido es {{ limit }} {{ suffix }}.</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>The mime type of the file is invalid ({{ type }}). Allowed mime types are {{ types }}.</source>
+                <target>El tipo mime del archivo no es válido ({{ type }}). Los tipos mime válidos son {{ types }}.</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>This value should be {{ limit }} or less.</source>
+                <target>Este valor debería ser {{ limit }} o menos.</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>This value is too long. It should have {{ limit }} character or less.|This value is too long. It should have {{ limit }} characters or less.</source>
+                <target>Este valor es demasiado largo. Debería tener {{ limit }} carácter o menos.|Este valor es demasiado largo. Debería tener {{ limit }} caracteres o menos.</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>This value should be {{ limit }} or more.</source>
+                <target>Este valor debería ser {{ limit }} o más.</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>This value is too short. It should have {{ limit }} character or more.|This value is too short. It should have {{ limit }} characters or more.</source>
+                <target>Este valor es demasiado corto. Debería tener {{ limit }} carácter o más.|Este valor es demasiado corto. Debería tener {{ limit }} caracteres o más.</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>This value should not be blank.</source>
+                <target>Este valor no debería estar vacío.</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>This value should not be null.</source>
+                <target>Este valor no debería ser nulo.</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>This value should be null.</source>
+                <target>Este valor debería ser nulo.</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>This value is not valid.</source>
+                <target>Este valor no es válido.</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>This value is not a valid time.</source>
+                <target>Este valor no es una hora válida.</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>This value is not a valid URL.</source>
+                <target>Este valor no es una URL válida.</target>
+            </trans-unit>
+            <trans-unit id="31">
+                <source>The two values should be equal.</source>
+                <target>Los dos valores deberían ser iguales.</target>
+            </trans-unit>
+            <trans-unit id="32">
+                <source>The file is too large. Allowed maximum size is {{ limit }} {{ suffix }}.</source>
+                <target>El archivo es demasiado grande. El tamaño máximo permitido es {{ limit }} {{ suffix }}.</target>
+            </trans-unit>
+            <trans-unit id="33">
+                <source>The file is too large.</source>
+                <target>El archivo es demasiado grande.</target>
+            </trans-unit>
+            <trans-unit id="34">
+                <source>The file could not be uploaded.</source>
+                <target>No se pudo subir el archivo.</target>
+            </trans-unit>
+            <trans-unit id="35">
+                <source>This value should be a valid number.</source>
+                <target>Este valor debería ser un número válido.</target>
+            </trans-unit>
+            <trans-unit id="36">
+                <source>This file is not a valid image.</source>
+                <target>El archivo no es una imagen válida.</target>
+            </trans-unit>
+            <trans-unit id="37">
+                <source>This is not a valid IP address.</source>
+                <target>Esto no es una dirección IP válida.</target>
+            </trans-unit>
+            <trans-unit id="38">
+                <source>This value is not a valid language.</source>
+                <target>Este valor no es un idioma válido.</target>
+            </trans-unit>
+            <trans-unit id="39">
+                <source>This value is not a valid locale.</source>
+                <target>Este valor no es una localización válida.</target>
+            </trans-unit>
+            <trans-unit id="40">
+                <source>This value is not a valid country.</source>
+                <target>Este valor no es un país válido.</target>
+            </trans-unit>
+            <trans-unit id="41">
+                <source>This value is already used.</source>
+                <target>Este valor ya se ha utilizado.</target>
+            </trans-unit>
+            <trans-unit id="42">
+                <source>The size of the image could not be detected.</source>
+                <target>No se pudo determinar el tamaño de la imagen.</target>
+            </trans-unit>
+            <trans-unit id="43">
+                <source>The image width is too big ({{ width }}px). Allowed maximum width is {{ max_width }}px.</source>
+                <target>El ancho de la imagen es demasiado grande ({{ width }}px). El ancho máximo permitido es de {{ max_width }}px.</target>
+            </trans-unit>
+            <trans-unit id="44">
+                <source>The image width is too small ({{ width }}px). Minimum width expected is {{ min_width }}px.</source>
+                <target>El ancho de la imagen es demasiado pequeño ({{ width }}px). El ancho mínimo requerido es {{ min_width }}px.</target>
+            </trans-unit>
+            <trans-unit id="45">
+                <source>The image height is too big ({{ height }}px). Allowed maximum height is {{ max_height }}px.</source>
+                <target>La altura de la imagen es demasiado grande ({{ height }}px). La altura máxima permitida es de {{ max_height }}px.</target>
+            </trans-unit>
+            <trans-unit id="46">
+                <source>The image height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.</source>
+                <target>La altura de la imagen es demasiado pequeña ({{ height }}px). La altura mínima requerida es de {{ min_height }}px.</target>
+            </trans-unit>
+            <trans-unit id="47">
+                <source>This value should be the user's current password.</source>
+                <target>Este valor debería ser la contraseña actual del usuario.</target>
+            </trans-unit>
+            <trans-unit id="48">
+                <source>This value should have exactly {{ limit }} character.|This value should have exactly {{ limit }} characters.</source>
+                <target>Este valor debería tener exactamente {{ limit }} carácter.|Este valor debería tener exactamente {{ limit }} caracteres.</target>
+            </trans-unit>
+            <trans-unit id="49">
+                <source>The file was only partially uploaded.</source>
+                <target>El archivo fue sólo subido parcialmente.</target>
+            </trans-unit>
+            <trans-unit id="50">
+                <source>No file was uploaded.</source>
+                <target>Ningún archivo fue subido.</target>
+            </trans-unit>
+            <trans-unit id="51">
+                <source>No temporary folder was configured in php.ini.</source>
+                <target>Ninguna carpeta temporal fue configurada en php.ini o la carpeta configurada no existe.</target>
+            </trans-unit>
+            <trans-unit id="52">
+                <source>Cannot write temporary file to disk.</source>
+                <target>No se pudo escribir el archivo temporal en el disco.</target>
+            </trans-unit>
+            <trans-unit id="53">
+                <source>A PHP extension caused the upload to fail.</source>
+                <target>Una extensión de PHP hizo que la subida fallara.</target>
+            </trans-unit>
+            <trans-unit id="54">
+                <source>This collection should contain {{ limit }} element or more.|This collection should contain {{ limit }} elements or more.</source>
+                <target>Esta colección debe contener {{ limit }} elemento o más.|Esta colección debe contener {{ limit }} elementos o más.</target>
+            </trans-unit>
+            <trans-unit id="55">
+                <source>This collection should contain {{ limit }} element or less.|This collection should contain {{ limit }} elements or less.</source>
+                <target>Esta colección debe contener {{ limit }} elemento o menos.|Esta colección debe contener {{ limit }} elementos o menos.</target>
+            </trans-unit>
+            <trans-unit id="56">
+                <source>This collection should contain exactly {{ limit }} element.|This collection should contain exactly {{ limit }} elements.</source>
+                <target>Esta colección debe contener exactamente {{ limit }} elemento.|Esta colección debe contener exactamente {{ limit }} elementos.</target>
+            </trans-unit>
+            <trans-unit id="57">
+                <source>Invalid card number.</source>
+                <target>Número de tarjeta inválido.</target>
+            </trans-unit>
+            <trans-unit id="58">
+                <source>Unsupported card type or invalid card number.</source>
+                <target>Tipo de tarjeta no soportado o número de tarjeta inválido.</target>
+            </trans-unit>
+            <trans-unit id="59">
+                <source>This is not a valid International Bank Account Number (IBAN).</source>
+                <target>Esto no es un International Bank Account Number (IBAN) válido.</target>
+            </trans-unit>
+            <trans-unit id="60">
+                <source>This value is not a valid ISBN-10.</source>
+                <target>Este valor no es un ISBN-10 válido.</target>
+            </trans-unit>
+            <trans-unit id="61">
+                <source>This value is not a valid ISBN-13.</source>
+                <target>Este valor no es un ISBN-13 válido.</target>
+            </trans-unit>
+            <trans-unit id="62">
+                <source>This value is neither a valid ISBN-10 nor a valid ISBN-13.</source>
+                <target>Este valor no es ni un ISBN-10 válido ni un ISBN-13 válido.</target>
+            </trans-unit>
+            <trans-unit id="63">
+                <source>This value is not a valid ISSN.</source>
+                <target>Este valor no es un ISSN válido.</target>
+            </trans-unit>
+            <trans-unit id="64">
+                <source>This value is not a valid currency.</source>
+                <target>Este valor no es una divisa válida.</target>
+            </trans-unit>
+            <trans-unit id="65">
+                <source>This value should be equal to {{ compared_value }}.</source>
+                <target>Este valor debería ser igual que {{ compared_value }}.</target>
+            </trans-unit>
+            <trans-unit id="66">
+                <source>This value should be greater than {{ compared_value }}.</source>
+                <target>Este valor debería ser mayor que {{ compared_value }}.</target>
+            </trans-unit>
+            <trans-unit id="67">
+                <source>This value should be greater than or equal to {{ compared_value }}.</source>
+                <target>Este valor debería ser mayor o igual que {{ compared_value }}.</target>
+            </trans-unit>
+            <trans-unit id="68">
+                <source>This value should be identical to {{ compared_value_type }} {{ compared_value }}.</source>
+                <target>Este valor debería ser idéntico a {{ compared_value_type }} {{ compared_value }}.</target>
+            </trans-unit>
+            <trans-unit id="69">
+                <source>This value should be less than {{ compared_value }}.</source>
+                <target>Este valor debería ser menor que {{ compared_value }}.</target>
+            </trans-unit>
+            <trans-unit id="70">
+                <source>This value should be less than or equal to {{ compared_value }}.</source>
+                <target>Este valor debería ser menor o igual que {{ compared_value }}.</target>
+            </trans-unit>
+            <trans-unit id="71">
+                <source>This value should not be equal to {{ compared_value }}.</source>
+                <target>Este valor debería ser distinto de {{ compared_value }}.</target>
+            </trans-unit>
+            <trans-unit id="72">
+                <source>This value should not be identical to {{ compared_value_type }} {{ compared_value }}.</source>
+                <target>Este valor no debería ser idéntico a {{ compared_value_type }} {{ compared_value }}.</target>
+            </trans-unit>
+            <trans-unit id="73">
+                <source>The image ratio is too big ({{ ratio }}). Allowed maximum ratio is {{ max_ratio }}.</source>
+                <target>La proporción de la imagen es demasiado grande ({{ ratio }}). La máxima proporción permitida es {{ max_ratio }}.</target>
+            </trans-unit>
+            <trans-unit id="74">
+                <source>The image ratio is too small ({{ ratio }}). Minimum ratio expected is {{ min_ratio }}.</source>
+                <target>La proporción de la imagen es demasiado pequeña ({{ ratio }}). La mínima proporción permitida es {{ min_ratio }}.</target>
+            </trans-unit>
+            <trans-unit id="75">
+                <source>The image is square ({{ width }}x{{ height }}px). Square images are not allowed.</source>
+                <target>La imagen es cuadrada ({{ width }}x{{ height }}px). Las imágenes cuadradas no están permitidas.</target>
+            </trans-unit>
+            <trans-unit id="76">
+                <source>The image is landscape oriented ({{ width }}x{{ height }}px). Landscape oriented images are not allowed.</source>
+                <target>La imagen está orientada horizontalmente ({{ width }}x{{ height }}px). Las imágenes orientadas horizontalmente no están permitidas.</target>
+            </trans-unit>
+            <trans-unit id="77">
+                <source>The image is portrait oriented ({{ width }}x{{ height }}px). Portrait oriented images are not allowed.</source>
+                <target>La imagen está orientada verticalmente ({{ width }}x{{ height }}px). Las imágenes orientadas verticalmente no están permitidas.</target>
+            </trans-unit>
+            <trans-unit id="78">
+                <source>An empty file is not allowed.</source>
+                <target>No está permitido un archivo vacío.</target>
+            </trans-unit>
+            <trans-unit id="79">
+                <source>The host could not be resolved.</source>
+                <target>No se puede resolver el host.</target>
+            </trans-unit>
+            <trans-unit id="80">
+                <source>This value does not match the expected {{ charset }} charset.</source>
+                <target>La codificación de caracteres para este valor debería ser {{ charset }}.</target>
+            </trans-unit>
+            <trans-unit id="81">
+                <source>This is not a valid Business Identifier Code (BIC).</source>
+                <target>No es un Código de Identificación Bancaria (BIC) válido.</target>
+            </trans-unit>
+            <trans-unit id="82">
+                <source>Error</source>
+                <target>Error</target>
+            </trans-unit>
+            <trans-unit id="83">
+                <source>This is not a valid UUID.</source>
+                <target>Este valor no es un UUID válido.</target>
+            </trans-unit>
+            <trans-unit id="84">
+                <source>This value should be a multiple of {{ compared_value }}.</source>
+                <target>Este valor debería ser múltiplo de {{ compared_value }}.</target>
+            </trans-unit>
+            <trans-unit id="85">
+                <source>This Business Identifier Code (BIC) is not associated with IBAN {{ iban }}.</source>
+                <target>Este Código de Identificación Bancaria (BIC) no está asociado con el IBAN {{ iban }}.</target>
+            </trans-unit>
+            <trans-unit id="86">
+                <source>This value should be valid JSON.</source>
+                <target>Este valor debería ser un JSON válido.</target>
+            </trans-unit>
+            <trans-unit id="87">
+                <source>This collection should contain only unique elements.</source>
+                <target>Esta colección debería tener exclusivamente elementos únicos.</target>
+            </trans-unit>
+            <trans-unit id="88">
+                <source>This value should be positive.</source>
+                <target>Este valor debería ser positivo.</target>
+            </trans-unit>
+            <trans-unit id="89">
+                <source>This value should be either positive or zero.</source>
+                <target>Este valor debería ser positivo o igual a cero.</target>
+            </trans-unit>
+            <trans-unit id="90">
+                <source>This value should be negative.</source>
+                <target>Este valor debería ser negativo.</target>
+            </trans-unit>
+            <trans-unit id="91">
+                <source>This value should be either negative or zero.</source>
+                <target>Este valor debería ser negativo o igual a cero.</target>
+            </trans-unit>
+            <trans-unit id="92">
+                <source>This value is not a valid timezone.</source>
+                <target>Este valor no es una zona horaria válida.</target>
+            </trans-unit>
+            <trans-unit id="93">
+                <source>This password has been leaked in a data breach, it must not be used. Please use another password.</source>
+                <target>Esta contraseña no se puede utilizar porque está incluida en un listado de contraseñas públicas obtenido gracias a fallos de seguridad de otros sitios y aplicaciones. Por favor utilice otra contraseña.</target>
+            </trans-unit>
+            <trans-unit id="94">
+                <source>This value should be between {{ min }} and {{ max }}.</source>
+                <target>Este valor debería estar entre {{ min }} y {{ max }}.</target>
+            </trans-unit>
+            <trans-unit id="95">
+                <source>This value is not a valid hostname.</source>
+                <target>Este valor no es un nombre de host válido.</target>
+            </trans-unit>
+            <trans-unit id="96">
+                <source>The number of elements in this collection should be a multiple of {{ compared_value }}.</source>
+                <target>El número de elementos en esta colección debería ser múltiplo de {{ compared_value }}.</target>
+            </trans-unit>
+            <trans-unit id="97">
+                <source>This value should satisfy at least one of the following constraints:</source>
+                <target>Este valor debería satisfacer al menos una de las siguientes restricciones:</target>
+            </trans-unit>
+            <trans-unit id="98">
+                <source>Each element of this collection should satisfy its own set of constraints.</source>
+                <target>Cada elemento de esta colección debería satisfacer su propio conjunto de restricciones.</target>
+            </trans-unit>
+            <trans-unit id="99">
+                <source>This value is not a valid International Securities Identification Number (ISIN).</source>
+                <target>Este valor no es un número de identificación internacional de valores (ISIN) válido.</target>
+            </trans-unit>
+      <trans-unit id="fvxWW3f">
+        <source>Home</source>
+        <target>Inicio</target>
+      </trans-unit>
+
+      <trans-unit id="fvxWW3s" resname="List of">
+        <source>List of</source>
+        <target>Listado de</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3t" resname="List">
+        <source>List</source>
+        <target>Listado</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3u" resname="Show">
+        <source>Show</source>
+        <target>Mostrar</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3v" resname="entries">
+        <source>entries</source>
+        <target>registros</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3w" resname="Add">
+        <source>Add</source>
+        <target>Crear</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3z" resname="Showing %currentPage% to %totalPage% of %totalItem% entries.">
+        <source>Showing %currentPage% to %totalPage% of %totalItem% entries.</source>
+        <target>Mostrando resgistros del %currentPage% al %totalPage% de un total %totalItem% registros.</target>
+      </trans-unit>
+      <trans-unit id="fvxWWaa" resname="First">
+        <source>First</source>
+        <target>Inicio</target>
+      </trans-unit>
+      <trans-unit id="fvxWWab" resname="Last">
+        <source>Last</source>
+        <target>Fin</target>
+      </trans-unit>
+      <trans-unit id="fvxWWac" resname="Logout">
+        <source>Logout</source>
+        <target>Cerrar Sessión</target>
+      </trans-unit>
+      <trans-unit id="fvxWWaf" resname="Back">
+        <source>Back</source>
+        <target>Volver</target>
+      </trans-unit>
+      <trans-unit id="fvxWWag" resname="Save">
+        <source>Save</source>
+        <target>Guardar</target>
+      </trans-unit>
+      <trans-unit id="fvxWWah" resname="Edit">
+        <source>Edit</source>
+        <target>Editar</target>
+      </trans-unit>
+      <trans-unit id="fvxWWai" resname="Required">
+        <source>Required</source>
+        <target>Requerido</target>
+      </trans-unit>
+      <trans-unit id="fvxWWaj" resname="Optional">
+        <source>Optional</source>
+        <target>Opcional</target>
+      </trans-unit>
+      <trans-unit id="fvxWWao" resname="Action">
+        <source>Action</source>
+        <target>Acción</target>
+      </trans-unit>
+      <trans-unit id="fvxWWaq" resname="Are you sure you want to delete?">
+        <source>Are you sure you want to delete?</source>
+        <target>¿Está seguro de que desea eliminar?</target>
+      </trans-unit>
+      <trans-unit id="fvxWWar" resname="Yes, delete it">
+        <source>Yes, delete it</source>
+        <target>Si, Eliminar</target>
+      </trans-unit>
+      <trans-unit id="fvxWWas" resname="Cancel">
+        <source>Cancel</source>
+        <target>Cancelar</target>
+      </trans-unit>
+      <trans-unit id="fvxWWav" resname='No results were found.'>
+        <source>No results were found.</source>
+        <target>No se han encontrado resultados.</target>
+      </trans-unit>
+      <trans-unit id="fvxWWaw" resname='The selected entry has been deleted.'>
+        <source>The selected entry has been deleted.</source>
+        <target> Este registro ha sido eliminado.</target>
+      </trans-unit>
+      <trans-unit id="fvxWWaz" resname='equal to'>
+        <source>equal to</source>
+        <target>es exactamente igual a</target>
+      </trans-unit>
+      <trans-unit id="fvxWWba" resname='contains'>
+        <source>contains</source>
+        <target>contiene</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbb" resname='distinct'>
+        <source>distinct</source>
+        <target>es exactamente distinto a</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbc" resname='Value'>
+        <source>Value</source>
+        <target>Valor</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbd" resname='Filter'>
+        <source>Filter</source>
+        <target>Filtrar</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbh" resname='Add new item'>
+        <source>Add new item</source>
+        <target>Añadir nuevo elemento</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbm" resname='Loading'>
+        <source>Loading</source>
+        <target>Cargando</target>
+      </trans-unit>
+      <trans-unit id="fvxWWzz" resname='Select this value when saving'>
+        <source>Select this value when saving</source>
+        <target>Seleccionar este valor al guardar</target>
+      </trans-unit>
+      <trans-unit id="fvxWWzx" resname='Close'>
+        <source>Close</source>
+        <target>Cerrar</target>
+      </trans-unit>
+
+
+
+      <trans-unit id="fvxWWap" resname='The employment contract with name "%name%".'>
+        <source>The employment contract with name "%name%".</source>
+        <target>La condición laboral con el nombre "%name%".</target>
+      </trans-unit>
+      <trans-unit id="fvxWWat" resname='The job designation with name "%name%".'>
+        <source>The job designation with name "%name%".</source>
+        <target>La función laboral con el nombre "%name%".</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbe" resname='Manager'>
+        <source>Manager</source>
+        <target>Coordinador</target>
+      </trans-unit>
+      <trans-unit id="fvxWWak" resname="Name">
+        <source>Name</source>
+        <target>Nombre</target>
+      </trans-unit>
+      <trans-unit id="fvxWWad" resname="All Users">
+        <source>All Users</source>
+        <target>Todos los usuarios</target>
+      </trans-unit>
+      <trans-unit id="fvxWWae" resname="Add new user">
+        <source>Add new user</source>
+        <target>Crear nuevo usuario</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3g" resname="User Management">
+        <source>User Management</source>
+        <target>Gestión de Usuarios</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3h" resname="All users">
+        <source>All users</source>
+        <target>Todos los usuarios</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3i" resname="All users">
+        <source>All users</source>
+        <target>Todos los usuarios</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3j" resname="Add new user">
+        <source>Add new user</source>
+        <target>Añadir nuevo</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3k" resname="All employment contract">
+        <source>All employment contract</source>
+        <target>Todas las funciones laborales</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3l" resname="Add new employment contract">
+        <source>Add new employment contractr</source>
+        <target>Crear nueva funcion laboral</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3m" resname="OLS in district">
+        <source>OLS in district</source>
+        <target>Departamentos</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3n" resname="All office of learning support in district">
+        <source>All office of learning support in district</source>
+        <target>Todas los departamentos</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3o" resname="Add new office of learning support in district">
+        <source>Add new office of learning support in district</source>
+        <target>Crear nuevo departamento</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3p" resname="School Assisted By LST">
+        <source>School Assisted By LST</source>
+        <target>Escuelas de Cobertura</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3q" resname="All schools assisted by LST">
+        <source>All schools assisted by LST</source>
+        <target>Todas las escuelas</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3r" resname="Add new school assisted by LST">
+        <source>Add new schools assisted by LST</source>
+        <target>Crear nueva escuela</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3x" resname="Employment Contract">
+        <source>Employment Contract</source>
+        <target>Condición Laboral</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3a" resname="Job Designation">
+        <source>Job Designationt</source>
+        <target>Función Laboral</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3b" resname="Office Of Learning Support">
+        <source>Office Of Learning Support</source>
+        <target>Sede</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3c" resname="Schools Assisted By Learning Support Team">
+        <source>Schools Assisted By Learning Support Team</source>
+        <target>Escuelas de Cobertura</target>
+      </trans-unit>
+      <trans-unit id="fvxWW3e" resname="Learning support team">
+        <source>Learning support team</source>
+        <target>Equipos</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbf" resname='Number'>
+        <source>Number</source>
+        <target>Número</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbg" resname='The learningSupportTeam with name "%name%".'>
+        <source>The learningSupportTeam with name "%name%".</source>
+        <target>El equipo con el nombre "%name%".</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbi" resname='Search for a school'>
+        <source>Search for a school</source>
+        <target>Buscar una escuela</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbl" resname='Address'>
+        <source>Address</source>
+        <target>Dirección</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbn" resname='Phone'>
+        <source>Phone</source>
+        <target>Telefono</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbo" resname='District'>
+        <source>District</source>
+        <target>Departamento</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbp" resname='The office of learning support with address "%address%".'>
+        <source>The office of learning support with address "%address%".</source>
+        <target>La sede con la dirección "%address%".</target>
+      </trans-unit>
+      <trans-unit id="zvxWWbp" resname='Office Of Learning Support In District'>
+        <source>Office Of Learning Support In District</source>
+        <target>Departamento</target>
+      </trans-unit>
+      <trans-unit id="zxxWWbp" resname='The school with name "%name%".'>
+        <source>The school with name "%name%".t</source>
+        <target>La escuela con el nombre "%name%".</target>
+      </trans-unit>
+      <trans-unit id="zxxWxbp" resname='School Assisted By Learning Support Team'>
+        <source> School Assisted By Learning Support Teamt</source>
+        <target>Escuela de Cobertura</target>
+      </trans-unit>
+      <trans-unit id="fvxWWbk" resname='Please enter 2 o more characters'>
+        <source>Please enter 2 o more characters</source>
+        <target>Ingrese 2 o más caracteres</target>
+      </trans-unit>
+      <trans-unit id="xxxWWba" resname='The value %s is not a valid work shift to an employee.'>
+        <source>The value %s is not a valid work shift to an employee.</source>
+        <target>El valor %s no es un estado valido para una publicación.</target>
+      </trans-unit>
+      <trans-unit id="zxxWWba" resname='Surname'>
+        <source>Surname</source>
+        <target>Apellido</target>
+      </trans-unit>
+      <trans-unit id="zxxWWbv" resname='Identity Card'>
+        <source>Identity Card</source>
+        <target>Documento</target>
+      </trans-unit>
+      <trans-unit id="zxgWWbv" resname='Hire Date'>
+        <source>Hire Date</source>
+        <target>Fecha de ingreso</target>
+      </trans-unit>
+      <trans-unit id="zxgWWbs" resname='Termination Date'>
+        <source>Termination Date</source>
+        <target>Fecha de Egreso</target>
+      </trans-unit>
+      <trans-unit id="zxgddbs" resname='Shift Work'>
+        <source>Shift Work</source>
+        <target>Turno De Trabajo</target>
+      </trans-unit>
+      <trans-unit id="zxgdtbs" resname='Morning'>
+        <source>Morning</source>
+        <target>Mañana</target>
+      </trans-unit>
+      <trans-unit id="zxsdxbs" resname='Afternoon'>
+        <source>Afternoon</source>
+        <target>Tarde</target>
+      </trans-unit>
+      <trans-unit id="zddxb3" resname='Morning And Afternoon'>
+        <source>Morning And Afternoon</source>
+        <target>Mañana y Tarde</target>
+      </trans-unit>
+      <trans-unit id="zddx33" resname='Job Info'>
+        <source>Job Info</source>
+        <target> Información del trabajo</target>
+      </trans-unit>
+      <trans-unit id="zddx31" resname='Personal Data'>
+        <source>Personal Data</source>
+        <target>Datos Personales</target>
+      </trans-unit>
+      <trans-unit id="zdd331" resname='Next'>
+        <source>Next</source>
+        <target>Siguiente</target>
+      </trans-unit>
+      <trans-unit id="z2d331" resname='Employee'>
+        <source>Employee</source>
+        <target>Empleados</target>
+      </trans-unit>
+      <trans-unit id="z2d332" resname='All employees'>
+        <source>All employees</source>
+        <target>Todos los empleados</target>
+      </trans-unit>
+      <trans-unit id="z2d334" resname='Add new employee'>
+        <source>Add new employee</source>
+        <target>Crear un nuevo empleado</target>
+      </trans-unit>
+      <trans-unit id="z2d344" resname='All jobs designation'>
+        <source>All jobs designation</source>
+        <target>Todas las funciones laborales</target>
+      </trans-unit>
+      <trans-unit id="z2d345" resname='Add new job designations'>
+        <source>Add new job designations</source>
+        <target>Crear una nueva función laboral</target>
+      </trans-unit>
+      <trans-unit id="z2d346" resname='All office of learning support'>
+        <source>All office of learning support</source>
+        <target>Todas las sedes</target>
+      </trans-unit>
+      <trans-unit id="z2d347" resname='Add new office of learning support'>
+        <source>Add new office of learning support</source>
+        <target>Crear una nueva sede</target>
+      </trans-unit>
+      <trans-unit id="x2d347" resname='Clean Filters'>
+        <source>Clean Filters</source>
+        <target>Quitar filtros de búsqueda</target>
+      </trans-unit>
+      <trans-unit id="x2d348" resname='All learning support team'>
+        <source>All learning support team</source>
+        <target>Toddos los equipos</target>
+      </trans-unit>
+      <trans-unit id="x2d349" resname='Add new Learning support team'>
+        <source>Add new Learning support team</source>
+        <target>Crear un nuevo equipo</target>
+      </trans-unit>
+      <trans-unit id="x2d350" resname='You can select one or more schools'>
+        <source>You can select one or more schools</source>
+        <target>Puede seleccionar una o mas escuelas</target>
+      </trans-unit>
+      <trans-unit id="x2d351" resname='If you do not know the address select'>
+        <source>If you do not know the address select</source>
+        <target>Si no conoce la dirección seleccione</target>
+      </trans-unit>
+      <trans-unit id="x2d352" resname='unknown address'>
+        <source>unknown address</source>
+        <target>domicilio desconocido</target>
+      </trans-unit>
+      <trans-unit id="x2d353" resname='Learning Support Team'>
+        <source>Learning Support Team</source>
+        <target>Equipo</target>
+      </trans-unit>
+      <trans-unit id="x2d354" resname='You can select one or more teams'>
+        <source>You can select one or more teams</source>
+        <target>Puede seleccionar uno o mas equipos</target>
+      </trans-unit>
+      <trans-unit id="x2d355" resname='Restore Password'>
+        <source>Restore Password</source>
+        <target>Restablecer Contraseña</target>
+      </trans-unit>
+      <trans-unit id="x2d356" resname='Username'>
+        <source>Username</source>
+        <target>Nombre de usuario</target>
+      </trans-unit>
+      <trans-unit id="x2d357" resname='Password'>
+        <source>Password</source>
+        <target>Contraseña</target>
+      </trans-unit>
+      <trans-unit id="x1d358" resname='Your password must contain'>
+        <source> our password must contain</source>
+        <target>Tu contraseña debe contener</target>
+      </trans-unit>
+      <trans-unit id="x2d358" resname='At least 8 characters'>
+        <source>At least 8 characters</source>
+        <target>8 o más caracteres</target>
+      </trans-unit>
+      <trans-unit id="x2d359" resname='At least a number'>
+        <source>At least a number</source>
+        <target>Al menos un número</target>
+      </trans-unit>
+      <trans-unit id="x2d360" resname='Capital and lowercase letters'>
+        <source> Capital and lowercase letters</source>
+        <target>Letras mayúsculas y minúsculas</target>
+      </trans-unit>
+      <trans-unit id="x2d361" resname='Is the account enabled?'>
+        <source>Is the account enabled?</source>
+        <target>¿La cuenta está habilitada?</target>
+      </trans-unit>
+      <trans-unit id="x2d362" resname='Surname and Name'>
+        <source>Surname and Name</source>
+        <target>Apellido y nombre</target>
+      </trans-unit>
+      <trans-unit id="x2d363" resname='The user %surname%, %name%'>
+        <source>The user %surname%, %name%</source>
+        <target>El usuario %surname%, %name%</target>
+      </trans-unit>
+      <trans-unit id="x2d364" resname='Email'>
+        <source>Email</source>
+        <target>Correo Electronico</target>
+      </trans-unit>
+      <trans-unit id="x2d365" resname="Search first by SURNAME and then by NAME.">
+        <source>Search first by SURNAME and then byNAME.</source>
+        <target>Buscar primero por APELLIDO y luego por NOMBRE.</target>
+      </trans-unit>
+      <trans-unit id="x2d366" resname="To search by IDENTITY CARD enter the full number for results.">
+        <source>To search by IDENTITY CARD enter the full number for results.</source>
+        <target>Para buscar por dni ingrese el numero completo para obtener resultados.</target>
+      </trans-unit>
+      <trans-unit id="x2d367" resname="Allowed file types">
+        <source>Allowed file types</source>
+        <target>Tipos de archivos permitidos</target>
+      </trans-unit>
+      <trans-unit id="x2d368" resname="Documents">
+        <source>Documents</source>
+        <target>Documentación</target>
+      </trans-unit>
+      <trans-unit id="x2d369" resname="Image">
+        <source>Image</source>
+        <target>Imagen</target>
+      </trans-unit>
+      <trans-unit id="x2d370" resname="Plain text">
+        <source>Plain text</source>
+        <target>Texto Plano</target>
+      </trans-unit>
+      <trans-unit id="x2d371" resname="File">
+        <source>File</source>
+        <target>Archivo</target>
+      </trans-unit>
+      <trans-unit id="x2d372" resname="Description">
+        <source>Description</source>
+        <target>Descripción</target>
+      </trans-unit>
+      <trans-unit id="x2d373" resname="Add new file">
+        <source>Add new file</source>
+        <target>Agregar archivo</target>
+      </trans-unit>
+      <trans-unit id="x2d374" resname="Preview">
+        <source>Preview</source>
+        <target>Vista Previa</target>
+      </trans-unit>
+      <trans-unit id="x2d375" resname="Type">
+        <source>Type</source>
+        <target>Tipo</target>
+      </trans-unit>
+      <trans-unit id="x2d376" resname="Download">
+        <source>Download</source>
+        <target>Descargar</target>
+      </trans-unit>
+      <trans-unit id="x2d377" resname="The file with the description">
+        <source>The file with the description</source>
+        <target>El archivo con la descripción</target>
+      </trans-unit>
+      <trans-unit id="x2d378" resname="Birthday">
+        <source>Birthday</source>
+        <target>Fecha de nacimiento</target>
+      </trans-unit>
+      <trans-unit id="x2d379" resname="Fullname">
+        <source>Fullname</source>
+        <target>Apellido y nombre</target>
+      </trans-unit>
+      <trans-unit id="x2d380" resname="Add a New Filter">
+        <source>Add a New Filter</source>
+        <target>Agregar un filtro</target>
+      </trans-unit>
+      <trans-unit id="x2d381" resname="greater than">
+        <source>greater than</source>
+        <target>mayor a</target>
+      </trans-unit>
+      <trans-unit id="x2d382" resname="less than">
+        <source>less than</source>
+        <target>menor a</target>
+      </trans-unit>
+      <trans-unit id="x2d383" resname="The selected record has been deleted.">
+        <source>The selected record has been deleted.</source>
+        <target>El registro seleccionado ha sido eliminado.</target>
+      </trans-unit>
+      <trans-unit id="x2d384" resname="Failed to delete selected record.">
+        <source>Failed to delete selected record.</source>
+        <target>No se pudo eliminar el registro seleccionado.</target>
+      </trans-unit>
+      <trans-unit id="x2d385" resname="Loading">
+        <source>Loading.</source>
+        <target>Cargando</target>
+      </trans-unit>
+      <trans-unit id="x2d386" resname="An unexpected error occurred trying to delete the record, please try again.If the error persists, please contact support.">
+        <source>An unexpected error occurred trying to delete the record, please try again.If the error persists, please contact support.</source>
+        <target>Ha sucedido algo inesperado al intentar eliminar, por favor intente nuevamente.Si el error persiste póngase en contacto con el administrador del sistema.</target>
+      </trans-unit>
+      <trans-unit id="x2d387" resname="There were some errors.">
+        <source>There were some errors.</source>
+        <target>Uno o más valores de los ingresados no son validos.</target>
+      </trans-unit>
+      <trans-unit id="x2d388" resname="Please review the fields marked in red on your form.">
+        <source>Please review the fields marked in red on your form.</source>
+        <target>Por favor revise los campos marcados en rojo </target>
+      </trans-unit>
+      <trans-unit id="x2d389" resname="This file type is not supported.">
+        <source>This file type is not supported.</source>
+        <target>El archivo seleccionado  no está permitido.</target>
+      </trans-unit>
+      <trans-unit id="x2d390" resname="Delete">
+        <source>Delete</source>
+        <target>Eliminar</target>
+      </trans-unit>
+      <trans-unit id="x2d391" resname="Search for a learning support team">
+        <source>Search for a learning support team</source>
+        <target>Buscar Equipos Tecnicos</target>
+      </trans-unit>
+      <trans-unit id="x2d392" resname="Remove Filter">
+        <source>Remove Filter</source>
+        <target>Quitar Filtro</target>
+      </trans-unit>
+      <trans-unit id="x2d393" resname="The name you entered already exists.">
+        <source>The name you entered already exists.</source>
+        <target>El nombre que has introducido ya existe.</target>
+      </trans-unit>
+      <trans-unit id="x2d394" resname="The employment contract has successfully created!">
+        <source>The employment contract has successfully created!</source>
+        <target>¡La condición laboral ha sido creada!</target>
+      </trans-unit>
+      <trans-unit id="x2d395" resname="Job designation has successfully created!">
+        <source>Job designation has successfully created!</source>
+        <target>¡La función laboral ha sido creada!</target>
+      </trans-unit>
+      <trans-unit id="x2d396" resname="Failed to create new item, if the problem continues, please contact support.">
+        <source>Failed to create new item, if the problem continues, please contact support.</source>
+        <target> No fue posible crear un nuevo registro, si el problema persiste póngase en contacto con el administrador del sistema.</target>
+      </trans-unit>
+      <trans-unit id="x2d397" resname="Search for an employee">
+        <source>Search for an employee</source>
+        <target> Buscar empleados</target>
+      </trans-unit>
+      <trans-unit id="x2d398" resname="Search for schools">
+        <source>Search for schools</source>
+        <target>Buscar escuelas </target>
+      </trans-unit>
+      <trans-unit id="x2d399" resname="Learning support team district has successfully created!">
+        <source>'Learning support team district has successfully created!'</source>
+        <target>¡El departamento ha sido creado!</target>
+      </trans-unit>
+      <trans-unit id="x2d100" resname="At least one uppercase character">
+        <source>At least one uppercase character</source>
+        <target>Al menos un caracter debe estar en mayúscula.</target>
+      </trans-unit>
+      <trans-unit id="x2d101" resname="At least one number.">
+        <source>At least one number.</source>
+        <target>Al menos un caracter debe ser numerico.</target>
+      </trans-unit>
+      <trans-unit id="x2d102" resname="The email you entered is already in use.">
+        <source>The email you entered is already in use.</source>
+        <target>El correo que ha ingresado ya está registrado.</target>
+      </trans-unit>
+      <trans-unit id="x2d103" resname="The username you entered is already in use.">
+        <source>The username you entered is already in use.</source>
+        <target>El nombre de usuario que ha ingresado ya está registrado..</target>
+      </trans-unit>
+      <trans-unit id="x2d104" resname="Password reset process failed if the problem continues, please contact support.">
+        <source>Password reset process failed if the problem continues, please contact support.</source>
+        <target>La contraseña no se pudo restablecer, si el problema persiste ponte en contacto con soporte tecnico.</target>
+      </trans-unit>
+      <trans-unit id="x2d105" resname="Password changed!">
+        <source>Password changed!</source>
+        <target>¡Se ha restablecido la contraseña!</target>
+      </trans-unit>
+      <trans-unit id="x2d106" resname="My account">
+        <source>My account</source>
+        <target>Gestionar tu cuenta</target>
+      </trans-unit>
+
+      <trans-unit id="x2d107" resname="Employee Management System">
+        <source>Employee Management System </source>
+        <target>Sistema de gestión del personal</target>
+      </trans-unit>
+      <trans-unit id="x2d108" resname="Logout">
+        <source>Logout</source>
+        <target>Cerrar sessión</target>
+      </trans-unit>
+      <trans-unit id="x2d109" resname="Select a value">
+        <source>Select a value</source>
+        <target>Seleccione un valor</target>
+      </trans-unit>
+      <trans-unit id="x2d110" resname="Learning Support Team Category">
+        <source>Learning Support Team Category</source>
+        <target>Categoría De Equipo </target>
+      </trans-unit>
+      <trans-unit id="x2d111" resname="Learning support team category">
+        <source>Learning support team category</source>
+        <target>Categoría de equipo </target>
+      </trans-unit>
+      <trans-unit id="x2d112" resname='The learning support team category with name "%name%".'>
+        <source>The learning support team category with name "%name%".</source>
+        <target>La categoría de equipo con el nombre "%name%". </target>
+      </trans-unit>
+      <trans-unit id="x2d113" resname='All learning support team categories'>
+        <source>All learning support team categories</source>
+        <target>Todas las categorias de los equipos</target>
+      </trans-unit>
+      <trans-unit id="x2d114" resname='Add new Learning support team category'>
+        <source>Add new Learning support team category</source>
+        <target>Crear nueva categoria de equipo</target>
+      </trans-unit>
+      <trans-unit id="x2d115" resname='Failed to get learning support team data'>
+        <source>Failed to get learning support team data</source>
+        <target>No fue posible obtener los datos del equipo</target>
+      </trans-unit>
+      <trans-unit id="x2d116" resname='Please try again'>
+        <source>Please try again</source>
+        <target>Por favor intente nuevamente</target>
+      </trans-unit>
+      <trans-unit id="x2d117" resname='If the error persists, please contact support'>
+        <source>If the error persists, please contact support</source>
+        <target>Si el error persiste póngase en contacto con el administrador del sistema</target>
+      </trans-unit>
+      <trans-unit id="x2d118" resname='Unknown'>
+        <source>Unknown</source>
+        <target>Desconocido</target>
+      </trans-unit>
+      <trans-unit id="x2d119" resname='Status'>
+        <source>Status</source>
+        <target>Estado</target>
+      </trans-unit>
+      <trans-unit id="x2d120" resname='The document category with name "%name%".'>
+        <source>The document category with name "%name%".</source>
+        <target>La categoría de documento con el nombre "%name%".</target>
+      </trans-unit>
+      <trans-unit id="x2d121" resname='Documents'>
+        <source>Documents</source>
+        <target>Documentos</target>
+      </trans-unit>
+      <trans-unit id="x2d122" resname='All document categories'>
+        <source>All document categories</source>
+        <target>Todas las categorías de documentos</target>
+      </trans-unit>
+      <trans-unit id="x2d123" resname='The document with name "%name%".'>
+        <source>The document with name "%name%".</source>
+        <target>El documento con el nombre "%name%".</target>
+      </trans-unit>
+      <trans-unit id="x2d124" resname='Document Category'>
+        <source>Document Category</source>
+        <target>Categoria De Documento </target>
+      </trans-unit>
+      <trans-unit id="x2d125" resname='Category'>
+        <source>Category</source>
+        <target>Categoria</target>
+      </trans-unit>
+      <trans-unit id="x2d126" resname='Document'>
+        <source>Document</source>
+        <target>Documento</target>
+      </trans-unit>
+      <trans-unit id="x2d127" resname='Document category has successfully created!'>
+        <source>Document category has successfully created!</source>
+        <target>¡La categoria de documento ha sido creada!</target>
+      </trans-unit>
+      <trans-unit id="x2d128" resname='Add Document Category'>
+        <source>Add Document Category</source>
+        <target>Crear categoria de documento</target>
+      </trans-unit>
+      <trans-unit id="x2d129" resname='All documents'>
+        <source>All documents</source>
+        <target>Todos los documentos</target>
+      </trans-unit>
+      <trans-unit id="x2d130" resname='Document Info'>
+        <source>Document Info</source>
+        <target>Información del Documento</target>
+      </trans-unit>
+      <trans-unit id="x2d131" resname='Employees in the document'>
+        <source> Employees in the document</source>
+        <target>Empleados en el documento</target>
+      </trans-unit>
+      <trans-unit id="x2d132" resname='Upload Attachments'>
+        <source> Upload Attachments</source>
+        <target>Cargar archivos adjuntos</target>
+      </trans-unit>
+      <trans-unit id="x2d133" resname='No documents were found'>
+        <source> No documents were found</source>
+        <target>No se encontraron documentos</target>
+      </trans-unit>
+      <trans-unit id="x2d134" resname='Employee has successfully created!'>
+        <source> Employee has successfully created!</source>
+        <target>¡El empleado ha sido creado!</target>
+      </trans-unit>
+      <trans-unit id="x2d135" resname='Employee has successfully created!'>
+        <source> Employee has successfully created!</source>
+        <target>¡El empleado ha sido creado!</target>
+      </trans-unit>
+      <trans-unit id="x2d136" resname='Add new employee'>
+        <source> Add new employee</source>
+        <target>Crear un nuevo empleado</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

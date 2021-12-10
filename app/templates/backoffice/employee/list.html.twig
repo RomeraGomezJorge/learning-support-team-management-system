@@ -1,0 +1,242 @@
+{% extends 'backoffice/_shared/list.base.html.twig' %}
+{% block title %} {{'List'|trans}} {{ sectionTtile }} {% endblock %}
+{% block page_title %} {{ sectionTtile }} {% endblock  page_title %}
+{% block table %}
+    <table id="add-row"
+           class="display table table-striped table-hover dataTable"
+           role="grid"
+           aria-describedby="add-row_info">
+        <thead>
+        <tr role="row">
+
+            <th class="sorting_{{ toggleSort }} d-none d-sm-table-cell">
+                <a href="{{ path(list_path) }}/page-1/order-surname-{{ toggleSort }}/rows_per_page-{{ limit }}/{{ filters }}">
+                    {{ 'Fullname'|trans }}
+                </a>
+            </th>
+
+            <th class="sorting_{{ toggleSort }} d-none d-sm-table-cell">
+                <a href="{{ path(list_path) }}/page-1/order-identityCard-{{ toggleSort }}/rows_per_page-{{ limit }}/{{ filters }}">
+                    {{ 'Identity Card'|trans }}
+                </a>
+            </th>
+            <th class="sorting_{{ toggleSort }} d-none d-sm-table-cell">
+                <a href="{{ path(list_path) }}/page-1/order-jobDesignation-{{ toggleSort }}/rows_per_page-{{ limit }}/{{ filters }}">
+                    {{ 'Job Designation'|trans }}
+                </a>
+            </th>
+            <th class="sorting_{{ toggleSort }} d-none d-sm-table-cell">
+                <a href="{{ path(list_path) }}/page-1/order-employmentContract-{{ toggleSort }}/rows_per_page-{{ limit }}/{{ filters }}">
+                    {{ 'Employment Contract'|trans }}
+                </a>
+            </th>
+            <th class="sorting_{{ toggleSort }} d-none d-sm-table-cell">
+                <a href="{{ path(list_path) }}/page-1/order-learningSupportTeam-{{ toggleSort }}/rows_per_page-{{ limit }}/{{ filters }}">
+                    {{ 'Learning Support Team'|trans }}
+                </a>
+            </th>
+            <th class="sorting_{{ toggleSort }} d-none d-sm-table-cell">
+                <a href="{{ path(list_path) }}/page-1/order-shiftWork-{{ toggleSort }}/rows_per_page-{{ limit }}/{{ filters }}">
+                    {{ 'Shift Work'|trans }}
+                </a>
+            </th>
+            <th class="d-none d-sm-table-cell">
+                <a href="{{ path(list_path) }}/page-1/order-birthday-{{ toggleSort }}/rows_per_page-{{ limit }}/{{ filters }}">
+                    {{ 'Birthday'|trans }}
+                </a>
+            </th>
+            <th class="d-none d-sm-table-cell">
+                <a href="{{ path(list_path) }}/page-1/order-hireDate-{{ toggleSort }}/rows_per_page-{{ limit }}/{{ filters }}">
+                    {{ 'Hire Date'|trans }}
+                </a>
+            </th>
+            <th class="d-none d-sm-table-cell" style="width: 132.8px;">
+                Acción
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for employee in employees %}
+            <tr role="row" class="odd" id="css-selector-for-tr-that_contains-items-to-delete-{{ employee.id }}">
+                <td class=" d-table-cell d-sm-none cursor-pointer"
+                    data-toggle="modal"
+                    data-target="#mobile-actions-modal"
+                    data-edit_path="{{ path(edit_path, {'id': employee.id}) }}"
+                    data-delete_path="{{ path(delete_path) }}"
+                    data-url_delete_confirmation_modal="{{ path(delete_confirmation_modal_path) }}"
+                    data-css_selector_to_handle_tr_style_that_contains_items_to_delete="#css-selector-for-tr-that_contains-items-to-delete-{{ employee.id }}"
+                    data-id_to_delete="{{ employee.id }}"
+                    data-message_to_delete_confirmation='{{ 'The employee with fullname "%name%, %surname%".'|trans({'%name%': employee.name, '%surname%': employee.surname}) }}'
+                    data-modal_title='{{ '%name%, %surname%.'|trans({'%name%': employee.name, '%surname%': employee.surname}) }}'
+                >
+                    <div class="row pt-2">
+                        <div class="col-10">
+                            <ul>
+                                <li>{{ employee.name }}, {{ employee.surname }}</li>
+                                <li>{{ employee.identityCard }}</li>
+                                <li>{{ employee.jobDesignation.name }}</li>
+                                <li>{{ employee.employmentContract.name }}</li>
+                                {% for team in employee.learningSupportTeam %}
+                                    <li>{{ team.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-2"><i class="fas fa-ellipsis-v"></i></div>
+                    </div>
+                </td>
+                <td class="d-none d-sm-table-cell">{{ employee.surname }}, {{ employee.name }}</td>
+                <td class="d-none d-sm-table-cell">{{ employee.identityCard }}</td>
+                <td class="d-none d-sm-table-cell">{{ employee.jobDesignation.name }}</td>
+                <td class="d-none d-sm-table-cell">{{ employee.employmentContract.name }}</td>
+                <td class="d-none d-sm-table-cell">
+                    {% for team in employee.learningSupportTeam %}
+                        {{ team.name }}<br>
+                    {% endfor %}
+                </td>
+                <td class="d-none d-sm-table-cell">{{ shifts_work[employee.shiftWork]|trans }}</td>
+                <td class="d-none d-sm-table-cell">{{ employee.birthday is not empty ? employee.birthday|date("d/m/y") :'' }}</td>
+                <td class="d-none d-sm-table-cell">{{ employee.hireDate is not empty? employee.hireDate|date("d/m/y") : '' }}</td>
+                <td class="d-none d-sm-table-cell">
+                    <div class="d-block d-sm-none">
+                        <button type="button" class="btn btn-link text-dark">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+
+                    <div class="d-none d-sm-block">
+                    <span class="form-button-dots">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </span>
+                        <span class="form-button-action">
+                        <a href="{{ path(edit_path, {'id': employee.id}) }}"
+                           class="editItemLink btn btn-link btn-primary btn-lg">
+                            <i class="fa fa-edit"></i>
+                        </a>
+
+                        <button type="button"
+                                class="btn btn-link btn-danger shown-delete-confirmation-modal"
+                                data-toggle="modal"
+                                data-target="#delete-confirmation-modal"
+                                data-delete_path="{{ path(delete_path) }}"
+                                data-url_delete_confirmation_modal="{{ path(delete_confirmation_modal_path) }}"
+                                data-css_selector_to_handle_tr_style_that_contains_items_to_delete="#css-selector-for-tr-that_contains-items-to-delete-{{ employee.id }}"
+                                data-id_to_delete="{{ employee.id }}"
+                                data-message_to_delete_confirmation='{{ 'The employee with fullname "%name%", %surname%.'|trans({'%name%': employee.name, '%surname%': employee.surname}) }}'
+                        >
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </span>
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td class="text-center" colspan="8">
+                    <i class="fas fa-exclamation-circle text-info"></i> &nbsp;&nbsp;{{ 'No results were found.'|trans }}
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+{% block filterFields %}
+    <div id="filters" class="form-group">
+        <div class="form-group col-12 col-sm-4">
+            <select name="filters[0][field]" data-index="0" class="form-control filter-field form-control-sm w-100">
+                <option value="name" selected>{{ 'Name'|trans }}</option>
+                <option value="surname" >{{ 'Surname'|trans }}</option>
+                <option value="identityCard" >{{ 'Identity Card'|trans }}</option>
+                <option value="hireDate" >{{ 'Hire Date'|trans }}</option>
+                <option value="terminationDate" >{{ 'Termination Date'|trans }}</option>
+                <option value="birthday" >{{ 'Birthday'|trans }}</option>
+                <option value="jobDesignation">{{ 'Job Designation'|trans }}</option>
+                <option value="employmentContract">{{ 'Employment Contract'|trans }}</option>
+                <option value="learningSupportTeam">{{ 'Learning Support Team'|trans }}</option>
+            </select>
+        </div>
+        <div class="form-group col-12 col-sm-4">
+            <select name="filters[0][operator]" data-index="0" class="form-control filter-operator form-control-sm w-100">
+                <option value="=">{{ 'equal to'|trans }}</option>
+                <option value="CONTAINS">{{ 'contains'|trans }}</option>
+                <option id="notEqualTo" value="<>">{{ 'distinct'|trans }}</option>
+                <option  value=">"> {{ 'greater than'|trans }} </option>
+                <option  value="<"> {{ 'less than'|trans }} </option>
+            </select>
+        </div>
+        <div class="form-group col-12 col-sm-4">
+            <input id="inputValueFilter"
+                   name="filters[0][value]"
+                   type="text"
+                   class="form-control filter-value-text form-control-sm w-100"
+                   data-index="0"
+                   placeholder="{{ 'Value'|trans }}..."
+                   required
+            >
+            <select
+                    class="form-control filter-value-job-designation form-control-sm d-none w-100"
+                    data-index="0"
+            >
+                {% for job_designation in job_designations %}
+                    <option value="{{ job_designation.id }}">{{ job_designation.name }}</option>
+                {% endfor %}
+            </select>
+            <select
+                    class="form-control filter-value-employment-contract form-control-sm d-none w-100"
+                    data-index="0"
+            >
+                {% for employment_contract in employment_contracts %}
+                    <option value="{{ employment_contract.id }}">{{ employment_contract.name }}</option>
+                {% endfor %}
+            </select>
+            <select
+                    class="form-control filter-value-learning-support-team form-control-sm d-none w-100"
+                    data-index="0"
+            >
+                {% for learning_support_team in learning_support_teams %}
+                    <option value="{{ learning_support_team.id }}">{{ learning_support_team.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div id="filter-rows" ></div>
+
+
+    <button type="button" class="add_button btn btn-focus  ml-2 mt-2"
+            id="add-field-button"
+            onclick="addFilter(event)"
+    >
+        <span class=" ml-1  btn-label">
+            <i class="fas fa-plus-circle text-success"></i>
+        </span>
+        {{ 'Add a New Filter'|trans }}
+    </button>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/plugin/inputmaks/jquery.inputmask.min.js') }}"></script>
+    <script src="{{ asset('assets/js/blog/employee/list/if.an.entity.is.selected.as.filter.show.only.operator.equal.js') }}"></script>
+    <script src="{{ asset('assets/js/blog/employee/list/if.entity.filter.is.chosen.show.itsValues.if.not.hide.them.js') }}"></script>
+    <script src="{{ asset('assets/js/blog/employee/list/if.datetime.filter.is.chosen.show.datetimepicker.if.not.hide.them.js') }}"></script>
+    <script src="{{ asset('assets/js/blog/employee/list/ensure.that.entity.filter.can.be.selected.only.once.js') }}"></script>
+    <script src="{{ asset('assets/js/blog/employee/list/add.or.remove.filters.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+
+            $(document).on('change', 'select.filter-field', function () {
+
+                ifAnEntityIsSelectedAsFilterShowOnlyOperatorEqual(this);
+
+                ifDatetimeFilterIsChosenShowDatetimepickerIfNotHideThem(this);
+
+                ifEntityFilterIsChosenShowItsValuesIfNotHideThem(this);
+
+                ensureThatEntityFilterCanBeSelectedOnlyOnce();
+            });
+
+        });
+
+    </script>
+
+{% endblock %}

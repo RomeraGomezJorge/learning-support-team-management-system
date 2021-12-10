@@ -1,0 +1,39 @@
+document_list:
+  path: /list/{pageLabel}-{page}/{orderLabel}-{order}-{orderBy}/{limitLabel}-{limit}/{filters}
+  defaults: { _controller: App\Backoffice\Document\Infrastructure\UserInterface\Web\DocumentGetController, pageLabel: 'page' , page: 1 , orderLabel: 'order' , order: 'createAt' , orderBy: 'desc' , limitLabel: 'rows_per_page' , limit: 10 , filters: null }
+  methods:  [GET,POST]
+
+document_add:
+  path: /create
+  defaults: { _controller: App\Backoffice\Document\Infrastructure\UserInterface\Web\DocumentAddController}
+  methods:  [GET]
+
+document_create:
+  path: /create
+  defaults: { _controller: App\Backoffice\Document\Infrastructure\UserInterface\Web\DocumentPostController}
+  methods:  [POST]
+
+document_edit:
+  path: /edit/{id}
+  defaults: { _controller: App\Backoffice\Document\Infrastructure\UserInterface\Web\DocumentEditController}
+  methods:  [GET]
+
+document_update:
+  path: /update
+  defaults: { _controller: App\Backoffice\Document\Infrastructure\UserInterface\Web\DocumentPutController}
+  methods:  [POST]
+
+document_delete:
+  path: /delete
+  defaults: { _controller: App\Backoffice\Document\Infrastructure\UserInterface\Web\DocumentDeleteController}
+  methods:  [POST]
+
+document_attachment_delete:
+  path: /attachment-delete
+  defaults: { _controller: App\Backoffice\Document\Infrastructure\UserInterface\Web\AttachmentDeleteController}
+  methods:  [POST]
+
+document_attachment_delete_confirmation_modal:
+  path: /attachment-confirmation-modal
+  defaults: { _controller: App\Backoffice\Document\Infrastructure\UserInterface\Web\AttachmentDeleteConfirmationModalController}
+  methods:  [GET]

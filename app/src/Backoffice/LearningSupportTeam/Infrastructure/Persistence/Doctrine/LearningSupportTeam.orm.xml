@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Backoffice\LearningSupportTeam\Domain\LearningSupportTeam" table="learning_support_team">
+        <indexes>
+            <index name="learning_support_team_ibfk_1" columns="office_of_learning_support_id"/>
+        </indexes>
+        <unique-constraints>
+            <unique-constraint name="id" columns="id"/>
+            <unique-constraint name="name" columns="name"/>
+        </unique-constraints>
+        <id name="id" type="string" column="id" length="36"/>
+        <field name="name" type="string" column="name" length="255" nullable="false">
+            <options>
+                <option name="fixed"/>
+            </options>
+        </field>
+        <field name="createAt" type="datetime" column="create_at" nullable="false"/>
+        <many-to-one field="officeOfLearningSupport"
+                     target-entity="App\Backoffice\OfficeOfLearningSupport\Domain\OfficeOfLearningSupport"
+                     fetch="LAZY"
+                     inversed-by="learningSupportTeams"
+        >
+            <join-columns>
+                <join-column name="office_of_learning_support_id" referenced-column-name="id"/>
+            </join-columns>
+        </many-to-one>
+        <many-to-one field="manager" target-entity="App\Backoffice\Employee\Domain\Employee" fetch="LAZY">
+            <join-columns>
+                <join-column name="manager" referenced-column-name="id" nullable="true"/>
+            </join-columns>
+        </many-to-one>
+        <many-to-many field="employee"
+                      target-entity="App\Backoffice\Employee\Domain\Employee"
+                      mapped-by="learningSupportTeam"
+        />
+        <many-to-many
+                field="schoolsAssistedByLearningSupportTeam"
+                target-entity="App\Backoffice\SchoolAssistedByLearningSupportTeam\Domain\SchoolAssistedByLearningSupportTeam"
+                inversed-by="learningSupportTeam"
+        >
+            <join-table name="school__LST">
+                <join-columns>
+                    <join-column name="learning_support_team_id" referenced-column-name="id" nullable="false" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="school_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+        <many-to-one field="learningSupportTeamCategory" target-entity="App\Backoffice\LearningSupportTeamCategory\Domain\LearningSupportTeamCategory" fetch="LAZY">
+            <join-columns>
+                <join-column name="	learning_support_team_category_id " referenced-column-name="id"/>
+            </join-columns>
+        </many-to-one>
+    </entity>
+</doctrine-mapping>
+

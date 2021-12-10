@@ -1,0 +1,44 @@
+document_category_list:
+  path: /list/{pageLabel}-{page}/{orderLabel}-{order}-{orderBy}/{limitLabel}-{limit}/{filters}
+  defaults: { _controller: App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web\DocumentCategoryGetController, pageLabel: 'page' , page: 1 , orderLabel: 'order' , order: 'createAt' , orderBy: 'desc' , limitLabel: 'rows_per_page' , limit: 10 , filters: null }
+  methods:  [GET,POST]
+
+document_category_add:
+  path: /create
+  defaults: { _controller: App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web\DocumentCategoryAddController}
+  methods:  [GET]
+
+document_category_add_by_modal:
+  path: /create-document-category-modal
+  defaults: { _controller: App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web\DocumentCategoryAddModalContentController}
+  methods:  [GET]
+
+document_category_create:
+  path: /create
+  defaults: { _controller: App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web\DocumentCategoryPostController}
+  methods:  [POST]
+
+document_category_create_by_ajax:
+  path: /create-by-ajax
+  defaults: { _controller: App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web\DocumentCategoryPostByAjaxController}
+  methods:  [POST]
+
+document_category_edit:
+  path: /edit/{id}
+  defaults: { _controller: App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web\DocumentCategoryEditController}
+  methods:  [GET]
+
+document_category_update:
+  path: /update
+  defaults: { _controller: App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web\DocumentCategoryPutController}
+  methods:  [POST]
+
+document_category_name_available:
+  path: /name-available
+  defaults: { _controller: App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web\DocumentCategoryNameAvailableController}
+  methods:  [GET]
+
+document_category_delete:
+  path: /delete
+  defaults: { _controller: App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web\DocumentCategoryDeleteController}
+  methods:  [POST]

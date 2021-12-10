@@ -1,0 +1,44 @@
+job_designation_list:
+  path: /list/{pageLabel}-{page}/{orderLabel}-{order}-{orderBy}/{limitLabel}-{limit}/{filters}
+  defaults: { _controller: App\Backoffice\JobDesignation\Infrastructure\UserInterface\Web\JobDesignationGetController, pageLabel: 'page' , page: 1 , orderLabel: 'order' , order: 'createAt' , orderBy: 'desc' , limitLabel: 'rows_per_page' , limit: 10 , filters: null }
+  methods:  [GET,POST]
+
+job_designation_add:
+  path: /create
+  defaults: { _controller: App\Backoffice\JobDesignation\Infrastructure\UserInterface\Web\JobDesignationAddController}
+  methods:  [GET]
+
+job_designation_add_by_modal:
+  path: /create-job-desination-modal
+  defaults: { _controller: App\Backoffice\JobDesignation\Infrastructure\UserInterface\Web\JobDesignationAddModalContentController}
+  methods:  [GET]
+
+job_designation_create:
+  path: /create
+  defaults: { _controller: App\Backoffice\JobDesignation\Infrastructure\UserInterface\Web\JobDesignationPostController}
+  methods:  [POST]
+
+job_designation_create_by_ajax:
+  path: /create-by-ajax
+  defaults: { _controller: App\Backoffice\JobDesignation\Infrastructure\UserInterface\Web\JobDesignationPostByAjaxController}
+  methods:  [POST]
+
+job_designation_edit:
+  path: /edit/{id}
+  defaults: { _controller: App\Backoffice\JobDesignation\Infrastructure\UserInterface\Web\JobDesignationEditController}
+  methods:  [GET]
+
+job_designation_update:
+  path: /update
+  defaults: { _controller: App\Backoffice\JobDesignation\Infrastructure\UserInterface\Web\JobDesignationPutController}
+  methods:  [POST]
+
+job_designation_name_available:
+  path: /name-available
+  defaults: { _controller: App\Backoffice\JobDesignation\Infrastructure\UserInterface\Web\JobDesignationNameAvailableController}
+  methods:  [GET]
+
+job_designation_delete:
+  path: /delete
+  defaults: { _controller: App\Backoffice\JobDesignation\Infrastructure\UserInterface\Web\JobDesignationDeleteController}
+  methods:  [POST]

@@ -1,0 +1,204 @@
+<fieldset>
+    <div class="pull-left">
+        <span class="set-size charts-container">
+            <div class="pie-wrapper progress-100 style-2">
+                <span class="label"> 3 {{ 'of'|trans }} 3</span>
+                <div class="pie">
+                    <div class="left-side half-circle"></div>
+                    <div class="right-side half-circle"></div>
+                </div>
+                <div class="shadow"></div>
+            </div>
+        </span>
+    </div>
+    <div class="pull-left mt-4">
+        <h2>{{ 'Upload Attachments'|trans }}</h2>
+    </div>
+    <div class="clearfix"></div>
+    <hr>
+    <div class="card-header">
+        <div class="alert alert-info mt-3">
+            <h4><i class="fas fa-info-circle text-info"></i> {{ 'Allowed file types'|trans }}</h4>
+            <ul>
+                <li>{{ 'Image'|trans }} JPG</li>
+                <li>{{ 'Image'|trans }} JPEG</li>
+                <li>{{ 'Image'|trans }} PNG</li>
+                <li>Micrcosoft Office</li>
+                <li>Pdf</li>
+                <li>{{ 'Plain text'|trans }}</li>
+            </ul>
+        </div>
+    </div>
+
+    {# ----- Start Uploader files ---------#}
+    {% for file in attachment_in_session %}
+
+        {% set file_counter =  loop.index - 1 %}
+
+        <div class="row">
+            <div class="col-12 col-sm-5 file">
+                <div class="form-group {{ flash.has('errors.attachment'~ (file_counter) ~'file')? 'has-error':'' }}">
+                    <label>{{ 'File'|trans }}</label>
+                    <input type="file"
+                           name="attachment[0][file]"
+                           class="form-control-file form-control_file"
+                           accept="{{ allowed_files }}"
+                    >
+                    <small class="errorLabelContainer form-text text-muted text-danger">
+                        <span class="has-error">{{ flash.get('errors.attachment'~ (file_counter) ~'file') }} </span>
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 d-none">
+                <div class="form-group {{ flash.has('errors.attachment'~ (file_counter) ~'title')? 'has-error':'' }}">
+                    <label>{{ 'Description'|trans }} ( * )</label>
+                    <input type="text"
+                           placeholder=" - {{ 'Required'|trans }} -"
+                           name="attachment[0][description]"
+                           value=""
+                           maxlength="100"
+                           class="form-control"
+                    >
+                    <small class="errorLabelContainer form-text text-muted text-danger  ">
+                        <span class="has-error">{{ flash.get('errors.attachment'~ (file_counter) ~'title') }} </span>
+                    </small>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    {% endfor %}
+
+    <section id="new_file_container"></section>
+    <div class="clearfix"></div>
+    <button type="button" class="add_file_button btn btn-focus  mt-2 ml-2">
+        <i class="fas fa-plus-circle mr-1 text-success"></i>
+        {{ 'Add new file'|trans }}
+    </button>
+    <div class="clearfix"></div>
+
+
+    {#---- Start list of media files in document ------#}
+    {% if attachments is defined  and not( attachments is empty) %}
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="add-row" class="display table table-striped table-hover dataTable"
+                       role="grid" aria-describedby="add-row_info">
+                    <thead>
+                    <tr role="row">
+                        <th class="d-none d-sm-table-cell">{{ 'Preview'|trans }}</th>
+                        <th class="d-none d-sm-table-cell">{{ 'Type'|trans }}</th>
+                        <th class="d-none d-sm-table-cell">{{ 'Description'|trans }}</th>
+                        <th class="d-none d-sm-table-cell">
+                            {{ 'Actions'|trans }}
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for attachment in attachments %}
+                        <tr role="row"
+                            class="odd"
+                            id="css-selector-for-tr-that_contains-items-to-delete-{{ loop.index }}"
+                        >
+                            {# ------ Start mobile item view ------#}
+                            <td class=" d-table-cell d-sm-none cursor-pointer">
+                                <div class="row pt-2">
+                                    <div class="col-10">
+
+                                        <a
+                                                href="{{ asset(attachment_file_directory~attachment.url) }}"
+                                                download
+                                                target="_blank"
+                                        >
+                                            <i class="fas fa-download"></i>
+                                            {{ 'Downolad'|trans }}
+                                        </a>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button"
+                                                class="btn btn-link btn-danger shown-delete-confirmation-modal"
+                                                data-toggle="modal"
+                                                data-target="#delete-confirmation-modal"
+                                                data-delete_path="{{ path(attachment_delete_path) }}"
+                                                data-url_delete_confirmation_modal="{{ path(attachment_delete_modal_confirmation_path) }}"
+                                                data-css_selector_to_handle_tr_style_that_contains_items_to_delete="#css-selector-for-tr-that_contains-items-to-delete-{{ loop.index }}"
+                                                data-attachment="{{ attachment|json_encode(constant('JSON_PRETTY_PRINT')) }}"
+                                                data-article_id="{{ id }}"
+                                                data-file_to_delete="{{ attachment.url }}"
+                                                data-message_to_delete_confirmation="La archivo con el nombre &quot;{{ attachment.url }} &quot;."
+                                        >
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                            {# ------ End mobile item view ------#}
+
+                            {# ------ Start desktop item view ------#}
+                            <td class="d-none d-sm-table-cell">
+
+                                <a href="{{ asset(attachment_file_directory~attachment.url) }}"
+                                   download target="_blank"
+                                >
+                                    <i class="fas fa-download"></i> {{ 'Download'|trans }}
+                                </a>
+                            </td>
+                            <td class="d-none d-sm-table-cell">{{ attribute(attachment_type_descriptions, attachment.type) }}</td>
+                            <td class="d-none d-sm-table-cell">{{ attachment.description }}</td>
+                            <td class="d-none d-sm-table-cell">
+                                <div class="d-block d-sm-none">
+                                    <button type="button" class="btn btn-link text-dark">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+
+                                <div class="d-none d-sm-block">
+                                    <button type="button"
+                                            class="btn btn-link btn-danger shown-delete-confirmation-modal"
+                                            data-toggle="modal"
+                                            data-target="#delete-confirmation-modal"
+                                            data-delete_path="{{ path(attachment_delete_path) }}"
+                                            data-url_delete_confirmation_modal="{{ path(attachment_delete_modal_confirmation_path) }}"
+                                            data-css_selector_to_handle_tr_style_that_contains_items_to_delete="#css-selector-for-tr-that_contains-items-to-delete-{{ loop.index }}"
+                                            data-attachment="{{ attachment|json_encode(constant('JSON_PRETTY_PRINT')) }}"
+                                            data-article_id="{{ id }}"
+                                            data-file_to_delete="{{ attachment.url }}"
+                                            data-message_to_delete_confirmation="{{ 'The file with the description'|trans }} &quot;{{ attachment.url }} &quot;."
+                                    >
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </div>
+                            </td>
+                            {# ------ End desktop item view------#}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    {% endif %}
+    {#----End list of media files in document ------#}
+
+    <button type="button" class="btn btn-light col-sm-5 d-none d-sm-block pull-left mt-3 prev">
+        <span class=" ml-1 btn-label">
+            <i class="fas fa-backward"></i>
+        </span>
+        {{ 'Back'|trans }}
+    </button>
+
+    <button type="submit" id="submitBtn" class="btn btn-success pull-right col-sm-5 mt-3">
+        <span class="btn-label">
+            <i class="fas fa-save"></i>
+        </span>
+        {{ submit_button_label|trans }}
+    </button>
+
+    <button type="button" class="btn btn-light col-sm-5 d-block d-sm-none pull-left mt-3 prev">
+        <span class=" ml-1 btn-label">
+            <i class="fas fa-backward"></i>
+        </span>
+        {{ 'Back'|trans }}
+    </button>
+</fieldset>

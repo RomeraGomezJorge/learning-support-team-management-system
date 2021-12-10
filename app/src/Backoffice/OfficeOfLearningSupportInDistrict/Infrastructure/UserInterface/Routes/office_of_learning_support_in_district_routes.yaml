@@ -1,0 +1,44 @@
+office_of_learning_support_in_district_list:
+  path: /list/{pageLabel}-{page}/{orderLabel}-{order}-{orderBy}/{limitLabel}-{limit}/{filters}
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupportInDistrict\Infrastructure\UserInterface\Web\OfficeOfLearningSupportInDistrictGetController, pageLabel: 'page' , page: 1 , orderLabel: 'order' , order: 'createAt' , orderBy: 'desc' , limitLabel: 'rows_per_page' , limit: 10 , filters: null }
+  methods:  [GET,POST]
+
+office_of_learning_support_in_district_add:
+  path: /create
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupportInDistrict\Infrastructure\UserInterface\Web\OfficeOfLearningSupportInDistrictAddController}
+  methods:  [GET]
+
+office_of_learning_support_in_district_add_by_modal:
+  path: /create-learning-support-team_district-modal
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupportInDistrict\Infrastructure\UserInterface\Web\OfficeOfLearningSupportInDistrictAddModalContentController}
+  methods:  [GET]
+
+office_of_learning_support_in_district_create:
+  path: /create
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupportInDistrict\Infrastructure\UserInterface\Web\OfficeOfLearningSupportInDistrictPostController}
+  methods:  [POST]
+
+office_of_learning_support_in_district_create_by_ajax:
+  path: /create-by-ajax
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupportInDistrict\Infrastructure\UserInterface\Web\OfficeOfLearningSupportInDistrictPostByAjaxController}
+  methods:  [POST]
+
+office_of_learning_support_in_district_edit:
+  path: /edit/{id}
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupportInDistrict\Infrastructure\UserInterface\Web\OfficeOfLearningSupportInDistrictEditController}
+  methods:  [GET]
+
+office_of_learning_support_in_district_update:
+  path: /update
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupportInDistrict\Infrastructure\UserInterface\Web\OfficeOfLearningSupportInDistrictPutController}
+  methods:  [POST]
+
+office_of_learning_support_in_district_name_available:
+  path: /name-available
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupportInDistrict\Infrastructure\UserInterface\Web\OfficeOfLearningSupportInDistrictNameAvailableController}
+  methods:  [GET]
+
+office_of_learning_support_in_district_delete:
+  path: /delete
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupportInDistrict\Infrastructure\UserInterface\Web\OfficeOfLearningSupportInDistrictDeleteController}
+  methods:  [POST]

@@ -1,0 +1,34 @@
+learning_support_team_category_list:
+  path: /list/{pageLabel}-{page}/{orderLabel}-{order}-{orderBy}/{limitLabel}-{limit}/{filters}
+  defaults: { _controller: App\Backoffice\LearningSupportTeamCategory\Infrastructure\UserInterface\Web\LearningSupportTeamCategoryGetController, pageLabel: 'page' , page: 1 , orderLabel: 'order' , order: 'createAt' , orderBy: 'desc' , limitLabel: 'rows_per_page' , limit: 10 , filters: null }
+  methods:  [GET,POST]
+
+learning_support_team_category_add:
+  path: /create
+  defaults: { _controller: App\Backoffice\LearningSupportTeamCategory\Infrastructure\UserInterface\Web\LearningSupportTeamCategoryAddController}
+  methods:  [GET]
+
+learning_support_team_category_create:
+  path: /create
+  defaults: { _controller: App\Backoffice\LearningSupportTeamCategory\Infrastructure\UserInterface\Web\LearningSupportTeamCategoryPostController}
+  methods:  [POST]
+
+learning_support_team_category_edit:
+  path: /edit/{id}
+  defaults: { _controller: App\Backoffice\LearningSupportTeamCategory\Infrastructure\UserInterface\Web\LearningSupportTeamCategoryEditController}
+  methods:  [GET]
+
+learning_support_team_category_update:
+  path: /update
+  defaults: { _controller: App\Backoffice\LearningSupportTeamCategory\Infrastructure\UserInterface\Web\LearningSupportTeamCategoryPutController}
+  methods:  [POST]
+
+learning_support_team_category_name_available:
+  path: /name-available
+  defaults: { _controller: App\Backoffice\LearningSupportTeamCategory\Infrastructure\UserInterface\Web\LearningSupportTeamCategoryNameAvailableController}
+  methods:  [GET]
+
+learning_support_team_category_delete:
+  path: /delete
+  defaults: { _controller: App\Backoffice\LearningSupportTeamCategory\Infrastructure\UserInterface\Web\LearningSupportTeamCategoryDeleteController}
+  methods:  [POST]

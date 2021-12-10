@@ -1,0 +1,513 @@
+{% extends 'backoffice/_shared/formToHandleItem.base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/wizard.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/select2/select2-bootstrap4.min.css') }}">
+{% endblock %}
+{% block form %}
+    <form action="{{ path(form_action_attribute) }}"
+          method="post"
+          id="form"
+          novalidate="novalidate"
+          enctype="multipart/form-data"
+    >
+        <input type="hidden" name="id" value="{{ id }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token(id) }}">
+        <div class="card-phone">
+            <div class="row">
+                <div class="col-12">
+
+
+                    {#----------------------------------#}
+                    <fieldset class="show">
+                        <div class="pull-left">
+                             <span class="set-size charts-container">
+                                 <div class="pie-wrapper progress-35 style-2">
+                                     <span class="label"> 1 {{ 'of'|trans }} 1</span>
+                                     <div class="pie">
+                                         <div class="left-side half-circle"></div>
+                                         <div class="right-side half-circle"></div>
+                                     </div>
+                                     <div class="shadow"></div>
+                                 </div>
+                             </span>
+                        </div>
+                        <div class="pull-left mt-4">
+                            <h2>{{ 'Personal Data'|trans }}</h2>
+                            <small><b>{{ 'Next'|trans }}:</b> {{ 'Job Info'|trans }}</small>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <hr>
+                        <div class="col-lg-12">
+                            <div class="form-group {{ flash.has('errors.name')? 'has-error': '' }}">
+                                <label>{{ 'Name'|trans }} (*)</label>
+                                <input type="text"
+                                       placeholder=" - {{ 'Required'|trans }} -"
+                                       name="name"
+                                       value="{{ name }}"
+                                       maxlength="100"
+                                       id="name"
+                                       class="form-control"
+                                       required
+                                >
+                                <small class="errorLabelContainer form-text text-muted text-danger">
+                                    <span class="has-error">{{ flash.has('errors.name') }} </span>
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group {{ flash.has('errors.surname')? 'has-error': '' }}">
+                                <label>{{ 'Surname'|trans }} ( * )</label>
+                                <input type="text"
+                                       placeholder=" - {{ 'Required'|trans }} -"
+                                       name="surname"
+                                       value="{{ surname }}"
+                                       maxlength="100"
+                                       id="surname"
+                                       class="form-control"
+                                       required
+                                >
+                                <small class="errorLabelContainer form-text text-muted text-danger">
+                                    <span class="has-error">{{ flash.has('errors.surname') }} </span>
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group {{ flash.has('errors.identity_card')? 'has-error': '' }}">
+                                <label>{{ 'Identity Card'|trans }}</label>
+                                <input type="number"
+                                       placeholder=" - {{ 'Optional'|trans }} -"
+                                       name="identity_card"
+                                       value="{{ identity_card }}"
+                                       maxlength="8"
+                                       id="identity_card"
+                                       class="form-control"
+                                >
+                                <small class="errorLabelContainer form-text text-muted text-danger">
+                                    <span class="has-error">{{ flash.get('errors.identity_card') }} </span>
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group {{ flash.has('errors.phone')? 'has-error': '' }}">
+                                <label>{{ 'Phone'|trans }} </label>
+                                <input type="text"
+                                       placeholder=" - {{ 'Optional'|trans }} -"
+                                       name="phone"
+                                       value="{{ phone }}"
+                                       maxlength="100"
+                                       id="phone"
+                                       class="form-control"
+                                >
+                                <small class="errorLabelContainer form-text text-muted text-danger">
+                                    <span class="has-error">{{ flash.get('errors.phone') }} </span>
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group {{ flash.has('errors.email')? 'has-error': '' }}">
+                                <label>{{ 'Email'|trans }} </label>
+                                <input type="text"
+                                       placeholder=" - {{ 'Optional'|trans }} -"
+                                       name="email"
+                                       value="{{ email }}"
+                                       maxlength="100"
+                                       id="email"
+                                       class="form-control"
+                                >
+                                <small class="errorLabelContainer form-text text-muted text-danger">
+                                    <span class="has-error">{{ flash.get('errors.email') }} </span>
+                                </small>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-12">
+                            <div class="form-group {{ flash.has('errors.address')? 'has-error': '' }}">
+                                <label>{{ 'Address'|trans }} </label>
+                                <textarea type="address"
+                                          placeholder=" - {{ 'Optional'|trans }} -"
+                                          name="address"
+                                          id="address"
+                                          class="form-control"
+                                          row="5"
+                                >{{ address }}</textarea>
+                                <small class="errorLabelContainer form-text text-muted text-danger">
+                                    <span class="has-error">{{ flash.get('errors.address') }} </span>
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group {{ flash.has('errors.birthday')? 'has-error': '' }}">
+                                <label>{{ 'Birthday'|trans }} </label>
+                                <input type="date"
+                                       placeholder=" - {{ 'Optional'|trans }} -"
+                                       name="birthday"
+                                       value="{{ birthday is not empty? birthday|date('Y-m-d') : ''}}"
+                                       id="hire_date"
+                                       class="form-control"
+                                >
+                                <small class="errorLabelContainer form-text text-muted text-danger">
+                                    <span class="has-error">{{flash.get('errors.birthday') }} </span>
+                                </small>
+                            </div>
+                        </div>
+
+
+
+                        <hr>
+                        <button type="button" id="goToJobInfo" class="btn btn-dark btn-block next">
+                            {{'Next'|trans}}
+                            <span class=" ml-1 btn-label">
+                                <i class="fas fa-forward"></i>
+                            </span>
+                        </button>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="pull-left">
+                             <span class="set-size charts-container">
+                                 <div class="pie-wrapper progress-100 style-2">
+                                     <span class="label"> 2 {{ 'of'|trans }} 2</span>
+                                     <div class="pie">
+                                         <div class="left-side half-circle"></div>
+                                         <div class="right-side half-circle"></div>
+                                     </div>
+                                     <div class="shadow"></div>
+                                 </div>
+                             </span>
+                        </div>
+                        <div class="pull-left mt-4">
+                            <h2>{{ 'Job Info'|trans }}</h2>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group {{ flash.has('errors.hire_date')? 'has-error': '' }}">
+                                <label>{{ 'Hire Date'|trans }} </label>
+                                <input type="date"
+                                       placeholder=" - {{ 'Optional'|trans }} -"
+                                       name="hire_date"
+                                       value="{{ hire_date is not empty? hire_date|date('Y-m-d') : ''}}"
+                                       id="hire_date"
+                                       class="form-control"
+                                >
+                                <small class="errorLabelContainer form-text text-muted text-danger">
+                                    <span class="has-error">{{flash.get('errors.hire_date') }} </span>
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group {{ flash.has('errors.termination_date')? 'has-error': '' }}">
+                                <label>{{ 'Termination Date'|trans }} </label>
+                                <input type="date"
+                                       placeholder=" - {{ 'Optional'|trans }} -"
+                                       name="termination_date"
+                                       value="{{ termination_date is not empty? termination_date|date('Y-m-d') :'' }}"
+                                       id="termination_date"
+                                       class="form-control"
+                                >
+                                <small class="errorLabelContainer form-text text-muted text-danger">
+                                    <span class="has-error">{{ flash.get('errors.termination_date') }} </span>
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group {{ flash.has('errors.job_designation_id')? 'has-error':'' }}">
+                                <label> {{ 'Job Designation'|trans }} ( * )</label>
+                                <select name="job_designation_id" class="form-control" required>
+                                    <option selected disabled> - {{ 'Required'|trans }} -</option>
+                                    {% for job_designation in job_designations %}
+                                        <option {{ job_designation_id == job_designation.id ? 'selected':'' }}
+                                                value="{{ job_designation.id }}"
+                                        >
+                                            {{ job_designation.name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <small class="errorLabelContainer form-text text-muted text-danger">
+                                    <span class="has-error">{{ flash.get('errors.job_designation_id') }} </span>
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-group {{ flash.has('errors.employment_contract_id')? 'has-error':'' }}">
+                            <div class="form-check" id="employment_contract_id">
+                                <label> {{ 'Employment Contract'|trans }} ( * )</label><br>
+                                {% for employment_contract in employment_contracts %}
+                                    <label class="form-radio-label">
+                                        <input class="form-radio-input"
+                                               type="radio"
+                                               name="employment_contract_id"
+                                               value="{{ employment_contract.id }}"
+                                                {{ employment_contract_id? 'checked' }}>
+                                        <span class="form-radio-sign">{{ employment_contract.name }}</span>
+                                    </label><br>
+                                {% endfor %}
+
+                                <small class="errorLabelContainer form-text text-muted text-danger">
+                                    <span class="has-error">{{ flash.has('errors.employment_contract_id') }} </span>
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="form-group {{ flash.has('errors.shift_work')? 'has-error':'' }}">
+                            <div class="form-check" id="shift_work">
+                                <label>{{ 'Shift Work'|trans }} ( * )</label><br>
+                                {% for key,shift in shifts_work %}
+                                <label class="form-radio-label">
+                                    <input class="form-radio-input"
+                                           type="radio"
+                                           name="shift_work"
+                                           value='{{ key }}'
+                                            {{ shift_work? 'checked' }}>
+                                    <span class="form-radio-sign">{{ shift|trans }}</span>
+                                </label>
+                                <br>
+                                {% endfor %}
+                                <small class="errorLabelContainer form-text text-muted text-danger">
+                                    <span class="has-error">{{ flash.has('errors.shift_work')}} </span>
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="form-group {{ flash.has('errors.learning_support_team')? 'has-error':'' }}">
+                            <label>{{ 'Learning Support Team'|trans }}</label>
+                            <select
+                                    id="ajax"
+                                    name="learning_support_team[]"
+                                    class="form-control" multiple
+                                    style="width: 100%"
+                                    data-url_to_search_learning_support_team = {{ path(search_learning_support_team_path) }}
+                            >
+
+                                {%  if learning_support_team is defined %}
+                                    {% for team in learning_support_team %}
+                                        <option value="{{ team.id }}" selected> {{ team.name }}</option>
+                                    {% endfor %}
+                                {% endif %}
+
+                            </select>
+                            <small>{{ 'You can select one or more teams'|trans }}</small>
+                            <small class="errorLabelContainer form-text text-muted text-danger">
+                                <span class="has-error">{{ flash.has('errors.learning_support_team') }} </span>
+                            </small>
+                        </div>
+
+
+                        <button type="button" class="btn btn-light col-sm-5 d-none d-sm-block pull-left mt-3 prev">
+                            <span class=" ml-1 btn-label">
+                                <i class="fas fa-backward"></i>
+                            </span>
+                            {{ 'Back'|trans }}
+                        </button>
+
+                        <button type="button" id="goToDocuments" class="btn btn-dark pull-right  mt-3 col-sm-5 next">
+                            {{'Next'|trans}}
+                            <span class=" ml-1 btn-label">
+                                <i class="fas fa-forward"></i>
+                            </span>
+                        </button>
+
+                        <button type="button" class="btn btn-light col-sm-5 d-block d-sm-none pull-left mt-3 prev">
+                            <span class=" ml-1 btn-label">
+                                <i class="fas fa-backward"></i>
+                            </span>
+                            {{ 'Back'|trans }}
+                        </button>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="pull-left">
+                        <span class="set-size charts-container">
+                            <div class="pie-wrapper progress-100 style-2">
+                                <span class="label"> 3 de 3</span>
+                                <div class="pie">
+                                    <div class="left-side half-circle"></div>
+                                    <div class="right-side half-circle"></div>
+                                </div>
+                                <div class="shadow"></div>
+                            </div>
+                        </span>
+                        </div>
+                        <div class="pull-left mt-4">
+                            <h2>{{ 'Documents'|trans }}</h2>
+                        </div>
+                        <div class="clearfix"></div>
+                        <hr>
+
+
+                        {#---- Start list of documents  ------#}
+                        <h3 class="pl-3">Listado de documentos</h3>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="add-row" class="display table table-striped table-hover dataTable"
+                                       role="grid" aria-describedby="add-row_info">
+                                    <thead>
+                                    <tr role="row">
+                                        <th class="d-none d-sm-table-cell">{{ 'Name'|trans }}</th>
+                                        <th class="d-none d-sm-table-cell">{{ 'Number'|trans }}</th>
+                                        <th class="d-none d-sm-table-cell">{{ 'Category'|trans }}</th>
+                                        <th class="d-none d-sm-table-cell">{{ 'Download'|trans }}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for document in documents %}
+                                        <tr role="row"
+                                            class="odd"
+                                            id="css-selector-for-tr-that_contains-items-to-delete-{{ loop.index }}"
+                                        >
+                                            {# ------ Start mobile item view ------#}
+                                            <td class=" d-table-cell d-sm-none cursor-pointer">
+                                                <div class="row pt-2">
+                                                    <div class="col-12">
+                                                        <ul>
+                                                            <li>{{ document.name }}</li>
+                                                            <li>{{ document.number }}</li>
+                                                            <li>{{ document.documentCategory.name }}</li>
+                                                            <li>
+                                                                {% if(document.attachment is not empty ) %}
+                                                                    {% for file in document.attachment %}
+                                                                        <a
+                                                                                href="{{ asset(attachment_file_directory~file.url) }}"
+                                                                                download
+                                                                                target="_blank"
+                                                                        >
+                                                                            <i class="fas fa-download"></i>
+                                                                            {{ file.description }}
+                                                                        </a>
+                                                                    {% endfor %}
+                                                                {% endif %}
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            {# ------ End mobile item view ------#}
+
+                                            {# ------ Start desktop item view ------#}
+                                            <td class="d-none d-sm-table-cell">{{ document.name }}</td>
+                                            <td class="d-none d-sm-table-cell">{{ document.number }}</td>
+                                            <td class="d-none d-sm-table-cell">{{ document.documentCategory.name }}</td>
+                                            <td class="d-none d-sm-table-cell">
+                                                {% if(document.attachment is not empty ) %}
+                                                    {% for file in document.attachment %}
+                                                        <div class="mt-2">
+                                                            <a
+                                                                    href="{{ asset(attachment_file_directory~file.url) }}"
+                                                                    download
+                                                                    target="_blank"
+                                                            >
+                                                                <i class="fas fa-download"></i>
+                                                                {{ file.description }}
+                                                            </a>
+
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </td>
+                                            {# ------ End desktop item view------#}
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td class="text-center" colspan="4">
+                                                <i class="fas fa-exclamation-circle text-info"></i>
+                                                &nbsp;{{ 'No documents were found'|trans }}.
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        {#----End list of media files in article ------#}
+
+                        <button type="button" class="btn btn-light col-sm-5 d-none d-sm-block pull-left mt-3 prev">
+        <span class=" ml-1 btn-label">
+            <i class="fas fa-backward"></i>
+        </span>
+                            {{ 'Back'|trans }}
+                        </button>
+
+                        <button type="submit" id="submitBtn" class="btn btn-success pull-right col-sm-5 mt-3">
+        <span class="btn-label">
+            <i class="fas fa-save"></i>
+        </span>
+                            {{ submit_button_label|trans }}
+                        </button>
+
+                        <button type="button" class="btn btn-light col-sm-5 d-block d-sm-none pull-left mt-3 prev">
+        <span class=" ml-1 btn-label">
+            <i class="fas fa-backward"></i>
+        </span>
+                            {{ 'Back'|trans }}
+                        </button>
+
+                    </fieldset>
+                    {#----------------------------------#}
+
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+{% endblock %}
+
+{% block modals %}
+
+
+
+    {# Start modal to create a new category  #}
+    <div class="modal" id="create-category-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header flex-column">
+                    <div class="icon-box text-primary fa-3x">
+                        <i class="fas fa-sync fa-spin"></i>
+                    </div>
+                    <h4 class="modal-surname w-100">{{ 'Loading'|trans }}...</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    {# End modal to create a new category  #}
+
+    {# Start modal to create a new author  #}
+    <div class="modal" id="create-employment-contract-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header flex-column">
+                    <div class="icon-box text-primary fa-3x">
+                        <i class="fas fa-sync fa-spin"></i>
+                    </div>
+                    <h4 class="modal-surname w-100">{{ 'Loading'|trans }}...</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    {# End modal to create a new author  #}
+
+{% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('assets/js/plugin/jquery.validate/additional-methods.js') }}"></script>
+        <script src="{{ asset('assets/js/blog/_shared/form/click.submit.button.on.enter.key.press.in.keyboard.js') }}"></script>
+        <script src="{{ asset('assets/js/blog/_shared/modal.utils.js') }}"></script>
+        <script src="{{ asset('assets/js/blog/employee/form/wizard.js') }}"></script>
+        <script src="{{ asset('assets/js/blog/employee/form/searches.for.remote.teams.using.the.ajax.option.of.select2.js') }}"></script>
+        <script src="{{ asset('assets/js/blog/employee/form/add.rule.to.validate.input.type.radio.js') }}"></script>
+        <script src="{{ asset('assets/js/plugin/select2/select2.full.min.js') }}"></script>
+        <script src="{{ asset('assets/js/plugin/select2/translation/es.js') }}"></script>
+    {% endblock %}

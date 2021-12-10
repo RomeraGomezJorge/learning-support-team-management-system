@@ -1,0 +1,49 @@
+school_assisted_by_learning_support_team_list:
+  path: /list/{pageLabel}-{page}/{orderLabel}-{order}-{orderBy}/{limitLabel}-{limit}/{filters}
+  defaults: { _controller: App\Backoffice\SchoolAssistedByLearningSupportTeam\Infrastructure\UserInterface\Web\SchoolAssistedByLearningSupportTeamGetController, pageLabel: 'page' , page: 1 , orderLabel: 'order' , order: 'createAt' , orderBy: 'desc' , limitLabel: 'rows_per_page' , limit: 10 , filters: null }
+  methods:  [GET,POST]
+
+school_assisted_by_learning_support_team_add:
+  path: /create
+  defaults: { _controller: App\Backoffice\SchoolAssistedByLearningSupportTeam\Infrastructure\UserInterface\Web\SchoolAssistedByLearningSupportTeamAddController}
+  methods:  [GET]
+
+school_assisted_by_learning_support_team_add_by_modal:
+  path: /create-school-modal
+  defaults: { _controller: App\Backoffice\SchoolAssistedByLearningSupportTeam\Infrastructure\UserInterface\Web\SchoolAssistedByLearningSupportTeamAddModalContentController}
+  methods:  [GET]
+
+school_assisted_by_learning_support_team_create:
+  path: /create
+  defaults: { _controller: App\Backoffice\SchoolAssistedByLearningSupportTeam\Infrastructure\UserInterface\Web\SchoolAssistedByLearningSupportTeamPostController}
+  methods:  [POST]
+
+school_assisted_by_learning_support_team_create_by_ajax:
+  path: /create-by-ajax
+  defaults: { _controller: App\Backoffice\SchoolAssistedByLearningSupportTeam\Infrastructure\UserInterface\Web\SchoolAssistedByLearningSupportTeamPostByAjaxController}
+  methods:  [POST]
+
+school_assisted_by_learning_support_team_edit:
+  path: /edit/{id}
+  defaults: { _controller: App\Backoffice\SchoolAssistedByLearningSupportTeam\Infrastructure\UserInterface\Web\SchoolAssistedByLearningSupportTeamEditController}
+  methods:  [GET]
+
+school_assisted_by_learning_support_team_update:
+  path: /update
+  defaults: { _controller: App\Backoffice\SchoolAssistedByLearningSupportTeam\Infrastructure\UserInterface\Web\SchoolAssistedByLearningSupportTeamPutController}
+  methods:  [POST]
+
+school_assisted_by_learning_support_team_name_available:
+  path: /name-available
+  defaults: { _controller: App\Backoffice\SchoolAssistedByLearningSupportTeam\Infrastructure\UserInterface\Web\SchoolAssistedByLearningSupportTeamNameAvailableController}
+  methods:  [GET]
+
+school_assisted_by_learning_support_team_search:
+  path: /search/
+  defaults: { _controller: App\Backoffice\SchoolAssistedByLearningSupportTeam\Infrastructure\UserInterface\Web\SchoolAssistedByLearningSupportTeamSearchController}
+  methods:  [GET]
+
+school_assisted_by_learning_support_team_delete:
+  path: /delete
+  defaults: { _controller: App\Backoffice\SchoolAssistedByLearningSupportTeam\Infrastructure\UserInterface\Web\SchoolAssistedByLearningSupportTeamDeleteController}
+  methods:  [POST]

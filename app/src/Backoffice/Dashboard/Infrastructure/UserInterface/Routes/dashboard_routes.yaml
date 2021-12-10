@@ -1,0 +1,11 @@
+dashboard:
+  path: /dashboard
+  defaults: { _controller: App\Backoffice\Dashboard\Infrastructure\UserInterface\Web\DashboardController}
+  methods:  [GET]
+
+dashboard_learning_support_team_data:
+  path: /search-learning-support-team
+  defaults: { _controller: App\Backoffice\Dashboard\Infrastructure\UserInterface\Web\DashboardGetLearningSupportTeamController}
+  methods:  [GET]
+
+

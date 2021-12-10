@@ -1,0 +1,45 @@
+{% extends 'backoffice/_shared/formToHandleItem.base.html.twig' %}
+{% block form %}
+    <form action="{{ path(form_action_attribute) }}" method="post" id="form"
+          novalidate="novalidate">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <input type="hidden" name="id" value="{{ id }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token(id) }}">
+                    <div class="form-group {{ flash.has('errors.name')? 'has-error':'' }}">
+                        <label>{{ 'Name'|trans}} ( * )</label>
+                        <input type="text"
+                               placeholder=" - {{  'Required'|trans}} -"
+                               name="name"
+                               value="{{ name }}"
+                               data-name_from_database="{{ name }}"
+                               data-available_name_url="{{ path(name_available_path) }}"
+                               maxlength="100"
+                               class="form-control"
+                               required
+                               autofocus
+                               autocomplete="false"
+                        >
+                        <small class="errorLabelContainer form-text text-muted text-danger">
+                            <span class="has-error">{{ flash.has('errors.name') }} </span>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-action">
+            <button class="btn btn-success col-12 col-sm-4 col-md-2 col-lg-2" type="submit" id="submitBtn">
+                <span class="btn-label">
+                    <i class="fas fa-save"></i>
+                </span>
+                {{ submit_button_label|trans }}
+            </button>
+        </div>
+    </form>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/blog/_shared/form/click.submit.button.on.enter.key.press.in.keyboard.js') }}"></script>
+    <script src="{{ asset('assets/js/blog/documentCategory/form/check.available.name.js') }}"></script>
+{% endblock %}

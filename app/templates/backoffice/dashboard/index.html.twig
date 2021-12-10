@@ -1,0 +1,274 @@
+{% extends 'base.backoffice.html.twig' %}
+
+{% block body %}
+    <div class="page-inner">
+        <div class="row">
+            <div class="col-6 col-sm-4 col-lg-2">
+                <div class="card ">
+                    <a href="{{ path('employee_list') }}" class="dashboard-shortcut">
+                        <div class="card-body p-3 text-center">
+                            <div class="text-right text-success">
+                                &nbsp;
+                            </div>
+                            <div class="h1 "><i class="fas fa-user-tie"></i></div>
+                            <div class=" mb-3 font-weight-bold">
+                                {{ 'Employee'|trans }}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <div class="card ">
+                    <a href="{{ path('employment_contract_list') }}" class="dashboard-shortcut">
+                        <div class="card-body p-3 text-center">
+                            <div class="text-right text-success">
+                                &nbsp;
+                            </div>
+                            <div class="h1 "><i class="fas fa-file-contract"></i></div>
+                            <div class=" mb-3 font-weight-bold">
+                                {{ 'Employment Contract'|trans }}
+
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <div class="card ">
+                    <a href="{{ path('job_designation_list') }}" class="dashboard-shortcut">
+                        <div class="card-body p-3 text-center">
+                            <div class="text-right text-success">
+                                &nbsp;
+                            </div>
+                            <div class="h1 "><i class="fas fa-id-card"></i></div>
+                            <div class=" mb-3 font-weight-bold">
+                                {{ 'Job Designation'|trans }}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <div class="card ">
+                    <a href="{{ path('school_assisted_by_learning_support_team_list') }}" class="dashboard-shortcut">
+                        <div class="card-body p-3 text-center">
+                            <div class="text-right text-success">
+                                &nbsp;
+                            </div>
+                            <div class="h1 "><i class="fas fa-school"></i></div>
+                            <div class=" mb-3 font-weight-bold">
+                                {{ 'Schools Assisted By Learning Support Team'|trans }}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <div class="card ">
+                    <a href="{{ path('office_of_learning_support_in_district_list') }}" class="dashboard-shortcut">
+                        <div class="card-body p-3 text-center">
+                            <div class="text-right text-success">
+                                &nbsp;
+                            </div>
+                            <div class="h1 "><i class="fas fa-map-marked-alt"></i></div>
+                            <div class=" mb-3 font-weight-bold">
+                                {{ 'Office Of Learning Support In District'|trans }}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <div class="card ">
+                    <a href="{{ path('office_of_learning_support_list') }}" class="dashboard-shortcut">
+                        <div class="card-body p-3 text-center">
+                            <div class="text-right text-success">
+                                &nbsp;
+                            </div>
+                            <div class="h1 "><i class="fas fa-store-alt"></i></div>
+                            <div class=" mb-3 font-weight-bold">
+                                {{ 'Office Of Learning Support'|trans }}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <div class="card ">
+                    <a href="{{ path('learning_support_team_list') }}" class="dashboard-shortcut">
+                        <div class="card-body p-3 text-center">
+                            <div class="text-right text-success">
+                                &nbsp;
+                            </div>
+                            <div class="h1 "><i class="fas fa-users"></i></div>
+                            <div class=" mb-3 font-weight-bold">
+                                {{ 'Learning support team'|trans }}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <div class="card ">
+                    <a href="{{ path('learning_support_team_category_list') }}" class="dashboard-shortcut">
+                        <div class="card-body p-3 text-center">
+                            <div class="text-right text-success">
+                                &nbsp;
+                            </div>
+                            <div class="h1 "><i class="fas fa-sitemap"></i></div>
+                            <div class=" mb-3 font-weight-bold">
+                                {{ 'Learning support team category'|trans }}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2">
+                <div class="card">
+                    <a href="{{ path('user_list') }}" class="dashboard-shortcut">
+                        <div class="card-body p-3 text-center">
+                            <div class="text-right text-danger">
+                                &nbsp;
+                            </div>
+                            <div class="h1 "><i class="fas fa-users-cog"></i></div>
+                            <div class="mb-3 font-weight-bold">
+                                {{ 'User Management'|trans }}
+                                <div class="d-block d-sm-none">&nbsp;</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-12">
+                <ul class="nav nav-line nav-color-danger">
+                    {% for category in learning_support_team_categories %}
+                        <li class="nav-item">
+                            <a class="nav-link {{ loop.first? 'active':'' }}"
+                               data-toggle="tab"
+                               href="#{{ category.id }}"
+                               role="tab"
+                               aria-controls="nav-home"
+                               aria-selected="true"
+                            >
+                                {{ category.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="tab-content" id="nav-tabContent">
+                    {% for category in learning_support_team_categories %}
+                        <div class="tab-pane fade {{ loop.first? 'active show':'' }} " id="{{ category.id }}"
+                             role="tabpanel"
+                        >
+
+                            {% for office in office_of_learning_support_team %}
+
+                                {% for team in office.learningSupportTeams %}
+
+                                    {% if category.id == team.learningSupportTeamCategory.id %}
+
+                                        <div class="accordion">
+                                            <div class="card">
+                                                <div class="card-header collapsed search-learning-support-team"
+                                                     id="heading-{{ team.id }}"
+                                                     data-toggle="collapse"
+                                                     data-target="#collapse-{{ team.id }}"
+                                                     aria-expanded="false"
+                                                     aria-controls="collapseTwo"
+                                                     data-url_search_learning_support_team="{{ path('dashboard_learning_support_team_data',{'id': team.id}) }}"
+                                                >
+                                                    <div class="btn btn-dark text-white btn-block">
+                                                        <i class="fas fa-users"></i> {{ team.name }}
+                                                        ( {{ office.officeOfLearningSupportInDistrict.name }} )
+                                                    </div>
+                                                </div>
+                                                <div id="collapse-{{ team.id }}" class="collapse"
+                                                     aria-labelledby="heading{{ team.id }}" data-parent="#accordion">
+                                                    <div class="card-body learning-support-team"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    {% endif %}
+
+                                {% endfor %}
+
+                            {% endfor %}
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            $('.search-learning-support-team').on('click', function () {
+
+                const container = $(this).next().find('.card-body');
+
+                const url_search_learning_support_team = $(this).data('url_search_learning_support_team');
+
+                if ($(container).html() !== "") {
+                    return;
+                }
+
+                $(container).html('' +
+                    '<div class="d-flex justify-content-center">\n' +
+                    '   <div class="fa-3x">\n' +
+                    '     <i class="fas fa-sync fa-spin"></i>\n' +
+                    '   </div>\n' +
+                    '</div>\n' +
+                    '<div class="text-center">\n' +
+                    Translator.trans('Loading') + '...\n' +
+                    '</div>');
+
+
+                $.ajax({
+                    url: url_search_learning_support_team,
+                    type: "GET",
+                    cache: false,
+                    success: function (response) {
+                        $(container).html(response);
+
+                    },
+                    error: function () {
+                        $(container).html('' +
+                            '<div class="d-flex justify-content-center">\n' +
+                            '   <div class="text-danger fa-5x">\n' +
+                            '     <i class="fas fa-exclamation-circle"></i>\n' +
+                            '    </div>\n' +
+                            '</div>\n' +
+                            '<div class="text-center">\n' +
+                            '   <h3>'+Translator.trans('Failed to get learning support team data')+'</h3>\n' +
+                                Translator.trans('Please try again')+'.\n' +
+                                Translator.trans('If the error persists, please contact support')+'.\n' +
+                            '</div>');
+                    },
+                    complete: function () {
+
+                    }
+                });
+            })
+        })
+
+
+    </script>
+    <script src="{{ asset('assets/js/plugin/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugin/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $.extend($.fn.dataTable.defaults, {
+                "language": {"url": "{{ asset('assets/js/plugin/datatables/es_es.json') }}"}
+            });
+        });
+
+    </script>
+{% endblock %}

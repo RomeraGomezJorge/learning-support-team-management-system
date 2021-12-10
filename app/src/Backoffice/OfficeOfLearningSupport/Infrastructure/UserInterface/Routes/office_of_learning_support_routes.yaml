@@ -1,0 +1,29 @@
+office_of_learning_support_list:
+  path: /list/{pageLabel}-{page}/{orderLabel}-{order}-{orderBy}/{limitLabel}-{limit}/{filters}
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupport\Infrastructure\UserInterface\Web\OfficeOfLearningSupportGetController, pageLabel: 'page' , page: 1 , orderLabel: 'order' , order: 'createAt' , orderBy: 'desc' , limitLabel: 'rows_per_page' , limit: 10 , filters: null }
+  methods:  [GET,POST]
+
+office_of_learning_support_add:
+  path: /create
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupport\Infrastructure\UserInterface\Web\OfficeOfLearningSupportAddController}
+  methods:  [GET]
+
+office_of_learning_support_create:
+  path: /create
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupport\Infrastructure\UserInterface\Web\OfficeOfLearningSupportPostController}
+  methods:  [POST]
+
+office_of_learning_support_edit:
+  path: /edit/{id}
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupport\Infrastructure\UserInterface\Web\OfficeOfLearningSupportEditController}
+  methods:  [GET]
+
+office_of_learning_support_update:
+  path: /update
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupport\Infrastructure\UserInterface\Web\OfficeOfLearningSupportPutController}
+  methods:  [POST]
+
+office_of_learning_support_delete:
+  path: /delete
+  defaults: { _controller: App\Backoffice\OfficeOfLearningSupport\Infrastructure\UserInterface\Web\OfficeOfLearningSupportDeleteController}
+  methods:  [POST]

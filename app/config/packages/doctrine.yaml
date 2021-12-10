@@ -1,0 +1,103 @@
+doctrine:
+  dbal:
+    url: '%env(resolve:DATABASE_URL)%'
+
+    # IMPORTANT: You MUST configure your server version,
+    # either here or in the DATABASE_URL env var (see .env file)
+    #server_version: '5.7'
+  orm:
+    auto_generate_proxy_classes: true
+    naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+    auto_mapping: false
+    mappings:
+      App\Backoffice\User:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/User/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\User\Domain'
+        alias: App
+
+      App\Backoffice\Role:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/Role/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\Role\Domain'
+        alias: App
+
+      App\Backoffice\EmploymentContract:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/EmploymentContract/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\EmploymentContract\Domain'
+        alias: App
+
+      App\Backoffice\JobDesignation:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/JobDesignation/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\JobDesignation\Domain'
+        alias: App
+
+      App\Backoffice\SchoolAssistedByLearningSupportTeam:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/SchoolAssistedByLearningSupportTeam/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\SchoolAssistedByLearningSupportTeam\Domain'
+        alias: App
+
+      App\Backoffice\OfficeOfLearningSupportInDistrict:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/OfficeOfLearningSupportInDistrict/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\OfficeOfLearningSupportInDistrict\Domain'
+        alias: App
+
+      App\Backoffice\OfficeOfLearningSupport:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/OfficeOfLearningSupport/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\OfficeOfLearningSupport\Domain'
+        alias: App
+
+      App\Backoffice\LearningSupportTeam:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/LearningSupportTeam/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\LearningSupportTeam\Domain'
+        alias: App
+
+      App\Backoffice\LearningSupportTeamCategory:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/LearningSupportTeamCategory/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\LearningSupportTeamCategory\Domain'
+        alias: App
+
+      App\Backoffice\Employee:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/Employee/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\Employee\Domain'
+        alias: App
+
+      App\Backoffice\DocumentCategory:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/DocumentCategory/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\DocumentCategory\Domain'
+        alias: App
+
+      App\Backoffice\Document:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/Document/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\Document\Domain'
+        alias: App
+
+      App\Backoffice\Authentication\ResetPasswordRequest:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Backoffice/Authentication/ResetPasswordRequest/Infrastructure/Persistence/Doctrine'
+        prefix: 'App\Backoffice\Authentication\ResetPasswordRequest\Domain'
+        alias: App
+

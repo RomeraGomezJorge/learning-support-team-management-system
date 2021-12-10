@@ -1,0 +1,70 @@
+user_directory:
+  resource: '../src/Backoffice/User/Infrastructure/UserInterface/Routes/user_routes.yaml'
+  prefix: /backoffice/user
+
+employment_contract_directory:
+  resource: '../src/Backoffice/EmploymentContract/Infrastructure/UserInterface/Routes/employment_contract_routes.yaml'
+  prefix: /backoffice/employment-contract
+
+job_designation_directory:
+  resource: '../src/Backoffice/JobDesignation/Infrastructure/UserInterface/Routes/job_designation_routes.yaml'
+  prefix: /backoffice/job-designation
+
+school_assisted_by_lLearning_support_team_directory:
+  resource: '../src/Backoffice/SchoolAssistedByLearningSupportTeam/Infrastructure/UserInterface/Routes/school_assisted_by_learning_support_team_routes.yaml'
+  prefix: /backoffice/school-assisted-by-learning-support-team
+
+office_of_learning_support_in_district_directory:
+  resource: '../src/Backoffice/OfficeOfLearningSupportInDistrict/Infrastructure/UserInterface/Routes/office_of_learning_support_in_district_routes.yaml'
+  prefix: /backoffice/office-of-learning-support-in-district
+
+office_of_learning_support_directory:
+  resource: '../src/Backoffice/OfficeOfLearningSupport/Infrastructure/UserInterface/Routes/office_of_learning_support_routes.yaml'
+  prefix: /backoffice/office-of-learning-support
+
+employee_directory:
+  resource: '../src/Backoffice/Employee/Infrastructure/UserInterface/Routes/employee_routes.yaml'
+  prefix: /backoffice/employee
+
+learning_support_team_directory:
+  resource: '../src/Backoffice/LearningSupportTeam/Infrastructure/UserInterface/Routes/learning_support_team_routes.yaml'
+  prefix: /backoffice/learning-support-team
+
+learning_support_team_category_directory:
+  resource: '../src/Backoffice/LearningSupportTeamCategory/Infrastructure/UserInterface/Routes/learning_support_team_category_routes.yaml'
+  prefix: /backoffice/learning-support-team-category
+
+document_category_directory:
+  resource: '../src/Backoffice/DocumentCategory/Infrastructure/UserInterface/Routes/document_category_routes.yaml'
+  prefix: /backoffice/document-category
+
+document_directory:
+  resource: '../src/Backoffice/Document/Infrastructure/UserInterface/Routes/document_routes.yaml'
+  prefix: /backoffice/document
+
+reset_password_request_directory:
+  resource: '../src/Backoffice/Authentication/ResetPasswordRequest/Infrastructure/UserInterface/Routes/reset_password_request_routes.yaml'
+
+delete_confirmation_modal:
+  path: /backoffice/delete-confirm-modal
+  defaults: { _controller: App\Shared\Infrastructure\UserInterface\Web\DeleteConfirmationModalController}
+  methods:  [GET]
+
+login:
+  path: /
+  defaults: { _controller: App\Backoffice\Authentication\Login\SecurityController:login}
+  methods:  [GET,POST]
+
+logout:
+  path: logout
+  defaults: { _controller: App\Backoffice\Authentication\Login\SecurityController:logout}
+
+dashboard_directory:
+  resource: '../src/Backoffice/Dashboard/Infrastructure/UserInterface/Routes/dashboard_routes.yaml'
+  prefix: /backoffice/dashboard
+  methods:  [GET]
+
+error_page:
+  path: /backoffice/error
+  defaults: { _controller: App\Backoffice\ErrorPage\Infrastructure\UserInterface\Web\ErrorPageGetController}
+  methods:  [GET]

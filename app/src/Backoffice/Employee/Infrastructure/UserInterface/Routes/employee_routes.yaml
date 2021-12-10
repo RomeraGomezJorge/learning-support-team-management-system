@@ -1,0 +1,49 @@
+employee_list:
+  path: /list/{pageLabel}-{page}/{orderLabel}-{order}-{orderBy}/{limitLabel}-{limit}/{filters}
+  defaults: { _controller: App\Backoffice\Employee\Infrastructure\UserInterface\Web\EmployeeGetController, pageLabel: 'page' , page: 1 , orderLabel: 'order' , order: 'createAt' , orderBy: 'desc' , limitLabel: 'rows_per_page' , limit: 10 , filters: null }
+  methods:  [GET,POST]
+
+employee_add:
+  path: /create
+  defaults: { _controller: App\Backoffice\Employee\Infrastructure\UserInterface\Web\EmployeeAddController}
+  methods:  [GET]
+
+employee_add_by_modal:
+  path: /create-employee-modal
+  defaults: { _controller: App\Backoffice\Employee\Infrastructure\UserInterface\Web\EmployeeAddByModalController}
+  methods:  [GET]
+
+employee_create:
+  path: /create
+  defaults: { _controller: App\Backoffice\Employee\Infrastructure\UserInterface\Web\EmployeePostController}
+  methods:  [POST]
+
+employee_create_by_ajax:
+  path: /create-by-ajax
+  defaults: { _controller: App\Backoffice\Employee\Infrastructure\UserInterface\Web\EmployeePostByAjaxController}
+  methods:  [POST]
+
+employee_edit:
+  path: /edit/{id}
+  defaults: { _controller: App\Backoffice\Employee\Infrastructure\UserInterface\Web\EmployeeEditController}
+  methods:  [GET]
+
+employee_update:
+  path: /update
+  defaults: { _controller: App\Backoffice\Employee\Infrastructure\UserInterface\Web\EmployeePutController}
+  methods:  [POST]
+
+employee_name_available:
+  path: /name-available
+  defaults: { _controller: App\Backoffice\Employee\Infrastructure\UserInterface\Web\EmployeeNameAvailableController}
+  methods:  [GET]
+
+employee_search:
+  path: /search
+  defaults: { _controller: App\Backoffice\Employee\Infrastructure\UserInterface\Web\EmployeeSearchController}
+  methods:  [GET]
+
+employee_delete:
+  path: /delete
+  defaults: { _controller: App\Backoffice\Employee\Infrastructure\UserInterface\Web\EmployeeDeleteController}
+  methods:  [POST]
