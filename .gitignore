@@ -3,4 +3,6 @@
 /app/vendor/
 /app/var/
 /app/tests/
+/app/public/document/file/
+/app/public/employee/attachment/
 
