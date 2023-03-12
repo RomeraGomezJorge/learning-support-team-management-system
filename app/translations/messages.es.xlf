@@ -472,7 +472,7 @@
       </trans-unit>
       <trans-unit id="fvxWWaw" resname='The selected entry has been deleted.'>
         <source>The selected entry has been deleted.</source>
-        <target> Este registro ha sido eliminado.</target>
+        <target>Este registro ha sido eliminado.</target>
       </trans-unit>
       <trans-unit id="fvxWWaz" resname='equal to'>
         <source>equal to</source>
@@ -642,7 +642,7 @@
         <target>La escuela con el nombre "%name%".</target>
       </trans-unit>
       <trans-unit id="zxxWxbp" resname='School Assisted By Learning Support Team'>
-        <source> School Assisted By Learning Support Teamt</source>
+        <source>School Assisted By Learning Support Teamt</source>
         <target>Escuela de Cobertura</target>
       </trans-unit>
       <trans-unit id="fvxWWbk" resname='Please enter 2 o more characters'>
@@ -687,7 +687,7 @@
       </trans-unit>
       <trans-unit id="zddx33" resname='Job Info'>
         <source>Job Info</source>
-        <target> Información del trabajo</target>
+        <target>Información del trabajo</target>
       </trans-unit>
       <trans-unit id="zddx31" resname='Personal Data'>
         <source>Personal Data</source>
@@ -770,7 +770,7 @@
         <target>Contraseña</target>
       </trans-unit>
       <trans-unit id="x1d358" resname='Your password must contain'>
-        <source> our password must contain</source>
+        <source>our password must contain</source>
         <target>Tu contraseña debe contener</target>
       </trans-unit>
       <trans-unit id="x2d358" resname='At least 8 characters'>
@@ -782,7 +782,7 @@
         <target>Al menos un número</target>
       </trans-unit>
       <trans-unit id="x2d360" resname='Capital and lowercase letters'>
-        <source> Capital and lowercase letters</source>
+        <source>Capital and lowercase letters</source>
         <target>Letras mayúsculas y minúsculas</target>
       </trans-unit>
       <trans-unit id="x2d361" resname='Is the account enabled?'>
@@ -927,11 +927,11 @@
       </trans-unit>
       <trans-unit id="x2d396" resname="Failed to create new item, if the problem continues, please contact support.">
         <source>Failed to create new item, if the problem continues, please contact support.</source>
-        <target> No fue posible crear un nuevo registro, si el problema persiste póngase en contacto con el administrador del sistema.</target>
+        <target>No fue posible crear un nuevo registro, si el problema persiste póngase en contacto con el administrador del sistema.</target>
       </trans-unit>
       <trans-unit id="x2d397" resname="Search for an employee">
         <source>Search for an employee</source>
-        <target> Buscar empleados</target>
+        <target>Buscar empleados</target>
       </trans-unit>
       <trans-unit id="x2d398" resname="Search for schools">
         <source>Search for schools</source>
@@ -1067,27 +1067,27 @@
         <target>Información del Documento</target>
       </trans-unit>
       <trans-unit id="x2d131" resname='Employees in the document'>
-        <source> Employees in the document</source>
+        <source>Employees in the document</source>
         <target>Empleados en el documento</target>
       </trans-unit>
       <trans-unit id="x2d132" resname='Upload Attachments'>
-        <source> Upload Attachments</source>
+        <source>Upload Attachments</source>
         <target>Cargar archivos adjuntos</target>
       </trans-unit>
       <trans-unit id="x2d133" resname='No documents were found'>
-        <source> No documents were found</source>
+        <source>No documents were found</source>
         <target>No se encontraron documentos</target>
       </trans-unit>
       <trans-unit id="x2d134" resname='Employee has successfully created!'>
-        <source> Employee has successfully created!</source>
+        <source>Employee has successfully created!</source>
         <target>¡El empleado ha sido creado!</target>
       </trans-unit>
       <trans-unit id="x2d135" resname='Employee has successfully created!'>
-        <source> Employee has successfully created!</source>
+        <source>Employee has successfully created!</source>
         <target>¡El empleado ha sido creado!</target>
       </trans-unit>
       <trans-unit id="x2d136" resname='Add new employee'>
-        <source> Add new employee</source>
+        <source>Add new employee</source>
         <target>Crear un nuevo empleado</target>
       </trans-unit>
     </body>

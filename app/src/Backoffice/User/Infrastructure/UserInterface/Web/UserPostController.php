@@ -21,7 +21,7 @@
 		public function __invoke(
 			Request $request,
 			UserCreator $creator,
-      ValidatorInterface $validator
+            ValidatorInterface $validator
 		): Response {
 			$isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 			

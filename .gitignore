@@ -1,8 +1,11 @@
 .idea
+.env
 /app/.env
 /app/vendor/
-/app/var/
-/app/tests/
+/app/var/cache
+/app/var/log
 /app/public/document/file/
 /app/public/employee/attachment/
+/docker/database/data
+
 
