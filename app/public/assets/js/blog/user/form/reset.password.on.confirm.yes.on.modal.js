@@ -40,10 +40,6 @@ function submitsFormViaAjaxWhenIsValid(resetPasswordForm) {
 
     replaceSubmitButtonWithLoadingSpinner('#reset-password-submit');
 
-    const id = $(resetPasswordModalSelector + ' input[name="id"]').val();
-
-    const password = $(resetPasswordModalSelector + ' input[name="password"]').val();
-
     $.ajax({
         url: resetPasswordForm.attr('action'),
         type: "POST",
@@ -61,7 +57,7 @@ function submitsFormViaAjaxWhenIsValid(resetPasswordForm) {
 
                 replaceModalContentByFailMessage(resetPasswordModalSelector, errorDetails);
 
-                return false;
+                return;
             }
 
             replaceModalContentBySuccessMessage(resetPasswordModalSelector, successMessage);

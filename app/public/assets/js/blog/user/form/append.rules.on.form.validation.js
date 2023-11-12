@@ -22,7 +22,7 @@ function appendRuleAtLeastOneNumber() {
         return /[0-9]/.test(value);
     }, Translator.trans('At least one number.'));
 
-    $('#resetPassword').rules("add", {
+    $('input[name="password"]').rules("add", {
         atLeastOneNumber: true
     });
 }

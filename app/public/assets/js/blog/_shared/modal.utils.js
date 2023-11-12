@@ -46,7 +46,7 @@ function replaceModalContentBySuccessMessage(modalSelector, successMessage) {
 }
 
 /*Replace innerHTML of a class '.modal-content' in a modal to notify user that something was wrong */
-function replaceModalContentByFailMessage(modalSelector, errorDetails, millisecondsToShowErrorMessage = 5000) {
+function replaceModalContentByFailMessage(modalSelector, errorDetails, millisecondsToShowErrorMessage = 10000) {
     $(modalSelector).html('' +
         '   <div class="modal-dialog modal-confirm">' +
         '           <div class="modal-content">' +

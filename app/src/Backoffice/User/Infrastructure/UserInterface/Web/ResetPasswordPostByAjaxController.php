@@ -12,9 +12,17 @@
 	use Symfony\Component\Validator\Constraints as Assert;
 	use Symfony\Component\Validator\ConstraintViolationListInterface;
 	use Symfony\Component\Validator\Validation;
-	
-	class ResetPasswordPostByAjaxController extends WebController
+    use Symfony\Component\Validator\Validator\ValidatorInterface;
+
+    class ResetPasswordPostByAjaxController extends WebController
 	{
+
+        private ValidatorInterface $validator;
+
+        public function __construct(ValidatorInterface $validator) {
+            $this->validator = $validator;
+        }
+
 		public function __invoke(Request $request, UserPasswordReset $userPasswordReset): JsonResponse
 		{
 			$isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
