@@ -178,10 +178,9 @@
                                 </button>
 
                                 <div class="alert alert-info mt-3">
-                                    <h4><i class="fas fa-info-circle text-info"></i> Selección Múltiple</h4>
-                                    <p>Si deseaa seleccionar el grupo de empleados que se encuentran dentro de una
-                                        condicion laboral haga click en el boton que corresponda.</p>
-                                    <p>Seleccione el grupo de empleados que desea añadir segun su condicion laboral.</p>
+                                    <h4><i class="fas fa-info-circle text-info"></i> {{ 'Multiple Selection'|trans }}</h4>
+                                    <p>{{ 'If you want to select the group of employees within a job condition, click on the corresponding button.'|trans }}</p>
+                                    <p>{{  'Select the group of employees you want to add based on their job condition.'|trans }}</p>
                                     {% for employment_contract in employment_contracts %}
                                         <button type="button"
                                                 class="btn btn-focus ml-2  mb-3 valid select-employee-by-employment-contract"

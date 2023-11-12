@@ -6,7 +6,8 @@
                 <div class="wrapper not-found text-center">
                     <h1 class="animated fadeIn">
                         <i class="far fa-frown"></i></br>
-                        Se ha producido un error.</h1>
+                        {{ 'An unexpected error has occurred'|trans }}
+                    </h1>
                     <div class="desc animated fadeIn">
                         {{ flash.get('message') }}
                     </div>
@@ -14,7 +15,7 @@
                     <span class="btn-label mr-2">
                         <i class="fas fa-chevron-circle-left"></i>
                     </span>
-                        Volver a la página anterior
+                        {{ 'Return to the previous page'|trans }}
                     </a>
                 </div>
             </div>

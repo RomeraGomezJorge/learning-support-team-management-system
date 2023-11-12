@@ -510,9 +510,6 @@
         <source>Close</source>
         <target>Cerrar</target>
       </trans-unit>
-
-
-
       <trans-unit id="fvxWWap" resname='The employment contract with name "%name%".'>
         <source>The employment contract with name "%name%".</source>
         <target>La condición laboral con el nombre "%name%".</target>
@@ -1089,6 +1086,130 @@
       <trans-unit id="x2d136" resname='Add new employee'>
         <source>Add new employee</source>
         <target>Crear un nuevo empleado</target>
+      </trans-unit>
+      <trans-unit id="x2d137" resname='Log in with your account'>
+        <source>Log in with your account</source>
+        <target>Inicia sesión en con tu cuenta</target>
+      </trans-unit>
+      <trans-unit id="x2d138" resname='The entered username or password is not valid.'>
+        <source>The entered username or password is not valid.</source>
+        <target>El usuario o la contraseña ingresadas no son validadas.</target>
+      </trans-unit>
+      <trans-unit id="x2d139" resname='Forgot your password?'>
+        <source>Forgot your password?</source>
+        <target>¿Olvidaste tucontraseña?</target>
+      </trans-unit>
+      <trans-unit id="x2d140" resname='Remember'>
+        <source>Remember</source>
+        <target>Recordar</target>
+      </trans-unit>
+      <trans-unit id="x2d141" resname='Log in'>
+        <source>Log in</source>
+        <target>Entrar</target>
+      </trans-unit>
+      <trans-unit id="x2d142" resname='Invalid credentials.'>
+        <source>Invalid credentials.</source>
+        <target>Credenciales no válidas.</target>
+      </trans-unit>
+      <trans-unit id="x2d142" resname='Invalid credentials.'>
+        <source>Invalid credentials.</source>
+        <target>Credenciales no válidas.</target>
+      </trans-unit>
+      <trans-unit id="x2d143" resname='Enter your email address, and we will send you a link to reset your password.'>
+        <source>Enter your email address, and we will send you a link to reset your password.</source>
+        <target>Ingrese su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña.</target>
+      </trans-unit>
+      <trans-unit id="x2d144" resname='Recently, someone requested to change the password for your account.'>
+        <source>Recently, someone requested to change the password for your account.</source>
+        <target>Recientemente, alguien solicitó cambiar la contraseña de tu cuenta</target>
+      </trans-unit>
+      <trans-unit id="x2d145" resname='If you requested the change, you can create a new password here.'>
+        <source>If you requested the change, you can create a new password here.</source>
+        <target>Si solicitaste el cambio, puedes crear una nueva contraseña aquí</target>
+      </trans-unit>
+      <trans-unit id="x2d146" resname='Reset Password'>
+        <source>Reset Password</source>
+        <target>Restablecer contraseña</target>
+      </trans-unit>
+      <trans-unit id="x2d148" resname="If you don't want to change your password or did not request to do so, please ignore and delete the message.">
+        <source>If you don't want to change your password or did not request to do so, please ignore and delete the message.</source>
+        <target>Si no quieres cambiar tu contraseña o no solicitaste hacerlo, ignora y elimina el mensaje.</target>
+      </trans-unit>
+      <trans-unit id="x2d149" resname="Reset your password">
+        <source>Reset your password</source>
+        <target>Restablezca su contraseña</target>
+      </trans-unit>
+      <trans-unit id="x2d150" resname="New password">
+        <source>New password</source>
+        <target>Nueva contraseña</target>
+      </trans-unit>
+      <trans-unit id="x2d151" resname="Your password must contain">
+        <source>Your password must contain</source>
+        <target>Tu contraseña debe contener</target>
+      </trans-unit>
+      <trans-unit id="x2d152" resname="8 or more characters">
+        <source>8 or more characters</source>
+        <target>8 o más debe contener</target>
+      </trans-unit>
+      <trans-unit id="x2d152" resname="At least one number">
+        <source>At least one number</source>
+        <target>Al menos un número</target>
+      </trans-unit>
+      <trans-unit id="x2d152" resname="Uppercase and lowercase letters">
+        <source>Uppercase and lowercase letters</source>
+        <target>Letras mayúsculas y minúsculas</target>
+      </trans-unit>
+      <trans-unit id="x2d151" resname="An email has been sent">
+        <source>An email has been sent</source>
+        <target>Se ha enviado un correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="x2d152" resname="Which contains a link you can click to reset your password.">
+        <source>Which contains a link you can click to reset your password.</source>
+        <target>El cual contiene un enlace que puede hacer clic para restablecer la contraseña.</target>
+      </trans-unit>
+      <trans-unit id="x2d153" resname="This link will expire in">
+        <source>This link will expire in</source>
+        <target>Este enlace expirará en</target>
+      </trans-unit>
+      <trans-unit id="x2d154" resname="If you don't receive an email, please check your spam folder or">
+        <source>If you don't receive an email, please check your spam folder or</source>
+        <target>Si no recibe un correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="x2d155" resname="try again">
+        <source>try again</source>
+        <target>inténtelo de nuevo</target>
+      </trans-unit>
+      <trans-unit id="x2d156" resname="Employee information">
+        <source>Employee information</source>
+        <target>Datos de los empleados</target>
+      </trans-unit>
+      <trans-unit id="x2d157" resname="Multiple Selection">
+        <source>Multiple Selection</source>
+        <target>Selección Múltiple</target>
+      </trans-unit>
+      <trans-unit id="x2d158" resname="If you want to select the group of employees within a job condition, click on the corresponding button.">
+        <source>If you want to select the group of employees within a job condition, click on the corresponding button.</source>
+        <target>Si desea seleccionar el grupo de empleados que se encuentran dentro de una condición laboral, haga clic en el botón que corresponda.</target>
+      </trans-unit>
+      <trans-unit id="x2d159" resname="Select the group of employees you want to add based on their job condition.">
+        <source>Select the group of employees you want to add based on their job condition.</source>
+        <target>Seleccione el grupo de empleados que desea añadir según su condición laboral.</target>
+      </trans-unit>
+      <trans-unit id="x2d160" resname="List of documents">
+        <source>List of documents</source>
+        <target>Listado de documentos</target>
+      </trans-unit>
+      <trans-unit id="x2d161" resname="An unexpected error has occurred">
+        <source>An unexpected error has occurred</source>
+        <target>Se ha producido un error.</target>
+      </trans-unit>
+      <trans-unit id="x2d162" resname="Return to the previous page">
+        <source>Return to the previous page</source>
+        <target>Volver a la página anterior</target>
+      </trans-unit>
+      <trans-unit id="x2d163" resname="An error has occurred!">
+        <source>An error has occurred!</source>
+        <target>¡Ha ocurrido un error!</target>
       </trans-unit>
     </body>
   </file>

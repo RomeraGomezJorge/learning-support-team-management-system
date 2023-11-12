@@ -54,7 +54,7 @@ function replaceModalContentByFailMessage(modalSelector, errorDetails, milliseco
         '                 <div class="icon-box text-danger">' +
         '                   <i class="fas fa-times" ></i>' +
         '                 </div>' +
-        '                 <h4 class="modal-title w-100">¡Ha ocurrido un error!</h4>' +
+        '                 <h4 class="modal-title w-100">'+ Translator.trans('An error has occurred!')+'</h4>' +
         '                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>' +
         '              </div>' +
         '              <div class="modal-body modal-message-to-delete-confirmation">' + errorDetails + '</div>' +
@@ -63,7 +63,7 @@ function replaceModalContentByFailMessage(modalSelector, errorDetails, milliseco
         '                     <span class="btn-label"> ' +
         '                          <i class="fas fa-times-circle"></i> ' +
         '                      </span> ' +
-        '                     Cerrar' +
+        '                     ' +Translator.trans('Close') +
         '                  </button>' +
         '           </div>' +
         '       </div>' +

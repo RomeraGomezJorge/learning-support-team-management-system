@@ -10,7 +10,7 @@ $(document).ready(function () {
 function appendRuleAtLeastOneUppercase() {
     $.validator.addMethod("atLeastOneUppercase", function (value) {
         return /[A-Z]/.test(value);
-    }, "Al menos un caracter debe estar en mayúscula.");
+    }, Translator.trans('Uppercase and lowercase letters'));
 
     $('input[name="password"]').rules("add", {
         atLeastOneUppercase: true
@@ -20,7 +20,7 @@ function appendRuleAtLeastOneUppercase() {
 function appendRuleAtLeastOneNumber() {
     $.validator.addMethod("atLeastOneNumber", function (value) {
         return /[0-9]/.test(value);
-    }, "At least one number.");
+    }, Translator.trans('At least one number.'));
 
     $('#resetPassword').rules("add", {
         atLeastOneNumber: true
