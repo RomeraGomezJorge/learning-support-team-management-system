@@ -11,7 +11,8 @@
 	
 	final class LearningSupportTeamCategoryFinder
 	{
-		const NOT_FOUND = null;
+
+        const NOT_FOUND = null;
 		private LearningSupportTeamCategoryRepository $repository;
 		
 		public function __construct(LearningSupportTeamCategoryRepository $repository)

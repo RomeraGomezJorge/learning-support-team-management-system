@@ -1,25 +1,25 @@
 <?php
 	
 	namespace App\Shared\Infrastructure\UserInterface\Web;
-	
-	use Symfony\Component\HttpFoundation\Request;
-	use Symfony\Component\Validator\Constraints as Assert;
-	use Symfony\Component\Validator\ConstraintViolationListInterface;
-	use Symfony\Component\Validator\Validation;
-	
-	final class ValidationRulesToCreateFile
-	{
-		public static function verify(Request $request): ConstraintViolationListInterface
-		{
-			$constraint = new Assert\Collection([
-				'attachment' => new Assert\Optional([
-					new Assert\Type('array'),
-					new Assert\All([
-						new Assert\Collection([
-							'file' => [
-								new Assert\File([
-									'maxSize' => '1024000k',
-									'mimeTypes' => [
+
+    use App\Shared\Infrastructure\Symfony\WebController;
+    use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\Validator\Constraints as Assert;
+    use Symfony\Component\Validator\ConstraintViolationListInterface;
+
+    final class ValidationRulesToCreateFile extends WebController
+    {
+        public function verify(Request $request): ConstraintViolationListInterface
+        {
+            $constraint = new Assert\Collection([
+                'attachment' => new Assert\Optional([
+                    new Assert\Type('array'),
+                    new Assert\All([
+                        new Assert\Collection([
+                            'file' => [
+                                new Assert\File([
+                                    'maxSize'   => '1024000k',
+                                    'mimeTypes' => [
 										'image/png',
 										'image/jpeg',
 										'audio/mp3',
@@ -32,6 +32,7 @@
 										'application/vnd.openxmlformats-officedocument.presentationml.presentation',
 										'text/plain'
 									],
+                                    // TODO:trans
 									'mimeTypesMessage' => 'El archivo seleccionado no esta permitido',
 								])
 							]

@@ -10,11 +10,12 @@
   final class EmployeeAddByModalController extends WebController {
     
     public function __invoke(
-      FormToCreateEmployeeByAjax $formToCreateEmployeeByAjax
-    ): JsonResponse {
-      $html = $formToCreateEmployeeByAjax->__invoke();
-      
-      return new JsonResponse(['status' => 'success', 'html' => $html]);
+        FormToCreateEmployeeByAjax $formToCreateEmployeeByAjax
+    ): JsonResponse
+    {
+        $html = $formToCreateEmployeeByAjax->__invoke();
+
+        return new JsonResponse(['status' => 'success', 'html' => $html]);
     }
     
   }

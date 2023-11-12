@@ -103,19 +103,20 @@
 		}
 		
 		private function changeUsername(
-			UserUsername $newUsername,
-			UserNameIsAvailableSpecification $userNameIsAvailableSpecification
-		): void {
-			if ($newUsername->isEqual($this->username)) {
-				return;
-			}
-			
-			$this->username = $newUsername->value();
-			
-			if (!$userNameIsAvailableSpecification->isSatisfiedBy($this)) {
-				throw new UnavailableUsername($newUsername->value());
-			}
-		}
+            UserUsername                     $newUsername,
+            UserNameIsAvailableSpecification $userNameIsAvailableSpecification
+        ): void
+        {
+            if ($newUsername->isEqual($this->username)) {
+                return;
+            }
+
+            $this->username = $newUsername->value();
+
+            if (!$userNameIsAvailableSpecification->isSatisfiedBy($this)) {
+                throw new UnavailableUsername($newUsername->value());
+            }
+        }
 		
 		private function changeEmail(
 			UserEmail $newEmail,
@@ -163,7 +164,7 @@
 		
 		public function getRoles(): array
 		{
-			return array($this->role->getId());
+            return [$this->role->getId()];
 		}
 		
 		public function getSalt()

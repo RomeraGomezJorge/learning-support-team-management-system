@@ -19,6 +19,6 @@
 				'data_about_item' => $request->get('data_about_item')
 			])->getContent();
 			
-			return new JsonResponse(array('status' => 'success', 'html' => $html));
+			return new JsonResponse(['status' => 'success', 'html' => $html]);
 		}
 	}

@@ -17,6 +17,6 @@
 				'form_action' => TwigTemplateConstants::RESET_PASSWORD_PATH
 			])->getContent();
 			
-			return new JsonResponse(array('status' => 'success', 'html' => $html));
+			return new JsonResponse(['status' => 'success', 'html' => $html]);
 		}
 	}

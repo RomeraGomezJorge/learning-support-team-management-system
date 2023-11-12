@@ -8,7 +8,7 @@
                     <input type="hidden" name="id" value="{{ id }}">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token(id) }}">
                     <div class="form-group {{ flash.has('errors.name')? 'has-error':'' }}">
-                        <label>{{ 'Name'|trans}}</label>
+                        <label for="name">{{ 'Name'|trans }}</label>
                         <input type="text"
                                placeholder=" - {{ 'Optional'|trans }} -"
                                name="name"
@@ -18,13 +18,13 @@
                                class="form-control"
                                autofocus
                                autocomplete="false"
-                        >
+                        />
                         <small class="errorLabelContainer form-text text-muted text-danger">
-                            <span class="has-error">{{ flash.has('errors.number') }} </span>
+                            <span class="has-error">{{ flash.get('errors.name') }} </span>
                         </small>
                     </div>
                     <div class="form-group {{ flash.has('errors.number')? 'has-error':'' }}">
-                        <label>{{ 'Number'|trans }}</label>
+                        <label for="number">{{ 'Number'|trans }}</label>
                         <input type="number"
                                placeholder=" - {{ 'Optional'|trans }} -"
                                name="number"
@@ -32,7 +32,7 @@
                                class="form-control"
                         >
                         <small class="errorLabelContainer form-text text-muted text-danger">
-                            <span class="has-error">{{ flash.has('errors.number') }} </span>
+                            <span class="has-error">{{ flash.get('errors.number') }} </span>
                         </small>
                     </div>
                 </div>

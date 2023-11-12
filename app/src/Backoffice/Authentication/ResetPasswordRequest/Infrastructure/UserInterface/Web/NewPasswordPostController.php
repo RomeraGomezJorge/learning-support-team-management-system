@@ -3,28 +3,32 @@
 	namespace App\Backoffice\Authentication\ResetPasswordRequest\Infrastructure\UserInterface\Web;
 	
 	use App\Backoffice\User\Application\Patch\UserPasswordReset;
-	use App\Shared\Infrastructure\Constant\MessageConstant;
-	use App\Shared\Infrastructure\Symfony\WebController;
-	use Symfony\Component\HttpFoundation\Request;
-	use Symfony\Component\HttpFoundation\Response;
-	use Symfony\Component\Validator\Constraints as Assert;
-	use Symfony\Component\Validator\ConstraintViolationListInterface;
-	use Symfony\Component\Validator\Validation;
-	use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
-	use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
-	
-	
-	class NewPasswordPostController extends WebController
-	{
-		use ResetPasswordControllerTrait;
-		private $resetPasswordHelper;
-		private UserPasswordReset $userPasswordReset;
-		
-		public function __construct(
-			ResetPasswordHelperInterface $resetPasswordHelper,
-			UserPasswordReset $userPasswordReset
-		) {
-			$this->resetPasswordHelper = $resetPasswordHelper;
+    use App\Shared\Infrastructure\Constant\MessageConstant;
+    use App\Shared\Infrastructure\Symfony\WebController;
+    use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\HttpFoundation\Response;
+    use Symfony\Component\Validator\Constraints as Assert;
+    use Symfony\Component\Validator\ConstraintViolationListInterface;
+    use Symfony\Component\Validator\Validator\ValidatorInterface;
+    use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
+    use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
+
+
+    class NewPasswordPostController extends WebController
+    {
+        use ResetPasswordControllerTrait;
+
+        private ResetPasswordHelperInterface $resetPasswordHelper;
+        private UserPasswordReset $userPasswordReset;
+
+        public function __construct(
+            ResetPasswordHelperInterface $resetPasswordHelper,
+            UserPasswordReset            $userPasswordReset,
+            ValidatorInterface           $validator
+        )
+        {
+            parent::__construct($validator);
+            $this->resetPasswordHelper = $resetPasswordHelper;
 			$this->userPasswordReset = $userPasswordReset;
 		}
 		
@@ -39,8 +43,7 @@
 				
 				return $this->redirectToRoute(TwigTemplateConstants::RESET_PASSWORD_PATH);
 			}
-			
-			
+
 			$validationErrors = $this->validateRequest($request);
 			
 			return $validationErrors->count() !== 0
@@ -51,11 +54,11 @@
 		private function validateRequest(Request $request): ConstraintViolationListInterface
 		{
 			$constraint = new Assert\Collection(
-				[
-					'id' => [new Assert\Uuid()],
-					'password' => [new Assert\Length(['min' => 8, 'max' => 255]), new Assert\NotBlank()],
-					'csrf_token' => [new Assert\NotBlank()]
-				]
+                [
+                    'id'         => [new Assert\Uuid()],
+                    'password'   => [new Assert\Length(['min' => 8, 'max' => 255]), new Assert\NotBlank()],
+                    'csrf_token' => [new Assert\NotBlank()]
+                ]
 			);
 			
 			$input = $request->request->all();
@@ -79,17 +82,16 @@
 			$this->addFlash('reset_password_success',
 				'<i class="fas fa-check-circle text-success"></i> La contraseña se restableció con exito.'
 			);
-			
-			
-			return $this->redirectToRoute('login');
+
+            return $this->redirectToRoute('login');
 		}
 		
 		private function getTokenFromSessionOrFail(): string
 		{
 			$token = $this->getTokenFromSession();
-			
-			
-			if (null === $token) {
+
+            if (null === $token) {
+                // TODO: translate
 				throw $this->createNotFoundException('No se encuentra ninguna contraseña de restablecimiento en la URL o en la sesión.');
 			}
 			

@@ -27,9 +27,8 @@
 		public function get(string $key, $default = null)
 		{
 			$this->setFlashMessages();
-			
-			
-			if (array_key_exists($key, $this->flashes)) {
+
+            if (array_key_exists($key, $this->flashes)) {
 				return $this->flashes[$key];
 			}
 			

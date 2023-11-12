@@ -17,26 +17,27 @@
 		private string $isActive;
 		
 		private function __construct(
-			string $id,
-			string $username,
-			string $name,
-			string $surname,
-			string $email,
-			string $password,
-			string $role,
-			string $isActive,
-			string $eventId = null,
-			string $occurredOn = null
-		) {
-			parent::__construct($id, $eventId, $occurredOn);
-			$this->username = $username;
-			$this->name = $name;
-			$this->surname = $surname;
-			$this->email = $email;
-			$this->password = $password;
-			$this->role = $role;
-			$this->isActive = $isActive;
-		}
+            string $id,
+            string $username,
+            string $name,
+            string $surname,
+            string $email,
+            string $password,
+            string $role,
+            string $isActive,
+            string $eventId = null,
+            string $occurredOn = null
+        )
+        {
+            parent::__construct($id, $eventId, $occurredOn);
+            $this->username = $username;
+            $this->name     = $name;
+            $this->surname  = $surname;
+            $this->email    = $email;
+            $this->password = $password;
+            $this->role     = $role;
+            $this->isActive = $isActive;
+        }
 		
 		public static function with(
 			string $id,

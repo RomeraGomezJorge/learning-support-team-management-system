@@ -13,6 +13,6 @@
 		{
 			$html = $formToCreateAnEmploymentContractByAjax->__invoke();
 			
-			return new JsonResponse(array('status' => 'success', 'html' => $html));
+			return new JsonResponse(['status' => 'success', 'html' => $html]);
 		}
 	}

@@ -22,19 +22,20 @@
 	class DocumentCategoryGetController extends WebController
 	{
 		public function __invoke(
-			Request $request,
-			DocumentCategoryByCriteriaSearcher $itemsByCriteriaSearcher,
-			DocumentCategoryByCriteriaCounter $counter
-		): Response {
-			$orderBy = $request->get('orderBy');
-			
-			$order = $request->get('order');
-			
-			$page = (int)$request->get('page');
-			
-			$limit = (int)$request->get('limit');
-			
-			$filters = FilterUtils::getFiltersOrEmpyArray($request->get('filters'));
+            Request                            $request,
+            DocumentCategoryByCriteriaSearcher $itemsByCriteriaSearcher,
+            DocumentCategoryByCriteriaCounter  $counter
+        ): Response
+        {
+            $orderBy = $request->get('orderBy');
+
+            $order = $request->get('order');
+
+            $page = (int)$request->get('page');
+
+            $limit = (int)$request->get('limit');
+
+            $filters = FilterUtils::getFiltersOrEmpyArray($request->get('filters'));
 			
 			$documentCategories = $itemsByCriteriaSearcher->__invoke($filters, $order, $orderBy, $limit,
 				OffsetPaginationUtil::calculate($limit, $page));

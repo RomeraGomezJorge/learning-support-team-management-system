@@ -15,6 +15,6 @@
 		
 		public function isSatisfiedBy(JobDesignation $jobDesignation): bool
 		{
-			return $this->repository->isAvailable(array('name' => $jobDesignation->name()));
+			return $this->repository->isAvailable(['name' => $jobDesignation->name()]);
 		}
 	}

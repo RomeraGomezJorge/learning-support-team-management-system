@@ -13,15 +13,16 @@
   class DashboardController extends WebController {
     
     public function __invoke(
-      Request $request,
-      LearningSupportTeamCategoryByCriteriaSearcher $learningSupportTeamCategoryByCriteriaSearcher,
-      OfficeOfLearningSupportByCriteriaSearcher $OfficeOfLearningSupportByCriteriaSearcher
-    ): Response {
-      
-      return $this->render('backoffice/dashboard/index.html.twig',[
-        'learning_support_team_categories' => $learningSupportTeamCategoryByCriteriaSearcher->__invoke([],NULL,NULL,NULL,NULL),
-        'office_of_learning_support_team' => $OfficeOfLearningSupportByCriteriaSearcher->__invoke([],NULL,NULL,NULL,NULL)
-      ]);
+        Request                                       $request,
+        LearningSupportTeamCategoryByCriteriaSearcher $learningSupportTeamCategoryByCriteriaSearcher,
+        OfficeOfLearningSupportByCriteriaSearcher     $OfficeOfLearningSupportByCriteriaSearcher
+    ): Response
+    {
+
+        return $this->render('backoffice/dashboard/index.html.twig', [
+            'learning_support_team_categories' => $learningSupportTeamCategoryByCriteriaSearcher->__invoke([], NULL, NULL, NULL, NULL),
+            'office_of_learning_support_team'  => $OfficeOfLearningSupportByCriteriaSearcher->__invoke([], NULL, NULL, NULL, NULL)
+        ]);
     }
     
   }

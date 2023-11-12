@@ -15,6 +15,6 @@
 		
 		public function isSatisfiedBy(LearningSupportTeam $learningSupportTeam): bool
 		{
-			return $this->repository->isAvailable(array('name' => $learningSupportTeam->name()));
+			return $this->repository->isAvailable(['name' => $learningSupportTeam->name()]);
 		}
 	}

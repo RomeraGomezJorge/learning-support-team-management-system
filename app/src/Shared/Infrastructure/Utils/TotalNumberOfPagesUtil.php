@@ -33,6 +33,7 @@
 		private static function ensureIsGreaterThanZero(int $value, string $paramName): void
 		{
 			if ($value < 1) {
+                // TODO:trans
 				throw new InvalidArgumentException('El valor ' . $value . ' no es valido para el parametro ' . $paramName);
 			}
 		}
@@ -40,6 +41,7 @@
 		private static function ensurePageIsNoTGreaterThanTotalPage(int $page, int $totalPage): void
 		{
 			if ($page > $totalPage) {
+                // TODO: trans TranslatorInterface $translator
 				throw new InvalidArgumentException('La página seleccionada no existe.');
 			}
 		}

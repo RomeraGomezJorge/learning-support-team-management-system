@@ -19,22 +19,23 @@
   class DocumentEditController extends WebController {
     
     public function __invoke(
-      FlashSession $flashSession,
-      Request $request,
-      DocumentFinder $finder,
-      RelatedEntities $relatedEntities,
-      AttachmentInSession $attachmentInSession
-    ): Response {
-      $document = $finder->__invoke($request->get('id'));
-      
-      return $this->render(TwigTemplateConstants::FORM_FILE_PATH, [
-        'page_title' => TwigTemplateConstants::SECTION_TITLE,
-        'list_path' => TwigTemplateConstants::LIST_PATH,
-        'id' => $document->id(),
-        'name' => $flashSession->get('inputs.name') ?? $document->name(),
-        'number' => $flashSession->get('inputs.number') ?? $document->number(),
-        'document_category_id' => $flashSession->get('inputs.document_category_id') ?? $document->documentCategory()
-            ->id(),
+        FlashSession        $flashSession,
+        Request             $request,
+        DocumentFinder      $finder,
+        RelatedEntities     $relatedEntities,
+        AttachmentInSession $attachmentInSession
+    ): Response
+    {
+        $document = $finder->__invoke($request->get('id'));
+
+        return $this->render(TwigTemplateConstants::FORM_FILE_PATH, [
+            'page_title'                            => TwigTemplateConstants::SECTION_TITLE,
+            'list_path'                             => TwigTemplateConstants::LIST_PATH,
+            'id'                                    => $document->id(),
+            'name'                                  => $flashSession->get('inputs.name') ?? $document->name(),
+            'number'                                => $flashSession->get('inputs.number') ?? $document->number(),
+            'document_category_id'                  => $flashSession->get('inputs.document_category_id') ?? $document->documentCategory()
+                    ->id(),
         'employees' => $this->getEmployeesIds($document),
         'categories' => $relatedEntities->documentCategoriesSortedAlphabetically(),
         'employment_contracts' => $relatedEntities->employmentContractsSortedAlphabetically(),

@@ -15,43 +15,41 @@
   class DocumentPostController extends WebController {
     
     public function __invoke(
-      Request $request,
-      DocumentCreator $creator,
-      ValidationRulesToCreateAndUpdate $validationRules,
-      GetAttachmentsInRequestAndUploadFiles $getAttachmentsInRequestAndUploadFiles
-    ): Response {
-      $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'),
-        $request->get('csrf_token'));
-      
-      if (!$isCsrfTokenValid) {
-        return $this->redirectWithMessage('error_page',
-          MessageConstant::INVALID_TOKEN_CSFR_MESSAGE);
-      }
-      
-      $validationErrors = $validationRules->verify($request);
-      
-      return $validationErrors->count() !== 0
-        ? $this->redirectWithErrors(TwigTemplateConstants::CREATE_PATH,
-          $validationErrors, $request)
-        : $this->create($request, $creator,
-          $getAttachmentsInRequestAndUploadFiles);
+        Request                               $request,
+        DocumentCreator                       $creator,
+        ValidationRulesToCreateAndUpdate      $validationRules,
+        GetAttachmentsInRequestAndUploadFiles $getAttachmentsInRequestAndUploadFiles
+    ): Response
+    {
+        $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
+
+        if (!$isCsrfTokenValid) {
+            return $this->redirectWithMessage('error_page', MessageConstant::INVALID_TOKEN_CSFR_MESSAGE);
+        }
+
+        $validationErrors = $validationRules->verify($request);
+
+        return $validationErrors->count() !== 0
+            ? $this->redirectWithErrors(TwigTemplateConstants::CREATE_PATH, $validationErrors, $request)
+            : $this->create($request, $creator, $getAttachmentsInRequestAndUploadFiles);
     }
-    
-    private function create(
-      Request $request,
-      DocumentCreator $creator,
-      GetAttachmentsInRequestAndUploadFiles $getAttachmentsInRequestAndUploadFiles
-    ): RedirectResponse {
-      
-      $prefixForFilename = $request->get('name') . ' ' . $request->get('number');
-  
-      $attachmentDirectory = 'document_attachment_directory';
-      
-      $creator->__invoke(
-        $request->get('id'),
-        $request->get('name'),
-        $request->get('number'),
-        $request->get('document_category_id'),
+
+      private function create(
+          Request                               $request,
+          DocumentCreator                       $creator,
+          GetAttachmentsInRequestAndUploadFiles $getAttachmentsInRequestAndUploadFiles
+      ): RedirectResponse
+      {
+
+          $prefixForFilename = $request->get('name') . ' ' . $request->get('number');
+
+          $attachmentDirectory = 'document_attachment_directory';
+
+          $creator->__invoke(
+              $request->get('id'),
+              $request->get('name'),
+              $request->get('number'),
+              $request->get('document_category_id'),
         $request->get('employees'),
         $getAttachmentsInRequestAndUploadFiles->__invoke(
           $request,

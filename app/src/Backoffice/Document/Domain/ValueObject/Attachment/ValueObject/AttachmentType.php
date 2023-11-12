@@ -23,6 +23,7 @@
 		private function ensureIsAValidType($type): void
 		{
 			if (!in_array($type, self::VALID_TYPES)) {
+                // TODO: translate
 				throw new InvalidArgumentException(sprintf('The value <%s> is not a valid type of file.',
 					$type));
 			}

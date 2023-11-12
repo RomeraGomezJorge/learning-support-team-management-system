@@ -24,7 +24,7 @@
 			foreach (self::FIELDS_NAME_THAT_DOES_NOT_BELONG_TO_THE_ENTITY_IN_THE_FILTER_FORM as $fieldName) {
 				if (!FilterUtilsForAssociationField::isFieldNameDefineAsFilter($filters, $fieldName)) {
 					return null;
-				};
+				}
 				
 				$roleId = FilterUtilsForAssociationField::getValueFromFilters($filters, $fieldName);
 			}

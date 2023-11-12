@@ -15,6 +15,6 @@
 		
 		public function isSatisfiedBy(User $user): bool
 		{
-			return $this->repository->isAvailable(array('username' => $user->getUsername()));
+			return $this->repository->isAvailable(['username' => $user->getUsername()]);
 		}
 	}

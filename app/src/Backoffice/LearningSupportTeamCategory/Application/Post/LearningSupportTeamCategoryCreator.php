@@ -15,31 +15,34 @@
 	
 	final class LearningSupportTeamCategoryCreator
 	{
+
 		private LearningSupportTeamCategoryRepository $repository;
 		private LearningSupportTeamCategoryNameIsAvailableSpecification $nameIsAvailableSpecification;
 		private EventBus $bus;
-		
-		public function __construct(
-			LearningSupportTeamCategoryRepository $repository,
-			LearningSupportTeamCategoryNameIsAvailableSpecification $nameIsAvailableSpecification,
-			EventBus $bus
-		) {
-			$this->repository = $repository;
-			$this->nameIsAvailableSpecification = $nameIsAvailableSpecification;
-			$this->bus = $bus;
-		}
-		
-		public function __invoke(string $id,string $name){
-			$id = new Uuid($id);
-			
-			$createAt = new DateTime();
-			
-			$learningSupportTeamCategory = LearningSupportTeamCategory::create(
-				$id,
-				new LearningSupportTeamCategoryName($name),
-				$createAt,
-				$this->nameIsAvailableSpecification
-				);
+
+        public function __construct(
+            LearningSupportTeamCategoryRepository                   $repository,
+            LearningSupportTeamCategoryNameIsAvailableSpecification $nameIsAvailableSpecification,
+            EventBus                                                $bus
+        )
+        {
+            $this->repository                   = $repository;
+            $this->nameIsAvailableSpecification = $nameIsAvailableSpecification;
+            $this->bus                          = $bus;
+        }
+
+        public function __invoke(string $id, string $name)
+        {
+            $id = new Uuid($id);
+
+            $createAt = new DateTime();
+
+            $learningSupportTeamCategory = LearningSupportTeamCategory::create(
+                $id,
+                new LearningSupportTeamCategoryName($name),
+                $createAt,
+                $this->nameIsAvailableSpecification
+            );
 			
 			$this->repository->save($learningSupportTeamCategory);
 			

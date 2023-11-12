@@ -20,6 +20,7 @@
 		private static function ensureIsGreaterThanZero(int $value): void
 		{
 			if ($value < 1) {
+                // TODO:trans
 				throw new InvalidArgumentException('Página no encontrada');
 			}
 		}

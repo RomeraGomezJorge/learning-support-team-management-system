@@ -9,7 +9,8 @@
 	
 	final class LearningSupportTeamCategoryDeleter
 	{
-		private LearningSupportTeamCategoryRepository $repository;
+
+        private LearningSupportTeamCategoryRepository $repository;
 		private LearningSupportTeamCategoryFinder $finder;
 		
 		public function __construct(

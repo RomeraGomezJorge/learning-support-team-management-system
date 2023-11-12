@@ -23,6 +23,7 @@
 		private function ensureIsAValidRole($state): void
 		{
 			if (!in_array($state, self::VALID_ROLES)) {
+                // TODO: trans
 				throw new InvalidArgumentException(sprintf('El valor <%s> no es un rol válido para un usuario.',
 					$state));
 			}

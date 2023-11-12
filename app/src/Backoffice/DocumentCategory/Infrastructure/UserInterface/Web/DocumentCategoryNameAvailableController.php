@@ -13,11 +13,12 @@
 	final class DocumentCategoryNameAvailableController extends WebController
 	{
 		public function __invoke(
-			Request $request,
-			CheckDocumentCategoryNameAvailability $checkDocumentCategoryNameAvailability
-		): JsonResponse {
-			return new JsonResponse(
-				$checkDocumentCategoryNameAvailability->__invoke($request->get('name', ''))
-			);
-		}
+            Request                               $request,
+            CheckDocumentCategoryNameAvailability $checkDocumentCategoryNameAvailability
+        ): JsonResponse
+        {
+            return new JsonResponse(
+                $checkDocumentCategoryNameAvailability->__invoke($request->get('name', ''))
+            );
+        }
 	}

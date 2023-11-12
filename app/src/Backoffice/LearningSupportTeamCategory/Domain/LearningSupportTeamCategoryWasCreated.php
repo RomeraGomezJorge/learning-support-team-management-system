@@ -8,7 +8,8 @@
 	
 	final class LearningSupportTeamCategoryWasCreated extends DomainEvent
 	{
-		private string $name;
+
+        private string $name;
 		
 		private function __construct(
 			string $id,

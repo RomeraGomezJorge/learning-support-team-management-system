@@ -6,6 +6,7 @@
 	
 	class LearningSupportTeamCategoryNameIsAvailableSpecification
 	{
+
 		private LearningSupportTeamCategoryRepository $repository;
 		
 		public function __construct(LearningSupportTeamCategoryRepository $repository)
@@ -15,6 +16,6 @@
 		
 		public function isSatisfiedBy(LearningSupportTeamCategory $learningSupportTeamCategory): bool
 		{
-			return $this->repository->isAvailable(array('name' => $learningSupportTeamCategory->name()));
+            return $this->repository->isAvailable(['name' => $learningSupportTeamCategory->name()]);
 		}
 	}

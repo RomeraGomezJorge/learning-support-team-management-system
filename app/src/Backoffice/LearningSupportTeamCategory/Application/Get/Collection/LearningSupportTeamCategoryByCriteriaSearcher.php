@@ -11,7 +11,8 @@
 	
 	final class LearningSupportTeamCategoryByCriteriaSearcher
 	{
-		private LearningSupportTeamCategoryRepository $repository;
+
+        private LearningSupportTeamCategoryRepository $repository;
 		
 		public function __construct(LearningSupportTeamCategoryRepository $repository)
 		{

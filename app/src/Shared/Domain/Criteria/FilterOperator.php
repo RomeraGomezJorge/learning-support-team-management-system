@@ -34,6 +34,7 @@
 		
 		protected function throwExceptionForInvalidValue($value): void
 		{
+            // TODO:trans
 			throw new InvalidArgumentException(sprintf('The filter <%s> is invalid', $value));
 		}
 	}

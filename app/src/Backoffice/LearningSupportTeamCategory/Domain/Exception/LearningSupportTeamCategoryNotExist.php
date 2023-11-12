@@ -13,7 +13,6 @@
 		public function __construct(string $id)
 		{
 			$this->id = $id;
-			
 			parent::__construct();
 		}
 		

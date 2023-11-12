@@ -53,7 +53,7 @@
                                        required
                                 >
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.has('errors.name') }} </span>
+                                    <span class="has-error"> {{ flash.has('errors.name') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                                        required
                                 >
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.has('errors.surname') }} </span>
+                                    <span class="has-error"> {{ flash.has('errors.surname') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -83,12 +83,12 @@
                                        placeholder=" - {{ 'Optional'|trans }} -"
                                        name="identity_card"
                                        value="{{ identity_card }}"
-                                       maxlength="8"
+                                       minlength="8"
                                        id="identity_card"
                                        class="form-control"
                                 >
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.get('errors.identity_card') }} </span>
+                                    <span class="has-error"> {{ flash.get('errors.identity_card') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                                        class="form-control"
                                 >
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.get('errors.phone') }} </span>
+                                    <span class="has-error"> {{ flash.get('errors.phone') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                                        class="form-control"
                                 >
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.get('errors.email') }} </span>
+                                    <span class="has-error"> {{ flash.get('errors.email') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -139,7 +139,7 @@
                                           row="5"
                                 >{{ address }}</textarea>
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.get('errors.address') }} </span>
+                                    <span class="has-error"> {{ flash.get('errors.address') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -150,21 +150,20 @@
                                 <input type="date"
                                        placeholder=" - {{ 'Optional'|trans }} -"
                                        name="birthday"
-                                       value="{{ birthday is not empty? birthday|date('Y-m-d') : ''}}"
+                                       value="{{ birthday is not empty? birthday|date('Y-m-d') : '' }}"
                                        id="hire_date"
                                        class="form-control"
                                 >
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{flash.get('errors.birthday') }} </span>
+                                    <span class="has-error"> {{ flash.get('errors.birthday') }} </span>
                                 </small>
                             </div>
                         </div>
 
 
-
                         <hr>
                         <button type="button" id="goToJobInfo" class="btn btn-dark btn-block next">
-                            {{'Next'|trans}}
+                            {{ 'Next'|trans }}
                             <span class=" ml-1 btn-label">
                                 <i class="fas fa-forward"></i>
                             </span>
@@ -195,12 +194,12 @@
                                 <input type="date"
                                        placeholder=" - {{ 'Optional'|trans }} -"
                                        name="hire_date"
-                                       value="{{ hire_date is not empty? hire_date|date('Y-m-d') : ''}}"
+                                       value="{{ hire_date is not empty? hire_date|date('Y-m-d') : '' }}"
                                        id="hire_date"
                                        class="form-control"
                                 >
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{flash.get('errors.hire_date') }} </span>
+                                    <span class="has-error"> {{ flash.get('errors.hire_date') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -216,7 +215,7 @@
                                        class="form-control"
                                 >
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.get('errors.termination_date') }} </span>
+                                    <span class="has-error"> {{ flash.get('errors.termination_date') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -235,7 +234,7 @@
                                     {% endfor %}
                                 </select>
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.get('errors.job_designation_id') }} </span>
+                                    <span class="has-error"> {{ flash.get('errors.job_designation_id') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -254,7 +253,7 @@
                                 {% endfor %}
 
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.has('errors.employment_contract_id') }} </span>
+                                    <span class="has-error"> {{ flash.has('errors.employment_contract_id') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -263,18 +262,18 @@
                             <div class="form-check" id="shift_work">
                                 <label>{{ 'Shift Work'|trans }} ( * )</label><br>
                                 {% for key,shift in shifts_work %}
-                                <label class="form-radio-label">
-                                    <input class="form-radio-input"
-                                           type="radio"
-                                           name="shift_work"
-                                           value='{{ key }}'
-                                            {{ shift_work? 'checked' }}>
-                                    <span class="form-radio-sign">{{ shift|trans }}</span>
-                                </label>
-                                <br>
+                                    <label class="form-radio-label">
+                                        <input class="form-radio-input"
+                                               type="radio"
+                                               name="shift_work"
+                                               value='{{ key }}'
+                                                {{ shift_work? 'checked' }}>
+                                        <span class="form-radio-sign">{{ shift|trans }}</span>
+                                    </label>
+                                    <br>
                                 {% endfor %}
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.has('errors.shift_work')}} </span>
+                                    <span class="has-error"> {{ flash.has('errors.shift_work') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -289,7 +288,7 @@
                                     data-url_to_search_learning_support_team = {{ path(search_learning_support_team_path) }}
                             >
 
-                                {%  if learning_support_team is defined %}
+                                {% if learning_support_team is defined %}
                                     {% for team in learning_support_team %}
                                         <option value="{{ team.id }}" selected> {{ team.name }}</option>
                                     {% endfor %}
@@ -298,7 +297,7 @@
                             </select>
                             <small>{{ 'You can select one or more teams'|trans }}</small>
                             <small class="errorLabelContainer form-text text-muted text-danger">
-                                <span class="has-error">{{ flash.has('errors.learning_support_team') }} </span>
+                                <span class="has-error"> {{ flash.has('errors.learning_support_team') }} </span>
                             </small>
                         </div>
 

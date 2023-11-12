@@ -15,6 +15,6 @@
 		
 		public function isSatisfiedBy(OfficeOfLearningSupportInDistrict $officeOfLearningSupportInDistrict): bool
 		{
-			return $this->repository->isAvailable(array('name' => $officeOfLearningSupportInDistrict->name()));
+			return $this->repository->isAvailable(['name' => $officeOfLearningSupportInDistrict->name()]);
 		}
 	}

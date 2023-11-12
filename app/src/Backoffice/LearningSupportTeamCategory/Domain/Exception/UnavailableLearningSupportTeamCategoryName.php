@@ -9,12 +9,12 @@
 	
 	final class UnavailableLearningSupportTeamCategoryName extends DomainError
 	{
-		private string $name;
+
+        private string $name;
 		
 		public function __construct(LearningSupportTeamCategoryName $name)
 		{
 			$this->name = $name->value();
-			
 			parent::__construct();
 		}
 		
