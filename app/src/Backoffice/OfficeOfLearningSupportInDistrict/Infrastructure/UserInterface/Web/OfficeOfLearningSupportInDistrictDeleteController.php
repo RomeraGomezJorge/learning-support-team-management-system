@@ -30,11 +30,11 @@ return $this->jsonResponseOnInvalidCsrfToken();
             return new JsonResponse($response);
         }
 		
-		private function delete(OfficeOfLearningSupportInDistrictDeleter $deleter, string $id): array
-		{
-			$deleter->__invoke($id);
+		private function delete(OfficeOfLearningSupportInDistrictDeleter $deleter, string $id): JsonResponse
+        {
+            $deleter->__invoke($id);
 
-            return ['status' => 'success'];
-		}
+            return $this->jsonResponseSuccess();
+        }
 	}
 	

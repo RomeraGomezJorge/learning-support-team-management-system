@@ -99,8 +99,7 @@ class EmployeePostByAjaxController extends WebController
             $request->get('birthday') ?: NULL
         );
 
-
-        return new JsonResponse(['status' => 'success']);
+        return $this->jsonResponseSuccess();
     }
 
 }

@@ -59,6 +59,6 @@ class EmploymentContractPostByAjaxController extends WebController
             $request->get('name')
         );
 
-        return new JsonResponse(['status' => 'success']);
+        return $this->jsonResponseSuccess();
     }
 }

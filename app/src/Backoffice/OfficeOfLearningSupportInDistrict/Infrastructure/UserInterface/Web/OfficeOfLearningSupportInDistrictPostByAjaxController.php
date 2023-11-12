@@ -56,6 +56,6 @@ class OfficeOfLearningSupportInDistrictPostByAjaxController extends WebControlle
             $request->get('name')
         );
 
-        return new JsonResponse(['status' => 'success']);
+        return $this->jsonResponseSuccess();
     }
 }

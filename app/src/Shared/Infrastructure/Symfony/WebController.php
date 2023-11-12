@@ -102,5 +102,10 @@ abstract class WebController extends AbstractController
             'message' => MessageConstant::INVALID_TOKEN_CSFR_MESSAGE
         ]);
     }
+
+    protected function jsonResponseSuccess(): JsonResponse
+    {
+        return $this->jsonResponseSuccess();
+    }
 }
 	

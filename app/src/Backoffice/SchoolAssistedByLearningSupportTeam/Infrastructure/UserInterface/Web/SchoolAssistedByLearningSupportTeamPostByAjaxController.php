@@ -63,6 +63,6 @@ class SchoolAssistedByLearningSupportTeamPostByAjaxController extends WebControl
             $request->get('number')
         );
 
-        return new JsonResponse(['status' => 'success']);
+        return $this->jsonResponseSuccess();
     }
 }

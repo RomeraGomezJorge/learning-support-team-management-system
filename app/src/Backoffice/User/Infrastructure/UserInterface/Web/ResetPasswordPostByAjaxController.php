@@ -61,6 +61,6 @@ class ResetPasswordPostByAjaxController extends WebController
             $request->get('password'),
         );
 
-        return new JsonResponse(['status' => 'success']);
+        return $this->jsonResponseSuccess();
     }
 }
