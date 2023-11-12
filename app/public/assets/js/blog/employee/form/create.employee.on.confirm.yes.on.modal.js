@@ -27,7 +27,7 @@ function submitEmployeeFormViaAjaxWhenIsValid(createForm) {
 
     const inputModuleName = 'employee';
 
-    const successMessage = 'Employee has successfully created!';
+    const successMessage = Translator.trans('Employee has successfully created!');
 
     const errorDetails = Translator.trans('Failed to create new item, if the problem continues, please contact support.');
 
@@ -65,11 +65,18 @@ function submitEmployeeFormViaAjaxWhenIsValid(createForm) {
 
             createForm.data('isRequestRunning', false);
 
-            if (response.status !== 'success') {
+            if (response.status === 'fail_invalid_csfr_token') {
+
+                replaceModalContentByFailMessage(modalSelector, response.message);
+
+                return;
+            }
+
+            if (response.status === 'fail') {
 
                 $(modalSelector).html(response.html);
 
-                return false;
+                return;
             }
 
             replaceModalContentBySuccessMessage(modalSelector, successMessage);
@@ -78,12 +85,12 @@ function submitEmployeeFormViaAjaxWhenIsValid(createForm) {
 
             const checked = isSelectThisValueChecked ? 'checked' : '';
 
-            var data = {
+            const data = {
                 id: id,
-                text:  name +', '+surname
+                text: name + ', ' + surname
             };
 
-            var newOption = new Option(data.text, data.id, checked, checked);
+            const newOption = new Option(data.text, data.id, checked, checked);
             $('[name="employees[]"]').append(newOption).trigger('change');
 
         },

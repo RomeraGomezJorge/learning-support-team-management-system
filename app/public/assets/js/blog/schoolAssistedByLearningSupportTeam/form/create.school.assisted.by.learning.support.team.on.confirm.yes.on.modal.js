@@ -65,7 +65,12 @@ function submitsSchoolAssistedByLearningSupportTeamFormViaAjaxWhenIsValid(create
 
             createForm.data('isRequestRunning', false);
 
-            if (response.status !== 'success') {
+            if (response.status === 'fail_invalid_csfr_token') {
+                replaceModalContentByFailMessage(modalSelector, response.message);
+                return;
+            }
+
+            if (response.status === 'fail') {
 
                 $(modalSelector).html(response.html);
 

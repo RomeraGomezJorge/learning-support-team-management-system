@@ -20,14 +20,16 @@ class SchoolAssistedByLearningSupportTeamPostByAjaxController extends WebControl
         FormToCreateSchoolAssistedByLearningSupportTeamByAjax $formToCreateSchoolAssistedByLearningSupportTeamByAjax
     ): JsonResponse
     {
+
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
-            return new JsonResponse([
-                'status'  => 'fail',
-                'message' => MessageConstant::INVALID_TOKEN_CSFR_MESSAGE
-            ]);
+            return $this->jsonResponseOnInvalidCsrfToken();
         }
+
+        var_dump($isCsrfTokenValid);
+
+        die();
 
         $validationErrors = $this->validateRequest($request);
 

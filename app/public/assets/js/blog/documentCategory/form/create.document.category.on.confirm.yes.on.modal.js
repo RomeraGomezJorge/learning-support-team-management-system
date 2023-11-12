@@ -59,7 +59,12 @@ function submitsJobDesignationFormViaAjaxWhenIsValid(createForm) {
 
             createForm.data('isRequestRunning', false);
 
-            if (response.status !== 'success') {
+            if (response.status === 'fail_invalid_csfr_token') {
+                replaceModalContentByFailMessage(createModalSelector, response.message);
+                return;
+            }
+
+            if (response.status === 'fail') {
 
                 $(createModalSelector).html(response.html);
 

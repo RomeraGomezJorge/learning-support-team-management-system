@@ -33,7 +33,7 @@
                                        id="name"
                                        class="form-control"
                                        required
-                                >
+                                />
                                 <small class="errorLabelContainer form-text text-muted text-danger">
                                     <span class="has-error">{{ flash.has('errors.name') }} </span>
                                 </small>
@@ -51,7 +51,7 @@
                                        id="surname"
                                        class="form-control"
                                        required
-                                >
+                                />
                                 <small class="errorLabelContainer form-text text-muted text-danger">
                                     <span class="has-error">{{ flash.has('errors.surname') }} </span>
                                 </small>
@@ -65,10 +65,10 @@
                                        placeholder=" - {{ 'Optional'|trans }} -"
                                        name="identity_card"
                                        value="{{ identity_card }}"
-                                       maxlength="8"
+                                       minlength="8"
                                        id="identity_card"
                                        class="form-control"
-                                >
+                                />
                                 <small class="errorLabelContainer form-text text-muted text-danger">
                                     <span class="has-error">{{ flash.get('errors.identity_card') }} </span>
                                 </small>
@@ -133,7 +133,7 @@
                                     <input type="checkbox"
                                            checked
                                            name="select_this_employee_on_save"
-                                    >
+                                    />
                                 </label>
                             </div>
                         </div>

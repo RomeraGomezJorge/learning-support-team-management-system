@@ -27,7 +27,7 @@ class UserPutController extends WebController
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
-            return $this->redirectWithMessage('error_page', MessageConstant::INVALID_TOKEN_CSFR_MESSAGE);
+            return $this->redirectOnInvalidCsrfToken();
         }
 
         $validationErrors = $this->validateRequest($request, $validator);

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Backoffice\Employee\Infrastructure\UserInterface\Web;
 
-
 use App\Backoffice\Employee\Application\Put\EmployeeChangerDetails;
 use App\Shared\Infrastructure\Constant\MessageConstant;
 use App\Shared\Infrastructure\Symfony\WebController;
@@ -24,7 +23,7 @@ class EmployeePutController extends WebController
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
-            return $this->redirectWithMessage('error_page', MessageConstant::INVALID_TOKEN_CSFR_MESSAGE);
+            return $this->redirectOnInvalidCsrfToken();
         }
 
         $validationErrors = $validationRules->verify($request);

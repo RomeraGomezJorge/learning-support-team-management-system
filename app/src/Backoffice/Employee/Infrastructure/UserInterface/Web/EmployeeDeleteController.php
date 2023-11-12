@@ -24,10 +24,7 @@ class EmployeeDeleteController extends WebController
             $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
-            return new JsonResponse([
-                'status'  => 'fail_invalid_csfr_token',
-                'message' => MessageConstant::INVALID_TOKEN_CSFR_MESSAGE,
-            ]);
+            return $this->jsonResponseOnInvalidCsrfToken();
         }
 
         $validationErrors = $rulesToDelete->verify($request);

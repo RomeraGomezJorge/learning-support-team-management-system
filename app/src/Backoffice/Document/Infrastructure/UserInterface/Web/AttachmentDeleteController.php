@@ -15,17 +15,12 @@ use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 class AttachmentDeleteController extends WebController
 {
-
-
     public function __invoke(Request $request, AttachmentDeleter $deleter): JsonResponse
     {
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
-            return new JsonResponse([
-                'status'  => 'fail_invalid_csfr_token',
-                'message' => MessageConstant::INVALID_TOKEN_CSFR_MESSAGE,
-            ]);
+            return $this->jsonResponseOnInvalidCsrfToken();
         }
 
         $validationErrors = $this->validationRules($request);

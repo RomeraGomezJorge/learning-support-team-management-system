@@ -3,6 +3,7 @@
 namespace App\Shared\Infrastructure\Symfony;
 
 
+use App\Shared\Infrastructure\Constant\MessageConstant;
 use App\Shared\Infrastructure\RenderFormInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -20,7 +21,6 @@ abstract class WebController extends AbstractController
     {
         $this->validator = $validator;
     }
-
 
     public function redirectWithMessage(string $routeName, string $message): RedirectResponse
     {
@@ -87,6 +87,19 @@ abstract class WebController extends AbstractController
             // TODO: trans
             'message' => 'Error al procesar su solicitud',
             'html'    => $htmlForm->__invoke()
+        ]);
+    }
+
+    protected function redirectOnInvalidCsrfToken(): RedirectResponse
+    {
+        return $this->redirectOnInvalidCsrfToken();
+    }
+
+    protected function jsonResponseOnInvalidCsrfToken(): JsonResponse
+    {
+        return new JsonResponse([
+            'status'  => 'fail_invalid_csrf_token',
+            'message' => MessageConstant::INVALID_TOKEN_CSFR_MESSAGE
         ]);
     }
 }
