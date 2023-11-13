@@ -17,13 +17,20 @@
         <div class="modal-footer justify-content-center">
             <form id="delete-confirmation-form" action="{{ delete_path }}" method="post">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token(id) }}">
-                <input type="hidden" name="attachment"
-                       value="{{ attachment|json_encode(constant('JSON_PRETTY_PRINT')) }}"/>n
-                <input type="hidden" name="css_selector_to_handle_tr_style_that_contains_items_to_delete"
-                       value="{{ css_selector_to_handle_tr_style_that_contains_items_to_delete }}"/>
+                <input type="hidden"
+                       name="attachment"
+                       value="{{ attachment|json_encode(constant('JSON_PRETTY_PRINT')) }}"
+                />
+                <input type="hidden"
+                       name="css_selector_to_handle_tr_style_that_contains_items_to_delete"
+                       value="{{ css_selector_to_handle_tr_style_that_contains_items_to_delete }}"
+                />
                 <input type="hidden" name="id" value="{{ id }}"/>
-                <button type="button" class="btn btn-focus" data-dismiss="modal"
-                        id="close-delete-confirmation-modal-on-click-button-cancel">
+                <button type="button"
+                        class="btn btn-focus"
+                        data-dismiss="modal"
+                        id="close-delete-confirmation-modal-on-click-button-cancel"
+                >
                     <span class="btn-label">
                         <i class="fas fa-times-circle"></i>
                     </span>

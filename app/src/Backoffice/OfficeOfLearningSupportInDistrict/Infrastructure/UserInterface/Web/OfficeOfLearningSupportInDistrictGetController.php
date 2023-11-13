@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace App\Backoffice\OfficeOfLearningSupportInDistrict\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\OfficeOfLearningSupportInDistrict\Application\Get\Collection\OfficeOfLearningSupportInDistrictByCriteriaCounter;
@@ -18,15 +17,13 @@ use App\Shared\Infrastructure\Utils\TotalNumberOfPagesUtil;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-
 class OfficeOfLearningSupportInDistrictGetController extends WebController
 {
     public function __invoke(
-        Request                                             $request,
+        Request $request,
         OfficeOfLearningSupportInDistrictByCriteriaSearcher $itemsByCriteriaSearcher,
-        OfficeOfLearningSupportInDistrictByCriteriaCounter  $counter
-    ): Response
-    {
+        OfficeOfLearningSupportInDistrictByCriteriaCounter $counter
+    ): Response {
         $orderBy = $request->get('orderBy');
 
         $order = $request->get('order');
@@ -37,11 +34,21 @@ class OfficeOfLearningSupportInDistrictGetController extends WebController
 
         $filters = FilterUtils::getFiltersOrEmpyArray($request->get('filters'));
 
-        $officeOfLearningSupportInDistricts = $itemsByCriteriaSearcher->__invoke($filters, $order, $orderBy, $limit,
-            OffsetPaginationUtil::calculate($limit, $page));
+        $officeOfLearningSupportInDistricts = $itemsByCriteriaSearcher->__invoke(
+            $filters,
+            $order,
+            $orderBy,
+            $limit,
+            OffsetPaginationUtil::calculate($limit, $page)
+        );
 
-        $totalItem = $counter->__invoke($filters, $order, $orderBy, $limit,
-            OffsetPaginationUtil::calculate($limit, $page));
+        $totalItem = $counter->__invoke(
+            $filters,
+            $order,
+            $orderBy,
+            $limit,
+            OffsetPaginationUtil::calculate($limit, $page)
+        );
 
         $totalNumberOfPages = TotalNumberOfPagesUtil::calculate($page, $limit, $totalItem);
 
@@ -66,4 +73,3 @@ class OfficeOfLearningSupportInDistrictGetController extends WebController
         ]);
     }
 }
-	

@@ -13,31 +13,27 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
-use Symfony\Component\Validator\Validation;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class UserPostController extends WebController
 {
     public function __invoke(
-        Request            $request,
-        UserCreator        $creator,
-        ValidatorInterface $validator
-    ): Response
-    {
+        Request $request,
+        UserCreator $creator
+    ): Response {
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
             return $this->redirectOnInvalidCsrfToken();
         }
 
-        $validationErrors = $this->validateRequest($request, $validator);
+        $validationErrors = $this->validateRequest($request);
 
-        return $validationErrors->count() !== 0
+        return ($validationErrors->count() !== 0)
             ? $this->redirectWithErrors(TwigTemplateConstants::CREATE_PATH, $validationErrors, $request)
             : $this->createUser($request, $creator);
     }
 
-    private function validateRequest(Request $request, ValidatorInterface $validator): ConstraintViolationListInterface
+    private function validateRequest(Request $request): ConstraintViolationListInterface
     {
         $constraint = new Assert\Collection(
             [
@@ -54,8 +50,7 @@ class UserPostController extends WebController
                 'is_active'  => [new Assert\Optional()],
                 'csrf_token' => [new Assert\NotBlank()]
             ]
-
-        /*
+            /*
             ^: anchored to beginning of string
             \S*: any set of characters
             (?=\S{8,}): of at least length 8
@@ -63,12 +58,12 @@ class UserPostController extends WebController
             (?=\S*[A-Z]): and at least one uppercase letter
             (?=\S*[\d]): and at least one number
             $: anchored to the end of the string
-         */
+            */
         );
 
         $input = $request->request->all();
 
-        return $validator->validate($input, $constraint);
+        return $this->validator->validate($input, $constraint);
     }
 
     private function createUser(Request $request, UserCreator $creator): RedirectResponse

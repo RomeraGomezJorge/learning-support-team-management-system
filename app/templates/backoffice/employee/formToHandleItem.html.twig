@@ -247,7 +247,8 @@
                                                type="radio"
                                                name="employment_contract_id"
                                                value="{{ employment_contract.id }}"
-                                                {{ employment_contract_id? 'checked' }}>
+                                                {{ employment_contract_id? 'checked' }}
+                                        />
                                         <span class="form-radio-sign">{{ employment_contract.name }}</span>
                                     </label><br>
                                 {% endfor %}
@@ -267,7 +268,8 @@
                                                type="radio"
                                                name="shift_work"
                                                value='{{ key }}'
-                                                {{ shift_work? 'checked' }}>
+                                                {{ shift_work? 'checked' }}
+                                        />
                                         <span class="form-radio-sign">{{ shift|trans }}</span>
                                     </label>
                                     <br>

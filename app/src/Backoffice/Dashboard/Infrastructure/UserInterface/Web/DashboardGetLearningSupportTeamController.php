@@ -2,38 +2,24 @@
 
 declare(strict_types=1);
 
-
 namespace App\Backoffice\Dashboard\Infrastructure\UserInterface\Web;
 
-use App\Backoffice\Employee\Application\Get\Collection\EmployeeByCriteriaSearcher;
+use App\Backoffice\Employee\Infrastructure\UserInterface\Web\TwigTemplateConstants as EmployeeTwigTemplateConstants;
 use App\Backoffice\LearningSupportTeam\Application\Get\Collection\LearningSupportTeamByCriteriaSearcher;
-use App\Backoffice\User\Infrastructure\UserInterface\Web\TwigTemplateConstants;
 use App\Shared\Infrastructure\Symfony\WebController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Backoffice\Employee\Infrastructure\UserInterface\Web\TwigTemplateConstants as EmployeeTwigTemplateConstants;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
-
 
 class DashboardGetLearningSupportTeamController extends WebController
 {
+    private const SORT_A_LIST_ALPHABETICALLY = 'asc';
+    private const LIST_BEGIN_ON_0 = 0;
+    private const LIST_END_ON_1000 = 1000;
 
-    const SORT_A_LIST_ALPHABETICALLY = 'asc';
-    const LIST_BEGIN_ON_0 = 0;
-    const LIST_END_ON_1000 = 1000;
-
-    private EmployeeByCriteriaSearcher $employeeByCriteriaSearcher;
     private LearningSupportTeamByCriteriaSearcher $learningSupportTeamByCriteriaSearcher;
 
-    public function __construct(
-        EmployeeByCriteriaSearcher            $employeeByCriteriaSearcher,
-        LearningSupportTeamByCriteriaSearcher $learningSupportTeamByCriteriaSearcher,
-        ValidatorInterface                    $validator
-    )
+    public function __construct(LearningSupportTeamByCriteriaSearcher $learningSupportTeamByCriteriaSearcher)
     {
-        parent::__construct($validator);
-        $this->employeeByCriteriaSearcher            = $employeeByCriteriaSearcher;
         $this->learningSupportTeamByCriteriaSearcher = $learningSupportTeamByCriteriaSearcher;
     }
 
@@ -49,7 +35,8 @@ class DashboardGetLearningSupportTeamController extends WebController
             'name',
             self::SORT_A_LIST_ALPHABETICALLY,
             self::LIST_END_ON_1000,
-            self::LIST_BEGIN_ON_0);
+            self::LIST_BEGIN_ON_0
+        );
 
 
         $learningSupportTeamEmployees = $this->getEmployeesArray($lst[0]->employees()->toArray());
@@ -75,6 +62,4 @@ class DashboardGetLearningSupportTeamController extends WebController
             ];
         }, $employees);
     }
-
 }
-	

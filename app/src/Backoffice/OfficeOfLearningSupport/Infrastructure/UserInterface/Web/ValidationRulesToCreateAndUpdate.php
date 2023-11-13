@@ -10,7 +10,6 @@ use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 final class ValidationRulesToCreateAndUpdate extends WebController
 {
-
     public function verify($request): ConstraintViolationListInterface
     {
         $constraint = new Assert\Collection(

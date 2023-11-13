@@ -17,10 +17,9 @@ class EmployeeSearchController extends WebController
     public const LIST_END_ON_1000 = 1000;
 
     public function __invoke(
-        Request                    $request,
+        Request $request,
         EmployeeByCriteriaSearcher $employeeByCriteriaSearcher
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $fullname = $request->get('fullname');
 
         $filters = [];
@@ -34,7 +33,8 @@ class EmployeeSearchController extends WebController
             self::SORT_A_LIST_BY_NAME,
             self::SORT_A_LIST_ALPHABETICALLY,
             self::LIST_END_ON_1000,
-            self::LIST_BEGIN_ON_0);
+            self::LIST_BEGIN_ON_0
+        );
 
         return new JsonResponse(array_map(function ($employees) {
             return [
@@ -90,4 +90,3 @@ class EmployeeSearchController extends WebController
         }
     }
 }
-	

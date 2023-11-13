@@ -6,32 +6,26 @@ namespace App\Backoffice\Employee\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\Employee\Application\Post\EmployeeCreator;
 use App\Backoffice\Employee\Domain\ValueObject\EmployeeShitWork;
-use App\Shared\Infrastructure\Constant\MessageConstant;
 use App\Shared\Infrastructure\Symfony\WebController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
-
 
 class EmployeePostByAjaxController extends WebController
 {
-
     public function __invoke(
-        Request                    $request,
-        EmployeeCreator            $creator,
-        FormToCreateEmployeeByAjax $formToCreateByAjax,
-        ValidatorInterface         $validator
-    ): JsonResponse
-    {
+        Request $request,
+        EmployeeCreator $creator,
+        FormToCreateEmployeeByAjax $formToCreateByAjax
+    ): JsonResponse {
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
             return $this->jsonResponseOnInvalidCsrfToken();
         }
 
-        $errors = $this->validateRequest($request, $validator);
+        $errors = $this->validateRequest($request);
 
         return $errors->count() !== 0
             ? $this->jsonResponseWithErrors($formToCreateByAjax, $errors, $request)
@@ -39,10 +33,8 @@ class EmployeePostByAjaxController extends WebController
     }
 
     private function validateRequest(
-        Request            $request,
-        ValidatorInterface $validator
-    ): ConstraintViolationListInterface
-    {
+        Request $request
+    ): ConstraintViolationListInterface {
         $constraint = new Assert\Collection(
             [
                 'id'                           => new Assert\Uuid(),
@@ -74,32 +66,30 @@ class EmployeePostByAjaxController extends WebController
 
         $input = $request->request->all();
 
-        return $validator->validate($input, $constraint);
+        return $this->validator->validate($input, $constraint);
     }
 
     private function create(
-        Request         $request,
+        Request $request,
         EmployeeCreator $creator
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $creator->__invoke(
             $request->get('id'),
             $request->get('name'),
             $request->get('surname'),
-            $request->get('identity_card') ?: NULL,
-            $request->get('phone') ?: NULL,
-            $request->get('email') ?: NULL,
-            $request->get('hire_date') ?: NULL,
-            $request->get('termination_date') ?: NULL,
-            $request->get('address') ?: NULL,
+            $request->get('identity_card') ?: null,
+            $request->get('phone') ?: null,
+            $request->get('email') ?: null,
+            $request->get('hire_date') ?: null,
+            $request->get('termination_date') ?: null,
+            $request->get('address') ?: null,
             $request->get('job_designation_id'),
             $request->get('employment_contract_id'),
             $request->get('shift_work'),
             $request->get('learning_support_team'),
-            $request->get('birthday') ?: NULL
+            $request->get('birthday') ?: null
         );
 
         return $this->jsonResponseSuccess();
     }
-
 }

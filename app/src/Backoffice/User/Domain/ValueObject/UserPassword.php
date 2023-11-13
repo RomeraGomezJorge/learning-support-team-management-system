@@ -7,10 +7,8 @@ namespace App\Backoffice\User\Domain\ValueObject;
 use App\Shared\Domain\ValueObject\StringValueObject;
 use InvalidArgumentException;
 
-
 final class UserPassword extends StringValueObject
 {
-
     public function __construct(string $value)
     {
         parent::__construct($value);
@@ -35,5 +33,4 @@ final class UserPassword extends StringValueObject
             throw new InvalidArgumentException('The password must include at least one number.');
         };
     }
-
 }

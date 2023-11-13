@@ -15,12 +15,11 @@ use Symfony\Component\HttpFoundation\Response;
 class UserEditController extends WebController
 {
     public function __invoke(
-        FlashSession   $flashSession,
-        Request        $request,
-        UserFinder     $finder,
+        FlashSession $flashSession,
+        Request $request,
+        UserFinder $finder,
         RoleRepository $roleRepository
-    ): Response
-    {
+    ): Response {
         $user = $finder->__invoke($request->get('id'));
 
         return $this->render(TwigTemplateConstants::FORM_FILE_PATH, [

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Backoffice\LearningSupportTeam\Infrastructure\UserInterface\Web;
 
+use App\Backoffice\Employee\Infrastructure\UserInterface\Web\TwigTemplateConstants as EmployeeTwigTemplateConstants;
 use App\Backoffice\OfficeOfLearningSupport\Domain\OfficeOfLearningSupportRepository;
 use App\Backoffice\SchoolAssistedByLearningSupportTeam\Infrastructure\UserInterface\Web\TwigTemplateConstants as SchoolTwigTemplateConstants;
-use App\Backoffice\Employee\Infrastructure\UserInterface\Web\TwigTemplateConstants as EmployeeTwigTemplateConstants;
 use App\Shared\Infrastructure\Constant\FormConstant;
 use App\Shared\Infrastructure\RamseyUuidGenerator;
 use App\Shared\Infrastructure\RelatedEntities;
@@ -14,16 +14,14 @@ use App\Shared\Infrastructure\Symfony\FlashSession;
 use App\Shared\Infrastructure\Symfony\WebController;
 use Symfony\Component\HttpFoundation\Response;
 
-
 class LearningSupportTeamAddController extends WebController
 {
     public function __invoke(
-        FlashSession                      $flashSession,
-        RamseyUuidGenerator               $ramseyUuidGenerator,
+        FlashSession $flashSession,
+        RamseyUuidGenerator $ramseyUuidGenerator,
         OfficeOfLearningSupportRepository $officeOfLearningSupportRepository,
-        RelatedEntities                   $relatedEntities
-    ): Response
-    {
+        RelatedEntities $relatedEntities
+    ): Response {
         return $this->render(TwigTemplateConstants::FORM_FILE_PATH, [
             'list_path'                                                 => TwigTemplateConstants::LIST_PATH,
             'page_title'                                                => TwigTemplateConstants::SECTION_TITLE,

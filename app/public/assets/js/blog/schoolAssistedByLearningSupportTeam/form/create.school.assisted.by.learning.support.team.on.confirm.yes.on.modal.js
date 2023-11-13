@@ -27,7 +27,7 @@ function submitsSchoolAssistedByLearningSupportTeamFormViaAjaxWhenIsValid(create
 
     const inputModuleName = 'school_assisted_by_learning_support_team';
 
-    const successMessage = 'School has successfully created!';
+    const successMessage = Translator.trans('School has successfully created!');
 
     const errorDetails = Translator.trans('Failed to create new item, if the problem continues, please contact support.');
 

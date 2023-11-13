@@ -12,12 +12,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EmploymentContractAddController extends WebController
 {
-
     public function __invoke(
-        FlashSession        $flashSession,
+        FlashSession $flashSession,
         RamseyUuidGenerator $ramseyUuidGenerator
-    ): Response
-    {
+    ): Response {
         return $this->render(TwigTemplateConstants::FORM_FILE_PATH, [
             'list_path'             => TwigTemplateConstants::LIST_PATH,
             'page_title'            => TwigTemplateConstants::SECTION_TITLE,
@@ -29,5 +27,4 @@ class EmploymentContractAddController extends WebController
             'action_to_do'          => FormConstant::CREATE_LABEL_TEXT,
         ]);
     }
-
 }

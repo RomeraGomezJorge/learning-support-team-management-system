@@ -9,9 +9,9 @@ use InvalidArgumentException;
 
 final class UserStatus extends IntValueObject
 {
-    const ENABLE = 1;
-    const DISABLE = 0;
-    const VALID_STATUS = [self::ENABLE, self::DISABLE];
+    private const ENABLE = 1;
+    private const DISABLE = 0;
+    private const VALID_STATUS = [self::ENABLE, self::DISABLE];
 
     public function __construct(int $value)
     {
@@ -38,5 +38,4 @@ final class UserStatus extends IntValueObject
     {
         return self::enabled();
     }
-
 }

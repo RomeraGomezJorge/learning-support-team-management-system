@@ -15,13 +15,13 @@ $(document).ready(function () {
 
             event.preventDefault();
 
-            submitsJobDesignationFormViaAjaxWhenIsValid(createForm);
+            submitsDocumentCategoryOnFormViaAjaxWhenIsValid(createForm);
         }
     });
 
 });
 
-function submitsJobDesignationFormViaAjaxWhenIsValid(createForm) {
+function submitsDocumentCategoryOnFormViaAjaxWhenIsValid(createForm) {
 
     const errorDetails = Translator.trans('Failed to create new item, if the problem continues, please contact support.');
 

@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Backoffice\Document\Infrastructure\UserInterface\Web;
 
-
 use App\Backoffice\Document\Application\Delete\AttachmentDeleter;
-use App\Shared\Infrastructure\Constant\MessageConstant;
 use App\Shared\Infrastructure\Symfony\WebController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,11 +23,9 @@ class AttachmentDeleteController extends WebController
 
         $validationErrors = $this->validationRules($request);
 
-        $response = $validationErrors->count() !== 0
-            ? ['status' => 'fail', 'message' => MessageConstant::UNEXPECTED_ERROR_HAS_OCCURRED]
+        return ($validationErrors->count() !== 0)
+            ? $this->jsonResponseUnexpectedError()
             : $this->delete($deleter, $request);
-
-        return new JsonResponse($response);
     }
 
     private function validationRules(Request $request): ConstraintViolationListInterface
@@ -48,11 +44,9 @@ class AttachmentDeleteController extends WebController
         return $this->validator->validate($input, $constraint);
     }
 
-    private function delete(AttachmentDeleter $deleter, Request $request): array
+    private function delete(AttachmentDeleter $deleter, Request $request): JsonResponse
     {
         $deleter->__invoke($request->get('id'), $request->get('attachment'));
-        return ['status' => 'success'];
+        return $this->jsonResponseSuccess();
     }
-
 }
-	

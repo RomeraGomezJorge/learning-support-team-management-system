@@ -5,41 +5,33 @@ declare(strict_types=1);
 namespace App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\DocumentCategory\Application\Post\DocumentCategoryCreator;
-use App\Shared\Infrastructure\Constant\MessageConstant;
 use App\Shared\Infrastructure\Symfony\WebController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class DocumentCategoryPostByAjaxController extends WebController
 {
-
     public function __invoke(
-        Request                             $request,
-        DocumentCategoryCreator             $documentCategoryCreator,
-        FormToCreateADocumentCategoryByAjax $formToCreateDocumentCategoryByAjax,
-        ValidatorInterface                  $validator
-    ): JsonResponse
-    {
+        Request $request,
+        DocumentCategoryCreator $documentCategoryCreator,
+        FormToCreateADocumentCategoryByAjax $formToCreateDocumentCategoryByAjax
+    ): JsonResponse {
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
             return $this->jsonResponseOnInvalidCsrfToken();
         }
 
-        $validationErrors = $this->validateRequest($request, $validator);
+        $validationErrors = $this->validateRequest($request);
 
-        return $validationErrors->count() !== 0
+        return ($validationErrors->count() !== 0)
             ? $this->jsonResponseWithErrors($formToCreateDocumentCategoryByAjax, $validationErrors, $request)
             : $this->createDocumentCategory($request, $documentCategoryCreator);
     }
 
-    private function validateRequest(
-        Request            $request,
-        ValidatorInterface $validator
-    ): ConstraintViolationListInterface
+    private function validateRequest(Request $request): ConstraintViolationListInterface
     {
         $constraint = new Assert\Collection(
             [
@@ -52,14 +44,13 @@ class DocumentCategoryPostByAjaxController extends WebController
 
         $input = $request->request->all();
 
-        return $validator->validate($input, $constraint);
+        return $this->validator->validate($input, $constraint);
     }
 
     private function createDocumentCategory(
-        Request                 $request,
+        Request $request,
         DocumentCategoryCreator $documentCategoryCreator
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $documentCategoryCreator->__invoke(
             $request->get('id'),
             $request->get('name')
@@ -67,5 +58,4 @@ class DocumentCategoryPostByAjaxController extends WebController
 
         return $this->jsonResponseSuccess();
     }
-
 }

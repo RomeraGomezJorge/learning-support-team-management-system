@@ -12,7 +12,6 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
-use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
@@ -35,12 +34,16 @@ class ProcessSendingPasswordResetEmailController extends WebController
 
     public function __invoke(Request $request): RedirectResponse
     {
-        $isCsrfTokenValid = $this->isCsrfTokenValid('processSendingPasswordResetEmail',
-            $request->get('csrf_token'));
+        $isCsrfTokenValid = $this->isCsrfTokenValid(
+            'processSendingPasswordResetEmail',
+            $request->get('csrf_token')
+        );
 
         if (!$isCsrfTokenValid) {
-            $this->addFlash('reset_password_error',
-                '<h4 class="text-danger">' . MessageConstant::INVALID_TOKEN_CSFR_MESSAGE . '</h4>');
+            $this->addFlash(
+                'reset_password_error',
+                '<h4 class="text-danger">' . MessageConstant::INVALID_TOKEN_CSFR_MESSAGE . '</h4>'
+            );
 
             return $this->redirectToRoute(TwigTemplateConstants::FORGOT_PASSWORD_REQUEST_PATH);
         }
@@ -48,8 +51,11 @@ class ProcessSendingPasswordResetEmailController extends WebController
         $validationErrors = $this->validationsRulesToSendEmail($request);
 
         if ($validationErrors->count() !== 0) {
-            return $this->redirectWithErrors(TwigTemplateConstants::FORGOT_PASSWORD_REQUEST_PATH, $validationErrors,
-                $request);
+            return $this->redirectWithErrors(
+                TwigTemplateConstants::FORGOT_PASSWORD_REQUEST_PATH,
+                $validationErrors,
+                $request
+            );
         }
 
         $userFound = $this->getDoctrine()->getRepository(User::class)->findOneBy([

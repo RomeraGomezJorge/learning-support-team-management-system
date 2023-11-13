@@ -13,13 +13,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class LearningSupportTeamPostController extends WebController
 {
-
     public function __invoke(
-        Request                          $request,
-        LearningSupportTeamCreator       $creator,
+        Request $request,
+        LearningSupportTeamCreator $creator,
         ValidationRulesToCreateAndUpdate $validationsRules
-    ): Response
-    {
+    ): Response {
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
@@ -28,22 +26,19 @@ class LearningSupportTeamPostController extends WebController
 
         $validationErrors = $validationsRules->verify($request);
 
-        return $validationErrors->count() !== 0
+        return ($validationErrors->count() !== 0)
             ? $this->redirectWithErrors(TwigTemplateConstants::CREATE_PATH, $validationErrors, $request)
             : $this->create($request, $creator);
     }
 
-    private function create(
-        Request                    $request,
-        LearningSupportTeamCreator $creator
-    ): RedirectResponse
+    private function create(Request $request, LearningSupportTeamCreator $creator): RedirectResponse
     {
         $creator->__invoke(
             $request->get('id'),
             $request->get('name'),
-            $request->get('manager') ?: NULL,
+            $request->get('manager') ?: null,
             $request->get('office_learning_support_id'),
-            $request->get('schools_assisted_by_learning_support_team') ?: NULL,
+            $request->get('schools_assisted_by_learning_support_team') ?: null,
             $request->get('learning_support_team_category_id')
         );
 
@@ -52,5 +47,4 @@ class LearningSupportTeamPostController extends WebController
             MessageConstant::SUCCESS_MESSAGE_TO_CREATE
         );
     }
-
 }

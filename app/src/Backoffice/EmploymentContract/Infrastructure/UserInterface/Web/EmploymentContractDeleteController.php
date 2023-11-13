@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Backoffice\EmploymentContract\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\EmploymentContract\Application\Delete\EmploymentContractDeleter;
-use App\Shared\Infrastructure\Constant\MessageConstant;
 use App\Shared\Infrastructure\Symfony\WebController;
 use App\Shared\Infrastructure\UserInterface\Web\ValidationRulesToDelete;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -23,18 +22,15 @@ class EmploymentContractDeleteController extends WebController
 
         $validationErrors = $rulesToDelete->verify($request);
 
-        $response = ($validationErrors->count() !== 0)
-            ? ['status' => 'fail', 'message' => MessageConstant::UNEXPECTED_ERROR_HAS_OCCURRED]
+        return ($validationErrors->count() !== 0)
+            ? $this->jsonResponseUnexpectedError()
             : $this->delete($deleter, $request->get('id'));
-
-        return new JsonResponse($response);
     }
 
-    private function delete(EmploymentContractDeleter $deleter, string $id): array
+    private function delete(EmploymentContractDeleter $deleter, string $id): JsonResponse
     {
         $deleter->__invoke($id);
 
-        return ['status' => 'success'];
+        return $this->jsonResponseSuccess();
     }
 }
-	

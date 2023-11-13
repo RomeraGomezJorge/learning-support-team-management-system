@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace App\Backoffice\EmploymentContract\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\EmploymentContract\Application\Get\Single\CheckEmploymentContractNameAvailability;
@@ -13,10 +12,9 @@ use Symfony\Component\HttpFoundation\Request;
 final class EmploymentContractNameAvailableController extends WebController
 {
     public function __invoke(
-        Request                                 $request,
+        Request $request,
         CheckEmploymentContractNameAvailability $checkEmploymentContractNameAvailability
-    ): JsonResponse
-    {
+    ): JsonResponse {
         return new JsonResponse(
             $checkEmploymentContractNameAvailability->__invoke($request->get('name', ''))
         );

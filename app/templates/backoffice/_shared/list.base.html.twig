@@ -160,7 +160,7 @@
     {# End button to create an on mobile version #}
 
     {# Start button to open  modal filters on desktop version #}
-    <a href="#" class="filer-button show-button-description d-none d-sm-block text-white" data-label="Filtrar los datos"
+    <a href="#" class="filer-button show-button-description d-none d-sm-block text-white" data-label="{{ 'Filter the data'|trans }}"
        data-toggle="modal" data-target="#filter-modal">
         <i class="fas fa-search filter-icon"></i>
     </a>
@@ -173,7 +173,7 @@
                 <form id="filters-form"
                       action="{{ path(list_path) }}/page-1/order-{{ order }}-{{ orderBy }}/rows_per_page-{{ limit }}">
                     <div class="modal-header">
-                        <h3 class="modal-title">Filtrar los datos del listado</h3>
+                        <h3 class="modal-title">{{ 'Filtering the data in the list'|trans }}</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

@@ -21,12 +21,11 @@ use Symfony\Component\HttpFoundation\Response;
 class UserGetController extends WebController
 {
     public function __invoke(
-        Request                 $request,
+        Request $request,
         UsersByCriteriaSearcher $itemsByCriteriaSearcher,
-        UserByCriteriaCounter   $counter,
-        RoleRepository          $roleRepository
-    ): Response
-    {
+        UserByCriteriaCounter $counter,
+        RoleRepository $roleRepository
+    ): Response {
         $orderBy = $request->get('orderBy');
 
         $order = $request->get('order');
@@ -37,11 +36,21 @@ class UserGetController extends WebController
 
         $filters = FilterUtils::getFiltersOrEmpyArray($request->get('filters'));
 
-        $users = $itemsByCriteriaSearcher->__invoke($filters, $order, $orderBy, $limit,
-            OffsetPaginationUtil::calculate($limit, $page));
+        $users = $itemsByCriteriaSearcher->__invoke(
+            $filters,
+            $order,
+            $orderBy,
+            $limit,
+            OffsetPaginationUtil::calculate($limit, $page)
+        );
 
-        $totalItem = $counter->__invoke($filters, $order, $orderBy, $limit,
-            OffsetPaginationUtil::calculate($limit, $page));
+        $totalItem = $counter->__invoke(
+            $filters,
+            $order,
+            $orderBy,
+            $limit,
+            OffsetPaginationUtil::calculate($limit, $page)
+        );
 
         $totalNumberOfPages = TotalNumberOfPagesUtil::calculate($page, $limit, $totalItem);
 

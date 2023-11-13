@@ -11,16 +11,12 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\String\Slugger\SluggerInterface;
-use Symfony\Component\Translation\Translator;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class GetAttachmentsInRequestAndUploadFiles extends WebController
 {
-
-    const ALLOWED_IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'png'];
-
-    const ALLOWED_DOCUMENT_EXTENSIONS = [
+    private const ALLOWED_IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'png'];
+    private const ALLOWED_DOCUMENT_EXTENSIONS = [
         'dot',
         'wbk',
         'docx',
@@ -56,15 +52,12 @@ final class GetAttachmentsInRequestAndUploadFiles extends WebController
         'txt',
     ];
 
-    const FILE_NOT_FOUND_ON_REQUEST = NULL;
-
+    private  const FILE_NOT_FOUND_ON_REQUEST = null;
     private SluggerInterface $slugger;
-
     private TranslatorInterface $translator;
 
-    public function __construct(SluggerInterface $slugger, TranslatorInterface $translator, ValidatorInterface $validator)
+    public function __construct(SluggerInterface $slugger, TranslatorInterface $translator)
     {
-        parent::__construct($validator);
         $this->slugger    = $slugger;
         $this->translator = $translator;
     }
@@ -79,7 +72,7 @@ final class GetAttachmentsInRequestAndUploadFiles extends WebController
         $files = $request->files->get('attachment');
 
         if ($files === self::FILE_NOT_FOUND_ON_REQUEST) {
-            return NULL;
+            return null;
         }
 
         foreach (array_keys($files) as $key) {
@@ -101,10 +94,9 @@ final class GetAttachmentsInRequestAndUploadFiles extends WebController
 
     private function uploadFileAndGetFileLink(
         UploadedFile $fileToUpload,
-        string       $name,
-        string       $attachmentDirectory
-    ): string
-    {
+        string $name,
+        string $attachmentDirectory
+    ): string {
         $fileName = $this->slugger->slug($name . '-' . uniqid()) . '.' . $fileToUpload->guessExtension();
 
         try {
@@ -136,5 +128,4 @@ final class GetAttachmentsInRequestAndUploadFiles extends WebController
 
         return json_decode($arrayFormat);
     }
-
 }

@@ -38,7 +38,7 @@
                     data-url_delete_confirmation_modal="{{ path(delete_confirmation_modal_path) }}"
                     data-css_selector_to_handle_tr_style_that_contains_items_to_delete="#css-selector-for-tr-that_contains-items-to-delete-{{ school.id }}"
                     data-id_to_delete="{{ school.id }}"
-                    data-message_to_delete_confirmation='{{ 'The school with name "%name%".'|trans({'%name': school.name ~ school.number }) }}'
+                    data-message_to_delete_confirmation='{{ 'The school with name: "%name%".'|trans({'%name%': school.name ~' '~ school.number }) }}'
                     data-modal_title='{{ school.name }}'
                 >
                     <div class="row pt-2">
@@ -86,7 +86,7 @@
                                 data-url_delete_confirmation_modal="{{ path(delete_confirmation_modal_path) }}"
                                 data-css_selector_to_handle_tr_style_that_contains_items_to_delete="#css-selector-for-tr-that_contains-items-to-delete-{{ school.id }}"
                                 data-id_to_delete="{{ school.id }}"
-                                data-message_to_delete_confirmation='{{ 'The school with name "%name%".'|trans({'%name': school.name ~ school.number }) }}'
+                                data-message_to_delete_confirmation='{{ 'The school with name: "%name%".'|trans({'%name%': school.name ~' '~ school.number }) }}'
                         >
                             <i class="fa fa-times"></i>
                         </button>

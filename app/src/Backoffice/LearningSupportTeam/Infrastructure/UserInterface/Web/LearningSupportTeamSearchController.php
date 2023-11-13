@@ -9,19 +9,17 @@ use App\Shared\Infrastructure\Symfony\WebController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-
 class LearningSupportTeamSearchController extends WebController
 {
-    const SORT_A_LIST_BY_NAME = 'name';
-    const SORT_A_LIST_ALPHABETICALLY = 'asc';
-    const LIST_BEGIN_ON_0 = 0;
-    const LIST_END_ON_1000 = 1000;
+    private const SORT_A_LIST_BY_NAME = 'name';
+    private const SORT_A_LIST_ALPHABETICALLY = 'asc';
+    private const LIST_BEGIN_ON_0 = 0;
+    private const LIST_END_ON_1000 = 1000;
 
     public function __invoke(
-        Request                               $request,
+        Request $request,
         LearningSupportTeamByCriteriaSearcher $learningSupportTeamByCriteriaSearcher
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $filters[0]['field']    = 'name';
         $filters[0]['operator'] = 'CONTAINS';
         $filters[0]['value']    = $request->get('name');
@@ -31,7 +29,8 @@ class LearningSupportTeamSearchController extends WebController
             self::SORT_A_LIST_BY_NAME,
             self::SORT_A_LIST_ALPHABETICALLY,
             self::LIST_END_ON_1000,
-            self::LIST_BEGIN_ON_0);
+            self::LIST_BEGIN_ON_0
+        );
 
         return new JsonResponse(array_map(function ($learningSupportTeam) {
             return [
@@ -39,8 +38,5 @@ class LearningSupportTeamSearchController extends WebController
                 'name' => $learningSupportTeam->name()
             ];
         }, $learningSupportTeam));
-
     }
-
 }
-	

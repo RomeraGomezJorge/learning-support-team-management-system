@@ -18,13 +18,12 @@ use Symfony\Component\HttpFoundation\Response;
 class LearningSupportTeamEditController extends WebController
 {
     public function __invoke(
-        FlashSession                      $flashSession,
-        Request                           $request,
-        LearningSupportTeamFinder         $finder,
+        FlashSession $flashSession,
+        Request $request,
+        LearningSupportTeamFinder $finder,
         OfficeOfLearningSupportRepository $officeOfLearningSupportRepository,
-        RelatedEntities                   $relatedEntities
-    ): Response
-    {
+        RelatedEntities $relatedEntities
+    ): Response {
         $learningSupportTeam = $finder->__invoke($request->get('id'));
 
         return $this->render(TwigTemplateConstants::FORM_FILE_PATH, [

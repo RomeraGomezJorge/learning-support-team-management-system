@@ -14,11 +14,10 @@ use Symfony\Component\HttpFoundation\Response;
 class DocumentCategoryPostController extends WebController
 {
     public function __invoke(
-        Request                          $request,
-        DocumentCategoryCreator          $creator,
+        Request $request,
+        DocumentCategoryCreator $creator,
         ValidationRulesToCreateAndUpdate $validationRules
-    ): Response
-    {
+    ): Response {
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
@@ -27,7 +26,7 @@ class DocumentCategoryPostController extends WebController
 
         $validationErrors = $validationRules->verify($request);
 
-        return $validationErrors->count() !== 0
+        return ($validationErrors->count() !== 0)
             ? $this->redirectWithErrors(TwigTemplateConstants::CREATE_PATH, $validationErrors, $request)
             : $this->create($request, $creator);
     }

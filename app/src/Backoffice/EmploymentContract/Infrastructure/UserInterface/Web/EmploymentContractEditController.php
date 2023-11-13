@@ -13,13 +13,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EmploymentContractEditController extends WebController
 {
-
     public function __invoke(
-        FlashSession             $flashSession,
-        Request                  $request,
+        FlashSession $flashSession,
+        Request $request,
         EmploymentContractFinder $finder
-    ): Response
-    {
+    ): Response {
         $employmentContract = $finder->__invoke($request->get('id'));
 
         return $this->render(TwigTemplateConstants::FORM_FILE_PATH, [
@@ -33,5 +31,4 @@ class EmploymentContractEditController extends WebController
             'action_to_do'          => FormConstant::UPDATE_LABEL_TEXT,
         ]);
     }
-
 }

@@ -10,10 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
-
 final class ValidationRulesToCreateAndUpdate extends WebController
 {
-
     public function verify(Request $request): ConstraintViolationListInterface
     {
         $constraint = new Assert\Collection(
@@ -21,7 +19,7 @@ final class ValidationRulesToCreateAndUpdate extends WebController
                 'id'                     => [new Assert\Uuid()],
                 'name'                   => [new Assert\NotBlank(), new Assert\Length(['min' => 3, 'max' => 100])],
                 'surname'                => [new Assert\NotBlank(), new Assert\Length(['min' => 3, 'max' => 100])],
-                'identity_card'          => [new Assert\AtLeastOneOf([new Assert\Blank(), new Assert\Length(8)])],
+                'identity_card'          => [new Assert\Optional([new Assert\Positive(), new Assert\Length(['min' => 8, 'max' => 10])])],
                 'phone'                  => [new Assert\AtLeastOneOf([new Assert\Blank(), new Assert\Length(['min' => 6, 'max' => 100])])],
                 'email'                  => [new Assert\Optional(new Assert\Email())],
                 'hire_date'              => [new Assert\Optional(new Assert\Date())],

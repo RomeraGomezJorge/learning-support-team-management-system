@@ -8,7 +8,6 @@ use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 final class ValidationRulesToDelete extends WebController
 {
-
     public function verify($request): ConstraintViolationListInterface
     {
         $constraint = new Assert\Collection(
@@ -23,5 +22,4 @@ final class ValidationRulesToDelete extends WebController
 
         return $this->validator->validate($input, $constraint);
     }
-
 }

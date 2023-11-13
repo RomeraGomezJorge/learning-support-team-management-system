@@ -13,17 +13,14 @@ use App\Shared\Infrastructure\Symfony\WebController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-
 class EmployeeEditController extends WebController
 {
-    public function __invoke
-    (
-        Request         $request,
-        EmployeeFinder  $finder,
+    public function __invoke(
+        Request $request,
+        EmployeeFinder $finder,
         RelatedEntities $relatedEntities,
-        FlashSession    $flashSession
-    ): Response
-    {
+        FlashSession $flashSession
+    ): Response {
         $employee = $finder->__invoke($request->get('id'));
 
         return $this->render(TwigTemplateConstants::FORM_FILE_PATH, [

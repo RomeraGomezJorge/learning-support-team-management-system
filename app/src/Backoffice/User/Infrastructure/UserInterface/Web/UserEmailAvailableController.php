@@ -12,10 +12,9 @@ use Symfony\Component\HttpFoundation\Request;
 final class UserEmailAvailableController extends WebController
 {
     public function __invoke(
-        Request                    $request,
+        Request $request,
         CheckUserEmailAvailability $userEmailAvailabilityChecker
-    ): JsonResponse
-    {
+    ): JsonResponse {
         return new JsonResponse(
             $userEmailAvailabilityChecker->__invoke($request->get('email', ''))
         );

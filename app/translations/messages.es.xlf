@@ -979,25 +979,25 @@
         <source>Select a value</source>
         <target>Seleccione un valor</target>
       </trans-unit>
-      <trans-unit id="x2d110" resname="Learning Support Team Category">
-        <source>Learning Support Team Category</source>
+      <trans-unit id="x2d110" resname="Learning Support Team Group">
+        <source>Learning Support Team Group</source>
         <target>Categoría De Equipo </target>
       </trans-unit>
-      <trans-unit id="x2d111" resname="Learning support team category">
-        <source>Learning support team category</source>
-        <target>Categoría de equipo </target>
+      <trans-unit id="x2d111" resname="Learning support team group">
+        <source>Learning support team group</source>
+        <target>Agrupación de equipo </target>
       </trans-unit>
-      <trans-unit id="x2d112" resname='The learning support team category with name "%name%".'>
-        <source>The learning support team category with name "%name%".</source>
-        <target>La categoría de equipo con el nombre "%name%". </target>
+      <trans-unit id="x2d112" resname='The learning support team group with name "%name%".'>
+        <source>The learning support team group with name "%name%".</source>
+        <target>La agrupación de equipo con el nombre "%name%". </target>
       </trans-unit>
-      <trans-unit id="x2d113" resname='All learning support team categories'>
-        <source>All learning support team categories</source>
-        <target>Todas las categorias de los equipos</target>
+      <trans-unit id="x2d113" resname='All learning support team groups'>
+        <source>All learning support team groups</source>
+        <target>Todas los grupos de los equipos</target>
       </trans-unit>
-      <trans-unit id="x2d114" resname='Add new Learning support team category'>
-        <source>Add new Learning support team category</source>
-        <target>Crear nueva categoria de equipo</target>
+      <trans-unit id="x2d114" resname='Add new Learning support team group'>
+        <source>Add new Learning support team group</source>
+        <target>Crear nueva grupo de equipo</target>
       </trans-unit>
       <trans-unit id="x2d115" resname='Failed to get learning support team data'>
         <source>Failed to get learning support team data</source>
@@ -1210,6 +1210,14 @@
       <trans-unit id="x2d167" resname="An error has occurred!">
         <source>An error has occurred!</source>
         <target>¡Ha ocurrido un error!</target>
+      </trans-unit>
+      <trans-unit id="x2d168" resname="Filtering the data in the list">
+        <source>Filtering the data in the list</source>
+        <target>Filtrar los datos del listado</target>
+      </trans-unit>
+      <trans-unit id="x2d169" resname="Filter the data">
+        <source>Filter the data</source>
+        <target>Filtrar los datos</target>
       </trans-unit>
     </body>
   </file>

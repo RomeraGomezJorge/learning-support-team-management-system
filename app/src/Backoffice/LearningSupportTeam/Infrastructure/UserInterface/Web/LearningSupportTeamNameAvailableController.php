@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace App\Backoffice\LearningSupportTeam\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\LearningSupportTeam\Application\Get\Single\CheckLearningSupportTeamNameAvailability;
@@ -13,10 +12,9 @@ use Symfony\Component\HttpFoundation\Request;
 final class LearningSupportTeamNameAvailableController extends WebController
 {
     public function __invoke(
-        Request                                  $request,
+        Request $request,
         CheckLearningSupportTeamNameAvailability $checkLearningSupportTeamNameAvailability
-    ): JsonResponse
-    {
+    ): JsonResponse {
         return new JsonResponse(
             $checkLearningSupportTeamNameAvailability->__invoke($request->get('name', ''))
         );

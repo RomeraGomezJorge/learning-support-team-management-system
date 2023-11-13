@@ -1,9 +1,9 @@
 <?php
-  
+
   declare(strict_types=1);
-  
+
   namespace App\Backoffice\LearningSupportTeam\Application\Post;
-  
+
   use App\Backoffice\Employee\Application\Get\Single\EmployeeFinder;
   use App\Backoffice\Employee\Domain\EmployeeRepository;
   use App\Backoffice\LearningSupportTeam\Domain\LearningSupportTeam;
@@ -19,83 +19,74 @@
   use App\Shared\Domain\Bus\Event\EventBus;
   use App\Shared\Domain\ValueObject\Uuid;
   use DateTime;
-  
-  
-  final class LearningSupportTeamCreator {
-    
-    const MANAGER_IS_NOT_SET = NULL;
-    
+
+  final class LearningSupportTeamCreator
+{
+    private const MANAGER_IS_NOT_SET = null;
     private LearningSupportTeamRepository $repository;
-    
     private LearningSupportTeamNameIsAvailableSpecification $nameIsAvailableSpecification;
-    
     private EventBus $bus;
-    
     private SchoolAssistedByLearningSupportTeamFinder $schoolAssistedByLearningSupportTeamFinder;
-    
     private OfficeOfLearningSupportFinder $officeOfLearningSupportFinder;
-    
     private EmployeeFinder $employeeFinder;
-    
     private LearningSupportTeamCategoryFinder $learningSupportTeamCategoryFinder;
-    
+
     public function __construct(
-      LearningSupportTeamRepository $repository,
-      SchoolAssistedByLearningSupportTeamRepository $schoolAssistedByLearningSupportTeamRepository,
-      OfficeOfLearningSupportRepository $officeOfLearningSupportRepository,
-      EmployeeRepository $employeeRepository,
-      LearningSupportTeamCategoryRepository $learningSupportTeamCategoryRepository,
-      LearningSupportTeamNameIsAvailableSpecification $nameIsAvailableSpecification,
-      EventBus $bus
+        LearningSupportTeamRepository $repository,
+        SchoolAssistedByLearningSupportTeamRepository $schoolAssistedByLearningSupportTeamRepository,
+        OfficeOfLearningSupportRepository $officeOfLearningSupportRepository,
+        EmployeeRepository $employeeRepository,
+        LearningSupportTeamCategoryRepository $learningSupportTeamCategoryRepository,
+        LearningSupportTeamNameIsAvailableSpecification $nameIsAvailableSpecification,
+        EventBus $bus
     ) {
-      $this->repository = $repository;
-      $this->schoolAssistedByLearningSupportTeamFinder = new SchoolAssistedByLearningSupportTeamFinder($schoolAssistedByLearningSupportTeamRepository);
-      $this->officeOfLearningSupportFinder = new OfficeOfLearningSupportFinder($officeOfLearningSupportRepository);
-      $this->employeeFinder = new EmployeeFinder($employeeRepository);
-      $this->learningSupportTeamCategoryFinder = new LearningSupportTeamCategoryFinder($learningSupportTeamCategoryRepository);
-      $this->nameIsAvailableSpecification = $nameIsAvailableSpecification;
-      $this->bus = $bus;
+        $this->repository = $repository;
+        $this->schoolAssistedByLearningSupportTeamFinder = new SchoolAssistedByLearningSupportTeamFinder($schoolAssistedByLearningSupportTeamRepository);
+        $this->officeOfLearningSupportFinder = new OfficeOfLearningSupportFinder($officeOfLearningSupportRepository);
+        $this->employeeFinder = new EmployeeFinder($employeeRepository);
+        $this->learningSupportTeamCategoryFinder = new LearningSupportTeamCategoryFinder($learningSupportTeamCategoryRepository);
+        $this->nameIsAvailableSpecification = $nameIsAvailableSpecification;
+        $this->bus = $bus;
     }
-    
+
     public function __invoke(
-      string $id,
-      string $name,
-      ?string $managerId,
-      string $officeOfLearningSupportId,
-      ?array $schoolsAssistedByLearningSupportTeam,
-      string $learningSupportTeamId
+        string $id,
+        string $name,
+        ?string $managerId,
+        string $officeOfLearningSupportId,
+        ?array $schoolsAssistedByLearningSupportTeam,
+        string $learningSupportTeamId
     ) {
-      $createAt = new DateTime();
-      
-      $employee = $managerId === self::MANAGER_IS_NOT_SET
+        $createAt = new DateTime();
+
+        $employee = $managerId === self::MANAGER_IS_NOT_SET
         ? self::MANAGER_IS_NOT_SET
         : $this->employeeFinder->__invoke($managerId);
-      
-      $officeOfLearningSupport = $this->officeOfLearningSupportFinder->__invoke($officeOfLearningSupportId);
-      
-      $learningSupportTeam = $this->learningSupportTeamCategoryFinder->__invoke($learningSupportTeamId);
-      
-      $learningSupportTeam = LearningSupportTeam::create(
-        new Uuid($id),
-        new LearningSupportTeamName($name),
-        $employee,
-        $officeOfLearningSupport,
-        $learningSupportTeam,
-        $createAt,
-        $this->nameIsAvailableSpecification
-      );
-      
-      if ($schoolsAssistedByLearningSupportTeam) {
-        foreach ($schoolsAssistedByLearningSupportTeam as $school) {
-          $learningSupportTeam->addSchoolAssistedByLearningSupportTeam(
-            $this->schoolAssistedByLearningSupportTeamFinder->__invoke($school)
-          );
+
+        $officeOfLearningSupport = $this->officeOfLearningSupportFinder->__invoke($officeOfLearningSupportId);
+
+        $learningSupportTeamCategory = $this->learningSupportTeamCategoryFinder->__invoke($learningSupportTeamId);
+
+        $learningSupportTeam = LearningSupportTeam::create(
+            new Uuid($id),
+            new LearningSupportTeamName($name),
+            $employee,
+            $officeOfLearningSupport,
+            $learningSupportTeamCategory,
+            $createAt,
+            $this->nameIsAvailableSpecification
+        );
+
+        if ($schoolsAssistedByLearningSupportTeam) {
+            foreach ($schoolsAssistedByLearningSupportTeam as $school) {
+                $learningSupportTeam->addSchoolAssistedByLearningSupportTeam(
+                    $this->schoolAssistedByLearningSupportTeamFinder->__invoke($school)
+                );
+            }
         }
-      }
-      
-      $this->repository->save($learningSupportTeam);
-      
-      $this->bus->publish(...$learningSupportTeam->pullDomainEvents());
+
+        $this->repository->save($learningSupportTeam);
+
+        $this->bus->publish(...$learningSupportTeam->pullDomainEvents());
     }
-    
-  }
+}

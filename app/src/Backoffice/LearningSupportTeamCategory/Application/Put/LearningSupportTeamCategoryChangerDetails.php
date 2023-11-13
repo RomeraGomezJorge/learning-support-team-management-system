@@ -11,16 +11,14 @@ use App\Backoffice\LearningSupportTeamCategory\Domain\ValueObject\LearningSuppor
 
 final class LearningSupportTeamCategoryChangerDetails
 {
-
     private LearningSupportTeamCategoryRepository $repository;
     private LearningSupportTeamCategoryFinder $finder;
     private LearningSupportTeamCategoryNameIsAvailableSpecification $nameIsAvailableSpecification;
 
     public function __construct(
-        LearningSupportTeamCategoryRepository                   $repository,
+        LearningSupportTeamCategoryRepository $repository,
         LearningSupportTeamCategoryNameIsAvailableSpecification $nameIsAvailableSpecification
-    )
-    {
+    ) {
         $this->repository                   = $repository;
         $this->finder                       = new LearningSupportTeamCategoryFinder($repository);
         $this->nameIsAvailableSpecification = $nameIsAvailableSpecification;

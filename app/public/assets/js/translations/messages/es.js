@@ -239,11 +239,11 @@ t.add("Password changed!", "\u00a1Se ha restablecido la contrase\u00f1a!", "mess
 t.add("My account", "Gestionar tu cuenta", "messages", "es");
 t.add("Employee Management System", "Sistema de gesti\u00f3n del personal", "messages", "es");
 t.add("Select a value", "Seleccione un valor", "messages", "es");
-t.add("Learning Support Team Category", "Categor\u00eda De Equipo ", "messages", "es");
-t.add("Learning support team category", "Categor\u00eda de equipo ", "messages", "es");
-t.add("The learning support team category with name \"%name%\".", "La categor\u00eda de equipo con el nombre \"%name%\". ", "messages", "es");
-t.add("All learning support team categories", "Todas las categorias de los equipos", "messages", "es");
-t.add("Add new Learning support team category", "Crear nueva categoria de equipo", "messages", "es");
+t.add("Learning Support Team Group", "Categor\u00eda De Equipo ", "messages", "es");
+t.add("Learning Support Team Group", "Categor\u00eda de equipo ", "messages", "es");
+t.add("The Learning Support Team Group with name \"%name%\".", "La categor\u00eda de equipo con el nombre \"%name%\". ", "messages", "es");
+t.add("All learning support team groups", "Todas los grupos de los equipos", "messages", "es");
+t.add("Add new Learning support team group", "Crear nueva grupo de equipo", "messages", "es");
 t.add("Failed to get learning support team data", "No fue posible obtener los datos del equipo", "messages", "es");
 t.add("Please try again", "Por favor intente nuevamente", "messages", "es");
 t.add("If the error persists, please contact support", "Si el error persiste p\u00f3ngase en contacto con el administrador del sistema", "messages", "es");

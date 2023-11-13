@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Backoffice\SchoolAssistedByLearningSupportTeam\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\SchoolAssistedByLearningSupportTeam\Application\Post\SchoolAssistedByLearningSupportTeamCreator;
-use App\Shared\Infrastructure\Constant\MessageConstant;
 use App\Shared\Infrastructure\Symfony\WebController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,11 +14,10 @@ use Symfony\Component\Validator\ConstraintViolationListInterface;
 class SchoolAssistedByLearningSupportTeamPostByAjaxController extends WebController
 {
     public function __invoke(
-        Request                                               $request,
-        SchoolAssistedByLearningSupportTeamCreator            $schoolsAssistedByLearningSupportTeamCreator,
+        Request $request,
+        SchoolAssistedByLearningSupportTeamCreator $schoolsAssistedByLearningSupportTeamCreator,
         FormToCreateSchoolAssistedByLearningSupportTeamByAjax $formToCreateSchoolAssistedByLearningSupportTeamByAjax
-    ): JsonResponse
-    {
+    ): JsonResponse {
 
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
@@ -27,13 +25,9 @@ class SchoolAssistedByLearningSupportTeamPostByAjaxController extends WebControl
             return $this->jsonResponseOnInvalidCsrfToken();
         }
 
-        var_dump($isCsrfTokenValid);
-
-        die();
-
         $validationErrors = $this->validateRequest($request);
 
-        return $validationErrors->count() !== 0
+        return ($validationErrors->count() !== 0)
             ? $this->jsonResponseWithErrors($formToCreateSchoolAssistedByLearningSupportTeamByAjax, $validationErrors, $request)
             : $this->createSchoolAssistedByLearningSupportTeam($request, $schoolsAssistedByLearningSupportTeamCreator);
     }

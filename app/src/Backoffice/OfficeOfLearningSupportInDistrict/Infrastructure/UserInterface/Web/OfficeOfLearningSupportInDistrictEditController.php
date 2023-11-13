@@ -13,13 +13,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class OfficeOfLearningSupportInDistrictEditController extends WebController
 {
-
     public function __invoke(
-        FlashSession                            $flashSession,
-        Request                                 $request,
+        FlashSession $flashSession,
+        Request $request,
         OfficeOfLearningSupportInDistrictFinder $finder
-    ): Response
-    {
+    ): Response {
         $officeOfLearningSupportInDistrict = $finder->__invoke($request->get('id'));
 
         return $this->render(TwigTemplateConstants::FORM_FILE_PATH, [
@@ -33,5 +31,4 @@ class OfficeOfLearningSupportInDistrictEditController extends WebController
             'action_to_do'          => FormConstant::UPDATE_LABEL_TEXT,
         ]);
     }
-
 }

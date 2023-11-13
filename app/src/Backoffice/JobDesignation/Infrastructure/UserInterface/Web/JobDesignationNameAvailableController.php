@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace App\Backoffice\JobDesignation\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\JobDesignation\Application\Get\Single\CheckJobDesignationNameAvailability;
@@ -13,10 +12,9 @@ use Symfony\Component\HttpFoundation\Request;
 final class JobDesignationNameAvailableController extends WebController
 {
     public function __invoke(
-        Request                             $request,
+        Request $request,
         CheckJobDesignationNameAvailability $checkJobDesignationNameAvailability
-    ): JsonResponse
-    {
+    ): JsonResponse {
         return new JsonResponse(
             $checkJobDesignationNameAvailability->__invoke($request->get('name', ''))
         );

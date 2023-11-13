@@ -7,7 +7,6 @@ namespace App\Backoffice\Employee\Domain\ValueObject;
 use App\Shared\Domain\ValueObject\StringValueObject;
 use InvalidArgumentException;
 
-
 final class EmployeeShitWork extends StringValueObject
 {
     const UNKNOWN = '0';

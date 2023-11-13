@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Backoffice\User\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\User\Application\Patch\UserPasswordReset;
-use App\Shared\Infrastructure\Constant\MessageConstant;
 use App\Shared\Infrastructure\Symfony\WebController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,29 +13,19 @@ use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 class ResetPasswordPostByAjaxController extends WebController
 {
-
-    // TODO: check for refactor
     public function __invoke(Request $request, UserPasswordReset $userPasswordReset): JsonResponse
     {
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
-            return $this->failResponse(MessageConstant::INVALID_TOKEN_CSFR_MESSAGE);
+            return $this->jsonResponseOnInvalidCsrfToken();
         }
 
         $validationErrors = $this->validateRequest($request);
 
-        return $validationErrors->count() !== 0
-            ? $this->failResponse()
+        return ($validationErrors->count() !== 0)
+            ? $this->jsonResponseUnexpectedError()
             : $this->update($request, $userPasswordReset);
-    }
-
-    private function failResponse($message = ''): JsonResponse
-    {
-        return new JsonResponse([
-            'status'  => 'fail',
-            'message' => $message
-        ]);
     }
 
     private function validateRequest(Request $request): ConstraintViolationListInterface

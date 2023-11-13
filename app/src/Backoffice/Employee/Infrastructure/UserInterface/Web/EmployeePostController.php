@@ -13,14 +13,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EmployeePostController extends WebController
 {
-
     public function __invoke(
-        Request                          $request,
-        EmployeeCreator                  $creator,
+        Request $request,
+        EmployeeCreator $creator,
         ValidationRulesToCreateAndUpdate $validationRules
-
-    ): Response
-    {
+    ): Response {
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
@@ -29,32 +26,28 @@ class EmployeePostController extends WebController
 
         $validationErrors = $validationRules->verify($request);
 
-        return $validationErrors->count() !== 0
+        return ($validationErrors->count() !== 0)
             ? $this->redirectWithErrors(TwigTemplateConstants::CREATE_PATH, $validationErrors, $request)
             : $this->create($request, $creator);
     }
 
-    private function create(
-        Request         $request,
-        EmployeeCreator $creator
-    ): RedirectResponse
+    private function create(Request $request, EmployeeCreator $creator): RedirectResponse
     {
-
         $creator->__invoke(
             $request->get('id'),
             $request->get('name'),
             $request->get('surname'),
-            $request->get('identity_card') ?: NULL,
-            $request->get('phone') ?: NULL,
-            $request->get('email') ?: NULL,
-            $request->get('hire_date') ?: NULL,
-            $request->get('termination_date') ?: NULL,
-            $request->get('address') ?: NULL,
+            $request->get('identity_card') ?: null,
+            $request->get('phone') ?: null,
+            $request->get('email') ?: null,
+            $request->get('hire_date') ?: null,
+            $request->get('termination_date') ?: null,
+            $request->get('address') ?: null,
             $request->get('job_designation_id'),
             $request->get('employment_contract_id'),
             $request->get('shift_work'),
             $request->get('learning_support_team'),
-            $request->get('birthday') ?: NULL
+            $request->get('birthday') ?: null
         );
 
         return $this->redirectWithMessage(
@@ -62,5 +55,4 @@ class EmployeePostController extends WebController
             MessageConstant::SUCCESS_MESSAGE_TO_CREATE
         );
     }
-
 }

@@ -5,39 +5,35 @@ declare(strict_types=1);
 namespace App\Backoffice\User\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\Role\Domain\ValueObject\RoleId;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Backoffice\User\Application\Put\UserDetailsChanger;
 use App\Shared\Infrastructure\Constant\MessageConstant;
 use App\Shared\Infrastructure\Symfony\WebController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
-use Symfony\Component\Validator\Validation;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class UserPutController extends WebController
 {
     public function __invoke(
-        Request            $request,
-        UserDetailsChanger $updater,
-        ValidatorInterface $validator
-    ): Response
-    {
+        Request $request,
+        UserDetailsChanger $updater
+    ): Response {
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
             return $this->redirectOnInvalidCsrfToken();
         }
 
-        $validationErrors = $this->validateRequest($request, $validator);
+        $validationErrors = $this->validateRequest($request);
 
-        return $validationErrors->count() !== 0
+        return ($validationErrors->count() !== 0)
             ? $this->redirectWithErrors(TwigTemplateConstants::EDIT_PATH, $validationErrors, $request)
             : $this->update($request, $updater);
     }
 
-    private function validateRequest(Request $request, ValidatorInterface $validator): ConstraintViolationListInterface
+    private function validateRequest(Request $request): ConstraintViolationListInterface
     {
         $constraint = new Assert\Collection(
             [
@@ -54,7 +50,7 @@ class UserPutController extends WebController
 
         $input = $request->request->all();
 
-        return $validator->validate($input, $constraint);
+        return $this->validator->validate($input, $constraint);
     }
 
     private function update(Request $request, UserDetailsChanger $updater): RedirectResponse

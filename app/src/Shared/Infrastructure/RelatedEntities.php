@@ -27,15 +27,13 @@ final class RelatedEntities
 
     public function __construct(
         OfficeOfLearningSupportInDistrictByCriteriaSearcher $officeOfLearningSupportInDistrictByCriteriaSearcher,
-        JobDesignationByCriteriaSearcher                    $jobDesignationByCriteriaSearcher,
-        EmploymentContractByCriteriaSearcher                $employmentContractByCriteriaSearcher,
-        LearningSupportTeamCategoryByCriteriaSearcher       $learningSupportTeamCategoryByCriteriaSearcher,
-        LearningSupportTeamByCriteriaSearcher               $learningSupportTeamByCriteriaSearcher,
-        DocumentCategoryByCriteriaSearcher                  $documentCategoryByCriteriaSearcher,
-        EmployeeByCriteriaSearcher                          $employeeByCriteriaSearcher
-
-    )
-    {
+        JobDesignationByCriteriaSearcher $jobDesignationByCriteriaSearcher,
+        EmploymentContractByCriteriaSearcher $employmentContractByCriteriaSearcher,
+        LearningSupportTeamCategoryByCriteriaSearcher $learningSupportTeamCategoryByCriteriaSearcher,
+        LearningSupportTeamByCriteriaSearcher $learningSupportTeamByCriteriaSearcher,
+        DocumentCategoryByCriteriaSearcher $documentCategoryByCriteriaSearcher,
+        EmployeeByCriteriaSearcher $employeeByCriteriaSearcher
+    ) {
         $this->officeOfLearningSupportInDistrictByCriteriaSearcher = $officeOfLearningSupportInDistrictByCriteriaSearcher;
         $this->jobDesignationByCriteriaSearcher                    = $jobDesignationByCriteriaSearcher;
         $this->employmentContractByCriteriaSearcher                = $employmentContractByCriteriaSearcher;
@@ -52,7 +50,8 @@ final class RelatedEntities
             self::SORT_A_LIST_BY_NAME,
             self::SORT_A_LIST_ALPHABETICALLY,
             self::LIST_END_ON_1000,
-            self::LIST_BEGIN_ON_0);
+            self::LIST_BEGIN_ON_0
+        );
     }
 
     public function jobDesignationsSortedAlphabetically(): array
@@ -62,7 +61,8 @@ final class RelatedEntities
             self::SORT_A_LIST_BY_NAME,
             self::SORT_A_LIST_ALPHABETICALLY,
             self::LIST_END_ON_1000,
-            self::LIST_BEGIN_ON_0);
+            self::LIST_BEGIN_ON_0
+        );
     }
 
     public function employmentContractsSortedAlphabetically(): array
@@ -72,7 +72,8 @@ final class RelatedEntities
             self::SORT_A_LIST_BY_NAME,
             self::SORT_A_LIST_ALPHABETICALLY,
             self::LIST_END_ON_1000,
-            self::LIST_BEGIN_ON_0);
+            self::LIST_BEGIN_ON_0
+        );
     }
 
     public function learningSupportTeamCategoriesSortedAlphabetically(): array
@@ -82,7 +83,8 @@ final class RelatedEntities
             self::SORT_A_LIST_BY_NAME,
             self::SORT_A_LIST_ALPHABETICALLY,
             self::LIST_END_ON_1000,
-            self::LIST_BEGIN_ON_0);
+            self::LIST_BEGIN_ON_0
+        );
     }
 
     public function learningSupportTeamsSortedAlphabetically(): array
@@ -92,7 +94,8 @@ final class RelatedEntities
             self::SORT_A_LIST_BY_NAME,
             self::SORT_A_LIST_ALPHABETICALLY,
             self::LIST_END_ON_1000,
-            self::LIST_BEGIN_ON_0);
+            self::LIST_BEGIN_ON_0
+        );
     }
 
     public function documentCategoriesSortedAlphabetically(): array
@@ -102,8 +105,8 @@ final class RelatedEntities
             self::SORT_A_LIST_BY_NAME,
             self::SORT_A_LIST_ALPHABETICALLY,
             self::LIST_END_ON_1000,
-            self::LIST_BEGIN_ON_0);
-
+            self::LIST_BEGIN_ON_0
+        );
     }
 
     public function employeesSortedAlphabetically(): array
@@ -113,8 +116,7 @@ final class RelatedEntities
             self::SORT_A_LIST_BY_NAME,
             self::SORT_A_LIST_ALPHABETICALLY,
             self::LIST_END_ON_1000,
-            self::LIST_BEGIN_ON_0);
-
+            self::LIST_BEGIN_ON_0
+        );
     }
-
 }

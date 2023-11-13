@@ -14,11 +14,10 @@ use Symfony\Component\HttpFoundation\Response;
 class UserAddController extends WebController
 {
     public function __invoke(
-        FlashSession        $flashSession,
+        FlashSession $flashSession,
         RamseyUuidGenerator $ramseyUuidGenerator,
-        RoleRepository      $roleRepository
-    ): Response
-    {
+        RoleRepository $roleRepository
+    ): Response {
         return $this->render(TwigTemplateConstants::FORM_FILE_PATH, [
             'list_path'                => TwigTemplateConstants::LIST_PATH,
             'page_title'               => TwigTemplateConstants::SECTION_TITLE,

@@ -2,7 +2,6 @@
 
 namespace App\Shared\Infrastructure\Symfony;
 
-
 use App\Shared\Infrastructure\Constant\MessageConstant;
 use App\Shared\Infrastructure\RenderFormInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,7 +10,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-
 
 abstract class WebController extends AbstractController
 {
@@ -30,11 +28,10 @@ abstract class WebController extends AbstractController
     }
 
     public function redirectWithErrors(
-        string                           $routeName,
+        string $routeName,
         ConstraintViolationListInterface $errors,
-        Request                          $request
-    ): RedirectResponse
-    {
+        Request $request
+    ): RedirectResponse {
         $this->addFlashFor('hasErrors', [true]);
         $this->addFlashFor('errors', $this->formatFlashErrors($errors));
         $this->addFlashFor('inputs', $request->request->all());
@@ -73,9 +70,9 @@ abstract class WebController extends AbstractController
     }
 
     public function jsonResponseWithErrors(
-        RenderFormInterface              $htmlForm,
+        RenderFormInterface $htmlForm,
         ConstraintViolationListInterface $errors,
-        Request                          $request
+        Request $request
     ): JsonResponse
     {
         $this->addFlashFor('hasErrors', [true]);
@@ -105,7 +102,14 @@ abstract class WebController extends AbstractController
 
     protected function jsonResponseSuccess(): JsonResponse
     {
-        return $this->jsonResponseSuccess();
+        return new JsonResponse(['status' => 'success']);
+    }
+
+    protected function jsonResponseUnexpectedError(): JsonResponse
+    {
+        return new JsonResponse([
+            'status'  => 'fail',
+            'message' => MessageConstant::UNEXPECTED_ERROR_HAS_OCCURRED
+        ]);
     }
 }
-	

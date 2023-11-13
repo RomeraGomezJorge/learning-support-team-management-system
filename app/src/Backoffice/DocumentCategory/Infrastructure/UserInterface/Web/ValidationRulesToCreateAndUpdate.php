@@ -1,6 +1,6 @@
 <?php
 
-	declare(strict_types=1);
+    declare(strict_types=1);
 
 namespace App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web;
 
@@ -10,7 +10,6 @@ use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 final class ValidationRulesToCreateAndUpdate extends WebController
 {
-
     public function verify($request): ConstraintViolationListInterface
     {
         $constraint = new Assert\Collection(
@@ -24,5 +23,5 @@ final class ValidationRulesToCreateAndUpdate extends WebController
         $input = $request->request->all();
 
         return $this->validator->validate($input, $constraint);
-		}
-	}
+    }
+}

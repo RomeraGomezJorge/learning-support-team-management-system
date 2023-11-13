@@ -16,10 +16,9 @@ use Symfony\Component\Validator\ConstraintViolationListInterface;
 class AccountPutController extends WebController
 {
     public function __invoke(
-        Request        $request,
+        Request $request,
         AccountUpdater $updater
-    ): Response
-    {
+    ): Response {
         $isCsrfTokenValid = $this->isCsrfTokenValid($request->get('id'), $request->get('csrf_token'));
 
         if (!$isCsrfTokenValid) {
@@ -28,7 +27,7 @@ class AccountPutController extends WebController
 
         $validationErrors = $this->validateRequest($request);
 
-        return $validationErrors->count() !== 0
+        return ($validationErrors->count() !== 0)
             ? $this->redirectWithErrors(TwigTemplateConstants::EDIT_PATH, $validationErrors, $request)
             : $this->update($request, $updater);
     }
