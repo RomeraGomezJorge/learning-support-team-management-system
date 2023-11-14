@@ -9,11 +9,8 @@
   final class LearningSupportTeamWasCreated extends DomainEvent
 {
     private string $name;
-
     private string $manager;
-
     private string $officeOfLearningSupportId;
-
     private string $learningSupportTeamCategoryId;
 
     private function __construct(

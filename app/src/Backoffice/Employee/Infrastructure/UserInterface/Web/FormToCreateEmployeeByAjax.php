@@ -15,9 +15,7 @@ use App\Shared\Infrastructure\Symfony\WebController;
 final class FormToCreateEmployeeByAjax extends WebController implements RenderFormInterface
 {
     private RamseyUuidGenerator $ramseyUuidGenerator;
-
     private FlashSession $flashSession;
-
     private RelatedEntities $relatedEntities;
 
     public function __construct(

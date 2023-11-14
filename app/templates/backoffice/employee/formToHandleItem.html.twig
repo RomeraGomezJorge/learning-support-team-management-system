@@ -113,7 +113,7 @@
                         <div class="col-lg-12">
                             <div class="form-group {{ flash.has('errors.email')? 'has-error': '' }}">
                                 <label>{{ 'Email'|trans }} </label>
-                                <input type="text"
+                                <input type="email"
                                        placeholder=" - {{ 'Optional'|trans }} -"
                                        name="email"
                                        value="{{ email }}"
@@ -197,7 +197,7 @@
                                        value="{{ hire_date is not empty? hire_date|date('Y-m-d') : '' }}"
                                        id="hire_date"
                                        class="form-control"
-                                >
+                                />
                                 <small class="errorLabelContainer form-text text-muted text-danger">
                                     <span class="has-error"> {{ flash.get('errors.hire_date') }} </span>
                                 </small>
@@ -213,7 +213,7 @@
                                        value="{{ termination_date is not empty? termination_date|date('Y-m-d') :'' }}"
                                        id="termination_date"
                                        class="form-control"
-                                >
+                                />
                                 <small class="errorLabelContainer form-text text-muted text-danger">
                                     <span class="has-error"> {{ flash.get('errors.termination_date') }} </span>
                                 </small>
@@ -247,7 +247,7 @@
                                                type="radio"
                                                name="employment_contract_id"
                                                value="{{ employment_contract.id }}"
-                                                {{ employment_contract_id? 'checked' }}
+                                               {{ employment_contract_id? 'checked' }}
                                         />
                                         <span class="form-radio-sign">{{ employment_contract.name }}</span>
                                     </label><br>
@@ -268,7 +268,7 @@
                                                type="radio"
                                                name="shift_work"
                                                value='{{ key }}'
-                                                {{ shift_work? 'checked' }}
+                                               {{ shift_work == key? 'checked' }}
                                         />
                                         <span class="form-radio-sign">{{ shift|trans }}</span>
                                     </label>

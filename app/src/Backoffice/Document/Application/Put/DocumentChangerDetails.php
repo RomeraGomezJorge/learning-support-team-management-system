@@ -17,11 +17,8 @@
   final class DocumentChangerDetails
 {
     private DocumentRepository $repository;
-
     private DocumentFinder $finder;
-
     private DocumentCategoryFinder $documentCategoryFinder;
-
     private AttachFiles $attachFiles;
 
     public function __construct(

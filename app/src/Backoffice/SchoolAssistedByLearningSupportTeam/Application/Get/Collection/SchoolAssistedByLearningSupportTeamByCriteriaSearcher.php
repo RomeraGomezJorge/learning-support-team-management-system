@@ -15,9 +15,7 @@
   final class SchoolAssistedByLearningSupportTeamByCriteriaSearcher
 {
     private SchoolAssistedByLearningSupportTeamRepository $repository;
-
     private LearningSupportTeamFinder $learningSupportTeamFinder;
-
     private GetEntityAndRemoveFromFilterOrNull $getEntityAndRemoveFromFilterOrNull;
 
     public function __construct(

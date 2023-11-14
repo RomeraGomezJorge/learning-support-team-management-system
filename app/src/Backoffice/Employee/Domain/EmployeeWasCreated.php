@@ -9,29 +9,17 @@
   final class EmployeeWasCreated extends DomainEvent
 {
     private string $id;
-
     private string $name;
-
     private string $surname;
-
     private string $identityCard;
-
     private string $phone;
-
     private string $email;
-
     private string $hireDate;
-
     private string $terminationDate;
-
     private string $address;
-
     private string $jobDesignation;
-
     private string $employmentContract;
-
     private string $shiftWork;
-
     private string $birthday;
 
     private function __construct(

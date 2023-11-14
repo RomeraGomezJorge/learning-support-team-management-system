@@ -24,13 +24,9 @@
   final class EmployeeChangerDetails
 {
     private EmployeeRepository $repository;
-
     private EmployeeFinder $finder;
-
     private JobDesignationFinder $jobDesignationFinder;
-
     private EmploymentContractFinder $employmentContractFinder;
-
     private LearningSupportTeamFinder $learningSupportTeamFinder;
 
 
@@ -68,17 +64,17 @@
         $employee           = $this->finder->__invoke($id);
         $updateAt           = new DateTime();
 
-        $hideDate = $newHireDate === null
-            ? null
-            : new DateTime($newHireDate);
+        if( $newHireDate !== null){
+            $newHireDate = new DateTime($newHireDate);
+        }
 
-        $terminationDate = $newTerminationDate === null
-            ? null
-            : new DateTime($newTerminationDate);
+        if( $newTerminationDate !== null){
+            $newTerminationDate = new DateTime($newTerminationDate);
+        }
 
-        $birthday = $newBirthday === null
-            ? null
-            : new DateTime($newBirthday);
+        if( $newBirthday !== null){
+            $newBirthday = new DateTime($newBirthday);
+        }
 
         $employee->changeDetails(
             new EmployeeName($newName),
@@ -86,13 +82,13 @@
             new EmployeeIdentityCard($newIdentityCard),
             new EmployeePhone($newPhone),
             new EmployeeEmail($newEmail),
-            $hideDate,
-            $terminationDate,
+            $newHireDate,
+            $newTerminationDate,
             new EmployeeAddress($newAddress),
             $jobDesignation,
             $employmentContract,
             new EmployeeShitWork($newShiftWork),
-            $birthday,
+            $newBirthday,
             $updateAt
         );
 

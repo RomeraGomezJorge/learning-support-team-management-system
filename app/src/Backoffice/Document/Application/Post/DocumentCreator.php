@@ -20,13 +20,9 @@
   final class DocumentCreator
 {
     private DocumentRepository $repository;
-
     private DocumentCategoryFinder $documentCategoryFinder;
-
     private AttachFiles $attachFiles;
-
     private EventBus $bus;
-
     private EmployeeFinder $employeeFinder;
 
     public function __construct(

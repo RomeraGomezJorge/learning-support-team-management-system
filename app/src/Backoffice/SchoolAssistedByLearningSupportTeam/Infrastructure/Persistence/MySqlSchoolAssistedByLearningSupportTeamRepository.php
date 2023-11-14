@@ -17,7 +17,6 @@ final class MySqlSchoolAssistedByLearningSupportTeamRepository extends DoctrineR
 {
     private const NOT_SETTING_VALUE = null;
     private const ENTITY_CLASS = SchoolAssistedByLearningSupportTeam::class;
-
     private ?int $totalMatchingRows = null;
 
     public function save(

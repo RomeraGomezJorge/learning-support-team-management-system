@@ -10,7 +10,6 @@ use App\Backoffice\Employee\Domain\EmployeeRepository;
 final class EmployeeDeleter
 {
     private EmployeeRepository $repository;
-
     private EmployeeFinder $finder;
 
     public function __construct(EmployeeRepository $repository)

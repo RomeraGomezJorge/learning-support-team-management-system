@@ -19,13 +19,9 @@ use App\Shared\Domain\Criteria\Order;
 final class EmployeeByCriteriaCounter
 {
     private EmployeeRepository $repository;
-
     private JobDesignationFinder $jobDesignationFinder;
-
     private EmploymentContractFinder $employmentContractFinder;
-
     private LearningSupportTeamFinder $learningSupportTeamFinder;
-
     private GetEntityAndRemoveFromFilterOrNull $getEntityAndRemoveFromFilterOrNull;
 
     public function __construct(

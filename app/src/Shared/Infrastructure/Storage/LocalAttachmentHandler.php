@@ -11,7 +11,6 @@ use Symfony\Component\Filesystem\Filesystem;
 final class LocalAttachmentHandler implements AttachmentHandler
 {
     private ContainerInterface $container;
-
     private Filesystem $filesystem;
 
     public function __construct(

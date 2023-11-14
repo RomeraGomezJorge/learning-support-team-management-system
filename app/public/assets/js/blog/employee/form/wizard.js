@@ -64,6 +64,18 @@ function validateGeneralInfo() {
         areTheGeneralInfoFieldsValid = false;
     }
 
+    if (!validator.element("input[name='identity_card']")) {
+        areTheGeneralInfoFieldsValid = false;
+    }
+
+    if (!validator.element("input[name='email']")) {
+        areTheGeneralInfoFieldsValid = false;
+    }
+
+    if (!validator.element("input[name='birthday']")) {
+        areTheGeneralInfoFieldsValid = false;
+    }
+
 
     if (!areTheGeneralInfoFieldsValid) {
         scrollToFirstErrorMessage();

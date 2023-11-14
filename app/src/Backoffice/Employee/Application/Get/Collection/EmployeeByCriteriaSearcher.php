@@ -19,13 +19,9 @@
   final class EmployeeByCriteriaSearcher
 {
     private EmployeeRepository $repository;
-
     private JobDesignationFinder $jobDesignationFinder;
-
     private EmploymentContractFinder $employmentContractFinder;
-
     private LearningSupportTeamFinder $learningSupportTeamFinder;
-
     private GetEntityAndRemoveFromFilterOrNull $getEntityAndRemoveFromFilterOrNull;
 
     public function __construct(

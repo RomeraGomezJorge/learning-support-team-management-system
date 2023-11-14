@@ -26,13 +26,9 @@
   final class EmployeeCreator
 {
     private EmployeeRepository $repository;
-
     private EventBus $bus;
-
     private EmploymentContractFinder $employmentContract;
-
     private JobDesignationFinder $jobDesignationFinder;
-
     private LearningSupportTeamFinder $learningSupportTeamFinder;
 
     public function __construct(
@@ -69,18 +65,17 @@
         $jobDesignation     = $this->jobDesignationFinder->__invoke($jobDesignationId);
         $employmentContract = $this->employmentContract->__invoke($employmentContractId);
 
-        $hideDate = $hireDate === null
-            ? null
-            : new DateTime($hireDate);
+        if( $hireDate !== null){
+            $hireDate = new DateTime($hireDate);
+        }
 
-        $terminationDate = $terminationDate === null
-            ? null
-            : new DateTime($terminationDate);
+        if( $terminationDate !== null){
+            $terminationDate = new DateTime($terminationDate);
+        }
 
-        $birthday = $birthday === null
-            ? null
-            : new DateTime($birthday);
-
+        if( $birthday !== null){
+            $birthday = new DateTime($birthday);
+        }
 
         $employee = Employee::create(
             new Uuid($id),
@@ -89,7 +84,7 @@
             new EmployeeIdentityCard($identityCard),
             new EmployeePhone($phone),
             new EmployeeEmail($email),
-            $hideDate,
+            $hireDate,
             $terminationDate,
             new EmployeeAddress($address),
             $jobDesignation,
