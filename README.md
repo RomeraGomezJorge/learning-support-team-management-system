@@ -8,6 +8,14 @@
 [![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)](https://jquery.com/)
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 
+## About The Project
+
+This project empowers managers and HR leaders by providing a streamlined solution for managing data related to learning support teams. The platform facilitates the efficient handling of employee information, job designations, employment contracts, and their respective assignments to designated schools. Additionally, each learning support team is associated with a specific office, ensuring representation in every district.
+
+## About The Domain
+
+A learning support team comprises multiple employees, each with defined roles and contractual agreements. These teams play a crucial role in supporting designated schools, with each team strategically placed in an office to ensure comprehensive district coverage.
+
 ## Project Screenshots
 
 ### Dashboard
@@ -26,14 +34,6 @@
   Manage employee details
 </p>
 
-
-## About The Project
-
-This project empowers managers and HR leaders by providing a streamlined solution for managing data related to learning support teams. The platform facilitates the efficient handling of employee information, job designations, employment contracts, and their respective assignments to designated schools. Additionally, each learning support team is associated with a specific office, ensuring representation in every district.
-
-## About The Domain
-
-A learning support team comprises multiple employees, each with defined roles and contractual agreements. These teams play a crucial role in supporting designated schools, with each team strategically placed in an office to ensure comprehensive district coverage.
 
 
 **Features**
