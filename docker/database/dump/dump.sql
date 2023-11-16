@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: database
--- Tiempo de generación: 14-11-2023 a las 14:48:52
+-- Tiempo de generación: 16-11-2023 a las 12:41:27
 -- Versión del servidor: 8.2.0
 -- Versión de PHP: 8.2.12
 
@@ -60,17 +60,9 @@ CREATE TABLE `document` (
 --
 
 INSERT INTO `document` (`id`, `name`, `number`, `create_at`, `document_category_id`, `attachment`) VALUES
-('12a6fc69-a86f-4137-822f-8947b02c60bf', 'pruevaaaaaaaaaa', '1232', '2021-11-15 15:43:39', '6386b903-e6b4-4e59-8df7-3fa5e2ad6500', '[{\"url\":\"pruevaaaaaaaaaa-1232-eeee-6192721b68ac7.pdf\",\"type\":\"2\",\"description\":\"eeee\"}]'),
-('1c2f1e4f-ea09-4f05-98aa-ecc592109a7c', 'editor_j', '1232', '2021-11-11 18:19:20', '6386b903-e6b4-4e59-8df7-3fa5e2ad6500', '[]'),
-('348be4b3-e80b-49e6-a193-41579cc27146', 'employee', '1234', '2021-11-15 18:29:26', '6386b903-e6b4-4e59-8df7-3fa5e2ad6500', '[{\"url\":\"employee-1234-eeee-619298f675749.pdf\",\"type\":\"2\",\"description\":\"eeee\"},{\"url\":\"employee-1234-no-se-61951b0c1abe3.xlsx\",\"type\":\"2\",\"description\":\"no se\"}]'),
 ('369acd21-317f-4723-8467-21b585ea2ee6', 'Decreto', '3434', '2021-11-11 02:50:29', '6386b903-e6b4-4e59-8df7-3fa5e2ad6500', NULL),
-('46fa6554-caa6-4caf-aa3c-70093cb210c0', 'editor_j', '1232', '2021-11-18 01:54:25', '6386b903-e6b4-4e59-8df7-3fa5e2ad6500', NULL),
 ('5102f0de-8f0c-4b04-95f5-c63282ceda89', 'Resolución', '1232', '2021-11-11 02:27:26', 'eb3c70a2-37e0-4e03-96fc-97a9b710e7a3', NULL),
-('69c98c79-b6cc-486e-82ee-8d78c572a9ce', 'Resolución', '123', '2021-11-11 03:44:49', '6386b903-e6b4-4e59-8df7-3fa5e2ad6500', NULL),
-('926ef876-8280-4a8c-a07d-3e3adfb9b87a', 'editor_j', '1232', '2021-11-11 20:47:05', '6386b903-e6b4-4e59-8df7-3fa5e2ad6500', '[{\"url\":\"editor-j-1232-adfds-618d733943744.pdf\",\"type\":\"2\",\"description\":\"adfds\"}]'),
-('9e547b4a-be41-435a-8859-4d9d8fbbe178', 'decreto', '111111', '2021-11-11 03:46:36', '6386b903-e6b4-4e59-8df7-3fa5e2ad6500', '[{\"url\":\"decreto-111111-unica-618d4b90e219e.pdf\",\"type\":\"2\",\"description\":\"unica\"}]'),
-('b9a08de0-41c7-454a-b0df-fbb3ec66dbc4', 'asdfdsf', '1232', '2021-11-18 01:55:47', '6386b903-e6b4-4e59-8df7-3fa5e2ad6500', '[{\"url\":\"asdfdsf-1232-eeee-6195a4b19aca9.pdf\",\"type\":\"2\",\"description\":\"eeee\"}]'),
-('ea88acf3-435f-40d0-9e13-2fb89de87959', 'editor_j', '', '2021-11-17 17:43:35', '6386b903-e6b4-4e59-8df7-3fa5e2ad6500', '[{\"url\":\"editor-j-psrt-1-61953a5713fff.pdf\",\"type\":\"2\",\"description\":\"psrt 1\"}]');
+('69c98c79-b6cc-486e-82ee-8d78c572a9ce', 'Resolución', '123', '2021-11-11 03:44:49', '6386b903-e6b4-4e59-8df7-3fa5e2ad6500', NULL);
 
 -- --------------------------------------------------------
 
@@ -92,7 +84,6 @@ INSERT INTO `document_category` (`id`, `name`, `create_at`) VALUES
 ('021939df-dc3d-4670-842d-da19895e6ed8', 'Otro', '2021-11-09 23:58:47'),
 ('6386b903-e6b4-4e59-8df7-3fa5e2ad6500', 'Decreto', '2021-11-09 23:58:19'),
 ('9ba430d9-f5d5-4eff-8954-a499619b4477', 'Renuncia', '2021-11-09 23:58:28'),
-('cf138d09-4acb-43fd-bff9-bb684a796b02', 'no lo creo', '2021-11-19 00:40:40'),
 ('eb3c70a2-37e0-4e03-96fc-97a9b710e7a3', 'Resolución', '2021-11-09 23:58:41');
 
 -- --------------------------------------------------------
@@ -250,13 +241,6 @@ CREATE TABLE `employee__document` (
   `employee_id` char(36) NOT NULL,
   `document_id` char(36) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `employee__document`
---
-
-INSERT INTO `employee__document` (`employee_id`, `document_id`) VALUES
-('61c526df-343a-11ec-880f-c4cbacfef3c6', '12a6fc69-a86f-4137-822f-8947b02c60bf');
 
 -- --------------------------------------------------------
 
@@ -1385,8 +1369,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `role_id`, `create_at`, `update_at`, `is_active`, `name`, `surname`) VALUES
-('47392f60-b214-48de-b7b5-ba45c6c95913', 'jromeras', 'cherza@gmail.com', '$2y$13$TglSqhQqh6IkcF0DKlxky.vSxPRbbMGUClLVG1WU2X29hr/j9VJjq', 'ROLE_ADMIN', '2021-09-29 18:07:23', '2021-09-29 18:07:43', 1, 'Jorge Antonio', 'romera gomrx'),
-('b5c8fec1-cb9d-429a-8777-1328a470bedc', 'cherza', 'romera.gomez.jorge@gmail.com', '$2y$13$iBuA5sIT.Y9RTIaOjsSja.aRNV/APOuaJXlqnOmyoDHKHty1YrinG', 'ROLE_ADMIN', '2021-03-08 16:23:22', '2021-04-20 20:36:31', 1, 'Jorge', 'Romera');
+('a474f8c1-6735-40d1-a526-e684cc4a1920', 'admin', 'admin@example.com', '$2y$13$czDnJqtrRFxJrmdlXXKiGOo.h4Q.ifpueZWMOohajfI58uvLhDOfW', 'ROLE_ADMIN', '2023-11-15 20:51:24', '2023-11-15 20:52:46', 1, 'admin', 'admin');
 
 --
 -- Índices para tablas volcadas
