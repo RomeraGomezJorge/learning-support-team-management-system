@@ -59,7 +59,7 @@
                                    autocomplete="false"
                             >
                             <small class="errorLabelContainer form-text text-muted text-danger">
-                                <span class="has-error">{{ flash.has('errors.name') }} </span>
+                                <span class="has-error">{{ flash.get('errors.name') }} </span>
                             </small>
                         </div>
                         <div class="form-group {{ flash.has('errors.number')? 'has-error':'' }}">
@@ -73,7 +73,7 @@
                                    autocomplete="false"
                             >
                             <small class="errorLabelContainer form-text text-muted text-danger">
-                                <span class="has-error">{{ flash.has('errors.number') }}</span>
+                                <span class="has-error">{{ flash.get('errors.number') }}</span>
                             </small>
                         </div>
                         <div class="form-group {{ flash.has('errors.document_category_id')? 'has-error':'' }}">
@@ -92,7 +92,7 @@
                                     <br>
                                 {% endfor %}
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.has('errors.document_category_id') }} </span>
+                                    <span class="has-error">{{ flash.get('errors.document_category_id') }} </span>
                                 </small>
                             </div>
                             <button
@@ -160,7 +160,7 @@
                                     {% endfor %}
                                 </select>
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.has('errors.employee') }} </span>
+                                    <span class="has-error">{{ flash.get('errors.employee') }} </span>
                                 </small>
                                 <button
                                         type="button"

@@ -24,7 +24,7 @@
                                autofocus
                         >
                         <small class="errorLabelContainer form-text text-muted text-danger">
-                            <span class="has-error">{{ flash.has('errors.username')}} </span>
+                            <span class="has-error">{{ flash.get('errors.username')}} </span>
                         </small>
                     </div>
                     <div class="form-group {{ flash.has('errors.name')? 'has-error':'' }}">
@@ -39,7 +39,7 @@
                                required
                         >
                         <small class="errorLabelContainer form-text text-muted text-danger">
-                            <span class="has-error">{{ flash.has('errors.name') }} </span>
+                            <span class="has-error">{{ flash.get('errors.name') }} </span>
                         </small>
                     </div>
                     <div class="form-group {{ flash.has('errors.surname')? 'has-error':'' }}">
@@ -54,7 +54,7 @@
                                required
                         >
                         <small class="errorLabelContainer form-text text-muted text-danger">
-                            <span class="has-error">{{ flash.has('errors.surname') }} </span>
+                            <span class="has-error">{{ flash.get('errors.surname') }} </span>
                         </small>
                     </div>
                     <div class="form-group {{ flash.has('errors.email')? 'has-error':'' }}">
@@ -71,7 +71,7 @@
                                 required
                         >
                         <small class="errorLabelContainer form-text text-muted text-danger">
-                            <span class="has-error">{{ flash.has('errors.email') }} </span>
+                            <span class="has-error">{{ flash.get('errors.email') }} </span>
                         </small>
                     </div>
 

@@ -35,7 +35,7 @@
                                        required
                                 />
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.has('errors.name') }} </span>
+                                    <span class="has-error">{{ flash.get('errors.name') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                                        required
                                 />
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.has('errors.surname') }} </span>
+                                    <span class="has-error">{{ flash.get('errors.surname') }} </span>
                                 </small>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                                     {% endfor %}
                                 </select>
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.has('errors.employment_contract_id') }} </span>
+                                    <span class="has-error">{{ flash.get('errors.employment_contract_id') }} </span>
                                 </small>
                             </div>
 
@@ -123,7 +123,7 @@
                                     {% endfor %}
                                 </select>
                                 <small class="errorLabelContainer form-text text-muted text-danger">
-                                    <span class="has-error">{{ flash.has('errors.shift_work') }} </span>
+                                    <span class="has-error">{{ flash.get('errors.shift_work') }} </span>
                                 </small>
                             </div>
 

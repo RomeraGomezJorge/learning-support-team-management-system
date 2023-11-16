@@ -8,6 +8,7 @@
   use App\Backoffice\Document\Domain\Document;
   use App\Backoffice\Document\Domain\ValueObject\Attachment\ValueObject\AttachmentType;
   use App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web\TwigTemplateConstants as CategoryTwigTemplateConstants;
+  use App\Backoffice\Employee\Infrastructure\UserInterface\Web\TwigTemplateConstants as EmployeeTwigTemplateConstants;
   use App\Shared\Infrastructure\Constant\FormConstant;
   use App\Shared\Infrastructure\RelatedEntities;
   use App\Shared\Infrastructure\Storage\AttachmentInSession;
@@ -33,8 +34,7 @@
             'id'                                        => $document->id(),
             'name'                                      => $flashSession->get('inputs.name') ?? $document->name(),
             'number'                                    => $flashSession->get('inputs.number') ?? $document->number(),
-            'document_category_id'                      => $flashSession->get('inputs.document_category_id') ?? $document->documentCategory()
-                    ->id(),
+            'document_category_id'                      => $flashSession->get('inputs.document_category_id') ?? $document->documentCategory()->id(),
             'employees'                                 => $this->getEmployeesIds($document),
             'categories'                                => $relatedEntities->documentCategoriesSortedAlphabetically(),
             'employment_contracts'                      => $relatedEntities->employmentContractsSortedAlphabetically(),
@@ -49,6 +49,7 @@
             ],
             'allowed_files'                             => TwigTemplateConstants::ALLOWED_FILES,
             'add_document_category_by_modal_path'       => CategoryTwigTemplateConstants::ADD_DOCUMENT_CATEGORY_BY_MODAL_PATH,
+            'add_employee_by_modal_path'          => EmployeeTwigTemplateConstants::ADD_EMPLOYEE_BY_MODAL_PATH,
             'form_action_attribute'                     => TwigTemplateConstants::UPDATE_PATH,
             'submit_button_label'                       => FormConstant::SUBMIT_BUTTON_VALUE_TO_UPDATE,
             'action_to_do'                              => FormConstant::UPDATE_LABEL_TEXT,
