@@ -166,7 +166,7 @@
                 <target>El ancho de la imagen es demasiado grande ({{ width }}px). El ancho máximo permitido es de {{ max_width }}px.</target>
             </trans-unit>
             <trans-unit id="44">
-                <source>The image width is too small ({{ width }}px). Minimum width expected is {{ min_width }}px.</source>
+                <source>The image width is too smmanagement ({{ width }}px). Minimum width expected is {{ min_width }}px.</source>
                 <target>El ancho de la imagen es demasiado pequeño ({{ width }}px). El ancho mínimo requerido es {{ min_width }}px.</target>
             </trans-unit>
             <trans-unit id="45">
@@ -174,7 +174,7 @@
                 <target>La altura de la imagen es demasiado grande ({{ height }}px). La altura máxima permitida es de {{ max_height }}px.</target>
             </trans-unit>
             <trans-unit id="46">
-                <source>The image height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.</source>
+                <source>The image height is too smmanagement ({{ height }}px). Minimum height expected is {{ min_height }}px.</source>
                 <target>La altura de la imagen es demasiado pequeña ({{ height }}px). La altura mínima requerida es de {{ min_height }}px.</target>
             </trans-unit>
             <trans-unit id="47">
@@ -286,7 +286,7 @@
                 <target>La proporción de la imagen es demasiado grande ({{ ratio }}). La máxima proporción permitida es {{ max_ratio }}.</target>
             </trans-unit>
             <trans-unit id="74">
-                <source>The image ratio is too small ({{ ratio }}). Minimum ratio expected is {{ min_ratio }}.</source>
+                <source>The image ratio is too smmanagement ({{ ratio }}). Minimum ratio expected is {{ min_ratio }}.</source>
                 <target>La proporción de la imagen es demasiado pequeña ({{ ratio }}). La mínima proporción permitida es {{ min_ratio }}.</target>
             </trans-unit>
             <trans-unit id="75">
@@ -526,33 +526,33 @@
         <source>Name</source>
         <target>Nombre</target>
       </trans-unit>
-      <trans-unit id="fvxWWad" resname="All Users">
-        <source>All Users</source>
-        <target>Todos los usuarios</target>
+      <trans-unit id="fvxWWad" resname="Management Users">
+        <source>Management Users</source>
+        <target>Gestión de usuarios</target>
       </trans-unit>
       <trans-unit id="fvxWWae" resname="Add new user">
         <source>Add new user</source>
         <target>Crear nuevo usuario</target>
       </trans-unit>
-      <trans-unit id="fvxWW3g" resname="User Management">
-        <source>User Management</source>
+      <trans-unit id="fvxWW3g" resname="User">
+        <source>User</source>
         <target>Gestión de Usuarios</target>
       </trans-unit>
-      <trans-unit id="fvxWW3h" resname="All users">
-        <source>All users</source>
-        <target>Todos los usuarios</target>
+      <trans-unit id="fvxWW3h" resname="Management users">
+        <source>Management users</source>
+        <target>Gestión de usuarios</target>
       </trans-unit>
-      <trans-unit id="fvxWW3i" resname="All users">
-        <source>All users</source>
-        <target>Todos los usuarios</target>
+      <trans-unit id="fvxWW3i" resname="Management users">
+        <source>Management users</source>
+        <target>Gestión de usuarios</target>
       </trans-unit>
       <trans-unit id="fvxWW3j" resname="Add new user">
         <source>Add new user</source>
         <target>Añadir nuevo</target>
       </trans-unit>
-      <trans-unit id="fvxWW3k" resname="All employment contract">
-        <source>All employment contract</source>
-        <target>Todas las funciones laborales</target>
+      <trans-unit id="fvxWW3k" resname="Management employment contract">
+        <source>Management employment contract</source>
+        <target>Gestión de funciones laborales</target>
       </trans-unit>
       <trans-unit id="fvxWW3l" resname="Add new employment contract">
         <source>Add new employment contractr</source>
@@ -560,11 +560,11 @@
       </trans-unit>
       <trans-unit id="fvxWW3m" resname="OLS in district">
         <source>OLS in district</source>
-        <target>Departamentos</target>
+        <target>Localidades</target>
       </trans-unit>
-      <trans-unit id="fvxWW3n" resname="All office of learning support in district">
-        <source>All office of learning support in district</source>
-        <target>Todas los departamentos</target>
+      <trans-unit id="fvxWW3n" resname="Management office of learning support in district">
+        <source>Management office of learning support in district</source>
+        <target>Gestión de localidades</target>
       </trans-unit>
       <trans-unit id="fvxWW3o" resname="Add new office of learning support in district">
         <source>Add new office of learning support in district</source>
@@ -574,9 +574,9 @@
         <source>School Assisted By LST</source>
         <target>Escuelas de Cobertura</target>
       </trans-unit>
-      <trans-unit id="fvxWW3q" resname="All schools assisted by LST">
-        <source>All schools assisted by LST</source>
-        <target>Todas las escuelas</target>
+      <trans-unit id="fvxWW3q" resname="Management schools assisted by LST">
+        <source>Management schools assisted by LST</source>
+        <target>Gestión escuelas de cobertura</target>
       </trans-unit>
       <trans-unit id="fvxWW3r" resname="Add new school assisted by LST">
         <source>Add new schools assisted by LST</source>
@@ -698,25 +698,25 @@
         <source>Employee</source>
         <target>Empleados</target>
       </trans-unit>
-      <trans-unit id="z2d332" resname='All employees'>
-        <source>All employees</source>
-        <target>Todos los empleados</target>
+      <trans-unit id="z2d332" resname='Management employees'>
+        <source>Management employees</source>
+        <target>Gestión de empleados</target>
       </trans-unit>
       <trans-unit id="z2d334" resname='Add new employee'>
         <source>Add new employee</source>
         <target>Crear un nuevo empleado</target>
       </trans-unit>
-      <trans-unit id="z2d344" resname='All jobs designation'>
-        <source>All jobs designation</source>
-        <target>Todas las funciones laborales</target>
+      <trans-unit id="z2d344" resname='Management jobs designation'>
+        <source>Management jobs designation</source>
+        <target>Gestión de funciones laborales</target>
       </trans-unit>
       <trans-unit id="z2d345" resname='Add new job designations'>
         <source>Add new job designations</source>
         <target>Crear una nueva función laboral</target>
       </trans-unit>
-      <trans-unit id="z2d346" resname='All office of learning support'>
-        <source>All office of learning support</source>
-        <target>Todas las sedes</target>
+      <trans-unit id="z2d346" resname='Management office of learning support'>
+        <source>Management office of learning support</source>
+        <target>Gestión de sedes</target>
       </trans-unit>
       <trans-unit id="z2d347" resname='Add new office of learning support'>
         <source>Add new office of learning support</source>
@@ -726,9 +726,9 @@
         <source>Clean Filters</source>
         <target>Quitar filtros de búsqueda</target>
       </trans-unit>
-      <trans-unit id="x2d348" resname='All learning support team'>
-        <source>All learning support team</source>
-        <target>Toddos los equipos</target>
+      <trans-unit id="x2d348" resname='Management learning support team'>
+        <source>Management learning support team</source>
+        <target>Gestión equipos</target>
       </trans-unit>
       <trans-unit id="x2d349" resname='Add new Learning support team'>
         <source>Add new Learning support team</source>
@@ -981,7 +981,7 @@
       </trans-unit>
       <trans-unit id="x2d110" resname="Learning Support Team Group">
         <source>Learning Support Team Group</source>
-        <target>Categoría De Equipo </target>
+        <target>Grupo De Equipo </target>
       </trans-unit>
       <trans-unit id="x2d111" resname="Learning support team group">
         <source>Learning support team group</source>
@@ -991,9 +991,9 @@
         <source>The learning support team group with name "%name%".</source>
         <target>La agrupación de equipo con el nombre "%name%". </target>
       </trans-unit>
-      <trans-unit id="x2d113" resname='All learning support team groups'>
-        <source>All learning support team groups</source>
-        <target>Todas los grupos de los equipos</target>
+      <trans-unit id="x2d113" resname='Management learning support team groups'>
+        <source>Management learning support team groups</source>
+        <target>Gestión de grupos</target>
       </trans-unit>
       <trans-unit id="x2d114" resname='Add new Learning support team group'>
         <source>Add new Learning support team group</source>
@@ -1027,9 +1027,9 @@
         <source>Documents</source>
         <target>Documentos</target>
       </trans-unit>
-      <trans-unit id="x2d122" resname='All document categories'>
-        <source>All document categories</source>
-        <target>Todas las categorías de documentos</target>
+      <trans-unit id="x2d122" resname='Management document categories'>
+        <source>Management document categories</source>
+        <target>Gestión de categorías de documentos</target>
       </trans-unit>
       <trans-unit id="x2d123" resname='The document with name "%name%".'>
         <source>The document with name "%name%".</source>
@@ -1055,9 +1055,9 @@
         <source>Add Document Category</source>
         <target>Crear categoria de documento</target>
       </trans-unit>
-      <trans-unit id="x2d129" resname='All documents'>
-        <source>All documents</source>
-        <target>Todos los documentos</target>
+      <trans-unit id="x2d129" resname='Management documents'>
+        <source>Management documents</source>
+        <target>Gestión de documentos</target>
       </trans-unit>
       <trans-unit id="x2d130" resname='Document Info'>
         <source>Document Info</source>
