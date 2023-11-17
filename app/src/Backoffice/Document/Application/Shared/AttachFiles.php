@@ -10,7 +10,7 @@
   use App\Backoffice\Document\Domain\ValueObject\Attachment\ValueObject\AttachmentType;
   use App\Backoffice\Document\Domain\ValueObject\Attachment\ValueObject\AttachmentUrl;
 
-  final class AttachFiles
+final class AttachFiles
 {
     const URL_IS_NOT_DEFINE = '';
 

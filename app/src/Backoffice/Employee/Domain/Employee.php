@@ -21,7 +21,7 @@
   use Doctrine\Common\Collections\ArrayCollection;
   use Doctrine\Common\Collections\Collection;
 
-  class Employee extends AggregateRoot
+class Employee extends AggregateRoot
 {
     private string $id;
     private string $name;

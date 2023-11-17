@@ -27,7 +27,7 @@ class DocumentCategoryPostByAjaxController extends WebController
         $validationErrors = $this->validateRequest($request);
 
         return ($validationErrors->count() !== 0)
-            ? $this->jsonResponseWithErrors($formToCreateDocumentCategoryByAjax, $validationErrors, $request)
+            ? $this->jsonResponseValidationErrors($formToCreateDocumentCategoryByAjax, $validationErrors, $request)
             : $this->createDocumentCategory($request, $documentCategoryCreator);
     }
 

@@ -14,7 +14,7 @@
   use App\Backoffice\Employee\Application\Get\Single\EmployeeFinder;
   use App\Backoffice\Employee\Domain\EmployeeRepository;
 
-  final class DocumentChangerDetails
+final class DocumentChangerDetails
 {
     private DocumentRepository $repository;
     private DocumentFinder $finder;

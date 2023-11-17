@@ -27,7 +27,7 @@ class OfficeOfLearningSupportInDistrictPostByAjaxController extends WebControlle
         $validationErrors = $this->validateRequest($request);
 
         return ($validationErrors->count() !== 0)
-            ? $this->jsonResponseWithErrors($formToCreateOfficeOfLearningSupportInDistrictByAjax, $validationErrors, $request)
+            ? $this->jsonResponseValidationErrors($formToCreateOfficeOfLearningSupportInDistrictByAjax, $validationErrors, $request)
             : $this->createOfficeOfLearningSupportInDistrict($request, $officeOfLearningSupportInDistrictCreator);
     }
 

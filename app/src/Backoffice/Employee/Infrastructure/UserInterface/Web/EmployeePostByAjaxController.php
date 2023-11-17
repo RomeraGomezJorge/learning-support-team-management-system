@@ -28,7 +28,7 @@ class EmployeePostByAjaxController extends WebController
         $errors = $this->validateRequest($request);
 
         return $errors->count() !== 0
-            ? $this->jsonResponseWithErrors($formToCreateByAjax, $errors, $request)
+            ? $this->jsonResponseValidationErrors($formToCreateByAjax, $errors, $request)
             : $this->create($request, $creator);
     }
 

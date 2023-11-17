@@ -16,7 +16,7 @@
   use Doctrine\Common\Collections\Criteria as DoctrineCriteria;
   use Doctrine\ORM\Tools\Pagination\Paginator;
 
-  final class MySqlEmployeeRepository extends DoctrineRepository implements EmployeeRepository
+final class MySqlEmployeeRepository extends DoctrineRepository implements EmployeeRepository
 {
     private const NOT_SETTING_VALUE = null;
     private const ENTITY_CLASS = Employee::class;
@@ -46,12 +46,12 @@
     }
 
     public function matching(
-        Criteria $totalMatchingRowsCriteria,
+        Criteria $criteria,
         ?JobDesignation $jobDesignation,
         ?EmploymentContract $employmentContract,
         ?LearningSupportTeam $learningSupportTeam
     ): array {
-        $doctrineCriteria = DoctrineCriteriaConverter::convert($totalMatchingRowsCriteria);
+        $doctrineCriteria = DoctrineCriteriaConverter::convert($criteria);
 
         $doctrineCriteria = $this->addAnAssociationAsCriteria(
             $doctrineCriteria,

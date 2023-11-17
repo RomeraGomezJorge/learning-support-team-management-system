@@ -8,7 +8,7 @@ namespace App\Backoffice\Document\Infrastructure\UserInterface\Web;
   use Symfony\Component\Validator\Constraints as Assert;
   use Symfony\Component\Validator\ConstraintViolationListInterface;
 
-  final class ValidationRulesToCreateAndUpdate extends WebController
+final class ValidationRulesToCreateAndUpdate extends WebController
 {
     public function verify($request): ConstraintViolationListInterface
     {

@@ -11,7 +11,7 @@
   use Symfony\Component\HttpFoundation\Request;
   use Symfony\Component\HttpFoundation\Response;
 
-  class SchoolAssistedByLearningSupportTeamEditController extends WebController
+class SchoolAssistedByLearningSupportTeamEditController extends WebController
 {
     public function __invoke(
         FlashSession $flashSession,

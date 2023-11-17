@@ -17,7 +17,7 @@
   use App\Shared\Domain\ValueObject\Uuid;
   use DateTime;
 
-  final class DocumentCreator
+final class DocumentCreator
 {
     private DocumentRepository $repository;
     private DocumentCategoryFinder $documentCategoryFinder;

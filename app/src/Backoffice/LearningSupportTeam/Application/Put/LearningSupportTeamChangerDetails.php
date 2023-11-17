@@ -17,7 +17,7 @@
   use App\Backoffice\SchoolAssistedByLearningSupportTeam\Application\Get\Single\SchoolAssistedByLearningSupportTeamFinder;
   use App\Backoffice\SchoolAssistedByLearningSupportTeam\Domain\SchoolAssistedByLearningSupportTeamRepository;
 
-  final class LearningSupportTeamChangerDetails
+final class LearningSupportTeamChangerDetails
 {
     private const MANAGER_IS_NOT_SET = null;
     private LearningSupportTeamRepository $repository;

@@ -12,7 +12,7 @@
   use App\Shared\Domain\Criteria\Filters;
   use App\Shared\Domain\Criteria\Order;
 
-  final class SchoolAssistedByLearningSupportTeamByCriteriaSearcher
+final class SchoolAssistedByLearningSupportTeamByCriteriaSearcher
 {
     private SchoolAssistedByLearningSupportTeamRepository $repository;
     private LearningSupportTeamFinder $learningSupportTeamFinder;

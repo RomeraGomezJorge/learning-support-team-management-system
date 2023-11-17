@@ -22,13 +22,13 @@ $(document).ready(function () {
             cache: false,
             success: function (response) {
 
-                if (response.status === 'fail_invalid_csfr_token') {
+                if (response.status === 'fail_invalid_csrf_token') {
                     replaceModalContentByFailMessage(modalSelector, response.message);
                     return;
                 }
 
                 if (response.status === 'fail') {
-                    replaceModalContentByFailMessage(modalSelector, response.message);
+                    replaceModalContentByFailMessage(modalSelector, Translator.trans(response.message));
                     return;
                 }
 

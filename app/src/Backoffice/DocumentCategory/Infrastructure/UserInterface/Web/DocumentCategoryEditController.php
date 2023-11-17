@@ -11,7 +11,7 @@
   use Symfony\Component\HttpFoundation\Request;
   use Symfony\Component\HttpFoundation\Response;
 
-  class DocumentCategoryEditController extends WebController
+class DocumentCategoryEditController extends WebController
 {
     public function __invoke(
         FlashSession $flashSession,

@@ -23,7 +23,7 @@
   use App\Shared\Domain\ValueObject\Uuid;
   use DateTime;
 
-  final class EmployeeCreator
+final class EmployeeCreator
 {
     private EmployeeRepository $repository;
     private EventBus $bus;
@@ -65,15 +65,15 @@
         $jobDesignation     = $this->jobDesignationFinder->__invoke($jobDesignationId);
         $employmentContract = $this->employmentContract->__invoke($employmentContractId);
 
-        if( $hireDate !== null){
+        if ($hireDate !== null) {
             $hireDate = new DateTime($hireDate);
         }
 
-        if( $terminationDate !== null){
+        if ($terminationDate !== null) {
             $terminationDate = new DateTime($terminationDate);
         }
 
-        if( $birthday !== null){
+        if ($birthday !== null) {
             $birthday = new DateTime($birthday);
         }
 

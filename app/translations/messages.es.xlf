@@ -1219,6 +1219,10 @@
         <source>Filter the data</source>
         <target>Filtrar los datos</target>
       </trans-unit>
+      <trans-unit id="x2d170" resname="The document category as related documents, so it cannot be deleted.">
+        <source>The document category as related documents, so it cannot be deleted."</source>
+        <target>La categoría de documento  tiene documentos relacionados, por lo que no se puede eliminar.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

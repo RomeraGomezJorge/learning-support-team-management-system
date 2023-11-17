@@ -12,7 +12,7 @@
   use App\Backoffice\Document\Domain\ValueObject\Attachment\ValueObject\AttachmentUrl;
   use App\Shared\Domain\AttachmentHandler;
 
-  final class AttachmentDeleter
+final class AttachmentDeleter
 {
     const RETURN_ASSOCIATIVE_ARRAY = true;
     private DocumentRepository $repository;

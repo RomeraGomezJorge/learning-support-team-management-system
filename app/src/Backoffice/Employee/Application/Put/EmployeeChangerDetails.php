@@ -21,7 +21,7 @@
   use App\Backoffice\LearningSupportTeam\Domain\LearningSupportTeamRepository;
   use DateTime;
 
-  final class EmployeeChangerDetails
+final class EmployeeChangerDetails
 {
     private EmployeeRepository $repository;
     private EmployeeFinder $finder;
@@ -64,15 +64,15 @@
         $employee           = $this->finder->__invoke($id);
         $updateAt           = new DateTime();
 
-        if( $newHireDate !== null){
+        if ($newHireDate !== null) {
             $newHireDate = new DateTime($newHireDate);
         }
 
-        if( $newTerminationDate !== null){
+        if ($newTerminationDate !== null) {
             $newTerminationDate = new DateTime($newTerminationDate);
         }
 
-        if( $newBirthday !== null){
+        if ($newBirthday !== null) {
             $newBirthday = new DateTime($newBirthday);
         }
 

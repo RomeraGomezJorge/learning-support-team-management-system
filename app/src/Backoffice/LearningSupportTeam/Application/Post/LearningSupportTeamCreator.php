@@ -20,7 +20,7 @@
   use App\Shared\Domain\ValueObject\Uuid;
   use DateTime;
 
-  final class LearningSupportTeamCreator
+final class LearningSupportTeamCreator
 {
     private const MANAGER_IS_NOT_SET = null;
     private LearningSupportTeamRepository $repository;

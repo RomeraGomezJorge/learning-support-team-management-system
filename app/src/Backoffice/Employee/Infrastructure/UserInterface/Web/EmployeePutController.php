@@ -42,7 +42,7 @@ class EmployeePutController extends WebController
             $request->get('phone') ?: null,
             $request->get('email') ?: null,
             $request->get('hire_date') ?: null,
-            $request->get('termination_date')?: null,
+            $request->get('termination_date') ?: null,
             $request->get('address') ?: null,
             $request->get('job_designation_id'),
             $request->get('employment_contract_id'),

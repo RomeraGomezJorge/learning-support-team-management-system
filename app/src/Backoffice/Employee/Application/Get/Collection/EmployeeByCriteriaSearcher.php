@@ -16,7 +16,7 @@
   use App\Shared\Domain\Criteria\Filters;
   use App\Shared\Domain\Criteria\Order;
 
-  final class EmployeeByCriteriaSearcher
+final class EmployeeByCriteriaSearcher
 {
     private EmployeeRepository $repository;
     private JobDesignationFinder $jobDesignationFinder;

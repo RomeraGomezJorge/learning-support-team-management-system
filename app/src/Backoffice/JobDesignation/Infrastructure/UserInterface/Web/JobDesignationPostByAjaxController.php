@@ -27,7 +27,7 @@ class JobDesignationPostByAjaxController extends WebController
         $validationErrors = $this->validateRequest($request);
 
         return ($validationErrors->count() !== 0)
-            ? $this->jsonResponseWithErrors($formToCreateJobDesignationByAjax, $validationErrors, $request)
+            ? $this->jsonResponseValidationErrors($formToCreateJobDesignationByAjax, $validationErrors, $request)
             : $this->createJobDesignation($request, $jobDesignationCreator);
     }
 

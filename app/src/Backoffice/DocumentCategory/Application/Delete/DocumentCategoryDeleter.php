@@ -6,6 +6,7 @@ namespace App\Backoffice\DocumentCategory\Application\Delete;
 
 use App\Backoffice\DocumentCategory\Application\Get\Single\DocumentCategoryFinder;
 use App\Backoffice\DocumentCategory\Domain\DocumentCategoryRepository;
+use App\Backoffice\DocumentCategory\Domain\Exception\DocumentCategoryHasDocuments;
 
 final class DocumentCategoryDeleter
 {
@@ -22,6 +23,10 @@ final class DocumentCategoryDeleter
     public function __invoke(string $id)
     {
         $documentCategory = $this->finder->__invoke($id);
+
+        if ($documentCategory->hasDocuments()) {
+            throw new DocumentCategoryHasDocuments($documentCategory->id());
+        }
 
         $this->repository->delete($documentCategory);
     }

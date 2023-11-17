@@ -9,13 +9,20 @@ use App\Backoffice\DocumentCategory\Domain\ValueObject\DocumentCategoryName;
 use App\Shared\Domain\Aggregate\AggregateRoot;
 use App\Shared\Domain\ValueObject\Uuid;
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class DocumentCategory extends AggregateRoot
 {
     private string $id;
     private string $name;
     private Datetime $createAt;
+    private $documents;
 
+    public function __construct()
+    {
+        $this->documents = new ArrayCollection();
+    }
 
     public static function create(
         Uuid $id,
@@ -71,5 +78,18 @@ class DocumentCategory extends AggregateRoot
     public function createAt(): DateTime
     {
         return $this->createAt;
+    }
+
+    /**
+     * @return ArrayCollection|\App\Backoffice\Document\Domain\Document[]
+     */
+    public function documents(): Collection
+    {
+        return $this->documents;
+    }
+
+    public function hasDocuments(): bool
+    {
+        return (bool)count($this->documents);
     }
 }

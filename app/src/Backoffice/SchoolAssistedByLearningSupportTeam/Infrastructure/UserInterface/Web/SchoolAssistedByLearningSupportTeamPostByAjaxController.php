@@ -28,7 +28,7 @@ class SchoolAssistedByLearningSupportTeamPostByAjaxController extends WebControl
         $validationErrors = $this->validateRequest($request);
 
         return ($validationErrors->count() !== 0)
-            ? $this->jsonResponseWithErrors($formToCreateSchoolAssistedByLearningSupportTeamByAjax, $validationErrors, $request)
+            ? $this->jsonResponseValidationErrors($formToCreateSchoolAssistedByLearningSupportTeamByAjax, $validationErrors, $request)
             : $this->createSchoolAssistedByLearningSupportTeam($request, $schoolsAssistedByLearningSupportTeamCreator);
     }
 

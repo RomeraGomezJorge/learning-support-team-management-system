@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class GetAttachmentsInRequestAndUploadFiles extends WebController
@@ -52,14 +53,17 @@ final class GetAttachmentsInRequestAndUploadFiles extends WebController
         'txt',
     ];
 
-    private  const FILE_NOT_FOUND_ON_REQUEST = null;
+    private const FILE_NOT_FOUND_ON_REQUEST = null;
     private SluggerInterface $slugger;
-    private TranslatorInterface $translator;
 
-    public function __construct(SluggerInterface $slugger, TranslatorInterface $translator)
+    public function __construct(
+        SluggerInterface    $slugger,
+        ValidatorInterface  $validator,
+        TranslatorInterface $translator
+    )
     {
+        parent::__construct($validator,$translator);
         $this->slugger    = $slugger;
-        $this->translator = $translator;
     }
 
     public function __invoke(Request $request, string $documentName, string $attachmentDirectory)
@@ -94,9 +98,10 @@ final class GetAttachmentsInRequestAndUploadFiles extends WebController
 
     private function uploadFileAndGetFileLink(
         UploadedFile $fileToUpload,
-        string $name,
-        string $attachmentDirectory
-    ): string {
+        string       $name,
+        string       $attachmentDirectory
+    ): string
+    {
         $fileName = $this->slugger->slug($name . '-' . uniqid()) . '.' . $fileToUpload->guessExtension();
 
         try {

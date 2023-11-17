@@ -10,17 +10,26 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 abstract class WebController extends AbstractController
 {
     protected ValidatorInterface $validator;
+    protected TranslatorInterface $translator;
 
-    public function __construct(ValidatorInterface $validator)
+    public function __construct(
+        ValidatorInterface $validator,
+        TranslatorInterface $translator
+    )
     {
         $this->validator = $validator;
+        $this->translator = $translator;
     }
 
-    public function redirectWithMessage(string $routeName, string $message): RedirectResponse
+    public function redirectWithMessage(
+        string $routeName,
+        string $message
+    ): RedirectResponse
     {
         $this->addFlash('message', $message);
 
@@ -43,7 +52,10 @@ abstract class WebController extends AbstractController
         return $this->redirectToRoute($routeName);
     }
 
-    public function addFlashFor(string $prefix, array $messages): void
+    public function addFlashFor(
+        string $prefix,
+        array $messages
+    ): void
     {
         foreach ($messages as $key => $message) {
             $this->addFlash($prefix . '.' . $key, $message);
@@ -69,7 +81,7 @@ abstract class WebController extends AbstractController
         return strpos($routeName, "edit") !== false;
     }
 
-    public function jsonResponseWithErrors(
+    public function jsonResponseValidationErrors(
         RenderFormInterface $htmlForm,
         ConstraintViolationListInterface $errors,
         Request $request
@@ -107,9 +119,14 @@ abstract class WebController extends AbstractController
 
     protected function jsonResponseUnexpectedError(): JsonResponse
     {
+        return $this->jsonResponseFail(MessageConstant::UNEXPECTED_ERROR_HAS_OCCURRED);
+    }
+
+    protected function jsonResponseFail( string $message): JsonResponse
+    {
         return new JsonResponse([
             'status'  => 'fail',
-            'message' => MessageConstant::UNEXPECTED_ERROR_HAS_OCCURRED
+            'message' => $message
         ]);
     }
 }

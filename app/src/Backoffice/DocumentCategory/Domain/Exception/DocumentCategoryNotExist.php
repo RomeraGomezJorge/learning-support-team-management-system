@@ -24,6 +24,6 @@ final class DocumentCategoryNotExist extends DomainError
 
     protected function errorMessage(): string
     {
-        return sprintf('The job designation <%s> does not exist', $this->id);
+        return sprintf('The document category <%s> does not exist', $this->id);
     }
 }

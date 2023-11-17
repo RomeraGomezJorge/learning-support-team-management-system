@@ -27,7 +27,7 @@ class EmploymentContractPostByAjaxController extends WebController
         $validationErrors = $this->validateRequest($request);
 
         return ($validationErrors->count() !== 0)
-            ? $this->jsonResponseWithErrors($formToCreateAnEmploymentContractByAjax, $validationErrors, $request)
+            ? $this->jsonResponseValidationErrors($formToCreateAnEmploymentContractByAjax, $validationErrors, $request)
             : $this->createEmploymentContract($request, $employmentContractCreator);
     }
 

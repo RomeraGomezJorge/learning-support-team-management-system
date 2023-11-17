@@ -6,7 +6,7 @@
 
   use App\Shared\Domain\Bus\Event\DomainEvent;
 
-  final class LearningSupportTeamWasCreated extends DomainEvent
+final class LearningSupportTeamWasCreated extends DomainEvent
 {
     private string $name;
     private string $manager;

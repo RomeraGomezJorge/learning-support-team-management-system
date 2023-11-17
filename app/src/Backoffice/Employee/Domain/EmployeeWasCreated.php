@@ -6,7 +6,7 @@
 
   use App\Shared\Domain\Bus\Event\DomainEvent;
 
-  final class EmployeeWasCreated extends DomainEvent
+final class EmployeeWasCreated extends DomainEvent
 {
     private string $id;
     private string $name;
