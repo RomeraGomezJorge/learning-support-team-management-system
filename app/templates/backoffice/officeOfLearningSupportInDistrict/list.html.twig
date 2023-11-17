@@ -29,7 +29,7 @@
                     data-url_delete_confirmation_modal="{{ path(delete_confirmation_modal_path) }}"
                     data-css_selector_to_handle_tr_style_that_contains_items_to_delete="#css-selector-for-tr-that_contains-items-to-delete-{{ officeOfLearningSupportInDistrict.id }}"
                     data-id_to_delete="{{ officeOfLearningSupportInDistrict.id }}"
-                    data-message_to_delete_confirmation=' The employment contract with name "{{ officeOfLearningSupportInDistrict.name }}".'
+                    data-message_to_delete_confirmation='{{'The employment contract with name: "%name%".'|trans({'%name%': officeOfLearningSupportInDistrict.name}) }}'
                     data-modal_title='{{ officeOfLearningSupportInDistrict.name }}'
                 >
                     <div class="row pt-2">
@@ -63,7 +63,7 @@
                                 data-url_delete_confirmation_modal="{{ path(delete_confirmation_modal_path) }}"
                                 data-css_selector_to_handle_tr_style_that_contains_items_to_delete="#css-selector-for-tr-that_contains-items-to-delete-{{ officeOfLearningSupportInDistrict.id }}"
                                 data-id_to_delete="{{ officeOfLearningSupportInDistrict.id }}"
-                                data-message_to_delete_confirmation='The employment contract with name "{{ officeOfLearningSupportInDistrict.name }}".'
+                                data-message_to_delete_confirmation='{{'The employment contract with name: "%name%".'|trans({'%name%': officeOfLearningSupportInDistrict.name}) }}'
                         >
                             <i class="fa fa-times"></i>
                         </button>

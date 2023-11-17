@@ -510,9 +510,9 @@
         <source>Close</source>
         <target>Cerrar</target>
       </trans-unit>
-      <trans-unit id="fvxWWap" resname='The employment contract with name "%name%".'>
-        <source>The employment contract with name "%name%".</source>
-        <target>La condición laboral con el nombre "%name%".</target>
+      <trans-unit id="fvxWWap" resname='The employment contract with name: "%name%".'>
+        <source>The employment contract with name: "%name%".</source>
+        <target>La condición laboral con el nombre: "%name%".</target>
       </trans-unit>
       <trans-unit id="fvxWWat" resname='The job designation with name "%name%".'>
         <source>The job designation with name "%name%".</source>
@@ -1222,6 +1222,10 @@
       <trans-unit id="x2d170" resname="The document category as related documents, so it cannot be deleted.">
         <source>The document category as related documents, so it cannot be deleted."</source>
         <target>La categoría de documento  tiene documentos relacionados, por lo que no se puede eliminar.</target>
+      </trans-unit>
+      <trans-unit id="x2d171" resname="The district as related offices of learning support, so it cannot be deleted.">
+        <source>The district as related offices of learning support, so it cannot be deleted.</source>
+        <target>El departamento está vinculado con una o mas sedes, por lo que no se puede eliminar.</target>
       </trans-unit>
     </body>
   </file>

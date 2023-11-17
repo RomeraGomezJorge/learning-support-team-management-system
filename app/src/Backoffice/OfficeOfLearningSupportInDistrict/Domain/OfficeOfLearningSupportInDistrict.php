@@ -9,12 +9,20 @@ use App\Backoffice\OfficeOfLearningSupportInDistrict\Domain\ValueObject\OfficeOf
 use App\Shared\Domain\Aggregate\AggregateRoot;
 use App\Shared\Domain\ValueObject\Uuid;
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class OfficeOfLearningSupportInDistrict extends AggregateRoot
 {
     private string $id;
     private string $name;
     private Datetime $createAt;
+    private $officesOfLearningSupport;
+
+    public function __construct()
+    {
+        $this->officesOfLearningSupport = new ArrayCollection();
+    }
 
 
     public static function create(
@@ -71,5 +79,18 @@ class OfficeOfLearningSupportInDistrict extends AggregateRoot
     public function createAt(): DateTime
     {
         return $this->createAt;
+    }
+
+    /**
+     * @return ArrayCollection|\App\Backoffice\OfficeOfLearningSupport\Domain\OfficeOfLearningSupport[]
+     */
+    public function officesOfLearningSupport(): Collection
+    {
+        return $this->officesOfLearningSupport;
+    }
+
+    public function hasOfficesOfLearningSupport(): bool
+    {
+        return (bool)count($this->officesOfLearningSupport);
     }
 }

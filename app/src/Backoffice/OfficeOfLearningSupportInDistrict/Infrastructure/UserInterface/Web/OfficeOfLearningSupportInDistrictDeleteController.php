@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Backoffice\OfficeOfLearningSupportInDistrict\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\OfficeOfLearningSupportInDistrict\Application\Delete\OfficeOfLearningSupportInDistrictDeleter;
+use App\Backoffice\OfficeOfLearningSupportInDistrict\Domain\Exception\CannotDeleteDistrictWithRelatedOffices;
 use App\Shared\Infrastructure\Symfony\WebController;
 use App\Shared\Infrastructure\UserInterface\Web\ValidationRulesToDelete;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -29,8 +30,13 @@ class OfficeOfLearningSupportInDistrictDeleteController extends WebController
 
     private function delete(OfficeOfLearningSupportInDistrictDeleter $deleter, string $id): JsonResponse
     {
-        $deleter->__invoke($id);
-
-        return $this->jsonResponseSuccess();
+        try {
+            $deleter->__invoke($id);
+            return $this->jsonResponseSuccess();
+        } catch (CannotDeleteDistrictWithRelatedOffices $exception) {
+            return  $this->jsonResponseFail(
+                $this->translator->trans($exception->getMessage())
+            );
+        }
     }
 }
