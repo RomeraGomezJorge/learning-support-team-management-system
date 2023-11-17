@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\DocumentCategory\Application\Delete\DocumentCategoryDeleter;
-use App\Backoffice\DocumentCategory\Domain\Exception\DocumentCategoryHasDocuments;
+use App\Backoffice\DocumentCategory\Domain\Exception\CannotDeleteDocumentCategoryWithRelatedDocuments;
 use App\Shared\Infrastructure\Symfony\WebController;
 use App\Shared\Infrastructure\UserInterface\Web\ValidationRulesToDelete;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -36,7 +36,7 @@ class DocumentCategoryDeleteController extends WebController
         try {
             $deleter->__invoke($id);
             return $this->jsonResponseSuccess();
-        } catch (DocumentCategoryHasDocuments $exception) {
+        } catch (CannotDeleteDocumentCategoryWithRelatedDocuments $exception) {
             return $this->jsonResponseFail(
                 $this->translator->trans($exception->getMessage())
             );
