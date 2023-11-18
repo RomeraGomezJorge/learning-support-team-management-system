@@ -648,7 +648,7 @@
       </trans-unit>
       <trans-unit id="xxxWWba" resname='The value %s is not a valid work shift to an employee.'>
         <source>The value %s is not a valid work shift to an employee.</source>
-        <target>El valor %s no es un estado valido para una publicación.</target>
+        <target>El valor %s no es un estado valido para un turno de trabajo.</target>
       </trans-unit>
       <trans-unit id="zxxWWba" resname='Surname'>
         <source>Surname</source>
@@ -1230,6 +1230,10 @@
       <trans-unit id="x2d172" resname="The category as related learning support teams, so it cannot be deleted.">
         <source>The category as related learning support teams, so it cannot be deleted.</source>
         <target>El grupo está vinculado con uno o mas equipos, por lo que no se puede eliminar.</target>
+      </trans-unit>
+      <trans-unit id="x2d173" resname="The job designation as related employees, so it cannot be deleted.">
+        <source>The job designation as related employees, so it cannot be deleted.</source>
+        <target>La función laboral está vinculada con uno o mas empleados, por lo que no se puede eliminar.</target>
       </trans-unit>
     </body>
   </file>

@@ -9,13 +9,19 @@ use App\Backoffice\JobDesignation\Domain\ValueObject\JobDesignationName;
 use App\Shared\Domain\Aggregate\AggregateRoot;
 use App\Shared\Domain\ValueObject\Uuid;
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class JobDesignation extends AggregateRoot
 {
     private string $id;
     private string $name;
     private DateTime $createAt;
+    private $employees;
 
+    public function __construct()
+    {
+        $this->employees = new ArrayCollection();
+    }
 
     public static function create(
         Uuid $id,
@@ -71,5 +77,19 @@ class JobDesignation extends AggregateRoot
     public function createAt(): DateTime
     {
         return $this->createAt;
+    }
+
+
+    /**
+     * @return ArrayCollection|\App\Backoffice\Employee\Domain\Employee[]
+     */
+    public function employees(): ArrayCollection
+    {
+        return $this->employees();
+    }
+
+    public function hasEmployees(): bool
+    {
+        return (bool) count($this->employees);
     }
 }
