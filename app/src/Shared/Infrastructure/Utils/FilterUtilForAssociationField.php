@@ -2,7 +2,7 @@
 
 namespace App\Shared\Infrastructure\Utils;
 
-final class FilterUtilsForAssociationField
+final class FilterUtilForAssociationField
 {
     public static function isFieldNameDefineAsFilter(array $filters, string $fieldNameToFind): bool
     {

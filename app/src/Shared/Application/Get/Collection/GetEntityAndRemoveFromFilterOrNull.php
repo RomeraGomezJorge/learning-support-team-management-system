@@ -2,7 +2,7 @@
 
   namespace App\Shared\Application\Get\Collection;
 
-  use App\Shared\Infrastructure\Utils\FilterUtilsForAssociationField;
+  use App\Shared\Infrastructure\Utils\FilterUtilForAssociationField;
 
   final class GetEntityAndRemoveFromFilterOrNull
 {
@@ -10,7 +10,7 @@
     {
 
         if (
-            !FilterUtilsForAssociationField::isFieldNameDefineAsFilter(
+            !FilterUtilForAssociationField::isFieldNameDefineAsFilter(
                 $filter,
                 $associationFieldName
             )
@@ -18,7 +18,7 @@
             return null;
         };
 
-        $id = FilterUtilsForAssociationField::getValueFromFilters(
+        $id = FilterUtilForAssociationField::getValueFromFilters(
             $filter,
             $associationFieldName
         );
@@ -30,7 +30,7 @@
 
     public function removeAssociationsFilter($filter, $associationFieldName): array
     {
-        return FilterUtilsForAssociationField::removeFilterEqualsTo(
+        return FilterUtilForAssociationField::removeFilterEqualsTo(
             [$associationFieldName],
             $filter
         );

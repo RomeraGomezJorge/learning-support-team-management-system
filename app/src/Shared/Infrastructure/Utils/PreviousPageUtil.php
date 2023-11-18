@@ -2,7 +2,7 @@
 
 namespace App\Shared\Infrastructure\Utils;
 
-final class PreviousPage
+final class PreviousPageUtil
 {
     public static function calculate(int $page)
     {

@@ -18,8 +18,7 @@ final class OffsetPaginationUtil
     private static function ensureIsGreaterThanZero(int $value): void
     {
         if ($value < 1) {
-            // TODO:trans
-            throw new InvalidArgumentException('Página no encontrada');
+            throw new InvalidArgumentException('Page not found');
         }
     }
 }

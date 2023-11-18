@@ -6,9 +6,6 @@ use InvalidArgumentException;
 
 final class TotalNumberOfPagesUtil
 {
-    private int $page;
-    private int $limit;
-    private int $numberOfItems;
 
     public static function calculate(int $page, int $limit, int $numberOfItems): int
     {
@@ -16,31 +13,24 @@ final class TotalNumberOfPagesUtil
 
         self::ensureIsGreaterThanZero($limit, 'limit');
 
-        $total = ceil($numberOfItems / $limit);
+        $totalPages = ceil($numberOfItems / $limit);
 
         /* it happen when apply filter and not result found */
-        if ($total < 1) {
+        if ($totalPages < 1) {
             return 1;
         }
 
-        self::ensurePageIsNoTGreaterThanTotalPage($page, $total);
+        if ($page > $totalPages) {
+            throw new InvalidArgumentException('Page not found');
+        }
 
-        return $total;
+        return $totalPages;
     }
 
     private static function ensureIsGreaterThanZero(int $value, string $paramName): void
     {
         if ($value < 1) {
-            // TODO:trans
-            throw new InvalidArgumentException('El valor ' . $value . ' no es valido para el parametro ' . $paramName);
-        }
-    }
-
-    private static function ensurePageIsNoTGreaterThanTotalPage(int $page, int $totalPage): void
-    {
-        if ($page > $totalPage) {
-            // TODO: trans TranslatorInterface $translator
-            throw new InvalidArgumentException('La página seleccionada no existe.');
+            throw new InvalidArgumentException('Page not found');
         }
     }
 }

@@ -1235,6 +1235,10 @@
         <source>The job designation as related employees, so it cannot be deleted.</source>
         <target>La función laboral está vinculada con uno o mas empleados, por lo que no se puede eliminar.</target>
       </trans-unit>
+      <trans-unit id="x2d174" resname="Page not found">
+        <source>Page not found</source>
+        <target>Página no encontrada</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

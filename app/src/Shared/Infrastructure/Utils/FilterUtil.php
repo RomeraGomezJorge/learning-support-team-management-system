@@ -2,7 +2,7 @@
 
 namespace App\Shared\Infrastructure\Utils;
 
-final class FilterUtils
+final class FilterUtil
 {
     private const EMPTY_FILTERS = [];
 

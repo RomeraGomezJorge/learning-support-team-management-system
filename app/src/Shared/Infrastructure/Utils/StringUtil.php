@@ -2,7 +2,7 @@
 
 namespace App\Shared\Infrastructure\Utils;
 
-final class StringUtils
+final class StringUtil
 {
     const VALUES_ARE_EQUAL = 0;
 

@@ -2,7 +2,7 @@
 
 namespace App\Shared\Infrastructure\Utils;
 
-final class SortUtils
+final class SortUtil
 {
     public static function toggle($sort): string
     {

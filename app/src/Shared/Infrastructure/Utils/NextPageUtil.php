@@ -2,7 +2,7 @@
 
 namespace App\Shared\Infrastructure\Utils;
 
-final class NextPage
+final class NextPageUtil
 {
     public static function calculate(int $page, int $totalNumberOfPages)
     {

@@ -8,11 +8,11 @@ use App\Backoffice\DocumentCategory\Application\Get\Collection\DocumentCategoryB
 use App\Backoffice\DocumentCategory\Application\Get\Collection\DocumentCategoryByCriteriaSearcher;
 use App\Shared\Infrastructure\Symfony\WebController;
 use App\Shared\Infrastructure\UserInterface\Web\TwigTemplateGlobalConstants;
-use App\Shared\Infrastructure\Utils\FilterUtils;
-use App\Shared\Infrastructure\Utils\NextPage;
+use App\Shared\Infrastructure\Utils\FilterUtil;
+use App\Shared\Infrastructure\Utils\NextPageUtil;
 use App\Shared\Infrastructure\Utils\OffsetPaginationUtil;
-use App\Shared\Infrastructure\Utils\PreviousPage;
-use App\Shared\Infrastructure\Utils\SortUtils;
+use App\Shared\Infrastructure\Utils\PreviousPageUtil;
+use App\Shared\Infrastructure\Utils\SortUtil;
 use App\Shared\Infrastructure\Utils\TotalNumberOfPagesUtil;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,7 +32,7 @@ class DocumentCategoryGetController extends WebController
 
         $limit = (int)$request->get('limit');
 
-        $filters = FilterUtils::getFiltersOrEmpyArray($request->get('filters'));
+        $filters = FilterUtil::getFiltersOrEmpyArray($request->get('filters'));
 
         $documentCategories = $itemsByCriteriaSearcher->__invoke(
             $filters,
@@ -63,10 +63,10 @@ class DocumentCategoryGetController extends WebController
             'order'                          => $order,
             'limit'                          => $limit,
             'filters'                        => $request->get('filters'),
-            'toggleSort'                     => SortUtils::toggle($orderBy),
+            'toggleSort'                     => SortUtil::toggle($orderBy),
             'currentPage'                    => $page,
-            'nextPage'                       => NextPage::calculate($page, $totalNumberOfPages),
-            'previousPage'                   => PreviousPage::calculate($page),
+            'nextPage'                       => NextPageUtil::calculate($page, $totalNumberOfPages),
+            'previousPage'                   => PreviousPageUtil::calculate($page),
             'totalPage'                      => $totalNumberOfPages,
             'totalItem'                      => $totalItem,
             'documentCategories'             => $documentCategories
