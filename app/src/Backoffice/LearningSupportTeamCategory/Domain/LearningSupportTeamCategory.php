@@ -9,12 +9,20 @@ use App\Backoffice\LearningSupportTeamCategory\Domain\ValueObject\LearningSuppor
 use App\Shared\Domain\Aggregate\AggregateRoot;
 use App\Shared\Domain\ValueObject\Uuid;
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class LearningSupportTeamCategory extends AggregateRoot
 {
     private string $id;
     private string $name;
     private DateTime $createAt;
+    private $learningSupportTeams;
+
+    public function __construct()
+    {
+        $this->learningSupportTeams = new ArrayCollection();
+    }
 
     public static function create(
         Uuid $id,
@@ -70,5 +78,18 @@ class LearningSupportTeamCategory extends AggregateRoot
     public function createAt(): DateTime
     {
         return $this->createAt;
+    }
+
+    /**
+     * @return ArrayCollection|\App\Backoffice\LearningSupportTeam\Domain\LearningSupportTeam[]
+     */
+    public function learningSupportTeams(): Collection
+    {
+        return $this->learningSupportTeams;
+    }
+
+    public function hasLearningSupportTeams(): bool
+    {
+        return (bool)count($this->learningSupportTeams);
     }
 }

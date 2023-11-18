@@ -1227,9 +1227,9 @@
         <source>The district as related offices of learning support, so it cannot be deleted.</source>
         <target>La localidad está vinculado con una o mas sedes, por lo que no se puede eliminar.</target>
       </trans-unit>
-      <trans-unit id="x2d171" resname="The category as related learning support teams, so it cannot be deleted.">
+      <trans-unit id="x2d172" resname="The category as related learning support teams, so it cannot be deleted.">
         <source>The category as related learning support teams, so it cannot be deleted.</source>
-        <target>La categoria está vinculada con una o mas equipos, por lo que no se puede eliminar.</target>
+        <target>El grupo está vinculado con uno o mas equipos, por lo que no se puede eliminar.</target>
       </trans-unit>
     </body>
   </file>

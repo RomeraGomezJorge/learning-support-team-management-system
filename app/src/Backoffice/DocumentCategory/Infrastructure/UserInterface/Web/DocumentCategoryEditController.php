@@ -1,15 +1,15 @@
 <?php
 
-  declare(strict_types=1);
+declare(strict_types=1);
 
-  namespace App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web;
+namespace App\Backoffice\DocumentCategory\Infrastructure\UserInterface\Web;
 
-  use App\Backoffice\DocumentCategory\Application\Get\Single\DocumentCategoryFinder;
-  use App\Shared\Infrastructure\Constant\FormConstant;
-  use App\Shared\Infrastructure\Symfony\FlashSession;
-  use App\Shared\Infrastructure\Symfony\WebController;
-  use Symfony\Component\HttpFoundation\Request;
-  use Symfony\Component\HttpFoundation\Response;
+use App\Backoffice\DocumentCategory\Application\Get\Single\DocumentCategoryFinder;
+use App\Shared\Infrastructure\Constant\FormConstant;
+use App\Shared\Infrastructure\Symfony\FlashSession;
+use App\Shared\Infrastructure\Symfony\WebController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DocumentCategoryEditController extends WebController
 {
