@@ -568,7 +568,7 @@
       </trans-unit>
       <trans-unit id="fvxWW3o" resname="Add new office of learning support in district">
         <source>Add new office of learning support in district</source>
-        <target>Crear nuevo departamento</target>
+        <target>Crear nuevo localidad</target>
       </trans-unit>
       <trans-unit id="fvxWW3p" resname="School Assisted By LST">
         <source>School Assisted By LST</source>
@@ -624,7 +624,7 @@
       </trans-unit>
       <trans-unit id="fvxWWbo" resname='District'>
         <source>District</source>
-        <target>Departamento</target>
+        <target>Localidad</target>
       </trans-unit>
       <trans-unit id="fvxWWbp" resname='The office of learning support with address "%address%".'>
         <source>The office of learning support with address "%address%".</source>
@@ -632,7 +632,7 @@
       </trans-unit>
       <trans-unit id="zvxWWbp" resname='Office Of Learning Support In District'>
         <source>Office Of Learning Support In District</source>
-        <target>Departamento</target>
+        <target>Localidad</target>
       </trans-unit>
       <trans-unit id="zxxWWbp" resname='The school with name "%name%".'>
         <source>The school with name "%name%".t</source>
@@ -936,7 +936,7 @@
       </trans-unit>
       <trans-unit id="x2d399" resname="Learning support team district has successfully created!">
         <source>'Learning support team district has successfully created!'</source>
-        <target>¡El departamento ha sido creado!</target>
+        <target>¡La localidad ha sido creado!</target>
       </trans-unit>
       <trans-unit id="x2d100" resname="At least one uppercase character">
         <source>At least one uppercase character</source>
@@ -1225,7 +1225,11 @@
       </trans-unit>
       <trans-unit id="x2d171" resname="The district as related offices of learning support, so it cannot be deleted.">
         <source>The district as related offices of learning support, so it cannot be deleted.</source>
-        <target>El departamento está vinculado con una o mas sedes, por lo que no se puede eliminar.</target>
+        <target>La localidad está vinculado con una o mas sedes, por lo que no se puede eliminar.</target>
+      </trans-unit>
+      <trans-unit id="x2d171" resname="The category as related learning support teams, so it cannot be deleted.">
+        <source>The category as related learning support teams, so it cannot be deleted.</source>
+        <target>La categoria está vinculada con una o mas equipos, por lo que no se puede eliminar.</target>
       </trans-unit>
     </body>
   </file>

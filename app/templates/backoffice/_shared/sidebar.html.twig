@@ -58,154 +58,21 @@
                             <li>
                                 <a href="{{ path('employee_list') }}">
                                     <span class="sub-item">
-                                        {{ 'All employees'|trans }}
+                                        {{ 'Management employees'|trans }}
                                     </span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ path('employee_create') }}">
-                                    <span class="sub-item">
-                                        {{ 'Add new employee'|trans }}
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#employmentContract" class="collapsed" aria-expanded="false">
-                        <i class="fas fa-file-contract"></i>
-                        <p>
-                            {{ 'Employment Contract'|trans }}
-                        </p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="employmentContract">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="{{ path('employment_contract_list') }}">
-                                    <span class="sub-item">
-                                        {{ 'All employment contract'|trans }}
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('employment_contract_create') }}">
-                                    <span class="sub-item">
-                                        {{ 'Add new employment contract'|trans }}
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#jobDesignation" class="collapsed" aria-expanded="false">
-                        <i class="fas fa-id-card"></i>
-                        <p>
-                            {{ 'Job Designation'|trans }}
-                        </p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="jobDesignation">
-                        <ul class="nav nav-collapse">
                             <li>
                                 <a href="{{ path('job_designation_list') }}">
                                     <span class="sub-item">
-                                        {{ 'All job designations'|trans }}
+                                        {{ 'Management jobs designation'|trans }}
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ path('job_designation_create') }}">
+                                <a href="{{ path('employment_contract_list') }}">
                                     <span class="sub-item">
-                                        {{ 'Add new job designation'|trans }}
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#school" class="collapsed" aria-expanded="false">
-                        <i class="fas fa-school"></i>
-                        <p>
-                            {{ 'School Assisted By LST'|trans }}
-                        </p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="school">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="{{ path('school_assisted_by_learning_support_team_list') }}">
-                                    <span class="sub-item">
-                                        {{ 'All schools assisted by LST'|trans }}
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('school_assisted_by_learning_support_team_list') }}">
-                                    <span class="sub-item">
-                                        {{ 'Add new school assisted by LST'|trans }}
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#officeOfLearningSupportInDistrict" class="collapsed" aria-expanded="false">
-                        <i>
-                            <img src="{{ asset('assets/img/icon/office_of_learning_support_in_district.png') }}" width="28" />
-                        </i>
-
-                        <p>
-                            {{ 'OLS in district'|trans }}
-                        </p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="officeOfLearningSupportInDistrict">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="{{ path('office_of_learning_support_in_district_list') }}">
-                                    <span class="sub-item">
-                                        {{ 'All office of learning support in district'|trans }}
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('office_of_learning_support_in_district_create') }}">
-                                    <span class="sub-item">
-                                        {{ 'Add new office of learning support in district'|trans }}
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#officeOfLearningSupport" class="collapsed" aria-expanded="false">
-                        <i>
-                            <img src="{{  asset('assets/img/icon/office_learning_support.png') }}" width="28" />
-                        </i>
-                        <p>
-                            {{ 'Office Of Learning Support'|trans }}
-                        </p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="officeOfLearningSupport">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="{{ path('office_of_learning_support_list') }}">
-                                    <span class="sub-item">
-                                        {{ 'All office of learning support'|trans }}
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('office_of_learning_support_create') }}">
-                                    <span class="sub-item">
-                                        {{ 'Add new office of learning support'|trans }}
+                                        {{ 'Management employment contract'|trans }}
                                     </span>
                                 </a>
                             </li>
@@ -225,28 +92,28 @@
                             <li>
                                 <a href="{{ path('learning_support_team_list') }}">
                                     <span class="sub-item">
-                                        {{ 'All learning support team'|trans }}
+                                        {{ 'Management learning support team'|trans }}
                                     </span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ path('learning_support_team_create') }}">
+                                <a href="{{ path('office_of_learning_support_list') }}">
                                     <span class="sub-item">
-                                        {{ 'Add new Learning support team'|trans }}
+                                        {{ 'Management office of learning support'|trans }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('school_assisted_by_learning_support_team_list') }}">
+                                    <span class="sub-item">
+                                        {{ 'Management schools assisted by LST'|trans }}
                                     </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('learning_support_team_category_list') }}">
                                     <span class="sub-item">
-                                        {{ 'All learning support team groups'|trans }}
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ path('learning_support_team_category_create') }}">
-                                    <span class="sub-item">
-                                        {{ 'Add new Learning support team group'|trans }}
+                                        {{ 'Management learning support team groups'|trans }}
                                     </span>
                                 </a>
                             </li>
@@ -266,14 +133,14 @@
                             <li>
                                 <a href="{{ path('document_list') }}">
                                     <span class="sub-item">
-                                        {{ 'All documents'|trans }}
+                                        {{ 'Management documents'|trans }}
                                     </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ path('document_category_list') }}">
                                     <span class="sub-item">
-                                        {{ 'All document categories'|trans }}
+                                        {{ 'Management document categories'|trans }}
                                     </span>
                                 </a>
                             </li>
@@ -284,7 +151,7 @@
                     <a data-toggle="collapse" href="#user" class="collapsed" aria-expanded="false">
                         <i class="fas fa-users-cog"></i>
                         <p>
-                            {{ 'User Management'|trans }}
+                            {{ 'User'|trans }}
                         </p>
                         <span class="caret"></span>
                     </a>
@@ -293,7 +160,7 @@
                             <li>
                                 <a href="{{ path('user_list') }}">
                                     <span class="sub-item">
-                                        {{ 'All Users'|trans }}
+                                        {{ 'Management Users'|trans }}
                                     </span>
                                 </a>
                             </li>
