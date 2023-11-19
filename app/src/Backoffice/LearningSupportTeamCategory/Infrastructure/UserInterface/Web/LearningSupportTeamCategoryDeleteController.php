@@ -34,9 +34,7 @@ class LearningSupportTeamCategoryDeleteController extends WebController
             $deleter->__invoke($id);
             return $this->jsonResponseSuccess();
         } catch (CannotDeleteCategoryWithRelatedLearningSupportTeams $exception) {
-            return $this->jsonResponseFail(
-                $this->translator->trans($exception->getMessage())
-            );
+            return $this->jsonResponseFail($exception->getMessage());
         }
     }
 }

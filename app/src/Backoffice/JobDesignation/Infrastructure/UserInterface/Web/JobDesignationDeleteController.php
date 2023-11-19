@@ -34,9 +34,7 @@ class JobDesignationDeleteController extends WebController
             $deleter->__invoke($id);
             return $this->jsonResponseSuccess();
         } catch (CannotDeleteJobDesignationWithRelatedEmployees $exception) {
-            return$this->jsonResponseFail(
-                $this->translator->trans($exception->getMessage())
-            );
+            return$this->jsonResponseFail($exception->getMessage());
         }
     }
 }

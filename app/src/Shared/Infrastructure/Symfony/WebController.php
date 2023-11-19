@@ -10,20 +10,14 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 abstract class WebController extends AbstractController
 {
     protected ValidatorInterface $validator;
-    protected TranslatorInterface $translator;
 
-    public function __construct(
-        ValidatorInterface $validator,
-        TranslatorInterface $translator
-    )
+    public function __construct(ValidatorInterface $validator)
     {
         $this->validator = $validator;
-        $this->translator = $translator;
     }
 
     public function redirectWithMessage(

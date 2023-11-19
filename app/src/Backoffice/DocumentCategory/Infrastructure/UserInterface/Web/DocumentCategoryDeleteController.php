@@ -37,9 +37,7 @@ class DocumentCategoryDeleteController extends WebController
             $deleter->__invoke($id);
             return $this->jsonResponseSuccess();
         } catch (CannotDeleteDocumentCategoryWithRelatedDocuments $exception) {
-            return $this->jsonResponseFail(
-                $this->translator->trans($exception->getMessage())
-            );
+            return $this->jsonResponseFail($exception->getMessage());
         }
     }
 }
