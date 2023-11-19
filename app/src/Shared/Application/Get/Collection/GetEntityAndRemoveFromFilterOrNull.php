@@ -1,5 +1,7 @@
 <?php
 
+ declare(strict_types=1);
+
   namespace App\Shared\Application\Get\Collection;
 
   use App\Shared\Infrastructure\Utils\FilterUtilForAssociationField;

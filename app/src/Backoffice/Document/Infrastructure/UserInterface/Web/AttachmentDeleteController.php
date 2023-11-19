@@ -24,7 +24,7 @@ class AttachmentDeleteController extends WebController
         $validationErrors = $this->validationRules($request);
 
         return ($validationErrors->count() !== 0)
-            ? $this->jsonResponseUnexpectedError()
+            ? $this->jsonResponseUnexpectedErrorOnDelete()
             : $this->delete($deleter, $request);
     }
 

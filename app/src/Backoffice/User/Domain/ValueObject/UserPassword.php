@@ -21,7 +21,6 @@ final class UserPassword extends StringValueObject
     private function ensureHasAtLeastOneUppercaseCharacter(string $password): void
     {
         if (1 !== preg_match('/[A-Z]+/', $password)) {
-            // TODO:trans
             throw new InvalidArgumentException('The password must include at least one capital letter.');
         };
     }
@@ -29,7 +28,6 @@ final class UserPassword extends StringValueObject
     private function ensureHasAtLeastOneNumber(string $password): void
     {
         if (1 !== preg_match('/[0-9Z]+/', $password)) {
-            //TODO: transs
             throw new InvalidArgumentException('The password must include at least one number.');
         };
     }

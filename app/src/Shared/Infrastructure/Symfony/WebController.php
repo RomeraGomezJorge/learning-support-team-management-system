@@ -111,9 +111,9 @@ abstract class WebController extends AbstractController
         return new JsonResponse(['status' => 'success']);
     }
 
-    protected function jsonResponseUnexpectedError(): JsonResponse
+    protected function jsonResponseUnexpectedErrorOnDelete(): JsonResponse
     {
-        return $this->jsonResponseFail(MessageConstant::UNEXPECTED_ERROR_HAS_OCCURRED);
+        return $this->jsonResponseFail(MessageConstant::UNEXPECTED_ERROR_HAS_OCCURRED_ON_DELETE);
     }
 
     protected function jsonResponseFail( string $message): JsonResponse

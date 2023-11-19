@@ -26,7 +26,6 @@ final class EmployeeShitWork extends StringValueObject
     {
         if (!in_array($value, self::VALID_SHIFTS)) {
             throw new InvalidArgumentException(
-            // TODO: trans
                 sprintf('The value <%s> is not a valid work shift to an employee.', $value)
             );
         }

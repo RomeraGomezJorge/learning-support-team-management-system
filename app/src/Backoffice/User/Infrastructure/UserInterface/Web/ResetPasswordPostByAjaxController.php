@@ -24,7 +24,7 @@ class ResetPasswordPostByAjaxController extends WebController
         $validationErrors = $this->validateRequest($request);
 
         return ($validationErrors->count() !== 0)
-            ? $this->jsonResponseUnexpectedError()
+            ? $this->jsonResponseUnexpectedErrorOnDelete()
             : $this->update($request, $userPasswordReset);
     }
 

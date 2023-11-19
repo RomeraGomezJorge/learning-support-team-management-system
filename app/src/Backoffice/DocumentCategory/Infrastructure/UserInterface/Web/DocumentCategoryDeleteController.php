@@ -27,7 +27,7 @@ class DocumentCategoryDeleteController extends WebController
         $validationErrors = $rulesToDelete->verify($request);
 
         return ($validationErrors->count() !== 0)
-            ? $this->jsonResponseUnexpectedError()
+            ? $this->jsonResponseUnexpectedErrorOnDelete()
             : $this->delete($deleter, $request->get('id'));
     }
 

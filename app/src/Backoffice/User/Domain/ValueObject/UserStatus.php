@@ -23,7 +23,6 @@ final class UserStatus extends IntValueObject
     {
         if (!in_array($value, self::VALID_STATUS)) {
             throw new InvalidArgumentException(
-            // TODO: trans
                 sprintf('The value <%s> is not a valid status to a user.', $value)
             );
         }

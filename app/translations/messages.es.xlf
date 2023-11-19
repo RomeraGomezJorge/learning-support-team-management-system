@@ -552,11 +552,11 @@
       </trans-unit>
       <trans-unit id="fvxWW3k" resname="Management employment contract">
         <source>Management employment contract</source>
-        <target>Gestión de funciones laborales</target>
+        <target>Gestión de condiciónes laborales </target>
       </trans-unit>
       <trans-unit id="fvxWW3l" resname="Add new employment contract">
         <source>Add new employment contractr</source>
-        <target>Crear nueva funcion laboral</target>
+        <target>Crear nueva condición laboral </target>
       </trans-unit>
       <trans-unit id="fvxWW3m" resname="OLS in district">
         <source>OLS in district</source>
@@ -564,7 +564,7 @@
       </trans-unit>
       <trans-unit id="fvxWW3n" resname="Management office of learning support in district">
         <source>Management office of learning support in district</source>
-        <target>Gestión de localidades</target>
+        <target>Gestión de localidades de las sedes</target>
       </trans-unit>
       <trans-unit id="fvxWW3o" resname="Add new office of learning support in district">
         <source>Add new office of learning support in district</source>
@@ -708,7 +708,7 @@
       </trans-unit>
       <trans-unit id="z2d344" resname='Management jobs designation'>
         <source>Management jobs designation</source>
-        <target>Gestión de funciones laborales</target>
+        <target>Gestión de funciónes laborales</target>
       </trans-unit>
       <trans-unit id="z2d345" resname='Add new job designations'>
         <source>Add new job designations</source>
@@ -1238,6 +1238,22 @@
       <trans-unit id="x2d174" resname="Page not found">
         <source>Page not found</source>
         <target>Página no encontrada</target>
+      </trans-unit>
+      <trans-unit id="x2d1755" resname="The data has been created.">
+        <source>The data has been created.</source>
+        <target>Los datos han sido creados.</target>
+      </trans-unit>
+      <trans-unit id="x2d1756" resname="The data has been updated.">
+        <source>The data has been updated.</source>
+        <target>Los datos han sido actualizados.</target>
+      </trans-unit>
+      <trans-unit id="x2d1757" resname="The CSRF token is not valid.">
+        <source>The CSRF token is not valid.</source>
+        <target>El token csrf no es válido.</target>
+      </trans-unit>
+      <trans-unit id="x2d1758" resname="An unexpected error occurred while trying to delete, please try again.">
+        <source>An unexpected error occurred while trying to delete, please try again.</source>
+        <target>Ha sucedido algo inesperado al intentar eliminar, por favor intente nuevamente.</target>
       </trans-unit>
     </body>
   </file>
