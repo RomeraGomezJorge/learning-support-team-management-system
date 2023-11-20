@@ -510,8 +510,8 @@
         <source>Close</source>
         <target>Cerrar</target>
       </trans-unit>
-      <trans-unit id="fvxWWap" resname='The employment contract with name: "%name%".'>
-        <source>The employment contract with name: "%name%".</source>
+      <trans-unit id="fvxWWap" resname='The employment contract with name "%name%".'>
+        <source>The employment contract with name "%name%".</source>
         <target>La condición laboral con el nombre: "%name%".</target>
       </trans-unit>
       <trans-unit id="fvxWWat" resname='The job designation with name "%name%".'>
@@ -1254,6 +1254,26 @@
       <trans-unit id="x2d1758" resname="An unexpected error occurred while trying to delete, please try again.">
         <source>An unexpected error occurred while trying to delete, please try again.</source>
         <target>Ha sucedido algo inesperado al intentar eliminar, por favor intente nuevamente.</target>
+      </trans-unit>
+      <trans-unit id="x2d1759" resname="The employee serves as the manager of a learning support team, and therefore, their profile cannot be removed.">
+        <source>The employee serves as the manager of a learning support team, and therefore, their profile cannot be removed.</source>
+        <target>El empleado esta asginado como coordinador en un equipo, por lo tanto, su perfil no puede ser eliminado</target>
+      </trans-unit>
+      <trans-unit id="x2d1760" resname='The employee with fullname "%name%", %surname%.'>
+        <source>The employee with fullname "%name%", %surname%.</source>
+        <target>El empleado con el nombre "%name%", %surname%.</target>
+      </trans-unit>
+      <trans-unit id="x2d1761" resname='The district with name: "%name%".'>
+        <source>The district with name: "%name%".</source>
+        <target>La localidad con el nombre "%name%"</target>
+      </trans-unit>
+      <trans-unit id="x2d1762" resname='The school with name: "%name%".'>
+        <source>The school with name: "%name%".</source>
+        <target>La escuela con el nombre "%name%"</target>
+      </trans-unit>
+      <trans-unit id="x2d1763" resname='The user %surname%, %name%".'>
+        <source>The user %surname%, %name%".</source>
+        <target>El usuario %surname%, %name%</target>
       </trans-unit>
     </body>
   </file>

@@ -75,13 +75,13 @@ final class MySqlEmployeeRepository extends DoctrineRepository implements Employ
                 ->innerJoin('employee.learningSupportTeam', 'learningSupportTeam');
 
 
-            if ( $learningSupportTeam !== null ) {
+            if ($learningSupportTeam !== null) {
                 $query->andWhere('learningSupportTeam.id = :learningSupportTeamId')
                     ->setParameter('learningSupportTeamId', $learningSupportTeam->id());
             }
 
-            if ( $orderBy === 'learningSupportTeam' ) {
-                $query->orderBy('learningSupportTeam.name',$criteria->order()->orderType()->value());
+            if ($orderBy === 'learningSupportTeam') {
+                $query->orderBy('learningSupportTeam.name', $criteria->order()->orderType()->value());
             }
 
             $query->select('count(employee)');

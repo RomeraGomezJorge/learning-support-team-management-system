@@ -263,7 +263,7 @@
     {% if flash.has('message.0') %}
         <script>
             function getNotificationMessage() {
-                return '{{ flash.get('message.0') }}'
+                return '{{ flash.get('message.0')|trans }}'
             }
         </script>
         <script src="{{ asset('assets/js/blog/_shared/form/display.success.message.js') }}"></script>

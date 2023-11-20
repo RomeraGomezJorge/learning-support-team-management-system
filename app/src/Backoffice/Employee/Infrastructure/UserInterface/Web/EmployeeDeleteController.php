@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Backoffice\Employee\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\Employee\Application\Delete\EmployeeDeleter;
+use App\Backoffice\Employee\Domain\Exception\UnableDeleteManagerWithAssociatedLearningSupportTeam;
 use App\Shared\Infrastructure\Symfony\WebController;
 use App\Shared\Infrastructure\UserInterface\Web\ValidationRulesToDelete;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -35,8 +36,12 @@ class EmployeeDeleteController extends WebController
 
     private function delete(EmployeeDeleter $deleter, string $id): JsonResponse
     {
-        $deleter->__invoke($id);
 
-        return $this->jsonResponseSuccess();
+        try {
+            $deleter->__invoke($id);
+            return $this->jsonResponseSuccess();
+        } catch (UnableDeleteManagerWithAssociatedLearningSupportTeam $exception) {
+            return $this->jsonResponseFail($exception->getMessage());
+        }
     }
 }

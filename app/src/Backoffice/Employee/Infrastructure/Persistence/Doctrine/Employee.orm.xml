@@ -82,5 +82,9 @@
                   target-entity="App\Backoffice\Document\Domain\Document"
                   mapped-by="employee"
     />
+    <one-to-many field="learningSupportTeamsToManage"
+                 target-entity="App\Backoffice\LearningSupportTeam\Domain\LearningSupportTeam"
+                 mapped-by="manager"
+    />
   </entity>
 </doctrine-mapping>

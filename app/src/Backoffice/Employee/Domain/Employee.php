@@ -40,10 +40,12 @@ class Employee extends AggregateRoot
     private Datetime $updateAt;
     private $learningSupportTeam;
     private $document;
+    private $learningSupportTeamsToManage;
 
     public function __construct()
     {
         $this->learningSupportTeam = new ArrayCollection();
+        $this->learningSupportTeamsToManage = new ArrayCollection();
         $this->document            = new ArrayCollection();
     }
 
@@ -249,5 +251,18 @@ class Employee extends AggregateRoot
         }
 
         return $this;
+    }
+
+    /**
+     * @return ArrayCollection|\App\Backoffice\LearningSupportTeam\Domain\LearningSupportTeam[]
+     */
+    public function learningSupportTeamToManage(): Collection
+    {
+        return $this->learningSupportTeamsToManage;
+    }
+
+    public function servesAsManager(): bool
+    {
+        return (bool)count($this->learningSupportTeamsToManage);
     }
 }

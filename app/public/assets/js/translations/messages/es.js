@@ -126,7 +126,7 @@ t.add("Add new item", "A\u00f1adir nuevo elemento", "messages", "es");
 t.add("Loading", "Cargando", "messages", "es");
 t.add("Select this value when saving", "Seleccionar este valor al guardar", "messages", "es");
 t.add("Close", "Cerrar", "messages", "es");
-t.add("The employment contract with name: \"%name%\".", "La condici\u00f3n laboral con el nombre: \"%name%\".", "messages", "es");
+t.add("The employment contract with name \"%name%\".", "La condici\u00f3n laboral con el nombre: \"%name%\".", "messages", "es");
 t.add("The job designation with name \"%name%\".", "La funci\u00f3n laboral con el nombre \"%name%\".", "messages", "es");
 t.add("Manager", "Coordinador", "messages", "es");
 t.add("Name", "Nombre", "messages", "es");
@@ -303,4 +303,9 @@ t.add("The data has been created.", "Los datos han sido creados.", "messages", "
 t.add("The data has been updated.", "Los datos han sido actualizados.", "messages", "es");
 t.add("The CSRF token is not valid.", "El token csrf no es v\u00e1lido.", "messages", "es");
 t.add("An unexpected error occurred while trying to delete, please try again.", "Ha sucedido algo inesperado al intentar eliminar, por favor intente nuevamente.", "messages", "es");
+t.add("The employee serves as the manager of a learning support team, and therefore, their profile cannot be removed.", "El empleado esta asginado como coordinador en un equipo, por lo tanto, su perfil no puede ser eliminado", "messages", "es");
+t.add("The employee with fullname \"%name%\", %surname%.", "El empleado con el nombre \"%name%\", %surname%.", "messages", "es");
+t.add("The district with name: \"%name%\".", "La localidad con el nombre \"%name%\"", "messages", "es");
+t.add("The school with name: \"%name%\".", "La escuela con el nombre \"%name%\"", "messages", "es");
+t.add("The user %surname%, %name%\".", "El usuario %surname%, %name%", "messages", "es");
 })(Translator);
