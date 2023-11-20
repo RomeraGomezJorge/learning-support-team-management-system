@@ -12,7 +12,7 @@ final class TwigTemplateConstants
     public const CREATE_PATH = 'employment_contract_create';
     public const UPDATE_PATH = 'employment_contract_update';
     public const DELETE_PATH = 'employment_contract_delete';
-    public const FULLNAME_AVAILABLE_PATH = 'employment_contract_name_available';
+    public const NAME_AVAILABLE_PATH = 'employment_contract_name_available';
     public const SECTION_TITLE = 'Employment Contract';
     public const FORM_FILE_PATH = 'backoffice/employmentContract/formToHandleItem.html.twig';
     public const LIST_FILE_PATH = 'backoffice/employmentContract/list.html.twig';

@@ -25,7 +25,7 @@ class EmploymentContractEditController extends WebController
             'list_path'             => TwigTemplateConstants::LIST_PATH,
             'id'                    => $employmentContract->id(),
             'name'                  => $flashSession->get('inputs.name') ?? $employmentContract->name(),
-            'name_available_path'   => TwigTemplateConstants::FULLNAME_AVAILABLE_PATH,
+            'name_available_path'   => TwigTemplateConstants::NAME_AVAILABLE_PATH,
             'form_action_attribute' => TwigTemplateConstants::UPDATE_PATH,
             'submit_button_label'   => FormConstant::SUBMIT_BUTTON_VALUE_TO_UPDATE,
             'action_to_do'          => FormConstant::UPDATE_LABEL_TEXT,

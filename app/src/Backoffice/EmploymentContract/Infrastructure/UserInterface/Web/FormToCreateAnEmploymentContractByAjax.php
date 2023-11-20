@@ -27,7 +27,7 @@ final class FormToCreateAnEmploymentContractByAjax extends WebController impleme
             'form_action_attribute' => TwigTemplateConstants::CREATE_BY_AJAX_PATH,
             'id'                    => $this->ramseyUuidGenerator->generate(),
             'name'                  => $this->flashSession->get('inputs.name'),
-            'name_available_path'   => TwigTemplateConstants::FULLNAME_AVAILABLE_PATH,
+            'name_available_path'   => TwigTemplateConstants::NAME_AVAILABLE_PATH,
             'submit_button_label'   => FormConstant::SUBMIT_BUTTON_VALUE_TO_CREATE,
         ])->getContent();
     }

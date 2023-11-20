@@ -20,7 +20,7 @@ class EmploymentContractAddController extends WebController
             'list_path'             => TwigTemplateConstants::LIST_PATH,
             'page_title'            => TwigTemplateConstants::SECTION_TITLE,
             'id'                    => $ramseyUuidGenerator->generate(),
-            'name_available_path'   => TwigTemplateConstants::FULLNAME_AVAILABLE_PATH,
+            'name_available_path'   => TwigTemplateConstants::NAME_AVAILABLE_PATH,
             'name'                  => $flashSession->get('inputs.name'),
             'form_action_attribute' => TwigTemplateConstants::CREATE_PATH,
             'submit_button_label'   => FormConstant::SUBMIT_BUTTON_VALUE_TO_CREATE,
