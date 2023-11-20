@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Backoffice\OfficeOfLearningSupport\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\OfficeOfLearningSupport\Application\Delete\OfficeOfLearningSupportDeleter;
+use App\Backoffice\OfficeOfLearningSupport\Domain\Exception\UnableDeleteOfficeContractWithAssociatedTeams;
 use App\Shared\Infrastructure\Symfony\WebController;
 use App\Shared\Infrastructure\UserInterface\Web\ValidationRulesToDelete;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -29,8 +30,11 @@ class OfficeOfLearningSupportDeleteController extends WebController
 
     private function delete(OfficeOfLearningSupportDeleter $deleter, string $id): JsonResponse
     {
-        $deleter->__invoke($id);
-
-        return $this->jsonResponseSuccess();
+        try {
+            $deleter->__invoke($id);
+            return $this->jsonResponseSuccess();
+        } catch ( UnableDeleteOfficeContractWithAssociatedTeams $exception) {
+            return $this->jsonResponseFail($exception->getMessage());
+        }
     }
 }

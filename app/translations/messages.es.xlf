@@ -1279,6 +1279,10 @@
         <source>The employment contract as related employees, so it cannot be deleted.</source>
         <target>La condición laboral tiene empleados relacionados, por lo que no se puede eliminar.</target>
       </trans-unit>
+      <trans-unit id="x2d1765" resname='The office as related learning support teams, so it cannot be deleted.'>
+        <source>The office as related learning support teams, so it cannot be deleted.</source>
+        <target>La sede tiene equipos relacionados, por lo que no se puede eliminar.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

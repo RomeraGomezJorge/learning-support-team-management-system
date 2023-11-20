@@ -90,4 +90,9 @@ class OfficeOfLearningSupport extends AggregateRoot
     {
         return $this->learningSupportTeams;
     }
+
+    public function hasLearningSupportTeams(): bool
+    {
+        return (bool)count($this->learningSupportTeams);
+    }
 }

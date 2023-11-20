@@ -309,4 +309,5 @@ t.add("The district with name: \"%name%\".", "La localidad con el nombre \"%name
 t.add("The school with name: \"%name%\".", "La escuela con el nombre \"%name%\"", "messages", "es");
 t.add("The user %surname%, %name%\".", "El usuario %surname%, %name%", "messages", "es");
 t.add("The employment contract as related employees, so it cannot be deleted.", "La condici\u00f3n laboral tiene empleados relacionados, por lo que no se puede eliminar.", "messages", "es");
+t.add("The office as related learning support teams, so it cannot be deleted.", "La sede tiene equipos relacionados, por lo que no se puede eliminar.", "messages", "es");
 })(Translator);

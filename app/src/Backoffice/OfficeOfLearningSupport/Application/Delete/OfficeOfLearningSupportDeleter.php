@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Backoffice\OfficeOfLearningSupport\Application\Delete;
 
 use App\Backoffice\OfficeOfLearningSupport\Application\Get\Single\OfficeOfLearningSupportFinder;
+use App\Backoffice\OfficeOfLearningSupport\Domain\Exception\UnableDeleteOfficeContractWithAssociatedTeams;
 use App\Backoffice\OfficeOfLearningSupport\Domain\OfficeOfLearningSupportRepository;
 
 final class OfficeOfLearningSupportDeleter
@@ -22,6 +23,10 @@ final class OfficeOfLearningSupportDeleter
     public function __invoke(string $id)
     {
         $officeOfLearningSupport = $this->finder->__invoke($id);
+
+        if ($officeOfLearningSupport->hasLearningSupportTeams()) {
+            throw new UnableDeleteOfficeContractWithAssociatedTeams();
+        }
 
         $this->repository->delete($officeOfLearningSupport);
     }
