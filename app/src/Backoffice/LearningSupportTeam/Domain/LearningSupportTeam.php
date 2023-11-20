@@ -24,13 +24,13 @@ class LearningSupportTeam extends AggregateRoot
     private Datetime $createAt;
     private $schoolsAssistedByLearningSupportTeam;
     private $officeOfLearningSupport;
-    private $employee;
+    private $employees;
     private LearningSupportTeamCategory $learningSupportTeamCategory;
 
     public function __construct()
     {
         $this->schoolsAssistedByLearningSupportTeam = new ArrayCollection();
-        $this->employee                             = new ArrayCollection();
+        $this->employees                            = new ArrayCollection();
     }
 
     public static function create(
@@ -149,21 +149,21 @@ class LearningSupportTeam extends AggregateRoot
      */
     public function employees(): Collection
     {
-        return $this->employee;
+        return $this->employees;
     }
 
     public function addEmployee(?Employee $employee): self
     {
-        if (!$this->employee->contains($employee)) {
-            $this->employee[] = $employee;
+        if (!$this->employees->contains($employee)) {
+            $this->employees[] = $employee;
         }
         return $this;
     }
 
     public function removeEmployee(?Employee $employee): self
     {
-        if ($this->employee->contains($employee)) {
-            $this->employee->removeElement($employee);
+        if ($this->employees->contains($employee)) {
+            $this->employees->removeElement($employee);
         }
 
         return $this;

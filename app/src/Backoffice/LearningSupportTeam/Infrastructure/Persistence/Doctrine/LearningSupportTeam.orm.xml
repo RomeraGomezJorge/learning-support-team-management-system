@@ -31,7 +31,7 @@
                 <join-column name="manager" referenced-column-name="id" nullable="true"/>
             </join-columns>
         </many-to-one>
-        <many-to-many field="employee"
+        <many-to-many field="employees"
                       target-entity="App\Backoffice\Employee\Domain\Employee"
                       mapped-by="learningSupportTeams"
         />
