@@ -23,11 +23,11 @@ class Document extends AggregateRoot
     private DocumentCategory $documentCategory;
     private Datetime $createAt;
     private $attachment;
-    private $employee;
+    private $employees;
 
     public function __construct()
     {
-        $this->employee = new ArrayCollection();
+        $this->employees = new ArrayCollection();
     }
 
     public static function create(
@@ -120,21 +120,21 @@ class Document extends AggregateRoot
      */
     public function employees(): Collection
     {
-        return $this->employee;
+        return $this->employees;
     }
 
     public function addEmployee(?Employee $employee): self
     {
-        if (!$this->employee->contains($employee)) {
-            $this->employee[] = $employee;
+        if (!$this->employees->contains($employee)) {
+            $this->employees[] = $employee;
         }
         return $this;
     }
 
     public function removeEmployee(?Employee $employee): self
     {
-        if ($this->employee->contains($employee)) {
-            $this->employee->removeElement($employee);
+        if ($this->employees->contains($employee)) {
+            $this->employees->removeElement($employee);
         }
 
         return $this;
