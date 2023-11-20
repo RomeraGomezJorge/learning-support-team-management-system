@@ -6,7 +6,7 @@ namespace App\Backoffice\DocumentCategory\Application\Delete;
 
 use App\Backoffice\DocumentCategory\Application\Get\Single\DocumentCategoryFinder;
 use App\Backoffice\DocumentCategory\Domain\DocumentCategoryRepository;
-use App\Backoffice\DocumentCategory\Domain\Exception\CannotDeleteDocumentCategoryWithRelatedDocuments;
+use App\Backoffice\DocumentCategory\Domain\Exception\UnableDeleteCategoryWithAssociatedDocuments;
 
 final class DocumentCategoryDeleter
 {
@@ -25,7 +25,7 @@ final class DocumentCategoryDeleter
         $documentCategory = $this->finder->__invoke($id);
 
         if ($documentCategory->hasDocuments()) {
-            throw new CannotDeleteDocumentCategoryWithRelatedDocuments();
+            throw new UnableDeleteCategoryWithAssociatedDocuments();
         }
 
         $this->repository->delete($documentCategory);

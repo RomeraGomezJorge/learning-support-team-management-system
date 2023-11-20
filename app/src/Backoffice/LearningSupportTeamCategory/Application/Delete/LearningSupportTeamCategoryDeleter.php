@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Backoffice\LearningSupportTeamCategory\Application\Delete;
 
 use App\Backoffice\LearningSupportTeamCategory\Application\Get\Single\LearningSupportTeamCategoryFinder;
-use App\Backoffice\LearningSupportTeamCategory\Domain\Exception\CannotDeleteCategoryWithRelatedLearningSupportTeams;
+use App\Backoffice\LearningSupportTeamCategory\Domain\Exception\UnableDeleteCategoryContractWithAssociatedLearningSupportTeams;
 use App\Backoffice\LearningSupportTeamCategory\Domain\LearningSupportTeamCategoryRepository;
 
 final class LearningSupportTeamCategoryDeleter
@@ -25,7 +25,7 @@ final class LearningSupportTeamCategoryDeleter
         $learningSupportTeamCategory = $this->finder->__invoke($id);
 
         if ($learningSupportTeamCategory->hasLearningSupportTeams()) {
-            throw new CannotDeleteCategoryWithRelatedLearningSupportTeams();
+            throw new UnableDeleteCategoryContractWithAssociatedLearningSupportTeams();
         }
 
         $this->repository->delete($learningSupportTeamCategory);

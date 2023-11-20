@@ -6,7 +6,7 @@ namespace App\Backoffice\DocumentCategory\Domain\Exception;
 
 use App\Shared\Domain\DomainError;
 
-final class CannotDeleteDocumentCategoryWithRelatedDocuments extends DomainError
+final class UnableDeleteCategoryWithAssociatedDocuments extends DomainError
 {
     public function errorCode(): string
     {
@@ -15,6 +15,6 @@ final class CannotDeleteDocumentCategoryWithRelatedDocuments extends DomainError
 
     protected function errorMessage(): string
     {
-        return sprintf('The document category as related documents, so it cannot be deleted.');
+        return 'The document category as related documents, so it cannot be deleted.';
     }
 }

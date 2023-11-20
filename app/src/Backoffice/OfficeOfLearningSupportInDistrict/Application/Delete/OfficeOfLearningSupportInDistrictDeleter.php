@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Backoffice\OfficeOfLearningSupportInDistrict\Application\Delete;
 
 use App\Backoffice\OfficeOfLearningSupportInDistrict\Application\Get\Single\OfficeOfLearningSupportInDistrictFinder;
-use App\Backoffice\OfficeOfLearningSupportInDistrict\Domain\Exception\CannotDeleteDistrictWithRelatedOffices;
+use App\Backoffice\OfficeOfLearningSupportInDistrict\Domain\Exception\UnableDeleteDistrictWithAssociatedOffices;
 use App\Backoffice\OfficeOfLearningSupportInDistrict\Domain\OfficeOfLearningSupportInDistrictRepository;
 
 final class OfficeOfLearningSupportInDistrictDeleter
@@ -25,7 +25,7 @@ final class OfficeOfLearningSupportInDistrictDeleter
         $officeOfLearningSupportInDistrict = $this->finder->__invoke($id);
 
         if ($officeOfLearningSupportInDistrict->hasOfficesOfLearningSupport()) {
-            throw new CannotDeleteDistrictWithRelatedOffices();
+            throw new UnableDeleteDistrictWithAssociatedOffices();
         }
 
         $this->repository->delete($officeOfLearningSupportInDistrict);

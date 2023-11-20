@@ -6,7 +6,7 @@ namespace App\Backoffice\LearningSupportTeamCategory\Domain\Exception;
 
 use App\Shared\Domain\DomainError;
 
-final class CannotDeleteCategoryWithRelatedLearningSupportTeams extends DomainError
+final class UnableDeleteCategoryContractWithAssociatedLearningSupportTeams extends DomainError
 {
     public function errorCode(): string
     {
@@ -15,6 +15,6 @@ final class CannotDeleteCategoryWithRelatedLearningSupportTeams extends DomainEr
 
     protected function errorMessage(): string
     {
-        return sprintf('The category as related learning support teams, so it cannot be deleted.');
+        return 'The category as related learning support teams, so it cannot be deleted.';
     }
 }

@@ -6,7 +6,7 @@ namespace App\Backoffice\OfficeOfLearningSupportInDistrict\Domain\Exception;
 
 use App\Shared\Domain\DomainError;
 
-final class CannotDeleteDistrictWithRelatedOffices extends DomainError
+final class UnableDeleteDistrictWithAssociatedOffices extends DomainError
 {
     public function errorCode(): string
     {
@@ -15,6 +15,6 @@ final class CannotDeleteDistrictWithRelatedOffices extends DomainError
 
     protected function errorMessage(): string
     {
-        return sprintf('The district as related offices of learning support, so it cannot be deleted.');
+        return 'The district as related offices of learning support, so it cannot be deleted.';
     }
 }

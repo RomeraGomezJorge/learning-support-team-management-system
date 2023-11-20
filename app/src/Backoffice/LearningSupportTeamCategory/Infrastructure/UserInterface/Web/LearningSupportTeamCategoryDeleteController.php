@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Backoffice\LearningSupportTeamCategory\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\LearningSupportTeamCategory\Application\Delete\LearningSupportTeamCategoryDeleter;
-use App\Backoffice\LearningSupportTeamCategory\Domain\Exception\CannotDeleteCategoryWithRelatedLearningSupportTeams;
+use App\Backoffice\LearningSupportTeamCategory\Domain\Exception\UnableDeleteCategoryContractWithAssociatedLearningSupportTeams;
 use App\Shared\Infrastructure\Symfony\WebController;
 use App\Shared\Infrastructure\UserInterface\Web\ValidationRulesToDelete;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -33,7 +33,7 @@ class LearningSupportTeamCategoryDeleteController extends WebController
         try {
             $deleter->__invoke($id);
             return $this->jsonResponseSuccess();
-        } catch (CannotDeleteCategoryWithRelatedLearningSupportTeams $exception) {
+        } catch (UnableDeleteCategoryContractWithAssociatedLearningSupportTeams $exception) {
             return $this->jsonResponseFail($exception->getMessage());
         }
     }

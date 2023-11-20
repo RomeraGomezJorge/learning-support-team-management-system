@@ -6,7 +6,7 @@ namespace App\Backoffice\JobDesignation\Domain\Exception;
 
 use App\Shared\Domain\DomainError;
 
-final class CannotDeleteJobDesignationWithRelatedEmployees extends DomainError
+final class UnableDeleteJobDesignationWithAssociatedEmployees extends DomainError
 {
     public function errorCode(): string
     {

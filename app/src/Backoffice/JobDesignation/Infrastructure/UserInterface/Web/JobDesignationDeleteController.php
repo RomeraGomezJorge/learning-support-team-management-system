@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Backoffice\JobDesignation\Infrastructure\UserInterface\Web;
 
 use App\Backoffice\JobDesignation\Application\Delete\JobDesignationDeleter;
-use App\Backoffice\JobDesignation\Domain\Exception\CannotDeleteJobDesignationWithRelatedEmployees;
+use App\Backoffice\JobDesignation\Domain\Exception\UnableDeleteJobDesignationWithAssociatedEmployees;
 use App\Shared\Infrastructure\Symfony\WebController;
 use App\Shared\Infrastructure\UserInterface\Web\ValidationRulesToDelete;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -33,7 +33,7 @@ class JobDesignationDeleteController extends WebController
         try {
             $deleter->__invoke($id);
             return $this->jsonResponseSuccess();
-        } catch (CannotDeleteJobDesignationWithRelatedEmployees $exception) {
+        } catch (UnableDeleteJobDesignationWithAssociatedEmployees $exception) {
             return$this->jsonResponseFail($exception->getMessage());
         }
     }
