@@ -72,7 +72,7 @@ final class MySqlEmployeeRepository extends DoctrineRepository implements Employ
                 ->addCriteria($doctrineCriteria)
                 ->innerJoin('employee.jobDesignation', 'jobDesignation')
                 ->innerJoin('employee.employmentContract', 'employmentContract')
-                ->innerJoin('employee.learningSupportTeam', 'learningSupportTeam');
+                ->innerJoin('employee.learningSupportTeams', 'learningSupportTeam');
 
 
             if ($learningSupportTeam !== null) {

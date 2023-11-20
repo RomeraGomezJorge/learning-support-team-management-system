@@ -33,7 +33,7 @@
         </many-to-one>
         <many-to-many field="employee"
                       target-entity="App\Backoffice\Employee\Domain\Employee"
-                      mapped-by="learningSupportTeam"
+                      mapped-by="learningSupportTeams"
         />
         <many-to-many
                 field="schoolsAssistedByLearningSupportTeam"

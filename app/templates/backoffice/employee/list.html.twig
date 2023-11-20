@@ -76,7 +76,7 @@
                                 <li>{{ employee.identityCard }}</li>
                                 <li>{{ employee.jobDesignation.name }}</li>
                                 <li>{{ employee.employmentContract.name }}</li>
-                                {% for team in employee.learningSupportTeam %}
+                                {% for team in employee.learningSupportTeams %}
                                     <li>{{ team.name }}</li>
                                 {% endfor %}
                             </ul>
@@ -89,7 +89,7 @@
                 <td class="d-none d-sm-table-cell">{{ employee.jobDesignation.name }}</td>
                 <td class="d-none d-sm-table-cell">{{ employee.employmentContract.name }}</td>
                 <td class="d-none d-sm-table-cell">
-                    {% for team in employee.learningSupportTeam %}
+                    {% for team in employee.learningSupportTeams %}
                         {{ team.name }}<br>
                     {% endfor %}
                 </td>

@@ -65,7 +65,7 @@
       </join-columns>
     </many-to-one>
     <many-to-many
-            field="learningSupportTeam"
+            field="learningSupportTeams"
             target-entity="App\Backoffice\LearningSupportTeam\Domain\LearningSupportTeam"
             inversed-by="employee"
     >
@@ -78,7 +78,7 @@
         </inverse-join-columns>
       </join-table>
     </many-to-many>
-    <many-to-many field="document"
+    <many-to-many field="documents"
                   target-entity="App\Backoffice\Document\Domain\Document"
                   mapped-by="employee"
     />

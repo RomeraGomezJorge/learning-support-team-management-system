@@ -102,7 +102,7 @@
                                     <li>{{ employee.identityCard }}</li>
                                     <li>{{ employee.jobDesignation.name }}</li>
                                     <li>{{ employee.employmentContract.name }}</li>
-                                    {% for team in employee.learningSupportTeam %}
+                                    {% for team in employee.learningSupportTeams %}
                                         <li>{{ team.name }}</li>
                                     {% endfor %}
                                 </ul>

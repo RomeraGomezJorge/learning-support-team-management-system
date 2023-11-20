@@ -28,7 +28,7 @@
     <many-to-many
             field="employee"
             target-entity="App\Backoffice\Employee\Domain\Employee"
-            inversed-by="document"
+            inversed-by="documents"
     >
       <join-table name="employee__document">
         <join-columns>

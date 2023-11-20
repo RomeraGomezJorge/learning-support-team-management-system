@@ -92,7 +92,7 @@ final class EmployeeChangerDetails
             $updateAt
         );
 
-        foreach ($employee->learningSupportTeam() as $team) {
+        foreach ($employee->learningSupportTeams() as $team) {
             $employee->removeLearningSupportTeam($team);
         }
 

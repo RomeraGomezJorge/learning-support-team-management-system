@@ -38,15 +38,15 @@ class Employee extends AggregateRoot
     private ?Datetime $birthday;
     private Datetime $createAt;
     private Datetime $updateAt;
-    private $learningSupportTeam;
-    private $document;
+    private $learningSupportTeams;
+    private $documents;
     private $learningSupportTeamsToManage;
 
     public function __construct()
     {
-        $this->learningSupportTeam = new ArrayCollection();
+        $this->learningSupportTeams         = new ArrayCollection();
         $this->learningSupportTeamsToManage = new ArrayCollection();
-        $this->document            = new ArrayCollection();
+        $this->documents                    = new ArrayCollection();
     }
 
     public static function create(
@@ -204,25 +204,23 @@ class Employee extends AggregateRoot
     /**
      * @return ArrayCollection|LearningSupportTeam[]
      */
-    public function learningSupportTeam(): Collection
+    public function learningSupportTeams(): Collection
     {
-        return $this->learningSupportTeam;
+        return $this->learningSupportTeams;
     }
 
-    public function addLearningSupportTeam(
-        LearningSupportTeam $LearningSupportTeam
-    ) {
-        if (!$this->learningSupportTeam->contains($LearningSupportTeam)) {
-            $this->learningSupportTeam[] = $LearningSupportTeam;
+    public function addLearningSupportTeam(LearningSupportTeam $LearningSupportTeam)
+    {
+        if (!$this->learningSupportTeams->contains($LearningSupportTeam)) {
+            $this->learningSupportTeams[] = $LearningSupportTeam;
         }
         return $this;
     }
 
-    public function removeLearningSupportTeam(
-        LearningSupportTeam $LearningSupportTeam
-    ): self {
-        if ($this->learningSupportTeam->contains($LearningSupportTeam)) {
-            $this->learningSupportTeam->removeElement($LearningSupportTeam);
+    public function removeLearningSupportTeam(LearningSupportTeam $LearningSupportTeam): self
+    {
+        if ($this->learningSupportTeams->contains($LearningSupportTeam)) {
+            $this->learningSupportTeams->removeElement($LearningSupportTeam);
         }
 
         return $this;
@@ -233,21 +231,21 @@ class Employee extends AggregateRoot
      */
     public function documents(): ?Collection
     {
-        return $this->document;
+        return $this->documents;
     }
 
     public function addDocument(Document $document)
     {
-        if (!$this->document->contains($document)) {
-            $this->document[] = $document;
+        if (!$this->documents->contains($document)) {
+            $this->documents[] = $document;
         }
         return $this;
     }
 
     public function removeDocument(Document $document): self
     {
-        if ($this->document->contains($document)) {
-            $this->document->removeElement($document);
+        if ($this->documents->contains($document)) {
+            $this->documents->removeElement($document);
         }
 
         return $this;

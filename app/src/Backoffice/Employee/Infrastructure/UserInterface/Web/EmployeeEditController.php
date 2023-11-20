@@ -39,7 +39,7 @@ class EmployeeEditController extends WebController
             'employment_contract_id'            => $flashSession->get('inputs.employment_contract_id') ?? $employee->employmentContract()->id(),
             'shift_work'                        => $flashSession->get('inputs.shift_work') ?? $employee->shiftWork(),
             'birthday'                          => $flashSession->get('inputs.birthday') ?? $employee->birthday(),
-            'learning_support_team'             => $employee->learningSupportTeam(),
+            'learning_support_team'             => $employee->learningSupportTeams(),
             'documents'                         => $employee->documents(),
             'job_designations'                  => $relatedEntities->jobDesignationsSortedAlphabetically(),
             'employment_contracts'              => $relatedEntities->employmentContractsSortedAlphabetically(),
