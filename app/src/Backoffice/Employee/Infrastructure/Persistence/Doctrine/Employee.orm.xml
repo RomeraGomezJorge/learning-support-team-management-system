@@ -55,17 +55,11 @@
             inversed-by="employees"
             fetch="LAZY"
     >
-      <cascade>
-        <cascade-remove/>
-      </cascade>
       <join-columns>
         <join-column name="employment_contract_id" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
     <many-to-one field="jobDesignation" target-entity="App\Backoffice\JobDesignation\Domain\JobDesignation" fetch="LAZY">
-      <cascade>
-        <cascade-remove/>
-      </cascade>
       <join-columns>
         <join-column name="job_designation_id" referenced-column-name="id"/>
       </join-columns>

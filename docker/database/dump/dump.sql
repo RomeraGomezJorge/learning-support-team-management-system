@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: database
--- Tiempo de generación: 17-11-2023 a las 22:07:01
+-- Tiempo de generación: 20-11-2023 a las 02:17:55
 -- Versión del servidor: 8.2.0
 -- Versión de PHP: 8.2.12
 
@@ -32,13 +32,6 @@ CREATE TABLE `doctrine_migration_versions` (
   `executed_at` datetime DEFAULT NULL,
   `execution_time` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
-
---
--- Volcado de datos para la tabla `doctrine_migration_versions`
---
-
-INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20211020235603', '2021-10-21 01:59:52', 19);
 
 -- --------------------------------------------------------
 
@@ -80,7 +73,7 @@ INSERT INTO `document` (`id`, `name`, `number`, `create_at`, `document_category_
 
 CREATE TABLE `document_category` (
   `id` char(36) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `create_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -92,7 +85,6 @@ INSERT INTO `document_category` (`id`, `name`, `create_at`) VALUES
 ('021939df-dc3d-4670-842d-da19895e6ed8', 'Otro', '2021-11-09 23:58:47'),
 ('6386b903-e6b4-4e59-8df7-3fa5e2ad6500', 'Decreto', '2021-11-09 23:58:19'),
 ('9ba430d9-f5d5-4eff-8954-a499619b4477', 'Renuncia', '2021-11-09 23:58:28'),
-('cf138d09-4acb-43fd-bff9-bb684a796b02', 'no lo creo', '2021-11-19 00:40:40'),
 ('eb3c70a2-37e0-4e03-96fc-97a9b710e7a3', 'Resolución', '2021-11-09 23:58:41');
 
 -- --------------------------------------------------------
@@ -132,7 +124,7 @@ INSERT INTO `employee` (`id`, `name`, `surname`, `identity_card`, `phone`, `emai
 ('61c385f2-343a-11ec-880f-c4cbacfef3c6', 'Benjamín', 'Zúñiga', 22565416, '3821-154790608', NULL, NULL, NULL, NULL, '97fa1044-15b3-11ec-885b-c5cfbd441ecb', '3723de95-2e24-4384-ab5b-7177ac8d8906', '0', '2021-10-23 17:31:11', NULL, '1984-09-23'),
 ('61c38a35-343a-11ec-880f-c4cbacfef3c6', 'Valentino', 'Aguirre', 32187414, NULL, NULL, NULL, NULL, NULL, '97fa1044-15b3-11ec-885b-c5cfbd441ecb', '3723de95-2e24-4384-ab5b-7177ac8d8906', '0', '2021-10-23 17:31:11', NULL, '1981-11-28'),
 ('61c38e19-343a-11ec-880f-c4cbacfef3c6', 'Clara', 'Molinos', 23240823, NULL, NULL, NULL, NULL, NULL, '97fa1044-15b3-11ec-885b-c5cfbd441ecb', '3723de95-2e24-4384-ab5b-7177ac8d8906', '0', '2021-10-23 17:31:11', NULL, '1976-04-06'),
-('61c392c6-343a-11ec-880f-c4cbacfef3c6', 'Alejandro', 'Cáceres', 39641877, NULL, NULL, '2015-01-01', NULL, NULL, '97fa1044-15b3-11ec-885b-c5cfbd441ecb', '2247edaa-0d3a-422c-b268-0e94561872d8', '0', '2021-10-23 17:31:11', NULL, NULL),
+('61c392c6-343a-11ec-880f-c4cbacfef3c6', 'Alejandro', 'Cáceres', 39641877, NULL, NULL, '2015-01-01', NULL, NULL, '97fa1044-15b3-11ec-885b-c5cfbd441ecb', 'ef23723d-793b-4c74-abe0-a867d22d2c05', '0', '2021-10-23 17:31:11', '2023-11-20 00:56:30', NULL),
 ('61c39e07-343a-11ec-880f-c4cbacfef3c6', 'Tomás', 'Guevara', 28486914, NULL, NULL, '2017-01-01', NULL, NULL, '97fa143b-15b3-11ec-885b-c5cfbd441ecb', '2247edaa-0d3a-422c-b268-0e94561872d8', '0', '2021-10-23 17:31:11', NULL, NULL),
 ('61c3a555-343a-11ec-880f-c4cbacfef3c6', 'Franco', 'Dávila', 13508944, NULL, NULL, '2014-01-01', NULL, NULL, '97f8b030-15b3-11ec-885b-c5cfbd441ecb', '2247edaa-0d3a-422c-b268-0e94561872d8', '0', '2021-10-23 17:31:11', NULL, NULL),
 ('61c4bdc9-343a-11ec-880f-c4cbacfef3c6', 'Benjamín', 'Palacios', 32083977, NULL, NULL, '2015-01-01', NULL, NULL, '97fa1d1a-15b3-11ec-885b-c5cfbd441ecb', '2247edaa-0d3a-422c-b268-0e94561872d8', '0', '2021-10-23 17:31:11', NULL, NULL),
@@ -372,7 +364,8 @@ INSERT INTO `employee` (`id`, `name`, `surname`, `identity_card`, `phone`, `emai
 ('61d128c1-343a-11ec-880f-c4cbacfef3c6', 'Franco', 'Ávila', 29523659, NULL, NULL, '2018-08-01', NULL, NULL, '539fab7c-d0ee-411a-9ab5-e1012ad8ba51', '2247edaa-0d3a-422c-b268-0e94561872d8', '0', '2021-10-23 17:31:11', NULL, NULL),
 ('61d12fc8-343a-11ec-880f-c4cbacfef3c6', 'Florencia', 'Vila', 19979924, NULL, NULL, '2019-01-01', NULL, NULL, '97fa2ae0-15b3-11ec-885b-c5cfbd441ecb', '2247edaa-0d3a-422c-b268-0e94561872d8', '1', '2021-10-23 17:31:11', NULL, NULL),
 ('61d1396f-343a-11ec-880f-c4cbacfef3c6', 'Emma', 'Ocampo', 31328642, NULL, NULL, '2019-01-01', NULL, NULL, '97fa123a-15b3-11ec-885b-c5cfbd441ecb', '2247edaa-0d3a-422c-b268-0e94561872d8', '1', '2021-10-23 17:31:11', NULL, NULL),
-('61d14f5b-343a-11ec-880f-c4cbacfef3c6', 'Bautista', 'Coronel', 26703442, NULL, NULL, NULL, NULL, NULL, '97fa123a-15b3-11ec-885b-c5cfbd441ecb', '2247edaa-0d3a-422c-b268-0e94561872d8', '2', '2021-10-23 17:31:11', NULL, NULL);
+('61d14f5b-343a-11ec-880f-c4cbacfef3c6', 'Bautista', 'Coronel', 26703442, NULL, NULL, NULL, NULL, NULL, '97fa123a-15b3-11ec-885b-c5cfbd441ecb', '2247edaa-0d3a-422c-b268-0e94561872d8', '2', '2021-10-23 17:31:11', NULL, NULL),
+('9cdd3f10-a4d5-4dce-87e0-383675cc683d', 'cordinador prueba', 'cordinador prueba', NULL, NULL, NULL, NULL, NULL, NULL, '97f8bc00-15b3-11ec-885b-c5cfbd441ecb', '2247edaa-0d3a-422c-b268-0e94561872d8', '1', '2023-11-20 00:42:16', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -785,7 +778,6 @@ INSERT INTO `employee__LST` (`employee_id`, `learning_support_team_id`) VALUES
 ('61c378c7-343a-11ec-880f-c4cbacfef3c6', '0c0e483c-3682-11ec-88b9-c6d3d0998ffd'),
 ('61c38a35-343a-11ec-880f-c4cbacfef3c6', '0c0e483c-3682-11ec-88b9-c6d3d0998ffd'),
 ('61c38e19-343a-11ec-880f-c4cbacfef3c6', '0c0e483c-3682-11ec-88b9-c6d3d0998ffd'),
-('61c392c6-343a-11ec-880f-c4cbacfef3c6', '0c0e483c-3682-11ec-88b9-c6d3d0998ffd'),
 ('61c39e07-343a-11ec-880f-c4cbacfef3c6', '0c0e483c-3682-11ec-88b9-c6d3d0998ffd'),
 ('61c3a555-343a-11ec-880f-c4cbacfef3c6', '0c0e483c-3682-11ec-88b9-c6d3d0998ffd'),
 ('61c4cc51-343a-11ec-880f-c4cbacfef3c6', '0c0ede7a-3682-11ec-88b9-c6d3d0998ffd'),
@@ -949,7 +941,9 @@ INSERT INTO `employee__LST` (`employee_id`, `learning_support_team_id`) VALUES
 ('61ce0a7b-343a-11ec-880f-c4cbacfef3c6', '0c0cc7a0-3682-11ec-88b9-c6d3d0998ffd'),
 ('61cb23e9-343a-11ec-880f-c4cbacfef3c6', '0c0ca41e-3682-11ec-88b9-c6d3d0998ffd'),
 ('61cff0ca-343a-11ec-880f-c4cbacfef3c6', '0c077590-3682-11ec-88b9-c6d3d0998ffd'),
-('61c8d3a8-343a-11ec-880f-c4cbacfef3c6', '0c0d9f8b-3682-11ec-88b9-c6d3d0998ffd');
+('61c8d3a8-343a-11ec-880f-c4cbacfef3c6', '0c0d9f8b-3682-11ec-88b9-c6d3d0998ffd'),
+('61c392c6-343a-11ec-880f-c4cbacfef3c6', '0c0e483c-3682-11ec-88b9-c6d3d0998ffd'),
+('61c392c6-343a-11ec-880f-c4cbacfef3c6', '0c0dcd7e-3682-11ec-88b9-c6d3d0998ffd');
 
 -- --------------------------------------------------------
 
@@ -1792,6 +1786,7 @@ INSERT INTO `school__LST` (`school_id`, `learning_support_team_id`) VALUES
 ('f6ffd216-35bf-11ec-8937-c7d9eb0d7e4f', '0c0c7789-3682-11ec-88b9-c6d3d0998ffd'),
 ('f6ffd418-35bf-11ec-8937-c7d9eb0d7e4f', '0c0c7789-3682-11ec-88b9-c6d3d0998ffd'),
 ('f6ffd617-35bf-11ec-8937-c7d9eb0d7e4f', '0c0c7789-3682-11ec-88b9-c6d3d0998ffd'),
+('f6ffd617-35bf-11ec-8937-c7d9eb0d7e4f', '457eb6fe-9fe7-4b47-9a05-80627e796a8a'),
 ('f6ffd81b-35bf-11ec-8937-c7d9eb0d7e4f', '0c0c7789-3682-11ec-88b9-c6d3d0998ffd'),
 ('f6ffda21-35bf-11ec-8937-c7d9eb0d7e4f', '0c0c7789-3682-11ec-88b9-c6d3d0998ffd'),
 ('f6ffdc27-35bf-11ec-8937-c7d9eb0d7e4f', '0c0c7789-3682-11ec-88b9-c6d3d0998ffd'),
@@ -1978,6 +1973,7 @@ ALTER TABLE `doctrine_migration_versions`
 --
 ALTER TABLE `document`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
   ADD KEY `document_category_id` (`document_category_id`);
 
 --
@@ -1985,7 +1981,8 @@ ALTER TABLE `document`
 --
 ALTER TABLE `document_category`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indices de la tabla `employee`
@@ -2016,7 +2013,7 @@ ALTER TABLE `employee__LST`
 ALTER TABLE `employment_contract`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
-  ADD UNIQUE KEY `fullName` (`name`);
+  ADD UNIQUE KEY `name` (`name`) USING BTREE;
 
 --
 -- Indices de la tabla `job_designation`
@@ -2041,7 +2038,9 @@ ALTER TABLE `learning_support_team`
 -- Indices de la tabla `learning_support_team_category`
 --
 ALTER TABLE `learning_support_team_category`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indices de la tabla `office_of_learning_support`
@@ -2123,8 +2122,8 @@ ALTER TABLE `document`
 -- Filtros para la tabla `employee`
 --
 ALTER TABLE `employee`
-  ADD CONSTRAINT `employment_contract_id` FOREIGN KEY (`employment_contract_id`) REFERENCES `employment_contract` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `job_designation_id` FOREIGN KEY (`job_designation_id`) REFERENCES `job_designation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `employment_contract_id` FOREIGN KEY (`employment_contract_id`) REFERENCES `employment_contract` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `job_designation_id` FOREIGN KEY (`job_designation_id`) REFERENCES `job_designation` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Filtros para la tabla `employee__document`
@@ -2144,9 +2143,9 @@ ALTER TABLE `employee__LST`
 -- Filtros para la tabla `learning_support_team`
 --
 ALTER TABLE `learning_support_team`
-  ADD CONSTRAINT `learning_support_team_ibfk_2` FOREIGN KEY (`learning_support_team_category_id`) REFERENCES `learning_support_team_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `learning_support_team_ibfk_3` FOREIGN KEY (`office_of_learning_support_id`) REFERENCES `office_of_learning_support` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `learning_support_team_ibfk_4` FOREIGN KEY (`manager`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `learning_support_team_ibfk_2` FOREIGN KEY (`learning_support_team_category_id`) REFERENCES `learning_support_team_category` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `learning_support_team_ibfk_3` FOREIGN KEY (`office_of_learning_support_id`) REFERENCES `office_of_learning_support` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `learning_support_team_ibfk_4` FOREIGN KEY (`manager`) REFERENCES `employee` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Filtros para la tabla `office_of_learning_support`

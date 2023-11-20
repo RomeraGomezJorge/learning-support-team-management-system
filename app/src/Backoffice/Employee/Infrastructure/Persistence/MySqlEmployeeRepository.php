@@ -65,19 +65,28 @@ final class MySqlEmployeeRepository extends DoctrineRepository implements Employ
             'employmentContract'
         );
 
-        if ($learningSupportTeam !== null) {
+        $orderBy = $criteria->order()->orderBy()->value();
+        if ($learningSupportTeam !== null || $orderBy === 'learningSupportTeam') {
             $query = $this->repository(self::ENTITY_CLASS)
                 ->createQueryBuilder('employee')
                 ->addCriteria($doctrineCriteria)
                 ->innerJoin('employee.jobDesignation', 'jobDesignation')
                 ->innerJoin('employee.employmentContract', 'employmentContract')
-                ->innerJoin('employee.learningSupportTeam', 'learningSupportTeam')
-                ->andWhere('learningSupportTeam.id = :learningSupportTeamId')
-                ->setParameter('learningSupportTeamId', $learningSupportTeam->id());
+                ->innerJoin('employee.learningSupportTeam', 'learningSupportTeam');
 
-            $totalMatchingRowsQuery = $query->select('count(employee)');
 
-            $paginator = new Paginator($totalMatchingRowsQuery);
+            if ( $learningSupportTeam !== null ) {
+                $query->andWhere('learningSupportTeam.id = :learningSupportTeamId')
+                    ->setParameter('learningSupportTeamId', $learningSupportTeam->id());
+            }
+
+            if ( $orderBy === 'learningSupportTeam' ) {
+                $query->orderBy('learningSupportTeam.name',$criteria->order()->orderType()->value());
+            }
+
+            $query->select('count(employee)');
+
+            $paginator = new Paginator($query);
 
             $paginator->setUseOutputWalkers(false);
 
