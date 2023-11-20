@@ -10,6 +10,7 @@ use App\Shared\Domain\Aggregate\AggregateRoot;
 use App\Shared\Domain\ValueObject\Uuid;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class EmploymentContract extends AggregateRoot
 {
@@ -79,8 +80,16 @@ class EmploymentContract extends AggregateRoot
         return $this->createAt;
     }
 
-    public function employees()
+    /**
+     * @return ArrayCollection|\App\Backoffice\Document\Domain\Document[]
+     */
+    public function employees(): Collection
     {
         return $this->employees;
+    }
+
+    public function hasEmployees(): bool
+    {
+        return (bool) count($this->employees);
     }
 }

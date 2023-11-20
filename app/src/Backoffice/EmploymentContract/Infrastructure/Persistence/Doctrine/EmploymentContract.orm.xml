@@ -16,7 +16,8 @@
         <field name="createAt" type="datetime" column="create_at" nullable="false"/>
         <one-to-many field="employees"
                      target-entity="App\Backoffice\Employee\Domain\Employee"
-                     mapped-by="employmentContract" >
+                     mapped-by="employmentContract"
+        >
             <order-by>
                 <order-by-field name="surname" direction="ASC" />
             </order-by>

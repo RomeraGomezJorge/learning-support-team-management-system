@@ -1275,6 +1275,10 @@
         <source>The user %surname%, %name%".</source>
         <target>El usuario %surname%, %name%</target>
       </trans-unit>
+      <trans-unit id="x2d1764" resname='The employment contract as related employees, so it cannot be deleted.'>
+        <source>The employment contract as related employees, so it cannot be deleted.</source>
+        <target>La condición laboral tiene empleados relacionados, por lo que no se puede eliminar.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

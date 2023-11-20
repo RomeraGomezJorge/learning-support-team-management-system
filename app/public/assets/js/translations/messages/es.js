@@ -308,4 +308,5 @@ t.add("The employee with fullname \"%name%\", %surname%.", "El empleado con el n
 t.add("The district with name: \"%name%\".", "La localidad con el nombre \"%name%\"", "messages", "es");
 t.add("The school with name: \"%name%\".", "La escuela con el nombre \"%name%\"", "messages", "es");
 t.add("The user %surname%, %name%\".", "El usuario %surname%, %name%", "messages", "es");
+t.add("The employment contract as related employees, so it cannot be deleted.", "La condici\u00f3n laboral tiene empleados relacionados, por lo que no se puede eliminar.", "messages", "es");
 })(Translator);

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Backoffice\EmploymentContract\Infrastructure\UserInterface\Web;
 
+use App\Backoffice\Employee\Domain\Exception\UnableDeleteEmploymentContractWithAssociatedEmployees;
 use App\Backoffice\EmploymentContract\Application\Delete\EmploymentContractDeleter;
 use App\Shared\Infrastructure\Symfony\WebController;
 use App\Shared\Infrastructure\UserInterface\Web\ValidationRulesToDelete;
@@ -29,8 +30,11 @@ class EmploymentContractDeleteController extends WebController
 
     private function delete(EmploymentContractDeleter $deleter, string $id): JsonResponse
     {
-        $deleter->__invoke($id);
-
-        return $this->jsonResponseSuccess();
+        try {
+            $deleter->__invoke($id);
+            return $this->jsonResponseSuccess();
+        } catch (UnableDeleteEmploymentContractWithAssociatedEmployees $exception) {
+            return $this->jsonResponseFail($exception->getMessage());
+        }
     }
 }

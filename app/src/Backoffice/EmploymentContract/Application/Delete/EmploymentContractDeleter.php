@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Backoffice\EmploymentContract\Application\Delete;
 
+use App\Backoffice\Employee\Domain\Exception\UnableDeleteEmploymentContractWithAssociatedEmployees;
 use App\Backoffice\EmploymentContract\Application\Get\Single\EmploymentContractFinder;
 use App\Backoffice\EmploymentContract\Domain\EmploymentContractRepository;
 
@@ -21,8 +22,12 @@ final class EmploymentContractDeleter
 
     public function __invoke(string $id)
     {
-        $EmploymentContract = $this->finder->__invoke($id);
+        $employmentContract = $this->finder->__invoke($id);
 
-        $this->repository->delete($EmploymentContract);
+        if ($employmentContract->hasEmployees()) {
+            throw new UnableDeleteEmploymentContractWithAssociatedEmployees();
+        }
+
+        $this->repository->delete($employmentContract);
     }
 }
