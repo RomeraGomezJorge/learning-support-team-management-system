@@ -23,12 +23,12 @@ final class EmployeeFinder
     {
         $id = new Uuid($id);
 
-        $jobDesignation = $this->repository->search($id);
+        $employee = $this->repository->search($id);
 
-        if (self::NOT_FOUND === $jobDesignation) {
+        if (self::NOT_FOUND === $employee) {
             throw new EmployeeNotExist(($id)->value());
         }
 
-        return $jobDesignation;
+        return $employee;
     }
 }
