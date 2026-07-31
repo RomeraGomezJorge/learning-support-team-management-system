@@ -80,7 +80,7 @@
     </many-to-many>
     <many-to-many field="documents"
                   target-entity="App\Backoffice\Document\Domain\Document"
-                  mapped-by="employee"
+                  mapped-by="employees"
     />
     <one-to-many field="learningSupportTeamsToManage"
                  target-entity="App\Backoffice\LearningSupportTeam\Domain\LearningSupportTeam"
