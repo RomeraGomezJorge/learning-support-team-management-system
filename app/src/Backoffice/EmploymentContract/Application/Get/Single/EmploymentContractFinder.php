@@ -24,12 +24,12 @@ final class EmploymentContractFinder implements Finder
     {
         $id = new Uuid($id);
 
-        $EmploymentContract = $this->repository->search($id);
+        $employmentContract = $this->repository->search($id);
 
-        if (self::NOT_FOUND === $EmploymentContract) {
+        if (self::NOT_FOUND === $employmentContract) {
             throw new EmploymentContractNotExist(($id)->value());
         }
 
-        return $EmploymentContract;
+        return $employmentContract;
     }
 }
