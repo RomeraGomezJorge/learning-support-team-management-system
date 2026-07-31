@@ -81,7 +81,7 @@ class EmploymentContract extends AggregateRoot
     }
 
     /**
-     * @return ArrayCollection|\App\Backoffice\Document\Domain\Document[]
+     * @return ArrayCollection|\App\Backoffice\Employee\Domain\Employee[]
      */
     public function employees(): Collection
     {
