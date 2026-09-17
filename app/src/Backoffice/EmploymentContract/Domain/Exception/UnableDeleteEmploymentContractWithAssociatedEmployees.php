@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Backoffice\Employee\Domain\Exception;
+namespace App\Backoffice\EmploymentContract\Domain\Exception;
 
 use App\Shared\Domain\DomainError;
 
